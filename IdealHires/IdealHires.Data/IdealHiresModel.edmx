@@ -1,0 +1,2773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IdealHiresDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="Major" Type="varchar" MaxLength="255" />
+          <Property Name="Minor" Type="varchar" MaxLength="255" />
+          <Property Name="InstituteName" Type="varchar" MaxLength="255" />
+          <Property Name="StartAt" Type="date" />
+          <Property Name="EndAt" Type="date" />
+          <Property Name="IsDegreeOrCertification" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionName" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="StreetAddress1" Type="varchar" MaxLength="255" />
+          <Property Name="StreetAddress2" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="State" Type="varchar" MaxLength="255" />
+          <Property Name="Country" Type="varchar" MaxLength="255" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="255" />
+          <Property Name="Phone1" Type="varchar" MaxLength="255" />
+          <Property Name="Phone2" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="EntityId" Type="int" />
+          <Property Name="Orgobj" Type="varchar" MaxLength="255" />
+          <Property Name="Modobj" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Location" Type="varchar" MaxLength="255" />
+          <Property Name="Website" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="ShortCode" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityName" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="MinimumSalary" Type="varchar" MaxLength="255" />
+          <Property Name="MaximumSalary" Type="varchar" MaxLength="255" />
+          <Property Name="PayPeriod" Type="varchar" MaxLength="255" />
+          <Property Name="CurrencyId" Type="int" />
+          <Property Name="Positions" Type="varchar" MaxLength="255" />
+          <Property Name="LocationCity" Type="varchar" MaxLength="255" />
+          <Property Name="LocationState" Type="varchar" MaxLength="255" />
+          <Property Name="LocationCountry" Type="varchar" MaxLength="255" />
+          <Property Name="ExpiredAt" Type="date" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobCategoryJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="int" />
+          <Property Name="JobCategoryId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobCategoryProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="JobCategoryId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobTypeJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="int" />
+          <Property Name="JobTypeId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="JobTypeProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="JobTypeId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Keywords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="KeywordsJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="int" />
+          <Property Name="JobCategoryId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="KeywordsProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="JobCategoryId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
+          <Property Name="Entity" Type="varchar" MaxLength="255" />
+          <Property Name="EntityId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="EntityId" Type="int" />
+          <Property Name="ActionId" Type="int" />
+          <Property Name="PermissionTypeId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="PermissionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionName" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="255" />
+          <Property Name="Objective" Type="varchar" MaxLength="255" />
+          <Property Name="ResumeFile" Type="varchar" MaxLength="255" />
+          <Property Name="IsWillingToRelocate" Type="bit" />
+          <Property Name="MinimumSalary" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ProfileJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="JobId" Type="int" />
+          <Property Name="ActionId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="PermissionId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="SaveSearch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="255" />
+          <Property Name="RelativeLink" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" />
+          <Property Name="LastName" Type="varchar" MaxLength="255" />
+          <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="UserType" Type="varchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="IsEmailConfirm" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="255" />
+          <Property Name="PositionName" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Salary" Type="varchar" MaxLength="255" />
+          <Property Name="CurrencyId" Type="int" />
+          <Property Name="StartAt" Type="date" />
+          <Property Name="EndAt" Type="date" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <Association Name="FK__AuditTrai__Entit__284DF453">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuditTrail">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuditTrai__UserI__2942188C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuditTrail">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CompanyId__2A363CC5">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CurrencyId__2B2A60FE">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobCa__30E33A54">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="JobCategoryJob" Type="Self.JobCategoryJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryJob">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobCa__32CB82C6">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="JobCategoryProfile" Type="Self.JobCategoryProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryProfile">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobId__31D75E8D">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="JobCategoryJob" Type="Self.JobCategoryJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2C1E8537">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2D12A970">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2E06CDA9">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2EFAF1E2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2FEF161B">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypeJo__JobId__34B3CB38">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="JobTypeJob" Type="Self.JobTypeJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypeJo__JobTy__35A7EF71">
+          <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+          <End Role="JobTypeJob" Type="Self.JobTypeJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeJob">
+              <PropertyRef Name="JobTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypePr__JobTy__369C13AA">
+          <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+          <End Role="JobTypeProfile" Type="Self.JobTypeProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeProfile">
+              <PropertyRef Name="JobTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Keywords__UserId__38845C1C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Keywords" Type="Self.Keywords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Keywords">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsJ__JobCa__39788055">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="KeywordsJob" Type="Self.KeywordsJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsJob">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsJ__JobId__3A6CA48E">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="KeywordsJob" Type="Self.KeywordsJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsP__JobCa__3B60C8C7">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="KeywordsProfile" Type="Self.KeywordsProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsProfile">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Entit__3D491139">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__3E3D3572">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Actio__3F3159AB">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Entit__40257DE4">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Permi__4119A21D">
+          <End Role="PermissionType" Type="Self.PermissionType" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="PermissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__RoleI__420DC656">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__UserId__4301EA8F">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__Actio__43F60EC8">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__JobId__44EA3301">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__Profi__45DE573A">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__UserI__46D27B73">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RolePermi__Permi__47C69FAC">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RolePermi__RoleI__48BAC3E5">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SaveSearc__UserI__49AEE81E">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SaveSearch" Type="Self.SaveSearch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaveSearch">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__CompanyiId__4AA30C57">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRole__RoleId__4B973090">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRole__UserId__4C8B54C9">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Work__CurrencyId__4D7F7902">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Work" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="CurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Work__ProfileId__4E739D3B">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="Work" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Academics_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Academics" Type="Self.Academics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Academics">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobCatProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobCategoryProfile" Type="Self.JobCategoryProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobTypeProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobTypeProfile" Type="Self.JobTypeProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeywordsProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeywordsProfile" Type="Self.KeywordsProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IdealHiresDataModelStoreContainer">
+          <EntitySet Name="Academics" EntityType="Self.Academics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategory" EntityType="Self.JobCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategoryJob" EntityType="Self.JobCategoryJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategoryProfile" EntityType="Self.JobCategoryProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobType" EntityType="Self.JobType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobTypeJob" EntityType="Self.JobTypeJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobTypeProfile" EntityType="Self.JobTypeProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Keywords" EntityType="Self.Keywords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeywordsJob" EntityType="Self.KeywordsJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeywordsProfile" EntityType="Self.KeywordsProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionType" EntityType="Self.PermissionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileJob" EntityType="Self.ProfileJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaveSearch" EntityType="Self.SaveSearch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AuditTrai__Entit__284DF453" Association="Self.FK__AuditTrai__Entit__284DF453">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="AuditTrail" EntitySet="AuditTrail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuditTrai__UserI__2942188C" Association="Self.FK__AuditTrai__UserI__2942188C">
+            <End Role="User" EntitySet="User" />
+            <End Role="AuditTrail" EntitySet="AuditTrail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CompanyId__2A363CC5" Association="Self.FK__Job__CompanyId__2A363CC5">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CurrencyId__2B2A60FE" Association="Self.FK__Job__CurrencyId__2B2A60FE">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobCa__30E33A54" Association="Self.FK__JobCatego__JobCa__30E33A54">
+            <End Role="JobCategory" EntitySet="JobCategory" />
+            <End Role="JobCategoryJob" EntitySet="JobCategoryJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobCa__32CB82C6" Association="Self.FK__JobCatego__JobCa__32CB82C6">
+            <End Role="JobCategory" EntitySet="JobCategory" />
+            <End Role="JobCategoryProfile" EntitySet="JobCategoryProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobId__31D75E8D" Association="Self.FK__JobCatego__JobId__31D75E8D">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobCategoryJob" EntitySet="JobCategoryJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2C1E8537" Association="Self.FK__JobCatego__UserI__2C1E8537">
+            <End Role="User" EntitySet="User" />
+            <End Role="JobCategory" EntitySet="JobCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2D12A970" Association="Self.FK__JobCatego__UserI__2D12A970">
+            <End Role="User" EntitySet="User" />
+            <End Role="JobCategory" EntitySet="JobCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2E06CDA9" Association="Self.FK__JobCatego__UserI__2E06CDA9">
+            <End Role="User" EntitySet="User" />
+            <End Role="JobCategory" EntitySet="JobCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2EFAF1E2" Association="Self.FK__JobCatego__UserI__2EFAF1E2">
+            <End Role="User" EntitySet="User" />
+            <End Role="JobCategory" EntitySet="JobCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2FEF161B" Association="Self.FK__JobCatego__UserI__2FEF161B">
+            <End Role="User" EntitySet="User" />
+            <End Role="JobCategory" EntitySet="JobCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypeJo__JobId__34B3CB38" Association="Self.FK__JobTypeJo__JobId__34B3CB38">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobTypeJob" EntitySet="JobTypeJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypeJo__JobTy__35A7EF71" Association="Self.FK__JobTypeJo__JobTy__35A7EF71">
+            <End Role="JobType" EntitySet="JobType" />
+            <End Role="JobTypeJob" EntitySet="JobTypeJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypePr__JobTy__369C13AA" Association="Self.FK__JobTypePr__JobTy__369C13AA">
+            <End Role="JobType" EntitySet="JobType" />
+            <End Role="JobTypeProfile" EntitySet="JobTypeProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Keywords__UserId__38845C1C" Association="Self.FK__Keywords__UserId__38845C1C">
+            <End Role="User" EntitySet="User" />
+            <End Role="Keywords" EntitySet="Keywords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsJ__JobCa__39788055" Association="Self.FK__KeywordsJ__JobCa__39788055">
+            <End Role="JobCategory" EntitySet="JobCategory" />
+            <End Role="KeywordsJob" EntitySet="KeywordsJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsJ__JobId__3A6CA48E" Association="Self.FK__KeywordsJ__JobId__3A6CA48E">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="KeywordsJob" EntitySet="KeywordsJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsP__JobCa__3B60C8C7" Association="Self.FK__KeywordsP__JobCa__3B60C8C7">
+            <End Role="JobCategory" EntitySet="JobCategory" />
+            <End Role="KeywordsProfile" EntitySet="KeywordsProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Entit__3D491139" Association="Self.FK__Notificat__Entit__3D491139">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__3E3D3572" Association="Self.FK__Notificat__UserI__3E3D3572">
+            <End Role="User" EntitySet="User" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Actio__3F3159AB" Association="Self.FK__Permissio__Actio__3F3159AB">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Entit__40257DE4" Association="Self.FK__Permissio__Entit__40257DE4">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Permi__4119A21D" Association="Self.FK__Permissio__Permi__4119A21D">
+            <End Role="PermissionType" EntitySet="PermissionType" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__RoleI__420DC656" Association="Self.FK__Permissio__RoleI__420DC656">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__UserId__4301EA8F" Association="Self.FK__Profile__UserId__4301EA8F">
+            <End Role="User" EntitySet="User" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__Actio__43F60EC8" Association="Self.FK__ProfileJo__Actio__43F60EC8">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="ProfileJob" EntitySet="ProfileJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__JobId__44EA3301" Association="Self.FK__ProfileJo__JobId__44EA3301">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="ProfileJob" EntitySet="ProfileJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__Profi__45DE573A" Association="Self.FK__ProfileJo__Profi__45DE573A">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="ProfileJob" EntitySet="ProfileJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__UserI__46D27B73" Association="Self.FK__ProfileJo__UserI__46D27B73">
+            <End Role="User" EntitySet="User" />
+            <End Role="ProfileJob" EntitySet="ProfileJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RolePermi__Permi__47C69FAC" Association="Self.FK__RolePermi__Permi__47C69FAC">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RolePermi__RoleI__48BAC3E5" Association="Self.FK__RolePermi__RoleI__48BAC3E5">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SaveSearc__UserI__49AEE81E" Association="Self.FK__SaveSearc__UserI__49AEE81E">
+            <End Role="User" EntitySet="User" />
+            <End Role="SaveSearch" EntitySet="SaveSearch" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__CompanyiId__4AA30C57" Association="Self.FK__User__CompanyiId__4AA30C57">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRole__RoleId__4B973090" Association="Self.FK__UserRole__RoleId__4B973090">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRole__UserId__4C8B54C9" Association="Self.FK__UserRole__UserId__4C8B54C9">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Work__CurrencyId__4D7F7902" Association="Self.FK__Work__CurrencyId__4D7F7902">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Work__ProfileId__4E739D3B" Association="Self.FK__Work__ProfileId__4E739D3B">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Academics_Profile" Association="Self.FK_Academics_Profile">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="Academics" EntitySet="Academics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Profile" Association="Self.FK_Address_Profile">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobCatProfile_Profile" Association="Self.FK_JobCatProfile_Profile">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="JobCategoryProfile" EntitySet="JobCategoryProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobTypeProfile_Profile" Association="Self.FK_JobTypeProfile_Profile">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="JobTypeProfile" EntitySet="JobTypeProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeywordsProfile_Profile" Association="Self.FK_KeywordsProfile_Profile">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="KeywordsProfile" EntitySet="KeywordsProfile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IdealHiresDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Academic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Minor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="InstituteName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StartAt" Type="DateTime" Precision="0" />
+          <Property Name="EndAt" Type="DateTime" Precision="0" />
+          <Property Name="IsDegreeOrCertification" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Academics_Profile" FromRole="Academics" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__Actio__3F3159AB" FromRole="Action" ToRole="Permission" />
+          <NavigationProperty Name="ProfileJobs" Relationship="Self.FK__ProfileJo__Actio__43F60EC8" FromRole="Action" ToRole="ProfileJob" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="StreetAddress1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StreetAddress2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Address_Profile" FromRole="Address" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="EntityId" Type="Int32" />
+          <Property Name="Orgobj" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Modobj" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Entity" Relationship="Self.FK__AuditTrai__Entit__284DF453" FromRole="AuditTrail" ToRole="Entity" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AuditTrai__UserI__2942188C" FromRole="AuditTrail" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CompanyId__2A363CC5" FromRole="Company" ToRole="Job" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__CompanyiId__4AA30C57" FromRole="Company" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ShortCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CurrencyId__2B2A60FE" FromRole="Currency" ToRole="Job" />
+          <NavigationProperty Name="Works" Relationship="Self.FK__Work__CurrencyId__4D7F7902" FromRole="Currency" ToRole="Work" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="AuditTrails" Relationship="Self.FK__AuditTrai__Entit__284DF453" FromRole="Entity" ToRole="AuditTrail" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__Entit__3D491139" FromRole="Entity" ToRole="Notification" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__Entit__40257DE4" FromRole="Entity" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MinimumSalary" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MaximumSalary" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PayPeriod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyId" Type="Int32" />
+          <Property Name="Positions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LocationState" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiredAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__Job__CompanyId__2A363CC5" FromRole="Job" ToRole="Company" />
+          <NavigationProperty Name="Currency" Relationship="Self.FK__Job__CurrencyId__2B2A60FE" FromRole="Job" ToRole="Currency" />
+          <NavigationProperty Name="JobCategoryJobs" Relationship="Self.FK__JobCatego__JobId__31D75E8D" FromRole="Job" ToRole="JobCategoryJob" />
+          <NavigationProperty Name="JobTypeJobs" Relationship="Self.FK__JobTypeJo__JobId__34B3CB38" FromRole="Job" ToRole="JobTypeJob" />
+          <NavigationProperty Name="KeywordsJobs" Relationship="Self.FK__KeywordsJ__JobId__3A6CA48E" FromRole="Job" ToRole="KeywordsJob" />
+          <NavigationProperty Name="ProfileJobs" Relationship="Self.FK__ProfileJo__JobId__44EA3301" FromRole="Job" ToRole="ProfileJob" />
+        </EntityType>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="JobCategoryJobs" Relationship="Self.FK__JobCatego__JobCa__30E33A54" FromRole="JobCategory" ToRole="JobCategoryJob" />
+          <NavigationProperty Name="JobCategoryProfiles" Relationship="Self.FK__JobCatego__JobCa__32CB82C6" FromRole="JobCategory" ToRole="JobCategoryProfile" />
+          <NavigationProperty Name="User" Relationship="Self.FK__JobCatego__UserI__2C1E8537" FromRole="JobCategory" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK__JobCatego__UserI__2D12A970" FromRole="JobCategory" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK__JobCatego__UserI__2E06CDA9" FromRole="JobCategory" ToRole="User" />
+          <NavigationProperty Name="User3" Relationship="Self.FK__JobCatego__UserI__2EFAF1E2" FromRole="JobCategory" ToRole="User" />
+          <NavigationProperty Name="User4" Relationship="Self.FK__JobCatego__UserI__2FEF161B" FromRole="JobCategory" ToRole="User" />
+          <NavigationProperty Name="KeywordsJobs" Relationship="Self.FK__KeywordsJ__JobCa__39788055" FromRole="JobCategory" ToRole="KeywordsJob" />
+          <NavigationProperty Name="KeywordsProfiles" Relationship="Self.FK__KeywordsP__JobCa__3B60C8C7" FromRole="JobCategory" ToRole="KeywordsProfile" />
+        </EntityType>
+        <EntityType Name="JobCategoryJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int32" />
+          <Property Name="JobCategoryId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__JobCatego__JobId__31D75E8D" FromRole="JobCategoryJob" ToRole="Job" />
+          <NavigationProperty Name="JobCategory" Relationship="Self.FK__JobCatego__JobCa__30E33A54" FromRole="JobCategoryJob" ToRole="JobCategory" />
+        </EntityType>
+        <EntityType Name="JobCategoryProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="JobCategoryId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="JobCategory" Relationship="Self.FK__JobCatego__JobCa__32CB82C6" FromRole="JobCategoryProfile" ToRole="JobCategory" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_JobCatProfile_Profile" FromRole="JobCategoryProfile" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="JobType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="JobTypeJobs" Relationship="Self.FK__JobTypeJo__JobTy__35A7EF71" FromRole="JobType" ToRole="JobTypeJob" />
+          <NavigationProperty Name="JobTypeProfiles" Relationship="Self.FK__JobTypePr__JobTy__369C13AA" FromRole="JobType" ToRole="JobTypeProfile" />
+        </EntityType>
+        <EntityType Name="JobTypeJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int32" />
+          <Property Name="JobTypeId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__JobTypeJo__JobId__34B3CB38" FromRole="JobTypeJob" ToRole="Job" />
+          <NavigationProperty Name="JobType" Relationship="Self.FK__JobTypeJo__JobTy__35A7EF71" FromRole="JobTypeJob" ToRole="JobType" />
+        </EntityType>
+        <EntityType Name="JobTypeProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="JobTypeId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="JobType" Relationship="Self.FK__JobTypePr__JobTy__369C13AA" FromRole="JobTypeProfile" ToRole="JobType" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_JobTypeProfile_Profile" FromRole="JobTypeProfile" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Keywords__UserId__38845C1C" FromRole="Keywords" ToRole="User" />
+        </EntityType>
+        <EntityType Name="KeywordsJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int32" />
+          <Property Name="JobCategoryId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__KeywordsJ__JobId__3A6CA48E" FromRole="KeywordsJob" ToRole="Job" />
+          <NavigationProperty Name="JobCategory" Relationship="Self.FK__KeywordsJ__JobCa__39788055" FromRole="KeywordsJob" ToRole="JobCategory" />
+        </EntityType>
+        <EntityType Name="KeywordsProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="JobCategoryId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="JobCategory" Relationship="Self.FK__KeywordsP__JobCa__3B60C8C7" FromRole="KeywordsProfile" ToRole="JobCategory" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_KeywordsProfile_Profile" FromRole="KeywordsProfile" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Entity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EntityId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Entity1" Relationship="Self.FK__Notificat__Entit__3D491139" FromRole="Notification" ToRole="Entity" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserI__3E3D3572" FromRole="Notification" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="EntityId" Type="Int32" />
+          <Property Name="ActionId" Type="Int32" />
+          <Property Name="PermissionTypeId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="Self.FK__Permissio__Actio__3F3159AB" FromRole="Permission" ToRole="Action" />
+          <NavigationProperty Name="Entity" Relationship="Self.FK__Permissio__Entit__40257DE4" FromRole="Permission" ToRole="Entity" />
+          <NavigationProperty Name="PermissionType" Relationship="Self.FK__Permissio__Permi__4119A21D" FromRole="Permission" ToRole="PermissionType" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Permissio__RoleI__420DC656" FromRole="Permission" ToRole="Role" />
+          <NavigationProperty Name="RolePermissions" Relationship="Self.FK__RolePermi__Permi__47C69FAC" FromRole="Permission" ToRole="RolePermission" />
+        </EntityType>
+        <EntityType Name="PermissionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__Permi__4119A21D" FromRole="PermissionType" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="JobTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Objective" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ResumeFile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsWillingToRelocate" Type="Boolean" />
+          <Property Name="MinimumSalary" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Academics" Relationship="Self.FK_Academics_Profile" FromRole="Profile" ToRole="Academics" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Profile" FromRole="Profile" ToRole="Address" />
+          <NavigationProperty Name="JobCategoryProfiles" Relationship="Self.FK_JobCatProfile_Profile" FromRole="Profile" ToRole="JobCategoryProfile" />
+          <NavigationProperty Name="JobTypeProfiles" Relationship="Self.FK_JobTypeProfile_Profile" FromRole="Profile" ToRole="JobTypeProfile" />
+          <NavigationProperty Name="KeywordsProfiles" Relationship="Self.FK_KeywordsProfile_Profile" FromRole="Profile" ToRole="KeywordsProfile" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Profile__UserId__4301EA8F" FromRole="Profile" ToRole="User" />
+          <NavigationProperty Name="ProfileJobs" Relationship="Self.FK__ProfileJo__Profi__45DE573A" FromRole="Profile" ToRole="ProfileJob" />
+          <NavigationProperty Name="Works" Relationship="Self.FK__Work__ProfileId__4E739D3B" FromRole="Profile" ToRole="Work" />
+        </EntityType>
+        <EntityType Name="ProfileJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="JobId" Type="Int32" />
+          <Property Name="ActionId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Action" Relationship="Self.FK__ProfileJo__Actio__43F60EC8" FromRole="ProfileJob" ToRole="Action" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__ProfileJo__JobId__44EA3301" FromRole="ProfileJob" ToRole="Job" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__ProfileJo__Profi__45DE573A" FromRole="ProfileJob" ToRole="Profile" />
+          <NavigationProperty Name="User" Relationship="Self.FK__ProfileJo__UserI__46D27B73" FromRole="ProfileJob" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__RoleI__420DC656" FromRole="Role" ToRole="Permission" />
+          <NavigationProperty Name="RolePermissions" Relationship="Self.FK__RolePermi__RoleI__48BAC3E5" FromRole="Role" ToRole="RolePermission" />
+          <NavigationProperty Name="UserRoles" Relationship="Self.FK__UserRole__RoleId__4B973090" FromRole="Role" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="PermissionId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK__RolePermi__Permi__47C69FAC" FromRole="RolePermission" ToRole="Permission" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__RolePermi__RoleI__48BAC3E5" FromRole="RolePermission" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="SaveSearch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RelativeLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK__SaveSearc__UserI__49AEE81E" FromRole="SaveSearch" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="UserType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="IsEmailConfirm" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AuditTrails" Relationship="Self.FK__AuditTrai__UserI__2942188C" FromRole="User" ToRole="AuditTrail" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__User__CompanyiId__4AA30C57" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="JobCategories" Relationship="Self.FK__JobCatego__UserI__2C1E8537" FromRole="User" ToRole="JobCategory" />
+          <NavigationProperty Name="JobCategories1" Relationship="Self.FK__JobCatego__UserI__2D12A970" FromRole="User" ToRole="JobCategory" />
+          <NavigationProperty Name="JobCategories2" Relationship="Self.FK__JobCatego__UserI__2E06CDA9" FromRole="User" ToRole="JobCategory" />
+          <NavigationProperty Name="JobCategories3" Relationship="Self.FK__JobCatego__UserI__2EFAF1E2" FromRole="User" ToRole="JobCategory" />
+          <NavigationProperty Name="JobCategories4" Relationship="Self.FK__JobCatego__UserI__2FEF161B" FromRole="User" ToRole="JobCategory" />
+          <NavigationProperty Name="Keywords" Relationship="Self.FK__Keywords__UserId__38845C1C" FromRole="User" ToRole="Keywords" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__UserI__3E3D3572" FromRole="User" ToRole="Notification" />
+          <NavigationProperty Name="Profiles" Relationship="Self.FK__Profile__UserId__4301EA8F" FromRole="User" ToRole="Profile" />
+          <NavigationProperty Name="ProfileJobs" Relationship="Self.FK__ProfileJo__UserI__46D27B73" FromRole="User" ToRole="ProfileJob" />
+          <NavigationProperty Name="SaveSearches" Relationship="Self.FK__SaveSearc__UserI__49AEE81E" FromRole="User" ToRole="SaveSearch" />
+          <NavigationProperty Name="UserRoles" Relationship="Self.FK__UserRole__UserId__4C8B54C9" FromRole="User" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__UserRole__RoleId__4B973090" FromRole="UserRole" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserRole__UserId__4C8B54C9" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PositionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyId" Type="Int32" />
+          <Property Name="StartAt" Type="DateTime" Precision="0" />
+          <Property Name="EndAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Currency" Relationship="Self.FK__Work__CurrencyId__4D7F7902" FromRole="Work" ToRole="Currency" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Work__ProfileId__4E739D3B" FromRole="Work" ToRole="Profile" />
+        </EntityType>
+        <Association Name="FK_Academics_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Academics" Type="Self.Academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Academics">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Actio__3F3159AB">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__Actio__43F60EC8">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuditTrai__Entit__284DF453">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuditTrail">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuditTrai__UserI__2942188C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuditTrail">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CompanyId__2A363CC5">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__CompanyiId__4AA30C57">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CurrencyId__2B2A60FE">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Work__CurrencyId__4D7F7902">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Work" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="CurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Entit__3D491139">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Entit__40257DE4">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="EntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobId__31D75E8D">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="JobCategoryJob" Type="Self.JobCategoryJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypeJo__JobId__34B3CB38">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="JobTypeJob" Type="Self.JobTypeJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsJ__JobId__3A6CA48E">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="KeywordsJob" Type="Self.KeywordsJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__JobId__44EA3301">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobCa__30E33A54">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="JobCategoryJob" Type="Self.JobCategoryJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryJob">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__JobCa__32CB82C6">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="JobCategoryProfile" Type="Self.JobCategoryProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryProfile">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2C1E8537">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2D12A970">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2E06CDA9">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2EFAF1E2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobCatego__UserI__2FEF161B">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsJ__JobCa__39788055">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="KeywordsJob" Type="Self.KeywordsJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsJob">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KeywordsP__JobCa__3B60C8C7">
+          <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="0..1" />
+          <End Role="KeywordsProfile" Type="Self.KeywordsProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsProfile">
+              <PropertyRef Name="JobCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobCatProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobCategoryProfile" Type="Self.JobCategoryProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobCategoryProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypeJo__JobTy__35A7EF71">
+          <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+          <End Role="JobTypeJob" Type="Self.JobTypeJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeJob">
+              <PropertyRef Name="JobTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobTypePr__JobTy__369C13AA">
+          <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+          <End Role="JobTypeProfile" Type="Self.JobTypeProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeProfile">
+              <PropertyRef Name="JobTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobTypeProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobTypeProfile" Type="Self.JobTypeProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobTypeProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Keywords__UserId__38845C1C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Keywords" Type="Self.Keyword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Keywords">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeywordsProfile_Profile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeywordsProfile" Type="Self.KeywordsProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KeywordsProfile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__3E3D3572">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Permi__4119A21D">
+          <End Role="PermissionType" Type="Self.PermissionType" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="PermissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__RoleI__420DC656">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RolePermi__Permi__47C69FAC">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__UserId__4301EA8F">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__Profi__45DE573A">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Work__ProfileId__4E739D3B">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="Work" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileJo__UserI__46D27B73">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ProfileJob" Type="Self.ProfileJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileJob">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RolePermi__RoleI__48BAC3E5">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRole__RoleId__4B973090">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SaveSearc__UserI__49AEE81E">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SaveSearch" Type="Self.SaveSearch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaveSearch">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRole__UserId__4C8B54C9">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IdealHiresDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Academics" EntityType="Self.Academic" />
+          <EntitySet Name="Actions" EntityType="Self.Action" />
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="AuditTrails" EntityType="Self.AuditTrail" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="Entities" EntityType="Self.Entity" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobCategories" EntityType="Self.JobCategory" />
+          <EntitySet Name="JobCategoryJobs" EntityType="Self.JobCategoryJob" />
+          <EntitySet Name="JobCategoryProfiles" EntityType="Self.JobCategoryProfile" />
+          <EntitySet Name="JobTypes" EntityType="Self.JobType" />
+          <EntitySet Name="JobTypeJobs" EntityType="Self.JobTypeJob" />
+          <EntitySet Name="JobTypeProfiles" EntityType="Self.JobTypeProfile" />
+          <EntitySet Name="Keywords" EntityType="Self.Keyword" />
+          <EntitySet Name="KeywordsJobs" EntityType="Self.KeywordsJob" />
+          <EntitySet Name="KeywordsProfiles" EntityType="Self.KeywordsProfile" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="PermissionTypes" EntityType="Self.PermissionType" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="ProfileJobs" EntityType="Self.ProfileJob" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RolePermissions" EntityType="Self.RolePermission" />
+          <EntitySet Name="SaveSearches" EntityType="Self.SaveSearch" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Works" EntityType="Self.Work" />
+          <AssociationSet Name="FK_Academics_Profile" Association="Self.FK_Academics_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Academics" EntitySet="Academics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Actio__3F3159AB" Association="Self.FK__Permissio__Actio__3F3159AB">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__Actio__43F60EC8" Association="Self.FK__ProfileJo__Actio__43F60EC8">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="ProfileJob" EntitySet="ProfileJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Profile" Association="Self.FK_Address_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuditTrai__Entit__284DF453" Association="Self.FK__AuditTrai__Entit__284DF453">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="AuditTrail" EntitySet="AuditTrails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuditTrai__UserI__2942188C" Association="Self.FK__AuditTrai__UserI__2942188C">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AuditTrail" EntitySet="AuditTrails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CompanyId__2A363CC5" Association="Self.FK__Job__CompanyId__2A363CC5">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__CompanyiId__4AA30C57" Association="Self.FK__User__CompanyiId__4AA30C57">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CurrencyId__2B2A60FE" Association="Self.FK__Job__CurrencyId__2B2A60FE">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Work__CurrencyId__4D7F7902" Association="Self.FK__Work__CurrencyId__4D7F7902">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="Work" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Entit__3D491139" Association="Self.FK__Notificat__Entit__3D491139">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Notification" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Entit__40257DE4" Association="Self.FK__Permissio__Entit__40257DE4">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobId__31D75E8D" Association="Self.FK__JobCatego__JobId__31D75E8D">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="JobCategoryJob" EntitySet="JobCategoryJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypeJo__JobId__34B3CB38" Association="Self.FK__JobTypeJo__JobId__34B3CB38">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="JobTypeJob" EntitySet="JobTypeJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsJ__JobId__3A6CA48E" Association="Self.FK__KeywordsJ__JobId__3A6CA48E">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="KeywordsJob" EntitySet="KeywordsJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__JobId__44EA3301" Association="Self.FK__ProfileJo__JobId__44EA3301">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="ProfileJob" EntitySet="ProfileJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobCa__30E33A54" Association="Self.FK__JobCatego__JobCa__30E33A54">
+            <End Role="JobCategory" EntitySet="JobCategories" />
+            <End Role="JobCategoryJob" EntitySet="JobCategoryJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__JobCa__32CB82C6" Association="Self.FK__JobCatego__JobCa__32CB82C6">
+            <End Role="JobCategory" EntitySet="JobCategories" />
+            <End Role="JobCategoryProfile" EntitySet="JobCategoryProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2C1E8537" Association="Self.FK__JobCatego__UserI__2C1E8537">
+            <End Role="User" EntitySet="Users" />
+            <End Role="JobCategory" EntitySet="JobCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2D12A970" Association="Self.FK__JobCatego__UserI__2D12A970">
+            <End Role="User" EntitySet="Users" />
+            <End Role="JobCategory" EntitySet="JobCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2E06CDA9" Association="Self.FK__JobCatego__UserI__2E06CDA9">
+            <End Role="User" EntitySet="Users" />
+            <End Role="JobCategory" EntitySet="JobCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2EFAF1E2" Association="Self.FK__JobCatego__UserI__2EFAF1E2">
+            <End Role="User" EntitySet="Users" />
+            <End Role="JobCategory" EntitySet="JobCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobCatego__UserI__2FEF161B" Association="Self.FK__JobCatego__UserI__2FEF161B">
+            <End Role="User" EntitySet="Users" />
+            <End Role="JobCategory" EntitySet="JobCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsJ__JobCa__39788055" Association="Self.FK__KeywordsJ__JobCa__39788055">
+            <End Role="JobCategory" EntitySet="JobCategories" />
+            <End Role="KeywordsJob" EntitySet="KeywordsJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KeywordsP__JobCa__3B60C8C7" Association="Self.FK__KeywordsP__JobCa__3B60C8C7">
+            <End Role="JobCategory" EntitySet="JobCategories" />
+            <End Role="KeywordsProfile" EntitySet="KeywordsProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobCatProfile_Profile" Association="Self.FK_JobCatProfile_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="JobCategoryProfile" EntitySet="JobCategoryProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypeJo__JobTy__35A7EF71" Association="Self.FK__JobTypeJo__JobTy__35A7EF71">
+            <End Role="JobType" EntitySet="JobTypes" />
+            <End Role="JobTypeJob" EntitySet="JobTypeJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobTypePr__JobTy__369C13AA" Association="Self.FK__JobTypePr__JobTy__369C13AA">
+            <End Role="JobType" EntitySet="JobTypes" />
+            <End Role="JobTypeProfile" EntitySet="JobTypeProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobTypeProfile_Profile" Association="Self.FK_JobTypeProfile_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="JobTypeProfile" EntitySet="JobTypeProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Keywords__UserId__38845C1C" Association="Self.FK__Keywords__UserId__38845C1C">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Keywords" EntitySet="Keywords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeywordsProfile_Profile" Association="Self.FK_KeywordsProfile_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="KeywordsProfile" EntitySet="KeywordsProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__3E3D3572" Association="Self.FK__Notificat__UserI__3E3D3572">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Notification" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Permi__4119A21D" Association="Self.FK__Permissio__Permi__4119A21D">
+            <End Role="PermissionType" EntitySet="PermissionTypes" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__RoleI__420DC656" Association="Self.FK__Permissio__RoleI__420DC656">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RolePermi__Permi__47C69FAC" Association="Self.FK__RolePermi__Permi__47C69FAC">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="RolePermission" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__UserId__4301EA8F" Association="Self.FK__Profile__UserId__4301EA8F">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__Profi__45DE573A" Association="Self.FK__ProfileJo__Profi__45DE573A">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="ProfileJob" EntitySet="ProfileJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Work__ProfileId__4E739D3B" Association="Self.FK__Work__ProfileId__4E739D3B">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Work" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileJo__UserI__46D27B73" Association="Self.FK__ProfileJo__UserI__46D27B73">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ProfileJob" EntitySet="ProfileJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RolePermi__RoleI__48BAC3E5" Association="Self.FK__RolePermi__RoleI__48BAC3E5">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RolePermission" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRole__RoleId__4B973090" Association="Self.FK__UserRole__RoleId__4B973090">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SaveSearc__UserI__49AEE81E" Association="Self.FK__SaveSearc__UserI__49AEE81E">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SaveSearch" EntitySet="SaveSearches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRole__UserId__4C8B54C9" Association="Self.FK__UserRole__UserId__4C8B54C9">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IdealHiresDataModelStoreContainer" CdmEntityContainer="IdealHiresDbContext">
+          <EntitySetMapping Name="Academics">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Academic">
+              <MappingFragment StoreEntitySet="Academics">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Minor" ColumnName="Minor" />
+                <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+                <ScalarProperty Name="StartAt" ColumnName="StartAt" />
+                <ScalarProperty Name="EndAt" ColumnName="EndAt" />
+                <ScalarProperty Name="IsDegreeOrCertification" ColumnName="IsDegreeOrCertification" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+                <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditTrails">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.AuditTrail">
+              <MappingFragment StoreEntitySet="AuditTrail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="Orgobj" ColumnName="Orgobj" />
+                <ScalarProperty Name="Modobj" ColumnName="Modobj" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Company1" ColumnName="Company" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entities">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MinimumSalary" ColumnName="MinimumSalary" />
+                <ScalarProperty Name="MaximumSalary" ColumnName="MaximumSalary" />
+                <ScalarProperty Name="PayPeriod" ColumnName="PayPeriod" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="Positions" ColumnName="Positions" />
+                <ScalarProperty Name="LocationCity" ColumnName="LocationCity" />
+                <ScalarProperty Name="LocationState" ColumnName="LocationState" />
+                <ScalarProperty Name="LocationCountry" ColumnName="LocationCountry" />
+                <ScalarProperty Name="ExpiredAt" ColumnName="ExpiredAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobCategory">
+              <MappingFragment StoreEntitySet="JobCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategoryJobs">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobCategoryJob">
+              <MappingFragment StoreEntitySet="JobCategoryJob">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategoryProfiles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobCategoryProfile">
+              <MappingFragment StoreEntitySet="JobCategoryProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobTypes">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobType">
+              <MappingFragment StoreEntitySet="JobType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobTypeJobs">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobTypeJob">
+              <MappingFragment StoreEntitySet="JobTypeJob">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobTypeProfiles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.JobTypeProfile">
+              <MappingFragment StoreEntitySet="JobTypeProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Keywords">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Keyword">
+              <MappingFragment StoreEntitySet="Keywords">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeywordsJobs">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.KeywordsJob">
+              <MappingFragment StoreEntitySet="KeywordsJob">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeywordsProfiles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.KeywordsProfile">
+              <MappingFragment StoreEntitySet="KeywordsProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Entity" ColumnName="Entity" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="PermissionTypeId" ColumnName="PermissionTypeId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionTypes">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.PermissionType">
+              <MappingFragment StoreEntitySet="PermissionType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Objective" ColumnName="Objective" />
+                <ScalarProperty Name="ResumeFile" ColumnName="ResumeFile" />
+                <ScalarProperty Name="IsWillingToRelocate" ColumnName="IsWillingToRelocate" />
+                <ScalarProperty Name="MinimumSalary" ColumnName="MinimumSalary" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileJobs">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.ProfileJob">
+              <MappingFragment StoreEntitySet="ProfileJob">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePermissions">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.RolePermission">
+              <MappingFragment StoreEntitySet="RolePermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaveSearches">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.SaveSearch">
+              <MappingFragment StoreEntitySet="SaveSearch">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="RelativeLink" ColumnName="RelativeLink" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsEmailConfirm" ColumnName="IsEmailConfirm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="IdealHiresDataModel.Work">
+              <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="StartAt" ColumnName="StartAt" />
+                <ScalarProperty Name="EndAt" ColumnName="EndAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

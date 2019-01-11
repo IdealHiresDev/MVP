@@ -1,0 +1,68 @@
+﻿@using IdealHires.DTO
+@model LoginDTO
+@{
+    ViewBag.Title = "Login";
+}
+<div class="bg-sec">
+    <section>
+        <div class="login-bg">
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-sm-9 align-self-center">
+                        <div class="row">
+                            <div class="col-md-6 wt-bg">
+                                <div class="text-center">
+                                    <div class="text-center pb-4 pt-4">
+                                        <p class="h4 clr-h3">PROFESSIONAL STAFFING</p>
+                                        <p class="h4 clr-h3">&</p>
+                                        <p class="h4 clr-h3 pb-4">JOB SOLUTIONS</p>
+                                        <p class="col-grey ft-14 lttr-spc2 pd-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    </div>
+                                    <div class="abs-btm">
+                                        <p class="ft-13"><span class="text-dark">Not a member yet?</span>@Html.ActionLink(" Register now", "Register", "Account", null, new { @class = "text-danger" })</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 bl-bg">
+                                <div class="login-sec">
+                                    <h3 class="col-blue text-center pt-4 pb-5">SIGN IN</h3>
+                                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "form-sec" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="group">
+                                            <em class="far fa-user"></em>
+                                            @Html.TextBoxFor(m => m.Email, new { @required = "required" })
+                                            @Html.LabelFor(m => m.Email)
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="group">
+                                            <em class="fas fa-unlock-alt"></em>
+                                            @Html.PasswordFor(m => m.Password, new { @required = "required" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            @Html.LabelFor(m => m.Password)
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="custom-control custom-checkbox remember">
+                                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
+                                                @*@Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label forg ft-13" })*@
+                                                @*<input type="checkbox" class="custom-control-input" id="customCheck" name="example1">*@
+                                                <label class="custom-control-label" for="customCheck"><a href="#" class="forg ft-13">Remember Me</a></label>
+                                            </div>
+                                        </div>
+                                        <p class="text-center login-btn"> <input type="submit" value="LOGIN" class="btn btn-blue" /></p>
+                                        <p class="text-right">@Html.ActionLink("Forget Password?", "ForgotPassword", null, new { @class = "forg ft-13" })</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center col-sm-3 text-sm-right">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    

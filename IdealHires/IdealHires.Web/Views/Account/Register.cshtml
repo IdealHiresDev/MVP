@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNet.Identity
+@model IdealHires.DTO.RegisterDTO
+@{
+    ViewBag.Title = "Register";
+}
+<div class="bg-sec">
+    <section>
+        <div class="login-bg">
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-sm-9 align-self-center">
+                        <div class="row">
+                            <div class="col-md-6 wt-bg">
+                                <div class="text-center">
+                                    <div class="text-center pb-5 pt-4">
+                                        <p class="h4 clr-h3">PROFESSIONAL STAFFING</p>
+                                        <p class="h4 clr-h3">FOR CANDIDATES</p>
+                                        <ul class="text-sm-left register-list m-5">
+                                            <li><em class="fas fa-check-square pr-2"></em> Upload your resume</li>
+                                            <li><em class="fas fa-check-square pr-2"></em> Build your resume</li>
+                                            <li><em class="fas fa-check-square pr-2"></em> Search Jobs</li>
+                                            <li><em class="fas fa-check-square pr-2"></em> Get Noticed</li>
+                                            <li><em class="fas fa-check-square pr-2"></em> Get Hired</li>
+                                        </ul>
+                                    </div>
+                                    <!-- <div class="abs-btm">
+                                    <p class="ft-13"><a href="#"><span class="text-dark">Already a member?</span> <span class="text-danger">Sign in</span></a></p>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6 bl-bg">
+                                <div class="login-sec">
+                                    <h3 class="col-blue text-center pt-4 pb-5">CREATE AN ACCOUNT</h3>
+                                    @*<form id="form-sec">*@
+                                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "form-sec" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                                    <div class="group">
+                                        <em class="far fa-user"></em>
+                                        @*<input class="log-user" type="text" required>*@
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "log-user", required = "required" })
+                                        @Html.LabelFor(m => m.Email)
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        @*<label>Username</label>*@
+                                    </div>
+                                    <div class="group">
+                                        <em class="fas fa-unlock-alt"></em>
+                                        @*<input class="log-pass" type="password" required>*@
+                                        @Html.PasswordFor(m => m.Password, new { @class = "log-pass", required = "required" })
+                                        @Html.LabelFor(m => m.Password)
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        @*<label>Password</label>*@
+                                    </div>
+                                    @*</form>*@
+                                    <p class="text-center"> <button class="btn btn-blue">Resgister</button></p>
+                                    <p class="ft-13 text-sm-right"><span class="text-dark">Already a member?</span>@Html.ActionLink(" Sign in", "Login", "Account", null, new { @class = "text-danger" })</p>
+                            }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center col-sm-3 text-sm-right add-sm-none">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    
+

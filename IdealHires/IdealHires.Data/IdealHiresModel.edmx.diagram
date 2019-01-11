@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c58cb9b7232b43f99ddffa9cd9122971" Name="Diagram1">
+        <EntityTypeShape EntityType="IdealHiresDataModel.Academic" Width="1.5" PointX="7.5" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Action" Width="1.5" PointX="8.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Address" Width="1.5" PointX="7.5" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.AuditTrail" Width="1.5" PointX="8.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Company" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Currency" Width="1.5" PointX="0.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Entity" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Job" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobCategory" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobCategoryJob" Width="1.5" PointX="7.5" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobCategoryProfile" Width="1.5" PointX="7.5" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobType" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobTypeJob" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.JobTypeProfile" Width="1.5" PointX="10.5" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Keyword" Width="1.5" PointX="5.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.KeywordsJob" Width="1.5" PointX="10.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.KeywordsProfile" Width="1.5" PointX="10.5" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Notification" Width="1.5" PointX="5.25" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Permission" Width="1.5" PointX="10.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.PermissionType" Width="1.5" PointX="8.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Profile" Width="1.5" PointX="5.25" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.ProfileJob" Width="1.5" PointX="10.5" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Role" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.RolePermission" Width="1.5" PointX="12.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.SaveSearch" Width="1.5" PointX="5.25" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.User" Width="1.5" PointX="3" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.UserRole" Width="1.5" PointX="8.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IdealHiresDataModel.Work" Width="1.5" PointX="10.5" PointY="51.625" IsExpanded="true" />
+        <AssociationConnector Association="IdealHiresDataModel.FK_Academics_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Permissio__Actio__3F3159AB" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__ProfileJo__Actio__43F60EC8" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK_Address_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__AuditTrai__Entit__284DF453" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__AuditTrai__UserI__2942188C" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Job__CompanyId__2A363CC5" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__User__CompanyiId__4AA30C57" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Job__CurrencyId__2B2A60FE" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Work__CurrencyId__4D7F7902" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Notificat__Entit__3D491139" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Permissio__Entit__40257DE4" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__JobId__31D75E8D" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobTypeJo__JobId__34B3CB38" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__KeywordsJ__JobId__3A6CA48E" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__ProfileJo__JobId__44EA3301" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__JobCa__30E33A54" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__JobCa__32CB82C6" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__UserI__2C1E8537" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__UserI__2D12A970" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__UserI__2E06CDA9" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__UserI__2EFAF1E2" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobCatego__UserI__2FEF161B" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__KeywordsJ__JobCa__39788055" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__KeywordsP__JobCa__3B60C8C7" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK_JobCatProfile_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobTypeJo__JobTy__35A7EF71" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__JobTypePr__JobTy__369C13AA" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK_JobTypeProfile_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Keywords__UserId__38845C1C" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK_KeywordsProfile_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Notificat__UserI__3E3D3572" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Permissio__Permi__4119A21D" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Permissio__RoleI__420DC656" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__RolePermi__Permi__47C69FAC" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Profile__UserId__4301EA8F" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__ProfileJo__Profi__45DE573A" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__Work__ProfileId__4E739D3B" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__ProfileJo__UserI__46D27B73" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__RolePermi__RoleI__48BAC3E5" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__UserRole__RoleId__4B973090" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__SaveSearc__UserI__49AEE81E" ManuallyRouted="false" />
+        <AssociationConnector Association="IdealHiresDataModel.FK__UserRole__UserId__4C8B54C9" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

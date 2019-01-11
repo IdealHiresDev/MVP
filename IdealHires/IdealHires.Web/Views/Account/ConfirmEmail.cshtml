@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+<section>
+    <div class="mt-5 mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <h3 class="blue-clr mb-3 "><i class="fa fa-handshake" aria-hidden="true"></i> <span class="text-dark"></span>Welcome</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12 align-self-center">
+                    <video width="830" height="350" controls poster="~/images/welcome.jpg">
+                        <!-- <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg"> -->
+                        Your browser does not support the video tag.
+                    </video>
+                    <h4 class="col-blue pt-4">Thank You, for choosing IdealHires</h4>
+                    <p class="welcomepar">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.</p>
+                    @Html.ActionLink("Create Profile", "Profile", "Candidate",null, new { @class= "btn clr-blue float-right" })
+                    @*<button class="btn clr-blue float-right">Create Profile</button>*@
+                </div>
+                <div class="text-center col-sm-3 text-sm-right add-sm-none">
+                    <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>

@@ -1,0 +1,51 @@
+﻿@model IdealHires.DTO.Candidate.CandidateBasicDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";    
+    options.InsertionMode = InsertionMode.ReplaceWith;
+    options.UpdateTargetId = "formBasic";
+}
+
+@using (Ajax.BeginForm("General", "Candidate", null, options, new { @id = "formBasic" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="group profile-form">
+        @Html.TextBoxFor(m => m.JobTitle, new { @class = "log-user"})
+        @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
+        @*<input class="log-user" type="text" required>*@
+        <label>Desired Job Title *</label>
+    </div>
+    <div class="group profile-form">
+        @Html.TextBoxFor(m => m.ResumeFile, new { @class = "log-user" })
+        @*<input class="log-user" type="text" required>*@
+        <label>Upload Resume *</label>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="group profile-form">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "log-user" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                @*<input class="log-user" type="text" required>*@
+                <label>First Name *</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="group profile-form">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "log-user" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                @*<input class="log-user" type="text" required>*@
+                <label>Last Name *</label>
+            </div>
+        </div>
+    </div>
+    <div class="f1-buttons">
+        <button type="submit" class="btn btn-save">Save</button>
+        <button type="button" class="btn btn-next">Next</button>
+    </div>
+}
+
+
+
+

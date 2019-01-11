@@ -1,0 +1,973 @@
+body {
+    font-family: 'Open sans', sans-serif;
+}
+/* Top Right drop down  */
+.top-right-cus {
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 9rem;
+    padding: 0.5rem 0.5rem;
+    margin: .125rem 0 0;
+    font-size: 0.9rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 3px;
+    right: 8px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+    .top-right-cus li {
+        padding: 5px;
+    }
+    .top-right-cus li a:hover {
+        color: rgb(18, 78, 132);
+        }
+
+.border-dark-3 {
+    border: 3px solid #d3d5d7;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+/* End Top Right drop down  */
+
+/* Login page  */
+
+.btn {
+    border-radius: 3px;
+}
+
+a {
+    color: #124e84;
+}
+
+.navbar {
+    box-shadow: 0px 1px 2px #9ac8f1;
+    background-color: #f3f6f8 !important;
+}
+
+.login-bg {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.bl-bg {
+    background-color: rgba(243,246,248,.92);
+    border: 1px solid #d3d8db;
+    padding: 0 15px;
+}
+
+.login-sec {
+    color: #fff;
+    padding: 40px;
+    position: relative;
+}
+
+    .login-sec input {
+        color: #8b8e91;
+    }
+
+.login-input {
+    padding-top: 25%;
+}
+
+.feilds input {
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    margin-bottom: 20px;
+    border-radius: 0;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.feilds {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+    .feilds em {
+        position: absolute;
+        left: 14px;
+        top: 15px;
+        color: #838c91;
+    }
+
+    .feilds input::placeholder {
+        color: #64798b;
+    }
+
+    .feilds input {
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: #8b8e91;
+    }
+
+        .feilds input:focus {
+            background-color: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            border-color: #124e82;
+            color: #5a6b7a;
+        }
+
+.forg {
+    color: #205983;
+}
+
+    .forg:hover {
+        color: #184c70;
+    }
+
+.btn-blue {
+    background-color: #124e82;
+    padding: 12px 15px;
+    font-weight: 500;
+    font-size: 17px;
+    width: 100%;
+    border-radius: 0;
+    letter-spacing: 2px;
+    color: #ffff;
+}
+
+    .btn-blue:hover {
+        background-color: #0b4171;
+    }
+
+.ft-13 {
+    font-size: 13px;
+}
+
+.ft-14 {
+    font-size: 14px;
+}
+
+.wt-bg {
+    background-color: rgba(158, 179, 196, 0.2);
+    border: 1px solid #c2c9cf;
+    padding: 40px;
+}
+
+.bord {
+    border: 1px solid #f1f1f1;
+}
+
+.logo {
+    max-width: 280px;
+}
+
+.col-blue {
+    color: #124e82;
+}
+
+.lttr-spc1 {
+    letter-spacing: 4px;
+}
+
+.col-grey {
+    color: #777a79;
+}
+
+.lttr-spc2 {
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.clr-blue {
+    color: #ffff;
+    background-color: #124e82;
+}
+
+.abs-btm {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 96px;
+}
+
+.clr-h3 {
+    color: #216baa;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.custom-control-input {
+    z-index: 111;
+    left:-55px;
+}
+
+.remember {
+    padding-left: 1rem;
+    top: 0px;
+}
+
+
+
+/* Form */
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+input {
+    font-size: 15px;
+    padding: 13px;
+    display: block;
+    width: 100%;
+    border: 1px solid #bac6d0;
+    background-color: transparent;
+}
+
+    input:focus {
+        outline: none;
+    }
+
+.log-pass:focus ~ label, .log-pass:valid ~ label {
+    top: -11px;
+    left: 11px;
+    font-size: 14px;
+    background-color: rgba(243,246,248);
+    padding: 0 10px;
+}
+
+.log-user:focus ~ label, .log-user:valid ~ label {
+    top: -11px;
+    left: 11px;
+    font-size: 14px;
+    background-color: rgba(243,246,248);
+    padding: 0 10px;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #0e6bbc;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 13px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -11px;
+    font-size: 14px;
+    background-color: rgba(243,246,248);
+}
+
+.group input {
+    padding-left: 35px;
+}
+
+.group {
+    position: relative;
+}
+
+    .group em {
+        position: absolute;
+        top: 17px;
+        left: 13px;
+        color: #838c91;
+    }
+
+    .group label {
+        left: 35px;
+    }
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+    .bar:before, .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #5264AE;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .bar:before {
+        left: 50%;
+    }
+
+    .bar:after {
+        right: 50%;
+    }
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+.bg-sec {
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.login-sec .login-btn input{
+    color:#fff;
+}
+
+
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+
+/* Form End */
+
+/* End Login */
+
+/* Register Page */
+
+.register-list li {
+    color: #6c7d8c;
+    list-style-type: none;
+    padding: 0 0 5px 0;
+    font-size: 15px;
+}
+
+/* End Register Page */
+
+/* Home Page CSS start */
+.gray-heading {
+    color: #6c6b6b;
+}
+
+.blue-clr {
+    color: #124e82;
+}
+
+.pallax-bg {
+    background-image: url(../images/premium-jobs-bg.png);
+    background-attachment: fixed;
+}
+
+.light-gray {
+    color: #2e2e2e;
+}
+
+.icon-size {
+    font-size: 2.5rem;
+    color: #2873b4
+}
+
+.card-header-bg {
+    background-color: #f0f4f7;
+}
+
+.card.card-hover:hover {
+    background-color: #1d609a;
+    transition: all .6s ease-in-out;
+    cursor: pointer;
+}
+
+    .card.card-hover:hover .card-body em, .card.card-hover:hover .card-body p {
+        color: #fff;
+    }
+
+.mid-sec {
+    background-color: #f0f4f7;
+    border: 1px solid #b9c8d8;
+    text-align: center;
+    border-radius: 30px;
+    color: #5c84a4;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    width: 57%;
+    margin: 0 auto;
+    padding: 7px;
+}
+
+.card-body {
+    position: relative;
+}
+
+
+.box-wrapper {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 90px 130px;
+}
+
+.place-banner {
+    background-image: URL(../images/place-banner-bg.png);
+}
+
+.career-banner {
+    background-image: URL(../images/career-banner.png);
+    color: #fff;
+}
+
+.condidate-btn {
+    background-color: #0030;
+    border: 1px solid #86afd4;
+}
+
+.box-wrapper .btn-blue {
+    width: auto;
+    border-radius: 3px;
+    font-weight: normal;
+    position: relative;
+}
+
+    .box-wrapper .btn-blue .fa {
+        margin: 0px 12px;
+    }
+
+.fa-reply-all:before {
+    content: "";
+    background-image: URL(../images/tie.png);
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 16px;
+    position: absolute;
+    top: 26%;
+    left: 13px;
+}
+
+.light-border {
+    border: 1px solid #edf0f3;
+}
+
+    .light-border:hover {
+        border: 1px solid #edf0f3;
+        background: #eaf0f4;
+        color: #6d6c6c;
+    }
+
+.card-footer-bg {
+    background: transparent;
+}
+
+.content-sec h2:before {
+    content: "";
+    position: absolute;
+    background-color: #155994;
+    width: 60px;
+    height: 1px;
+    transform: translate(100%);
+    top: 75px;
+}
+
+.content-sec h2:after {
+    content: "";
+    position: absolute;
+    background-color: #155994;
+    width: 65px;
+    height: 1px;
+    transform: translate(-185%);
+    top: 82px;
+}
+
+.content-sec h2.ba-line:before {
+    content: "";
+    position: absolute;
+    background-color: #155994;
+    width: 60px;
+    height: 1px;
+    transform: translate(60%);
+    top: 75px;
+}
+
+.content-sec h2.ba-line:after {
+    content: "";
+    position: absolute;
+    background-color: #155994;
+    width: 65px;
+    height: 1px;
+    transform: translate(-150%);
+    top: 82px;
+}
+
+.card-sec {
+    border-radius: 0;
+    -webkit-box-shadow: 0px 2px 1px 0px rgba(161,165,168,0.65);
+    -moz-box-shadow: 0px 2px 1px 0px rgba(161,165,168,0.65);
+    box-shadow: 0px 2px 1px 0px rgba(161,165,168,0.65);
+}
+
+/* End Home Page CSS */
+
+/* Create Profile Page CSS */
+fieldset .profile-form input {
+    font-size: 15px;
+    padding: 13px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #bac6d0;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+fieldset .profile-form label {
+    color: #0e6bbc;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 13px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* End Create Profile Page CSS */
+
+
+.bg-footer {
+    background-color: rgba(6, 72, 116, 0) !important;
+    border-radius: 0px;
+    padding: 24px 6px;
+}
+
+.search-box .input-group-text {
+    background-color: rgba(6, 72, 116, 0);
+}
+
+.search-box .input-group-text {
+    background-color: #06487400;
+    position: absolute;
+    height: 100%;
+    right: -1px;
+    z-index: 99;
+    color: #6ba7df;
+    border: 0px;
+}
+
+
+
+
+footer .navbar-dark .navbar-nav .nav-link {
+    font-size: 16px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.form-inline .custom-select, .form-inline .input-group {
+    width: 100%;
+}
+
+input.form-control {
+    border-color: #2197e6;
+    border-radius: 0;
+}
+
+footer {
+    background-image: URL(../images/footer-bg.png);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+    footer li {
+        font-size: 14px;
+    }
+
+.navi-sec li {
+    display: inline-block;
+    padding: 0 6px;
+}
+
+ul.list-unstyled.quick-links li {
+    margin-bottom: 16px;
+    color: #afc5d4;
+}
+
+footer h5 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+footer h3 {
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.search-box .form-control {
+    border-color: #7f9fb5;
+    border-radius: 0;
+    background-color: #054c7b;
+    padding: 24px 16px;
+}
+
+    .search-box .form-control::placeholder {
+        color: #6ba7df;
+    }
+
+.copy-right {
+    padding: 24px 0px;
+    background-color: #04416a;
+}
+
+@media(max-width:767px) {
+
+    .bg-sec {
+        height: 100%;
+    }
+
+    .login-bg {
+        height: 100%;
+        padding-top: 5%;
+    }
+
+    .logo {
+        max-width: 210px;
+    }
+
+    .abs-btm {
+        bottom: 15px;
+    }
+
+    .add-sm-none {
+        display: none;
+    }
+
+    .login-bg {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+}
+
+@media(max-width:996px) {
+    .h4.h4-d-sm {
+        font-size: 1.1rem;
+    }
+}
+
+
+@media(max-width:1025px) {
+    .login-bg {
+        height: 100%;
+        padding-top: 5%;
+    }
+
+    .h4.h4-d-sm {
+        font-size: 1.1rem;
+    }
+}
+
+/* Create Profile Page CSS */
+.wizard-group em {
+    position: absolute;
+    top: 5px;
+    left: 81px;
+    color: #838c91;
+}
+
+button.btn-sm {
+    font-size: 14px;
+}
+
+.wizard-span {
+    position: relative;
+    left: 32px;
+}
+
+.remember.wizard-checkbox {
+    padding-left: 1rem;
+    top: 30px;
+    left: 15px;
+}
+
+.wizard-form.container-fluid {
+    border: 1px #bcbcbc solid;
+    margin: 0 -15px;
+    padding: 25px 15px;
+}
+
+.btn.btn-previous.btn-pre-cus {
+    background-color: #4c5d6c;
+    color: #fff;
+}
+
+.btn.btn-light-gray {
+    background-color: #eeeeee;
+    color: #595959;
+}
+
+.profile-form input {
+    font-size: 15px;
+    padding: 13px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #bac6d0;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.profile-form label {
+    color: #666a6c;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: 13px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.profile-form input:focus ~ label, input:valid ~ label {
+    background-color: transparent;
+}
+
+
+/* .profile-form label {
+    left: 10px;
+} */
+/* .group.profile-form{
+    margin: 30px;
+} */
+.group.profile-form label {
+    left: 10px;
+}
+/* .profile-form .log-user:focus ~ label, .log-user:valid ~ label {
+    background-color:transparent;
+} */
+
+.ft-sml {
+    font-size: 14px;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+
+    ul.timeline:before {
+        content: ' ';
+        background: #124e82;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    ul.timeline > li {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+
+        ul.timeline > li:before {
+            content: ' ';
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid #c5bfbf;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            z-index: 400;
+        }
+
+.border-btm {
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 30px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+}
+
+    .switch label {
+        color: #0e6bbc;
+        font-size: 15px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: -10px;
+        top: 13px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 27px;
+        width: 27px;
+        left: -2px;
+        bottom: -1px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+/* End Create Profile Page CSS */
+
+
+/* Welcome Page CSS */
+p.welcomepar {
+    text-align: justify;
+    font-size: 0.9em;
+    color: #7b7b7b;
+}
+
+h5.welcomheading {
+    color: #124e82;
+    font-size: 1em;
+    padding: 15px 0px 8px 0px;
+}
+/* End Welcome Page CSS */
+
+.text-danger {
+    color: #dc3545 !important;
+    font-size: smaller;
+}

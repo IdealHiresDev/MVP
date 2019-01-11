@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.Data", "IdealHires.Data\IdealHires.Data.csproj", "{14FEE0FF-7B1A-4BCD-BB68-0F6BD0BF7668}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.API", "IdealHires.API\IdealHires.API.csproj", "{1E07853C-E9FB-4C74-BDA1-5B68CADD8399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.Web", "IdealHires.Web\IdealHires.Web.csproj", "{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.DTO", "IdealHires.DTO\IdealHires.DTO.csproj", "{8538EFD2-67CA-44A0-BF81-D045496C829B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.UserIdentity", "IdealHires.UserIdentity\IdealHires.UserIdentity.csproj", "{74E36D6A-62D6-4BE8-8B09-28749574B2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealHires.BAL", "IdealHires.BAL\IdealHires.BAL.csproj", "{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14FEE0FF-7B1A-4BCD-BB68-0F6BD0BF7668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FEE0FF-7B1A-4BCD-BB68-0F6BD0BF7668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FEE0FF-7B1A-4BCD-BB68-0F6BD0BF7668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FEE0FF-7B1A-4BCD-BB68-0F6BD0BF7668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E07853C-E9FB-4C74-BDA1-5B68CADD8399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E07853C-E9FB-4C74-BDA1-5B68CADD8399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E07853C-E9FB-4C74-BDA1-5B68CADD8399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E07853C-E9FB-4C74-BDA1-5B68CADD8399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8538EFD2-67CA-44A0-BF81-D045496C829B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8538EFD2-67CA-44A0-BF81-D045496C829B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8538EFD2-67CA-44A0-BF81-D045496C829B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8538EFD2-67CA-44A0-BF81-D045496C829B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E36D6A-62D6-4BE8-8B09-28749574B2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E36D6A-62D6-4BE8-8B09-28749574B2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E36D6A-62D6-4BE8-8B09-28749574B2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E36D6A-62D6-4BE8-8B09-28749574B2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7D013C5-AE76-4661-A6C0-B680D7C7D0FA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs01:8080/tfs/chetuprojects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = IdealHires.Data\\IdealHires.Data.csproj
+		SccProjectName1 = IdealHires.Data
+		SccLocalPath1 = IdealHires.Data
+		SccProjectUniqueName2 = IdealHires.API\\IdealHires.API.csproj
+		SccProjectName2 = IdealHires.API
+		SccLocalPath2 = IdealHires.API
+		SccProjectUniqueName3 = IdealHires.Web\\IdealHires.Web.csproj
+		SccProjectName3 = IdealHires.Web
+		SccLocalPath3 = IdealHires.Web
+		SccProjectUniqueName4 = IdealHires.DTO\\IdealHires.DTO.csproj
+		SccProjectName4 = IdealHires.DTO
+		SccLocalPath4 = IdealHires.DTO
+		SccProjectUniqueName5 = IdealHires.UserIdentity\\IdealHires.UserIdentity.csproj
+		SccProjectName5 = IdealHires.UserIdentity
+		SccLocalPath5 = IdealHires.UserIdentity
+		SccProjectUniqueName6 = IdealHires.BAL\\IdealHires.BAL.csproj
+		SccProjectName6 = IdealHires.BAL
+		SccLocalPath6 = IdealHires.BAL
+	EndGlobalSection
+EndGlobal

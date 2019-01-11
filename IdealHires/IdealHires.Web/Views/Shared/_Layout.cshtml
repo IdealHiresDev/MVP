@@ -1,0 +1,74 @@
+﻿@using IdealHires.Web.Models
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>IdealHires</title>
+    <!-- Bootstrap core CSS-->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/vendor/profile/css/form-elements.css">
+    <link rel="stylesheet" href="~/vendor/profile/css/style.css">
+    <!-- Custom styles for this template-->
+    <link href="~/Content/custom-styles.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    @{var viewMessageGroups = (List<ViewMessagesGroup>)(TempData["ViewMessages"] ?? null);}
+</head>
+<body>
+    <header class="navbar navbar-dark navbar-expand-md bg-light justify-content-between sticky-top">
+        <a href="/" class=""><img src="~/images/logo.png" alt="logo" class="logo"></a>
+        <div class="header-right">
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="pr-2"><img class="rounded-circle border-dark-3" src="~/images/profile-icon.png"></span> <span class="col-grey">@User.Identity.Name</span><em class="fa fa-angle-down col-grey"></em>
+                            </a>
+                            <ul class="dropdown-menu top-right-cus">
+                                <li><a href="@Url.Action("Profile","Candidate")"><i class="icon-cog"></i><em class="fa fa-user pr-1"></em> Profile</a></li>
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            }
+            else
+            {
+                <a class="btn clr-blue" href="@Url.Action("Login","Account")"><em class="far fa-user pr-2"></em> Sign in</a>
+                @*<button class="btn clr-blue rounded-0"><em class="far fa-user pr-2"></em> SIGN IN</button>*@
+            }
+        </div>
+    </header>
+    @if (viewMessageGroups != null && viewMessageGroups.Any())
+    {
+        @Html.Partial("_ViewMessages")
+    }
+    @RenderBody()
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/vendor/profile/js/jquery.backstretch.min.js"></script>
+    <script src="~/vendor/profile/js/scripts.js"></script>
+</body>
+</html>
