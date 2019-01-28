@@ -15,19 +15,24 @@ namespace IdealHires.API.Providers
     public class WrappingResponseHandler : DelegatingHandler
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-
-            var response = await base.SendAsync(request, cancellationToken);
-            try
+        {            
+            if (IsSwagger(request))
             {
-                return GenerateResponse(request, response);
-
+              return await base.SendAsync(request, cancellationToken);
             }
-            catch (Exception ex)
+            else
             {
-                ResponseDTO responseMetadata = new ResponseDTO();
-                responseMetadata = GetResponseMetadata(HttpStatusCode.InternalServerError, string.Empty, ex.Message);
-                return request.CreateResponse(response.StatusCode, responseMetadata);
+                var response = await base.SendAsync(request, cancellationToken);
+                try
+                {
+                    return GenerateResponse(request, response);
+                }
+                catch (Exception ex)
+                {
+                    ResponseDTO responseMetadata = new ResponseDTO();
+                    responseMetadata = GetResponseMetadata(HttpStatusCode.InternalServerError, string.Empty, ex.Message);
+                    return request.CreateResponse(response.StatusCode, responseMetadata);
+                }
             }
         }
 

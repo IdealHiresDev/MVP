@@ -27,7 +27,7 @@ namespace IdealHires.Data
         }
     
         public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public int UserId { get; set; }
         public string JobTitle { get; set; }
         public string Objective { get; set; }
         public string ResumeFile { get; set; }

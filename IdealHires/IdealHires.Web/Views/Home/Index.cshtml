@@ -1,364 +1,366 @@
 ﻿@{
-    ViewBag.Title = "Home Page";    
+    ViewBag.Title = "Home Page";
 }
-    <section>
-        <div class="container-fluid mb-5">
+<section>
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <div class="box-wrapper place-banner">
+                    <div class="text-center text-xs-center text-sm-center text-md-center">
+                        <img class="img-fluid" src="~/images/banner-content1.png">
+                        <p class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ... </p>
+                        <a href="@Url.Action("Login","Account",new {type="e" })" class="btn btn-blue"><i class="fa fa-reply-all" aria-hidden="true"></i>IdealEmployer</a>
+                        @*<button class="btn btn-blue"><i class="fa fa-reply-all" aria-hidden="true"></i>IdealEmployer</button>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-0">
+                <div class="box-wrapper career-banner">
+                    <div class="text-center text-xs-center text-sm-center text-md-center">
+                        <img class="img-fluid" src="~/images/banner-content2.png">
+                        <p class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ... </p>
+                        <a href="@Url.Action("Login","Account",new {type="c" })" class="btn btn-blue condidate-btn"><i class="far fa-user pr-2" aria-hidden="true"></i>IdealCandidate</a>
+                        @*<button class="btn btn-blue condidate-btn"><em class="far fa-user pr-2"></em>IdealCandidate</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container mb-5 pt-4">
+        <div class="row content-sec">
+            <div class="col-sm-12 text-center mb-5">
+                <div class="gray-heading text-uppercase">Working Process</div>
+                <h2 class="mb-3 blue-clr">How It Works</h2>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12  text-center">
+                <img src="~/images/craete-account.png">
+                <p class="font-weight-bold">Create an Account</p>
+                <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12  text-center">
+                <img src="~/images/search-jobs.png">
+                <p class="font-weight-bold">Create an Account</p>
+                <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12  text-center">
+                <img src="~/images/save-apply.png">
+                <p class="font-weight-bold">Create an Account</p>
+                <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid pt-5 pb-5 mb-3 pallax-bg">
+        <div class="row content-sec mb-5">
+            <div class="col-sm-12 text-center">
+                <div class="gray-heading text-uppercase">A Better Carrier</div>
+                <h2 class="blue-clr">Premium Jobs</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                A Tech Mechanic<br>
+                                Diesel/Heavy Duty Trucks
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-user-alt icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Project Manager/<br>
+                                Estimator
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Commercial<br>
+                                Superintendent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Electrical Technician<br>
+                                Manager
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <div class="row">
-                <div class="col-md-6 p-0">
-                    <div class="box-wrapper place-banner">
-                        <div class="text-center text-xs-center text-sm-center text-md-center">
-                            <img class="img-fluid" src="~/images/banner-content1.png">
-                            <p class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ... </p>
-                            <button class="btn btn-blue"><i class="fa fa-reply-all" aria-hidden="true"></i>IdealEmployer</button>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-code icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Web Developer and<br>
+                                Mobile Developer
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 p-0">
-                    <div class="box-wrapper career-banner">
-                        <div class="text-center text-xs-center text-sm-center text-md-center">
-                            <img class="img-fluid" src="~/images/banner-content2.png">
-                            <p class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ... </p>
-                            <button class="btn btn-blue condidate-btn"><em class="far fa-user pr-2"></em>IdealCandidate</button>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Creative Web and Graphic<br>
+                                Designer
+                            </p>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Management /<br>
+                                HR
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
+                    <div class="card pt-3 card-hover">
+                        <div class="card-body">
+                            <em class="fas fa-suitcase icon-size pb-3"></em>
+                            <p class="light-gray ft-14">
+                                Sales & Marketing<br>
+                                Manager
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn clr-blue pl-5 pr-5 pt-2 pb-2">View All Jobs</button>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container mb-5 pt-4">
-            <div class="row content-sec">
-                <div class="col-sm-12 text-center mb-5">
-                    <div class="gray-heading text-uppercase">Working Process</div>
-                    <h2 class="mb-3 blue-clr">How It Works</h2>
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-12  text-center">
-                    <img src="~/images/craete-account.png">
-                    <p class="font-weight-bold">Create an Account</p>
-                    <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12  text-center">
-                    <img src="~/images/search-jobs.png">
-                    <p class="font-weight-bold">Create an Account</p>
-                    <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12  text-center">
-                    <img src="~/images/save-apply.png">
-                    <p class="font-weight-bold">Create an Account</p>
-                    <p class="gray-heading">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-                </div>
-
+</section>
+<section>
+    <div class="container pt-5 pb-5 mb-3">
+        <div class="row content-sec mb-5">
+            <div class="col-sm-12 text-center">
+                <div class="gray-heading text-uppercase">Select Job</div>
+                <h2 class="mb-3 blue-clr ba-line">Latest Jobs</h2>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container-fluid pt-5 pb-5 mb-3 pallax-bg">
-            <div class="row content-sec mb-5">
-                <div class="col-sm-12 text-center">
-                    <div class="gray-heading text-uppercase">A Better Carrier</div>
-                    <h2 class="blue-clr">Premium Jobs</h2>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row mb-3">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    A Tech Mechanic<br>
-                                    Diesel/Heavy Duty Trucks
-                                </p>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
+                    <div class="card card-sec">
+                        <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
+                        <div class="card-body">
+                            <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
+                                </div>
+                            </div>
+                            <div class="gray-heading row mb-3  mt-1">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
+                            </div>
+                            <div class="gray-heading row">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-user-alt icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Project Manager/<br>
-                                    Estimator
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Commercial<br>
-                                    Superintendent
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Electrical Technician<br>
-                                    Manager
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-code icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Web Developer and<br>
-                                    Mobile Developer
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Creative Web and Graphic<br>
-                                    Designer
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Management /<br>
-                                    HR
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-3">
-                        <div class="card pt-3 card-hover">
-                            <div class="card-body">
-                                <em class="fas fa-suitcase icon-size pb-3"></em>
-                                <p class="light-gray ft-14">
-                                    Sales & Marketing<br>
-                                    Manager
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="text-center mt-5">
-                    <button class="btn clr-blue pl-5 pr-5 pt-2 pb-2">View All Jobs</button>
-                </div>
-            </div>
-    </section>
-    <section>
-        <div class="container pt-5 pb-5 mb-3">
-            <div class="row content-sec mb-5">
-                <div class="col-sm-12 text-center">
-                    <div class="gray-heading text-uppercase">Select Job</div>
-                    <h2 class="mb-3 blue-clr ba-line">Latest Jobs</h2>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
-                        <div class="card card-sec">
-                            <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
-                            <div class="card-body">
-                                <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
-                                <div class="row mt-3">
-                                    <div class="col-sm-6">
-                                        <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
-                                    </div>
-                                </div>
-                                <div class="gray-heading row mb-3  mt-1">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
-                                </div>
-                                <div class="gray-heading row">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
-                                </div>
-                            </div>
-                            <div class="card-footer card-footer-bg blue-clr ft-15">
-                                <div class="text-center"><a href="#">View Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
-                        <div class="card card-sec">
-                            <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
-                            <div class="card-body">
-                                <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
-                                <div class="row mt-3">
-                                    <div class="col-sm-6">
-                                        <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
-                                    </div>
-                                </div>
-                                <div class="gray-heading row mb-3  mt-1">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
-                                </div>
-                                <div class="gray-heading row">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
-                                </div>
-                            </div>
-                            <div class="card-footer card-footer-bg blue-clr ft-15">
-                                <div class="text-center"><a href="#">View Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
-                        <div class="card card-sec">
-                            <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
-                            <div class="card-body">
-                                <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
-                                <div class="row mt-3">
-                                    <div class="col-sm-6">
-                                        <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
-                                    </div>
-                                </div>
-                                <div class="gray-heading row mb-3  mt-1">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
-                                </div>
-                                <div class="gray-heading row">
-                                    <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
-                                    <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
-                                </div>
-                            </div>
-                            <div class="card-footer card-footer-bg blue-clr ft-15">
-                                <div class="text-center"><a href="#">View Details</a></div>
-                            </div>
+                        <div class="card-footer card-footer-bg blue-clr ft-15">
+                            <div class="text-center"><a href="#">View Details</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-4">
-                    <button class="btn clr-blue pl-5 pr-5 pt-2 pb-2">Browse More</button>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
+                    <div class="card card-sec">
+                        <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
+                        <div class="card-body">
+                            <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
+                                </div>
+                            </div>
+                            <div class="gray-heading row mb-3  mt-1">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
+                            </div>
+                            <div class="gray-heading row">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
+                            </div>
+                        </div>
+                        <div class="card-footer card-footer-bg blue-clr ft-15">
+                            <div class="text-center"><a href="#">View Details</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center mb-3">
+                    <div class="card card-sec">
+                        <div class="card-header card-header-bg"><img class="hide" src="~/images/demo-logo1.png"> </div>
+                        <div class="card-body">
+                            <span class="mid-sec ft-13"><em class="fas fa-bell"></em> Be an Early Applicant</span>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <p class="h4 blue-clr text-left h4-d-sm">Accountant</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-outline-secondary btn-sm light-border"><em class="fas fa-calendar-alt pr-1"></em> Nov, 28 2018</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-left ft-14">$ 120.00 - 140.00 Hourly</p>
+                                </div>
+                            </div>
+                            <div class="gray-heading row mb-3  mt-1">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-unlock-alt"></em> Semantic INC</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right"><em class="fas fa-map-marker-alt"></em> New York</div>
+                            </div>
+                            <div class="gray-heading row">
+                                <div class="col-sm-6 text-uppercase ft-13 text-left"><em class="fas fa-suitcase"></em> Full Time</div>
+                                <div class="col-sm-6 text-uppercase ft-13 text-right">Accounting</div>
+                            </div>
+                        </div>
+                        <div class="card-footer card-footer-bg blue-clr ft-15">
+                            <div class="text-center"><a href="#">View Details</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-    </section>
-    <section>
-        <footer>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-footer sml-device">
-                <ul class="navbar-nav ml-auto d-inline navi-sec">
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">404</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Contact Us</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="text-center mt-4">
+                <button class="btn clr-blue pl-5 pr-5 pt-2 pb-2">Browse More</button>
+            </div>
+        </div>
+</section>
+<section>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-footer sml-device">
+            <ul class="navbar-nav ml-auto d-inline navi-sec">
+                <li class="nav-item">
+                    <a href="" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">404</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <div class="row text-center text-xs-center text-sm-left text-md-left mt-5 mb-4">
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <h5>About Ideal Hires</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li>
-                                Sed ut perspiciatis unde
-                                omnis iste natus error
-                                sit voluptatem.
-                            </li>
-                            <li>
-                                7860 North Park Place
-                                San Francisco, CA 94120
-                            </li>
-                            <li>Email: Support@idealhiresdesk</li>
-                            <li>Call: 587-000-1234</li>
-                        </ul>
-                    </div>
+            <div class="row text-center text-xs-center text-sm-left text-md-left mt-5 mb-4">
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h5>About Ideal Hires</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            Sed ut perspiciatis unde
+                            omnis iste natus error
+                            sit voluptatem.
+                        </li>
+                        <li>
+                            7860 North Park Place
+                            San Francisco, CA 94120
+                        </li>
+                        <li>Email: Support@idealhiresdesk</li>
+                        <li>Call: 587-000-1234</li>
+                    </ul>
+                </div>
 
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <h5>All Navigation</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li>Front-end Design</li>
-                            <li>Android Developer</li>
-                            <li>CMS Development</li>
-                            <li>PHP Development</li>
-                            <li>iOS Developer</li>
-                            <li>Iphone Developer</li>
-                        </ul>
-                    </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h5>All Navigation</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>Front-end Design</li>
+                        <li>Android Developer</li>
+                        <li>CMS Development</li>
+                        <li>PHP Development</li>
+                        <li>iOS Developer</li>
+                        <li>Iphone Developer</li>
+                    </ul>
+                </div>
 
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <h5>All Categories</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li>Front-end Design</li>
-                            <li>Android Developer</li>
-                            <li>CMS Development</li>
-                            <li>PHP Development</li>
-                            <li>iOS Developer</li>
-                            <li>Iphone Developer</li>
-                        </ul>
-                    </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h5>All Categories</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>Front-end Design</li>
+                        <li>Android Developer</li>
+                        <li>CMS Development</li>
+                        <li>PHP Development</li>
+                        <li>iOS Developer</li>
+                        <li>Iphone Developer</li>
+                    </ul>
+                </div>
 
 
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <h3>Newsletter</h3>
-                        <nav class="search-box">
-                            <form class="form-inline">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Email address" aria-label="" aria-describedby="basic-addon1">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
-                                    </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h3>Newsletter</h3>
+                    <nav class="search-box">
+                        <form class="form-inline">
+                            <div class="input-group newsletter">
+                                <input type="text" class="" placeholder="Email address" aria-label="" aria-describedby="basic-addon1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
                                 </div>
-                            </form>
-                        </nav>
-                    </div>
-
+                            </div>
+                        </form>
+                    </nav>
                 </div>
 
             </div>
 
-            <div class="col-xs-12 text-center">
-                <p class="copy-right mb-0">Copyright Ideal Hires © 2018. All Rights Reserved</p>
-            </div>
+        </div>
 
-        </footer>
-    </section>
+        <div class="col-xs-12 text-center">
+            <p class="copy-right mb-0">Copyright Ideal Hires © 2018. All Rights Reserved</p>
+        </div>
+
+    </footer>
+</section>

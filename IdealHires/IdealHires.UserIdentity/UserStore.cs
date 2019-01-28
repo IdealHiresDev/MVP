@@ -13,7 +13,8 @@ namespace IdealHires.UserIdentity
     public class UserStore : IUserStore<UserDTO, int>, IUserLoginStore<UserDTO, int>,
         IUserRoleStore<UserDTO, int>, IUserPasswordStore<UserDTO, int>,
         IUserSecurityStampStore<UserDTO, int>, IUserEmailStore<UserDTO, int>,
-        IUserLockoutStore<UserDTO, int>, IUserTwoFactorStore<UserDTO, int>
+        IUserLockoutStore<UserDTO, int>, IUserTwoFactorStore<UserDTO, int>,
+        IClaimsIdentityFactory<UserDTO, int>
     {
         private readonly AuthApi _userService;
 
@@ -36,6 +37,7 @@ namespace IdealHires.UserIdentity
                     IsActive = user.IsActive,
                     SecurityStamp = user.SecurityStamp,
                     IsEmailConfirm = false,
+                    UserType= user.UserType,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
@@ -307,18 +309,15 @@ namespace IdealHires.UserIdentity
         #endregion
 
         #region IClaimsIdentityFactory
-        //public Task<ClaimsIdentity> CreateAsync(UserManager<UserDTO, int> manager, UserDTO user, string authenticationType)
-        //{
-        //    var claimIdentity = new ClaimsIdentity(authenticationType, ClaimTypes.Name, ClaimTypes.Role);
-        //    claimIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString(), ClaimValueTypes.String));
-        //    claimIdentity.AddClaim(new Claim(ClaimTypes.Name, user.UserName, ClaimValueTypes.String));
-        //    //foreach (var role in user.Roles)
-        //    //{
-        //    //    claimIdentity.AddClaim(new Claim(ClaimTypes.Role, role, ClaimValueTypes.String));
-        //    //}          
+        public Task<ClaimsIdentity> CreateAsync(UserManager<UserDTO, int> manager, UserDTO user, string authenticationType)
+        {
+            var claimIdentity = new ClaimsIdentity(authenticationType, ClaimTypes.Name, ClaimTypes.Role);          
+           
+            claimIdentity.AddClaim(new Claim(CustomClaims.Firstname, user.FirstName, ClaimValueTypes.String));
+            claimIdentity.AddClaim(new Claim(CustomClaims.Firstname, user.LastName, ClaimValueTypes.String));
 
-        //    return Task.FromResult(claimIdentity);
-        //}
+            return Task.FromResult(claimIdentity);
+        }
         #endregion
 
         #region IUserPhoneNumberStore
@@ -371,6 +370,9 @@ namespace IdealHires.UserIdentity
             {
                 Id = record.Id,
                 UserName = record.EmailId,
+                FirstName=string.IsNullOrEmpty(record.FirstName)?string.Empty: record.FirstName,
+                LastName= string.IsNullOrEmpty(record.LastName) ? string.Empty : record.LastName,
+                UserType = string.IsNullOrEmpty(record.UserType) ? string.Empty : record.UserType,
                 EmailId = record.EmailId,
                 Password = record.Password,
                 IsActive = record.IsActive,

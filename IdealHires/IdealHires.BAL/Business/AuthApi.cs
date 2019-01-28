@@ -42,8 +42,6 @@ namespace IdealHires.BAL.Business
         {
             try
             {
-               // var userRecord = MapUser(userEntity, false);
-
                 _unitOfWork.Users.Get(1);
                 _unitOfWork.Complete();
                 return 1;
@@ -132,6 +130,9 @@ namespace IdealHires.BAL.Business
                 Password = user.Password,
                 SecurityStamp = user.SecurityStamp,
                 EmailId = user.EmailId,
+                FirstName = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName,
+                LastName = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName,
+                UserType = string.IsNullOrEmpty(user.UserType) ? string.Empty : user.UserType,                
                 IsActive = user.IsActive,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = DateTime.Now
@@ -144,10 +145,13 @@ namespace IdealHires.BAL.Business
             return new UserDTO()
             {
                 Id = user.Id,
-                IsEmailConfirm = user.IsEmailConfirm ? user.IsEmailConfirm:false,
+                IsEmailConfirm = user.IsEmailConfirm ? user.IsEmailConfirm : false,
                 Password = user.Password,
                 SecurityStamp = user.SecurityStamp,
                 EmailId = user.EmailId,
+                FirstName = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName,
+                LastName = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName,
+                UserType = string.IsNullOrEmpty(user.UserType) ? string.Empty : user.UserType,                
                 IsActive = user.IsActive,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = DateTime.Now

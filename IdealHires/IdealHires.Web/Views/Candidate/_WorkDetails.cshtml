@@ -1,0 +1,59 @@
+﻿@model List<IdealHires.DTO.Candidate.CandidateWorkDTO>
+<div class="row">
+    <div class="col-sm-12 mob-pl-0">
+        <ul class="timeline">
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">@item.PositionName <a href="#"><small class="ft-sml text-dark">@item.CompanyName</small></a></p>
+                            </div>
+                            <div class="col-sm-6 text-right ft-sml">
+                                @if (item.IsCurrent)
+                                {
+                                    <span class="text-success text-success-green mr-4">@item.StartAt to Present</span> <span>
+                                        <span class="col-blue text-span">Working</span>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-success text-success-green mr-4">@item.StartAt to @item.EndAt</span> <span>
+                                        <span class="col-blue text-span">@item.TotalExperience</span>
+                                    </span>
+                                }
+                                <a onclick="GetWorkExp(@item.Id)"> <em class="fas fa-edit ml-3"></em></a><a onclick="DeleteWorkExp(@item.Id)"> <em class="fas fa-trash text-danger ml-1"></em></a>
+
+                            </div>
+                            <div class="pl-3">
+                                @*<a href="#" class="float-right">21 March, 2014</a>*@
+                                <p class="border-btm">@item.Description</p>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <li>
+                    <div class="row">
+                        <p class="h4 col-blue text-left">Please add work Experience.</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="f1-buttons col-sm-6 text-left pl-2">
+        <button class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        <button type="button" class="btn btn-save btn-border ml-3" data-toggle="modal" onclick="AddWorkExp()"><img src="~/images/add-icon.png" class="pr-3 pb-1">Add</button>
+    </div>
+    <div class="f1-buttons col-sm-6 pr-1">
+        <button type="button" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+        <button class="btn btn-next rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
+    </div>
+</div>
+<script src="~/Scripts/work/workexp.js" type="text/javascript"></script>

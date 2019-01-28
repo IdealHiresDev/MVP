@@ -1,70 +1,127 @@
-﻿<div class="group profile-form">
-    <input class="log-user" type="text" required>
-    <label>Keywords</label>
-</div>
-<div class="row mb-4">
-    <div class="col-sm-2">
-        <div class="group profile-form">
-            <div class="custom-control custom-checkbox remember wizard-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                <label class="custom-control-label" for="customCheck">Full Time</label>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="group profile-form">
-            <div class="custom-control custom-checkbox remember wizard-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                <label class="custom-control-label" for="customCheck">Part Time</label>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="group profile-form">
-            <div class="custom-control custom-checkbox remember wizard-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                <label class="custom-control-label" for="customCheck">Contractor</label>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="group profile-form">
-            <div class="custom-control custom-checkbox remember wizard-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                <label class="custom-control-label" for="customCheck">Intern</label>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="group profile-form">
-            <div class="custom-control custom-checkbox remember wizard-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                <label class="custom-control-label" for="customCheck">Seasonal</label>
-            </div>
-        </div>
-    </div>
+﻿@model IdealHires.DTO.Candidate.CandidatePreferencesDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnPreferencesSuccess";
+}
+<script type="text/javascript">
+    function OnPreferencesSuccess(data) {
+        if (data === "PreferencesSuccess") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass().addClass('fas fa-check-square');
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data === "BtnPreferencesSuccess") {
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+        }
+        else if (data === "PreferencesFailure") {
+            $('#hAlertTitle').empty().html('Error');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('There was an error saving information.');
+            $('#AlertModel').modal('show');
+        }
+    }
 
-</div>
-<div class="group profile-form">
-    <input class="log-user" type="text" required>
-    <label>Job Categroy</label>
-</div>
-<div class="group profile-form wizard-group">
-    <input class="log-user" type="text" required>
-    <label>
-        Objective
-        <em class="far fa-question-circle"></em>
-        <span class="wizard-span"> Resume Tips</span>
-    </label>
-
-</div>
-
-<div class="row">
-    <div class="f1-buttons col-sm-6 text-left">
-        <button type="button" class="btn btn-previous btn-pre-cus">Previous</button>
+</script>
+@using (Ajax.BeginForm("Preferences", "Candidate", null, options, new { @id = "formPreferences" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Keywords, new { @class = "tab-cus-input", placeholder = "Keywords *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Keywords, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Keywords" class="tab-cus-input">*@
+        </div>
     </div>
-    <div class="f1-buttons col-sm-6">
-        <button type="button" class="btn btn-save">Save</button>
-        <button type="button" class="btn btn-next">Next</button>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Job Type</div>
+        </div>
+        @foreach (var item in Model.SelectJobTypes)
+        {
+            <div class="col-sm-2">
+                @if (item.Selected)
+                {
+                    <div class="group profile-form">
+                        <div class="custom-control custom-checkbox remember wizard-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" checked value="@item.Value">
+                            <label class="custom-control-label" for="customCheck">@item.Text</label>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="group profile-form">
+                        <div class="custom-control custom-checkbox remember wizard-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" value="@item.Value">
+                            <label class="custom-control-label" for="customCheck">@item.Text</label>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        }
     </div>
-</div>
+    <div class="row">
+        <div class="col-sm-12 mb-3 mt-3">
+            <em class="em fa fa-angle-down col-grey"></em>
+            @*@Html.DropDownListFor(m => m.SelectedJobCategory, Model.SelectJobCategories, new { @class = "multiselect-ui form-control", @id = "dates-field2", @name = "SelectedJobCategory", multiple = "multiple" })*@
+            <select id="SelectedJobCategory" multiple="multiple" required name="SelectedJobCategory" class="multiselect-ui form-control">
+                @if (Model.SelectJobCategories != null)
+                {
+                    foreach (var item in Model.SelectJobCategories)
+                    {
+                        if (item.Text != null)
+                        {
+                            if (item.Selected)
+                            {
+                                <option value="@item.Value" selected>
+                                    @item.Text
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="@item.Value">
+                                    @item.Text
+                                </option>
+                            }
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Objective, new { @class = "tab-cus-input", placeholder = "Objective", autocomplete = "off" })
+            @*<input id="name" type="text" placeholder="Objective" class="tab-cus-input">*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="f1-buttons col-sm-6 text-left">
+            <button type="button" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        </div>
+        <div class="f1-buttons col-sm-6">
+            <button type="submit" name="submit" value="Save" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+            <button type="button" class="btn btn-next rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
+        </div>
+    </div>
+}

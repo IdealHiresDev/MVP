@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @model IdealHires.DTO.RegisterDTO
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Candidate Register";
 }
 <div class="bg-sec">
     <section>
@@ -24,8 +24,8 @@
                                         </ul>
                                     </div>
                                     <!-- <div class="abs-btm">
-                                    <p class="ft-13"><a href="#"><span class="text-dark">Already a member?</span> <span class="text-danger">Sign in</span></a></p>
-                                </div> -->
+                                        <p class="ft-13"><a href="#"><span class="text-dark">Already a member?</span> <span class="text-danger">Sign in</span></a></p>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-md-6 bl-bg">
@@ -33,29 +33,30 @@
                                     <h3 class="col-blue text-center pt-4 pb-5">CREATE AN ACCOUNT</h3>
                                     @*<form id="form-sec">*@
                                     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "form-sec" }))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary("", new { @class = "text-danger" })
-                                    <div class="group">
-                                        <em class="far fa-user"></em>
-                                        @*<input class="log-user" type="text" required>*@
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "log-user", required = "required" })
-                                        @Html.LabelFor(m => m.Email)
-                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                        @*<label>Username</label>*@
-                                    </div>
-                                    <div class="group">
-                                        <em class="fas fa-unlock-alt"></em>
-                                        @*<input class="log-pass" type="password" required>*@
-                                        @Html.PasswordFor(m => m.Password, new { @class = "log-pass", required = "required" })
-                                        @Html.LabelFor(m => m.Password)
-                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                        @*<label>Password</label>*@
-                                    </div>
-                                    @*</form>*@
-                                    <p class="text-center"> <button class="btn btn-blue">Resgister</button></p>
-                                    <p class="ft-13 text-sm-right"><span class="text-dark">Already a member?</span>@Html.ActionLink(" Sign in", "Login", "Account", null, new { @class = "text-danger" })</p>
-                            }
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.UserType)
+                                        <div class="group">
+                                            <em class="far fa-user"></em>
+                                            @*<input class="log-user" type="text" required>*@
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "log-user" })
+                                            @Html.LabelFor(m => m.Email)
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                            @*<label>Username</label>*@
+                                        </div>
+                                        <div class="group">
+                                            <em class="fas fa-unlock-alt"></em>
+                                            @*<input class="log-pass" type="password" required>*@
+                                            @Html.PasswordFor(m => m.Password, new { @class = "log-pass" })
+                                            @Html.LabelFor(m => m.Password)
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            @*<label>Password</label>*@
+                                        </div>
+                                        @*</form>*@
+                                        <p class="text-center"> <button class="btn btn-blue">Register</button></p>
+                                        <p class="ft-13 text-sm-right"><span class="text-dark">Already a member?</span>@Html.ActionLink(" Sign in", "Login", "Account", null, new { @class = "text-danger" })</p>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -68,5 +69,5 @@
         </div>
     </section>
 </div>
-    
+
 

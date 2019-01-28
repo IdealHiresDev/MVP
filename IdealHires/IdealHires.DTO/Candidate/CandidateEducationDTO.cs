@@ -13,19 +13,20 @@ namespace IdealHires.DTO.Candidate
         public int UserId { get; set; }
         public int ProfileId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Major is required.")]
         [DataType(DataType.Text)]
         public string Major { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Minor is required.")]
         [DataType(DataType.Text)]
         public string Minor { get; set; }
         public string InstituteName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Start date is required.")]
         [DataType(DataType.Text)]
-        public DateTime StartAt { get; set; }
-        public DateTime EndAt { get; set; }
+        public string StartAt { get; set; }
+        public string EndAt { get; set; }
         public bool IsDegreeOrCertification { get; set; }
+        public string TotalDuration { get; set; }
     }
 }

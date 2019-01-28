@@ -63,7 +63,7 @@ namespace IdealHires.API
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(2),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                 Provider = new IdealHiresAuthorizationServerProvider(),
                 AccessTokenFormat = new IdealHiresJwtFormat(ConfigurationManager.AppSettings["AuthIssuer"])
             };

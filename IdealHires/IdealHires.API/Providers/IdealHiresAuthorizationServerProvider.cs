@@ -48,8 +48,8 @@ namespace IdealHires.API.Providers
                 context.SetError(ApiResource.InvalidGrant, ApiResource.EmailNotConfirm);
                 return;
             }
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");
-            //oAuthIdentity.AddClaims(ExtendedClaimsProvider.GetClaims(user));
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");            
+            oAuthIdentity.AddClaims(ExtendedClaimsProvider.GetClaims(user));
             var ticket = new AuthenticationTicket(oAuthIdentity, null);
             context.Validated(ticket);
 

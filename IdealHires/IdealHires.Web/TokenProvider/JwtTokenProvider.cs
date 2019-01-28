@@ -69,6 +69,9 @@ namespace IdealHires.Web.TokenProvider
             // decode payload
             dynamic payload = DecodePayload(token);
             string userId = payload.nameid;
+            string firstName = payload.FirstName;
+            string lastName = payload.LastName;
+            string userType = payload.UserType;
             string[] roles = payload.role.ToObject(typeof(string[]));
 
             var jwtIdentity = new ClaimsIdentity(new JwtIdentity(
@@ -78,6 +81,9 @@ namespace IdealHires.Web.TokenProvider
             jwtIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userId));
             jwtIdentity.AddClaim(new Claim("AccessToken", accessToken, ClaimValueTypes.String));
             jwtIdentity.AddClaim(new Claim("TokenType", tokenType, ClaimValueTypes.String));
+            jwtIdentity.AddClaim(new Claim("FirstName", firstName, ClaimValueTypes.String));
+            jwtIdentity.AddClaim(new Claim("LastName", lastName, ClaimValueTypes.String));
+            jwtIdentity.AddClaim(new Claim("UserType", userType, ClaimValueTypes.String));
             //jwtIdentity.AddClaim(ClaimsProviderExtension.GetClaims())
 
             foreach (var role in roles)

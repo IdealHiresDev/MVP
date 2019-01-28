@@ -3,6 +3,7 @@ using IdealHires.Web.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
@@ -83,6 +84,18 @@ namespace IdealHires.Web.Controllers
             return tokenData;
             //var accessToken = claimsIdentity.Claims.Where(c => c.Type == "AccessToken").Select(c => c.Value).SingleOrDefault();
             //var tokenType = claimsIdentity.Claims.Where(c => c.Type == "TokenType").Select(c => c.Value).SingleOrDefault();
+        }
+
+        protected string SaveToPhysicalLocation(HttpPostedFileBase file)
+        {
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                file.SaveAs(path);
+                return path;
+            }
+            return string.Empty;
         }
     }
 }

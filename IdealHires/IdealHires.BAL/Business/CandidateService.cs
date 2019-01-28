@@ -1,8 +1,11 @@
-﻿using IdealHires.BAL.DataContext;
+﻿
+using IdealHires.BAL.DataContext;
 using IdealHires.Data;
+using IdealHires.DTO;
 using IdealHires.DTO.Candidate;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +29,37 @@ namespace IdealHires.BAL.Business
 
         #region Candidate Basic
 
+        public CandidateBasicDTO GetBasicDetails(int id)
+        {
+            CandidateBasicDTO basicDetailDTO = new CandidateBasicDTO();
+            try
+            {
+                User jobTypeList = _unitOfWork.Users.Get(id);
+                Profile profile = jobTypeList.Profiles.FirstOrDefault();
+                if (profile.Id > 0 && jobTypeList.Id > 0)
+                {
+                    basicDetailDTO = new CandidateBasicDTO
+                    {
+                        Id = profile.Id,
+                        UserId = jobTypeList.Id,
+                        JobTitle = profile.JobTitle,
+                        ResumeFilePath = (string.IsNullOrEmpty(profile.ResumeFile)) ? string.Empty : Path.GetFileName(profile.ResumeFile),
+                        FirstName = jobTypeList.FirstName,
+                        LastName = jobTypeList.LastName
+                    };
+                }
+                return basicDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public int InsertBasicDetails(CandidateBasicDTO basicCandidate)
         {
             int profileId = 0;
+            Profile profile = null;
             try
             {
                 var userData = _unitOfWork.Users.Get(basicCandidate.UserId);
@@ -36,27 +67,44 @@ namespace IdealHires.BAL.Business
                 {
                     userData.FirstName = basicCandidate.FirstName;
                     userData.LastName = basicCandidate.LastName;
+                    userData.UserType = "Candidate";
                     userData.UpdatedAt = DateTime.Now;
                     userData.UpdatedBy = basicCandidate.UserId;
                     _unitOfWork.Users.Update(userData);
                     //_unitOfWork.Complete();
 
-                    var profile = new Profile()
+                    var userProfile = userData.Profiles.FirstOrDefault();
+                    if (userProfile == null)
                     {
-                        UserId = basicCandidate.UserId,
-                        ResumeFile = basicCandidate.ResumeFile,
-                        JobTitle = basicCandidate.JobTitle,
-                        CreatedAt=DateTime.Now,
-                        CreatedBy= basicCandidate.UserId
-                    };
-                    _unitOfWork.ProfileRepository.Add(profile);
-                    _unitOfWork.Complete();
-                    profileId = profile.Id;
+                        profile = new Profile()
+                        {
+                            UserId = basicCandidate.UserId,
+                            ResumeFile = basicCandidate.ResumeFilePath,
+                            JobTitle = basicCandidate.JobTitle,
+                            CreatedAt = DateTime.Now,
+                            CreatedBy = basicCandidate.UserId
+                        };
+                        _unitOfWork.ProfileRepository.Add(profile);
+                        _unitOfWork.Complete();
+                        profileId = profile.Id;
+                    }
+                    else
+                    {
+                        userProfile.UserId = basicCandidate.UserId;
+                        userProfile.ResumeFile = basicCandidate.ResumeFilePath;
+                        userProfile.JobTitle = basicCandidate.JobTitle;
+                        userProfile.UpdatedAt = DateTime.Now;
+                        userProfile.UpdatedBy = basicCandidate.UserId;
+
+                        _unitOfWork.ProfileRepository.Update(userProfile);
+                        _unitOfWork.Complete();
+                        profileId = userProfile.Id;
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             return profileId;
         }
@@ -65,36 +113,91 @@ namespace IdealHires.BAL.Business
 
         #region Candidate Contact
 
+        public CandidateContactDTO GetContactDetails(int id)
+        {
+            CandidateContactDTO contactDetailDTO = new CandidateContactDTO();
+            try
+            {
+                User jobTypeList = _unitOfWork.Users.Get(id);
+                Profile profile = jobTypeList.Profiles.FirstOrDefault();
+                Address address = profile.Addresses.FirstOrDefault();
+                if (address.Id > 0)
+                {
+                    contactDetailDTO = new CandidateContactDTO
+                    {
+                        Id = address.Id,
+                        UserId = jobTypeList.Id,
+                        StreetAddress1 = address.StreetAddress1,
+                        StreetAddress2 = address.StreetAddress2,
+                        City = address.City,
+                        State = address.State,
+                        Country = address.Country,
+                        ZipCode = address.ZipCode,
+                        Phone1 = address.Phone1,
+                        Phone2 = address.Phone2
+                    };
+                }
+                return contactDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public int InsertContactDetails(CandidateContactDTO basicCandidate)
         {
             int addressId = 0;
+            Address address = null;
             try
             {
                 var userProfile = _unitOfWork.ProfileRepository.GetFirstOrDefault(p => p.UserId == basicCandidate.UserId);
+                var addresses = userProfile.Addresses.FirstOrDefault();
                 if (userProfile != null)
                 {
-                    var address = new Address()
+                    if (addresses == null)
                     {
-                        ProfileId = userProfile.Id,
-                        StreetAddress1 = basicCandidate.StreetAddress1,
-                        StreetAddress2 = basicCandidate.StreetAddress2,
-                        City = basicCandidate.City,
-                        State = basicCandidate.State,
-                        Country = basicCandidate.Country,
-                        ZipCode = basicCandidate.ZipCode,
-                        Phone1 = basicCandidate.Phone1,
-                        Phone2 = basicCandidate.Phone2,
-                        CreatedAt = DateTime.Now,
-                        CreatedBy = basicCandidate.UserId
-                    };
-                    _unitOfWork.AddressRepository.Add(address);
-                    _unitOfWork.Complete();
-                    addressId = address.Id;
+                        address = new Address()
+                        {
+                            ProfileId = userProfile.Id,
+                            StreetAddress1 = basicCandidate.StreetAddress1,
+                            StreetAddress2 = basicCandidate.StreetAddress2,
+                            City = basicCandidate.City,
+                            State = basicCandidate.State,
+                            Country = basicCandidate.Country,
+                            ZipCode = basicCandidate.ZipCode,
+                            Phone1 = basicCandidate.Phone1,
+                            Phone2 = basicCandidate.Phone2,
+                            CreatedAt = DateTime.Now,
+                            CreatedBy = basicCandidate.UserId
+                        };
+                        _unitOfWork.AddressRepository.Add(address);
+                        _unitOfWork.Complete();
+                        addressId = address.Id;
+                    }
+                    else
+                    {
+                        addresses.ProfileId = userProfile.Id;
+                        addresses.StreetAddress1 = basicCandidate.StreetAddress1;
+                        addresses.StreetAddress2 = basicCandidate.StreetAddress2;
+                        addresses.City = basicCandidate.City;
+                        addresses.State = basicCandidate.State;
+                        addresses.Country = basicCandidate.Country;
+                        addresses.ZipCode = basicCandidate.ZipCode;
+                        addresses.Phone1 = basicCandidate.Phone1;
+                        addresses.Phone2 = basicCandidate.Phone2;
+                        addresses.UpdatedAt = DateTime.Now;
+                        addresses.UpdatedBy = basicCandidate.UserId;
+
+                        _unitOfWork.AddressRepository.Update(addresses);
+                        _unitOfWork.Complete();
+                        addressId = addresses.Id;
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             return addressId;
         }
@@ -103,6 +206,98 @@ namespace IdealHires.BAL.Business
 
         #region Candidate Work
 
+        public bool DeleteWork(int workId)
+        {
+            try
+            {
+                Work workDetailsByworkId = _unitOfWork.WorkRepository.Get(workId);
+                if (workDetailsByworkId.Id > 0)
+                {
+                    _unitOfWork.WorkRepository.Remove(workDetailsByworkId);
+                    _unitOfWork.Complete();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public CandidateWorkDTO GetWorkDetailsByWorkId(int workId)
+        {
+            CandidateWorkDTO workDetailDTO = null;
+            try
+            {
+                Work workDetailsByworkId = _unitOfWork.WorkRepository.Get(workId);
+                Profile profile = _unitOfWork.ProfileRepository.Get(workDetailsByworkId.ProfileId);
+                if (workDetailsByworkId.Id > 0)
+                {
+                    workDetailDTO = new CandidateWorkDTO
+                    {
+                        Id = workDetailsByworkId.Id,
+                        UserId = profile.UserId,
+                        ProfileId = profile.Id,
+                        CompanyName = workDetailsByworkId.CompanyName,
+                        PositionName = workDetailsByworkId.PositionName,
+                        Description = workDetailsByworkId.Description,
+                        Salary = workDetailsByworkId.Salary,
+                        CurrencyId = workDetailsByworkId.CurrencyId ?? 0,
+                        StartAt = String.Format("{0:MM/dd/yyyy}", workDetailsByworkId.StartAt),
+                        EndAt = String.Format("{0:MM/dd/yyyy}", workDetailsByworkId.EndAt),
+                        IsCurrent = (workDetailsByworkId.EndAt == null) ? true : false,
+                    };
+                }
+                return workDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<CandidateWorkDTO> GetWorkDetails(int id)
+        {
+            List<CandidateWorkDTO> workDetailDTO = new List<CandidateWorkDTO>();
+            try
+            {
+                User jobTypeList = _unitOfWork.Users.Get(id);
+                Profile profile = jobTypeList.Profiles.FirstOrDefault();
+                List<Work> work = profile.Works.ToList();
+                if (work.Count > 0)
+                {
+                    foreach (var w in work)
+                    {
+                        var candidateWork = new CandidateWorkDTO
+                        {
+                            Id = w.Id,
+                            UserId = jobTypeList.Id,
+                            ProfileId = profile.Id,
+                            CompanyName = w.CompanyName,
+                            PositionName = w.PositionName,
+                            Description = w.Description,
+                            Salary = w.Salary,
+                            CurrencyId = w.CurrencyId ?? 0,
+                            StartAt = String.Format("{0:y}", w.StartAt),
+                            EndAt = String.Format("{0:y}", w.EndAt),
+                            IsCurrent = (w.EndAt == null) ? true : false,
+                            TotalExperience = new DateDifference(w.StartAt ?? DateTime.Now, w.EndAt ?? DateTime.Now).ToString()
+                        };
+                        workDetailDTO.Add(candidateWork);
+                    }
+                }
+                return workDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public int InsertWorkDetails(CandidateWorkDTO workCandidate)
         {
             int workId = 0;
@@ -110,27 +305,49 @@ namespace IdealHires.BAL.Business
             {
                 if (workCandidate != null)
                 {
-                    var work = new Work()
+                    User user = _unitOfWork.Users.Get(workCandidate.UserId);
+                    Profile profile = user.Profiles.FirstOrDefault();
+                    if (workCandidate.Id > 0)
                     {
-                        ProfileId = workCandidate.ProfileId,
-                        CompanyName = workCandidate.CompanyName,
-                        PositionName = workCandidate.PositionName,
-                        Description = workCandidate.Description,
-                        Salary = workCandidate.Salary,
-                        CurrencyId = workCandidate.CurrencyId,
-                        StartAt = workCandidate.StartAt,
-                        EndAt = workCandidate.EndAt,                        
-                        CreatedAt = DateTime.Now,
-                        CreatedBy = workCandidate.UserId
-                    };
-                    _unitOfWork.WorkRepository.Add(work);
-                    _unitOfWork.Complete();
-                    workId = work.Id;
+                        Work workDetails = new Work();
+                        workDetails = _unitOfWork.WorkRepository.Get(workCandidate.Id);                       
+                        workDetails.CompanyName = workCandidate.CompanyName;
+                        workDetails.PositionName = workCandidate.PositionName;
+                        workDetails.Description = workCandidate.Description;
+                        workDetails.Salary = workCandidate.Salary;
+                        workDetails.CurrencyId = workCandidate.CurrencyId;
+                        workDetails.StartAt = Convert.ToDateTime(workCandidate.StartAt);
+                        workDetails.EndAt = (string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt);
+                        workDetails.UpdatedAt = DateTime.Now;
+                        workDetails.UpdatedBy = workCandidate.UserId;
+                        _unitOfWork.WorkRepository.Update(workDetails);
+                        _unitOfWork.Complete();
+                        workId = workDetails.Id;
+                    }
+                    else
+                    {
+                        var work = new Work()
+                        {
+                            ProfileId = profile.Id,
+                            CompanyName = workCandidate.CompanyName,
+                            PositionName = workCandidate.PositionName,
+                            Description = workCandidate.Description,
+                            Salary = workCandidate.Salary,
+                            CurrencyId = workCandidate.CurrencyId,
+                            StartAt = Convert.ToDateTime(workCandidate.StartAt),
+                            EndAt = (string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt),
+                            CreatedAt = DateTime.Now,
+                            CreatedBy = workCandidate.UserId
+                        };
+                        _unitOfWork.WorkRepository.Add(work);
+                        _unitOfWork.Complete();
+                        workId = work.Id;
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             return workId;
         }
@@ -138,6 +355,94 @@ namespace IdealHires.BAL.Business
         #endregion
 
         #region Candidate Education
+
+        public bool DeleteEducation(int educationId)
+        {
+            try
+            {
+                Academic educationDetailsByeducationId = _unitOfWork.AcademicRepository.Get(educationId);
+                if (educationDetailsByeducationId.Id > 0)
+                {
+                    _unitOfWork.AcademicRepository.Remove(educationDetailsByeducationId);
+                    _unitOfWork.Complete();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public CandidateEducationDTO GeEducationDetailsByEdudationId(int educationId)
+        {
+            CandidateEducationDTO educationDetailDTO = null;
+            try
+            {
+                Academic educationDetailsById = _unitOfWork.AcademicRepository.Get(educationId);
+                Profile profile = _unitOfWork.ProfileRepository.Get(Convert.ToInt32(educationDetailsById.ProfileId));
+                if (educationDetailsById.Id > 0)
+                {
+                    educationDetailDTO = new CandidateEducationDTO
+                    {
+                        Id = educationDetailsById.Id,
+                        UserId = profile.UserId,
+                        ProfileId = profile.Id,
+                        Major = educationDetailsById.Major,
+                        Minor = educationDetailsById.Minor,
+                        InstituteName = educationDetailsById.InstituteName,
+                        IsDegreeOrCertification =Convert.ToBoolean(educationDetailsById.IsDegreeOrCertification),                        
+                        StartAt = String.Format("{0:MM/dd/yyyy}", educationDetailsById.StartAt),
+                        EndAt = String.Format("{0:MM/dd/yyyy}", educationDetailsById.EndAt),                        
+                    };
+                }
+                return educationDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<CandidateEducationDTO> GetEducationDetails(int id)
+        {
+            List<CandidateEducationDTO> educationDetailDTO = new List<CandidateEducationDTO>();
+            try
+            {
+                User jobTypeList = _unitOfWork.Users.Get(id);
+                Profile profile = jobTypeList.Profiles.FirstOrDefault();
+                List<Academic> academic = profile.Academics.ToList();
+                if (academic.Count > 0)
+                {
+                    foreach (var a in academic)
+                    {
+                        var candidateWork = new CandidateEducationDTO
+                        {
+                            Id = a.Id,
+                            UserId = jobTypeList.Id,
+                            ProfileId = profile.Id,
+                            Major = a.Major,
+                            Minor = a.Minor,
+                            InstituteName = a.InstituteName,
+                            IsDegreeOrCertification =Convert.ToBoolean(a.IsDegreeOrCertification),                            
+                            StartAt = String.Format("{0:y}", a.StartAt),
+                            EndAt = String.Format("{0:y}", a.EndAt),                            
+                            TotalDuration = new DateDifference(a.StartAt ?? DateTime.Now, a.EndAt ?? DateTime.Now).ToString()
+                        };
+                        educationDetailDTO.Add(candidateWork);
+                    }
+                }
+                return educationDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }        
 
         public int InsertEducationDetails(CandidateEducationDTO educationCandidate)
         {
@@ -152,8 +457,8 @@ namespace IdealHires.BAL.Business
                         Major = educationCandidate.Major,
                         Minor = educationCandidate.Minor,
                         InstituteName = educationCandidate.InstituteName,
-                        StartAt = educationCandidate.StartAt,
-                        EndAt = educationCandidate.EndAt,
+                        StartAt = Convert.ToDateTime(educationCandidate.StartAt),
+                        EndAt = Convert.ToDateTime(educationCandidate.EndAt),
                         IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification,
                         CreatedAt = DateTime.Now,
                         CreatedBy = educationCandidate.UserId
@@ -163,11 +468,63 @@ namespace IdealHires.BAL.Business
                     educationId = academic.Id;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             return educationId;
+        }
+
+        #endregion
+
+        #region Get Preference Details
+
+        public CandidatePreferencesDTO GetPreferencesDetails(int id)
+        {
+            CandidatePreferencesDTO preferencesDetailDTO = new CandidatePreferencesDTO();
+            List<JobTypeProfileDTO> jobTypeProfileDTO = new List<JobTypeProfileDTO>();
+            List<JobCategoryProfileDTO> jobCategoryProfileDTO = new List<JobCategoryProfileDTO>();
+
+            List<string> selectedJobTypeProfile = new List<string>();
+            List<string> selectedJobCategoryProfile = new List<string>();
+            try
+            {
+                User jobTypeList = _unitOfWork.Users.Get(id);
+                Profile profile = jobTypeList.Profiles.FirstOrDefault();
+                List<JobTypeProfile> jobTypeProfile = profile.JobTypeProfiles.ToList();
+                List<JobCategoryProfile> jobCategoryProfile = profile.JobCategoryProfiles.ToList();
+                KeywordsProfile keywordsProfile = profile.KeywordsProfiles.FirstOrDefault();
+
+                if (jobTypeProfile != null && jobTypeProfile.Count > 0)
+                {
+                    foreach (var jT in jobTypeProfile)
+                    {
+                        var jTPDTO = jT.JobTypeId.ToString();                       
+                        selectedJobTypeProfile.Add(jTPDTO);
+                    }
+                    preferencesDetailDTO.SelectedJobTypes = selectedJobTypeProfile;
+                }
+                if (jobCategoryProfile != null && jobCategoryProfile.Count > 0)
+                {
+                    foreach (var jCP in jobCategoryProfile)
+                    {
+                        var jCPDTO = jCP.JobCategoryId.ToString();                        
+                        selectedJobCategoryProfile.Add(jCPDTO);
+                    }
+                    preferencesDetailDTO.SelectedJobCategory = selectedJobCategoryProfile;
+                }
+                if (keywordsProfile != null)
+                {
+                    preferencesDetailDTO.Keywords = keywordsProfile.Keywords;
+                }
+                preferencesDetailDTO.Objective = profile.Objective;
+
+                return preferencesDetailDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         #endregion
@@ -186,7 +543,7 @@ namespace IdealHires.BAL.Business
 
             if (disposing)
             {
-                _unitOfWork.Dispose();                
+                _unitOfWork.Dispose();
             }
             disposed = true;
         }

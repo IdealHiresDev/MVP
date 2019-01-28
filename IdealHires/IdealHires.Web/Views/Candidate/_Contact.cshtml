@@ -1,74 +1,105 @@
 ﻿@model IdealHires.DTO.Candidate.CandidateContactDTO
 @{
     AjaxOptions options = new AjaxOptions();
-    options.HttpMethod = "POST";    
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnContactSuccess";
     options.InsertionMode = InsertionMode.ReplaceWith;
-    options.UpdateTargetId = "formContact";
 }
-
+<script type="text/javascript">
+    function OnContactSuccess(data) {
+        if (data === "ContactSuccess") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass().addClass('fas fa-check-square');
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data === "BtnContactSuccess") {
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+        }
+        else if (data === "ContactFailure") {
+            $('#hAlertTitle').empty().html('Error');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('There was an error saving information.');
+            $('#AlertModel').modal('show');
+        }
+    }
+</script>
 @using (Ajax.BeginForm("Contact", "Candidate", null, options, new { @id = "formContact" }))
 {
-    <div class="group profile-form">
-        <input class="log-user" type="text" required>
-        <label>Street Address *</label>
-    </div>
-    <div class="group profile-form">
-        <input class="log-user" type="text" required>
-        <label>Address in 2nd line</label>
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.StreetAddress1, new { @class = "tab-cus-input", placeholder = "Street Address 1", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.StreetAddress1, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Street Address" class="tab-cus-input">*@
+        </div>
     </div>
     <div class="row">
-        <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>City *</label>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>State *</label>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>Country *</label>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>Zip Code *</label>
-            </div>
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.StreetAddress2, new { @class = "tab-cus-input", placeholder = "Street Address 2", autocomplete = "off" })
+            @*<input id="name" type="text" placeholder="Address in 2nd line" class="tab-cus-input">*@
         </div>
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>Phone Number 1*</label>
-            </div>
+            @Html.TextBoxFor(m => m.City, new { @class = "tab-cus-input", placeholder = "City *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="City *" class="tab-cus-input">*@
         </div>
         <div class="col-sm-3">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>Phone Number 2</label>
-            </div>
+            @Html.TextBoxFor(m => m.State, new { @class = "tab-cus-input", placeholder = "State *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="State *" alt="Category" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-3">
+            @Html.TextBoxFor(m => m.Country, new { @class = "tab-cus-input", placeholder = "Country *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Country *" alt="Category" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-3">
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "tab-cus-input", placeholder = "Zip Code *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Zip Code" alt="Category" class="tab-cus-input">*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.TextBoxFor(m => m.Phone1, new { @class = "tab-cus-input", placeholder = "Phone Number 1", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Phone1, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Phone Number 1" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-3">
+            @Html.TextBoxFor(m => m.Phone2, new { @class = "tab-cus-input", placeholder = "Phone Number 2", autocomplete = "off" })
+            @*<input id="name" type="text" placeholder="Phone Number 2" alt="Category" class="tab-cus-input">*@
         </div>
         <div class="col-sm-6">
-            <div class="group profile-form">
-                <input class="log-user" type="text" required>
-                <label>Email Id *</label>
-            </div>
+            <input id="name" type="text" placeholder="Email ID *" alt="Category" class="tab-cus-input">
         </div>
     </div>
     <div class="row">
         <div class="f1-buttons col-sm-6 text-left">
-            <button type="button" class="btn btn-previous btn-pre-cus">Previous</button>
+            <button type="button" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
         </div>
         <div class="f1-buttons col-sm-6">
-            <button type="button" class="btn btn-save">Save</button>
-            <button type="button" class="btn btn-next">Next</button>
+            <button type="submit" name="submit" value="Save" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+            <button type="button" class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
         </div>
     </div>
 

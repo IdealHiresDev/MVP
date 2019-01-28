@@ -15,7 +15,7 @@ namespace IdealHires.Data
     public partial class Work
     {
         public int Id { get; set; }
-        public Nullable<int> ProfileId { get; set; }
+        public int ProfileId { get; set; }
         public string CompanyName { get; set; }
         public string PositionName { get; set; }
         public string Description { get; set; }

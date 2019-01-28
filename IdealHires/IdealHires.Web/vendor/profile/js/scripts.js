@@ -20,7 +20,7 @@ function bar_progress(progress_line_object, direction) {
 }
 
 
-jQuery(document).ready(function () {    
+jQuery(document).ready(function () {
     $.backstretch("assets/img/backgrounds/1.jpg");
     $('#top-navbar-1').on('shown.bs.collapse', function () {
         $.backstretch("resize");
@@ -35,17 +35,30 @@ jQuery(document).ready(function () {
     // next step
     $(document).on("click", '.f1 .btn-next', function (e) {
         var form = e.delegateTarget.activeElement.form;
-        var formId = e.delegateTarget.activeElement.form.id;
-       
         var parent_fieldset = $(this).parents('fieldset');
         var next_step = true;
         // navigation steps / progress steps
         var current_active_step = $(this).parents('.f1').find('.f1-step.active');
         var progress_line = $(this).parents('.f1').find('.f1-progress-line');
-        
-        $.validator.unobtrusive.parse(formId);
-        $("#" + formId).validate();
-        if ($("#" + formId).valid()) {            
+        debugger;
+        if (form != null) {
+            var formId = e.delegateTarget.activeElement.form.id;
+            $.validator.unobtrusive.parse(formId);
+            $("#" + formId).validate();
+            if ($("#" + formId).valid()) {
+                $("#" + formId).submit();                
+            }
+            else {
+                if (e.data != null) {
+                    $.each($form.validate().errorList, function (key, value) {
+                        $errorSpan = $("span[data-valmsg-for='" + value.element.id + "']");
+                        $errorSpan.html("<span style='color:red'>" + value.message + "</span>");
+                        $errorSpan.show();
+                    });
+                }
+            }
+        }
+        else {
             if (next_step) {
                 parent_fieldset.fadeOut(400, function () {
                     // change icons
@@ -59,16 +72,7 @@ jQuery(document).ready(function () {
                 });
             }
         }
-        else {
-            if (e.data != null) {
-                $.each($form.validate().errorList, function (key, value) {
-                    $errorSpan = $("span[data-valmsg-for='" + value.element.id + "']");
-                    $errorSpan.html("<span style='color:red'>" + value.message + "</span>");
-                    $errorSpan.show();
-                });
-            }
-        }
-        
+
     });
 
     // previous step

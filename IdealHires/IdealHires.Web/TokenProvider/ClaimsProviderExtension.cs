@@ -35,26 +35,26 @@ namespace IdealHires.Web.TokenProvider
         }
 
         public static string FullName(this IPrincipal user)
-        {
+        {            
             ClaimsIdentity claimsIdentity = user.Identity as ClaimsIdentity;
-            foreach (var claim in claimsIdentity.Claims)
+            var firstName = claimsIdentity.Claims.FirstOrDefault(c => c.Type == "FirstName")?.Value;
+            var lastName = claimsIdentity.Claims.FirstOrDefault(c => c.Type == "LastName")?.Value;
+            if(!string.IsNullOrEmpty(firstName))
             {
-                if (claim.Type == "FullName")
-                    return claim.Value;
+                return firstName + " " + lastName;
             }
-            return "";
-        }
-        
-        public static string UserId(this IPrincipal user)
-        {
-            ClaimsIdentity claimsIdentity = user.Identity as ClaimsIdentity;
-            foreach (var claim in claimsIdentity.Claims)
-            {
-                if (claim.Type == "UserID")
-                    return claim.Value;
-            }
-            return "";
+            return string.Empty;
         }
 
+        public static string UserType(this IPrincipal user)
+        {
+            ClaimsIdentity claimsIdentity = user.Identity as ClaimsIdentity;
+            var userType = claimsIdentity.Claims.FirstOrDefault(c => c.Type == "UserType")?.Value;
+            if (!string.IsNullOrEmpty(userType))
+            {
+                return userType;
+            }
+            return string.Empty;
+        }
     }
 }

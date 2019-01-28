@@ -19,12 +19,22 @@
                                         <p class="col-grey ft-14 lttr-spc2 pd-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
                                     </div>
                                     <div class="abs-btm">
-                                        <p class="ft-13"><span class="text-dark">Not a member yet?</span>@Html.ActionLink(" Register now", "Register", "Account", null, new { @class = "text-danger" })</p>
+                                        <p class="ft-13">
+                                            <span class="text-dark">Not a member yet?</span>
+                                            @if (Model.UserType == "Employer")
+                                            {
+                                                @Html.ActionLink(" Register now", "EmployerRegister", "Account", null, new { @class = "text-danger" })
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(" Register now", "Register", "Account", null, new { @class = "text-danger" })
+                                            }
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 bl-bg">
-                                <div class="login-sec">
+                                <div class="login-sec log-label">
                                     <h3 class="col-blue text-center pt-4 pb-5">SIGN IN</h3>
                                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "form-sec" }))
                                     {
@@ -32,13 +42,13 @@
                                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                         <div class="group">
                                             <em class="far fa-user"></em>
-                                            @Html.TextBoxFor(m => m.Email, new { @required = "required" })
+                                            @Html.TextBoxFor(m => m.Email)
                                             @Html.LabelFor(m => m.Email)
                                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="group">
                                             <em class="fas fa-unlock-alt"></em>
-                                            @Html.PasswordFor(m => m.Password, new { @required = "required" })
+                                            @Html.PasswordFor(m => m.Password)
                                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                             @Html.LabelFor(m => m.Password)
                                         </div>
@@ -50,8 +60,8 @@
                                                 <label class="custom-control-label" for="customCheck"><a href="#" class="forg ft-13">Remember Me</a></label>
                                             </div>
                                         </div>
-                                        <p class="text-center login-btn"> <input type="submit" value="LOGIN" class="btn btn-blue" /></p>
-                                        <p class="text-right">@Html.ActionLink("Forget Password?", "ForgotPassword", null, new { @class = "forg ft-13" })</p>
+                                        <p class="text-center login-btn"> <input type="submit" value="Login" class="btn btn-blue" /></p>
+                                        <p class="text-right">@Html.ActionLink("Forgot Password?", "ForgotPassword", null, new { @class = "forg ft-13" })</p>
                                     }
                                 </div>
                             </div>
@@ -65,4 +75,4 @@
         </div>
     </section>
 </div>
-    
+

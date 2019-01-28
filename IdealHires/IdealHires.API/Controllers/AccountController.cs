@@ -48,7 +48,8 @@ namespace IdealHires.API.Controllers
                         IsActive = true,
                         IsEmailConfirm = false,
                         CreatedAt = DateTime.Now,
-                        SecurityStamp = Guid.NewGuid().ToString()
+                        SecurityStamp = Guid.NewGuid().ToString(),
+                        UserType= model.UserType
                     };
                     var result = UserManager.CreateAsync(user, model.Password).Result;
                     if (result.Succeeded)

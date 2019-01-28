@@ -22,7 +22,6 @@ namespace IdealHires.Data
         }
     
         public int Id { get; set; }
-        public string Company1 { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Location { get; set; }
@@ -32,6 +31,7 @@ namespace IdealHires.Data
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+        public string CompanyName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }

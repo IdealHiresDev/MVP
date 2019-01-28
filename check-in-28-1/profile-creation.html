@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Create Profile</title>
+<!-- Bootstrap core CSS-->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/mdb.min.css" rel="stylesheet">
+<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<!-- Custom fonts for this template-->
+<link href="css/font.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-multiselect.css" rel="stylesheet">
+<!-- Create Profile CSS -->
+<link rel="stylesheet" href="css/form-elements.css">
+<link rel="stylesheet" href="css/wizard-style.css">
+<!-- Custom styles for this template-->
+<link href="css/custom-styles.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-dark navbar-expand-md bg-light sticky-top">
+        <div class="col-sm-2"><a href="/" class=""><img src="./images/logo-ideal.jpg" alt="logo" class="logo"></a></div>
+        <div class="col-sm-4"></div>
+          <div class="col-sm-4 justify-content-right"></div>
+          <div class="col-sm-2">
+              <div class="header-right">
+                  <ul class="nav justify-content-end">
+                      <li class="dropdown mt-1">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <span class="top-notification-icon mr-3"><i class="fa fa-envelope text-warning"></i></span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right notification-card">
+                              <div class="notification-body">
+                                  <a href="home-2.html" class="notification-list">
+                                      <p>Your Resume Updated!</p>
+                                      <span class="time">5 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>You applied for Project Manager <span>@homeland</span></p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>You changed password</p>
+                                      <span class="time">5 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                              </div>
+                              <div class="notification-footer">
+                                  <a href="#">View all Messages</a>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="dropdown mt-1">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <span class="top-notification-icon mr-3"><i class="fa fa-bell text-success"></i></span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right notification-card">
+                              <div class="notification-body">
+                                  <a href="home-2.html" class="notification-list">                               
+                                      <p>Your Resume Updated!</p>
+                                      <span class="time">5 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">                               
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">                               
+                                      <p>You applied for Project Manager <span>@homeland</span></p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">                                
+                                      <p>You changed password</p>
+                                      <span class="time">5 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">                               
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                                  <a href="#" class="notification-list">
+                                      <p>Someone downloaded resume</p>
+                                      <span class="time">11 hours ago</span>
+                                  </a>
+                              </div>
+                              <div class="notification-footer">
+                                  <a href="#">View all notification</a>
+                              </div>
+                          </div>
+                          
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <span class="pr-2"><img class="rounded-circle" src="./images/profile-icon.png"></span></a>
+                              <ul class="dropdown-menu dropdown-menu-right sign-out">
+                                  <li><a href="/user/preferences"> <em class="fa fa-user pr-1"></em> Profile</a></li>
+                                  <li><a href="/user/preferences"> <em class="fa fa-cog pr-1"></em> Setting</a></li>
+                                  <li><a href="/auth/logout"> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
+                              </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </header>
+  <section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Create Candidate Profile</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+  <div class="mt-4 mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 align-self-center">
+          <div class="form-box mb-5 tab-cus tabs">
+            <form role="form" action="" method="post" class="f1">
+            <div class="row f1-steps text-center">
+              <div class="f1-progress">
+                <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="6" style="width: 6%;"></div>
+              </div>
+              <div class="f1-step active">
+                <div class="f1-step-icon"><i class="fa fa-star"></i></div>
+                <p class="font-weight-bold">General</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-envelope text-dark-grey"></i></div>
+                <p>Contact</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-tag text-dark-grey"></i></div>
+                <p>Preferences</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-suitcase text-dark-grey"></i></div>
+                <p>Experience</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-graduation-cap text-dark-grey"></i></div>
+                <p>Education</p>
+              </div>
+              <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-play text-dark-grey"></i></div>
+                <p>Preview</p>
+              </div>
+            </div>
+            <div class="wizard-form container-fluid">
+            <fieldset class="mb-4">
+            <form>
+              <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormTitle" class="form-control">
+                    <label for="materialLoginFormTitle">Desired Job Title *</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-12 col-xs-12">
+                <div class="em-float-right">
+                    <input type="file" class="upload-file"><em class="far fa-question-circle col-blue ques"></em>
+                </div>
+            </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormFirstName" class="form-control">
+                    <label for="materialLoginFormFirstName">First Name</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormLastName" class="form-control">
+                    <label for="materialLoginFormLastName">Last Name</label>
+                  </div>
+                </div>
+              </div>
+              <div class="f1-buttons">
+                <button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>
+                <button class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+              </div>
+            </form>
+            </fieldset>
+            <fieldset class="mb-4">
+              <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormAddress" class="form-control">
+                    <label for="materialLoginFormAddress">Street Address</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormAddresssecond" class="form-control">
+                    <label for="materialLoginFormAddresssecond">Address 2nd line</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormCity" class="form-control">
+                    <label for="materialLoginFormCity">City *</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormState" class="form-control">
+                    <label for="materialLoginFormState">State *</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormCountry" class="form-control">
+                    <label for="materialLoginFormCountry">Country *</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormZip" class="form-control">
+                    <label for="materialLoginFormZip">Zip Code</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormPhoneone" class="form-control">
+                    <label for="materialLoginFormPhoneone">Phone Number 1</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormPhonetwo" class="form-control">
+                    <label for="materialLoginFormPhonetwo">Phone Number 2</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormEmail" class="form-control">
+                    <label for="materialLoginFormEmail">Email Id</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="f1-buttons col-sm-6 text-left">
+                  <button class="btn btn-previous rounded-circle btn-circle-pre btn-hover"><em class="fa fa-arrow-left"></em></button>
+                </div>
+                <div class="f1-buttons col-sm-6">
+                  <button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>
+                  <button class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="mb-4">
+              <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="md-form">
+                    <input type="text" id="materialLoginFormKeywords" class="form-control">
+                    <label for="materialLoginFormKeywords">Keywords</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-12">
+                  <div class="ft-sml col-grey">Job Type</div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                      <label class="custom-control-label" for="customCheck">Full Time</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                      <label class="custom-control-label" for="customCheck">Part Time</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                      <label class="custom-control-label" for="customCheck">Contractor</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                      <label class="custom-control-label" for="customCheck">Intern</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                      <label class="custom-control-label" for="customCheck">Seasonal</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                    <div class="col-sm-12 col-xs-12 mt-3">
+                        <div class="ft-12 col-grey">Job Category </div>
+                      <em class="fa fa-angle-down ft-13 text-light-grey profile-drop-icon"></em> 
+                      <select id="dates-field2" class="multiselect-ui form-control m-sel" multiple="multiple">
+                          <option value="cheese">Banking</option>
+                          <option value="tomatoes">Accounting</option>
+                          <option value="mozarella">Services</option>
+                          <option value="mushrooms">It Software</option>
+                          <option value="pepperoni">Computer</option>
+                          <option value="onions">Accounting</option>
+                      </select>
+                    </div>
+              </div>
+              <div class="row emp-pro mt-2">
+                    <div class="col-sm-12 col-xs-12">
+                      <div class="md-form">
+                        <textarea type="text" id="form7" class="md-textarea form-control" rows="1"></textarea>
+                        <label for="form7">Description</label>
+                      </div>
+                    </div>
+                  </div>
+              <div class="row">
+                <div class="f1-buttons col-sm-6 text-left">
+                  <button class="btn btn-previous rounded-circle btn-circle-pre btn-hover"><em class="fa fa-arrow-left"></em></button>
+                </div>
+                <div class="f1-buttons col-sm-6">
+                  <button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>
+                  <button class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="container mt-2 mb-5">
+                <div class="row">
+                  <div class="col-sm-12 mob-pl-0">
+                    <ul class="timeline">
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success text-success-green mr-4">May 2010 Sep 2013</span> <span> <span class="col-blue text-span">3 years 4 Months</span> <a href="#"> <em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </span> </div>
+                          <div class="pl-3"> 
+                            <!-- <a href="#" class="float-right">21 March, 2014</a> -->
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success text-success-green mr-4">May 2010 Sep 2013</span> <span> <span class="col-blue text-span">3 years 4 Months</span> <a href="#"> <em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </span> </div>
+                          <div class="pl-3">
+                            <!-- <a href="#" class="float-right">21 March, 2014</a> -->
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success text-success-green mr-4">May 2010 Sep 2013</span> <span> <span class="col-blue text-span">3 years 4 Months</span> <a href="#"> <em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </span> </div>
+                          <div class="pl-3">
+                            <!-- <a href="#" class="float-right">21 March, 2014</a> -->
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="f1-buttons col-sm-6 text-left pl-2">
+                    <button class="btn btn-previous rounded-circle btn-circle-pre btn-hover"><em class="fa fa-arrow-left"></em></button>
+                    <button type="button" class="btn btn-save btn-border ml-3" data-toggle="modal" data-target="#myModal"><img src="./images/add-icon.png" class="pr-3 pb-1">Add</button>
+                  </div>
+                  <div class="f1-buttons col-sm-6 pr-1">
+                    <button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>
+                    <button class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="container mt-2 mb-5">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <ul class="timeline timeline1">
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">University of Pennsylvania</p>
+                            <p class="ft-sml text-dark">Degree, Major  & Minor</p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <a href="#"><em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </div>
+                          <div class="pl-3">
+                            <!-- <a href="#" class="float-right">21 March, 2014</a> -->
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left ft-sml">
+                            <p class="h4 col-blue text-left">University of Pennsylvania </p>
+                            <p class="ft-sml text-dark">Degree, Major  & Minor</p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <a href="#"><em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </div>
+                          <div class="pl-3">
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">University of Pennsylvania </p>
+                            <p class="ft-sml text-dark">Degree, Major  & Minor</p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <a href="#"><em class="fas fa-edit ml-3"></em></a> <em class="fas fa-trash text-danger ml-1"></em> </div>
+                          <div class="pl-3">
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="row">
+                      <div class="f1-buttons col-sm-6 text-left pl-1">
+                        <button class="btn btn-previous rounded-circle btn-circle-pre btn-hover"><em class="fa fa-arrow-left"></em></button>
+                        <button type="button" class="btn btn-save btn-border ml-3" data-toggle="modal" data-target="#myModal2"><img src="./images/add-icon.png" class="pr-3 pb-1">Add</button>
+                      </div>
+                      <div class="f1-buttons col-sm-6 pr-1">
+                        <button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>
+                        <button class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="container mt-2 mb-5">
+                <div class="row">
+                <div class="col-sm-3"> <img src="./images/logo-pre.png"> </div>
+                <div class="col-sm-5 pt-2">
+                  <p class="h4 blue-clr">Work Experience</p>
+                  <span class="ft-sml">Sr. Art Director</span> </div>
+                <div class="col-sm-4 pt-4">
+                <div class="switch-btn-2">
+                <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                <label class="switch-paddle col-grey" for="exampleSwitch">
+                </div>
+                </div>
+                </div>
+                <div class="row mt-5 ft-14">
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-1"><em class="fa fa-map-marker-alt col-blue pt-1 ft-20"></em></div>
+                      <div class="col-sm-11 pl-1">
+                        <p>9580 W Reno Ave  Unit 100067, 89148 Las Vegas Nevada United States</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <p><em class="fa fa-mobile-alt col-blue pr-2 pt-1 ft-20"></em>386 348 2873</p>
+                  </div>
+                  <div class="col-sm-3">
+                    <p><em class="fa fa-envelope col-blue pr-2 pt-1 ft-20"></em>pchang@yomail.com</p>
+                  </div>
+                  <div class="col-sm-1 text-right"> <em class="fa fa-edit col-blue"></em> </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p class="h3 blue-clr mt-5 mb-3 font-600 text-dark">Work Experience</p>
+                    <ul class="timeline">
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <a href="#"><em class="fas fa-edit ml-3 col-blue"></em></a> </div>
+                          <div class="pl-3">
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <em class="fas fa-edit ml-3 col-blue"></em> </div>
+                          <div class="pl-3">
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-6 text-left">
+                            <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                          </div>
+                          <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <em class="fas fa-edit ml-3 col-blue"></em> </div>
+                          <div class="pl-3">
+                            <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                          <p class="h3 blue-clr mt-5 mb-3 font-600 text-dark">Job Preferences</p>
+                              <div class="row">
+                                <div class="col-sm-6 text-left">
+                                  <p class="h4 col-blue text-left pl-4">Category - Accounting</p>
+                                </div>
+                                <div class="col-sm-6 text-right ft-sml"><a href="#"><em class="fas fa-edit ml-3 col-blue"></em></a> </div>
+                              </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="h3 blue-clr mt-5 mb-3 font-600 text-dark">Education & Certification </p>
+                        <ul class="timeline timeline1">
+                          <li>
+                            <div class="row">
+                              <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                              </div>
+                              <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <a href="#"><em class="fas fa-edit ml-3 col-blue"></em></a> </div>
+                              <div class="pl-3">
+                                <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="row">
+                              <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                              </div>
+                              <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <em class="fas fa-edit ml-3 col-blue"></em> </div>
+                              <div class="pl-3">
+                                <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="row">
+                              <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">Sr. Art Director <a href="#"><small class="ft-sml text-dark">PWC Inc</small></a></p>
+                              </div>
+                              <div class="col-sm-6 text-right ft-sml"> <span class="text-success mr-4">May 2010 Sep 2013</span> <span class="col-blue">3 years 4 Months</span> <em class="fas fa-edit ml-3 col-blue"></em> </div>
+                              <div class="pl-3">
+                                <p class="border-btm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="f1-buttons col-sm-6 text-left pl-1">
+                        <button class="btn btn-previous rounded-circle btn-circle-pre btn-hover"><em class="fa fa-arrow-left"></em></button>
+                      </div>
+                      <div class="f1-buttons col-sm-6 pr-1">
+                        <button type="button" class="btn btn-next btn-hover"><a href="list.html">Find Jobs</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Work Experience</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="md-form">
+                          <input type="text" id="materialLoginFormPosition" class="form-control">
+                          <label for="materialLoginFormPosition">Position</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="md-form">
+                          <input type="text" id="materialLoginFormCompany" class="form-control">
+                          <label for="materialLoginFormCompany">Company</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                          <!-- <input data-date-format="dd/mm/yyyy" id="datepicker"> -->
+                          <input id="datepicker" placeholder="From" />
+                          <!-- <div class="md-form" id="datepicker">
+                            <input type="text" id="materialLoginFormFrom" class="form-control">
+                            <label for="materialLoginFormFrom">From</label>
+                          </div> -->
+                      </div>
+                      <div class="col-sm-6">
+                            <input id="datepicker-1" placeholder="To" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="md-form">
+                        <input type="text" id="materialLoginFormSalary" class="form-control">
+                        <label for="materialLoginFormSalary">Salary</label>
+                      </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="switch-btn-1 sw-pre">
+                          <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                          <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                          <span class="ft-sm col-grey ft-sml">This is my current job</span> </div>
+                      </div>
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-sm-12">
+                        <input id="name" type="text" placeholder="Description" class="tab-cus-input">
+                        <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey">Resume Tips</span><em class="far fa-question-circle ml-2"></em> </div>
+                      </div>
+                    </div> -->
+                    <div class="row emp-pro mt-2">
+                            <div class="col-sm-12 col-xs-12">
+                              <div class="md-form">
+                                <textarea type="text" id="form7" class="md-textarea form-control" rows="1"></textarea>
+                                <label for="form7">Description</label>
+                              </div>
+                                <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey">Resume Tips</span><em class="far fa-question-circle ml-2 col-blue"></em> </div>
+                            </div>
+                          </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-save" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-next btn-hover" data-dismiss="modal">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="myModal2">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Education</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="md-form">
+                          <input type="text" id="materialLoginFormMajor" class="form-control">
+                          <label for="materialLoginFormMajor">Major</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="md-form">
+                          <input type="text" id="materialLoginFormUniversity" class="form-control">
+                          <label for="materialLoginFormUniversity">University or Institute</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="md-form">
+                          <input type="text" id="materialLoginFormMinor" class="form-control">
+                          <label for="materialLoginFormMinor">Minor</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="switch-btn-1">
+                          <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                          <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                          <span class="ft-sm col-grey ft-sml">Degree or Certification Received?</span> </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <!-- <input data-date-format="dd/mm/yyyy" id="datepicker2" placeholder="From">
+                          <div class="em-float-right modalpopup"><em class="far fa-calendar-alt"></em> </div> -->
+                          <input id="datepicker-2" placeholder="From" />
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <!-- <input data-date-format="dd/mm/yyyy" id="datepicker3" placeholder="To">
+                          <div class="em-float-right modalpopup"><em class="far fa-calendar-alt"></em> </div> -->
+                          <input id="datepicker-3" placeholder="To" />
+                        </div>
+                    </div>
+                    <div class="row d-none">
+                      <div class="col-sm-12 group profile-form">
+                        <input class="log-user" type="text" required>
+                        <label class="pl-3">Description</label>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-save" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-next" data-dismiss="modal">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+      <div class="text-center col-sm-2 text-sm-right add-sm-none mt-5"> <a href="/" class=""><img src="./images/advertisement.png" alt="logo" class="logo"></a> </div>
+    </div>
+  </div>
+  </div>
+</section>
+<footer class="app-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="copyright">Copyright Ideal Hires © 2018 - 2019. All Rights Reserved</div>
+            </div>
+            <div class="col-md-6 text-right">
+               <ul class="app-footer-links">
+                   <li><a href="#">Terms & Conditions</a></li>
+                   <li><a href="#">Privacy policy</a></li>
+               </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<!--JavaScript--> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/multiselect-drop.js"></script> 
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/mdb.js"></script>
+<script src="js/scripts.js"></script> 
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+      $('#datepicker-1').datepicker();
+      $('#datepicker-2').datepicker();
+      $('#datepicker-3').datepicker();
+    </script>
+</body>
+</html>

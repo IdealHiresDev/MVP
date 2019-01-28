@@ -1,50 +1,93 @@
 ﻿@model IdealHires.DTO.Candidate.CandidateBasicDTO
 @{
     AjaxOptions options = new AjaxOptions();
-    options.HttpMethod = "POST";    
-    options.InsertionMode = InsertionMode.ReplaceWith;
-    options.UpdateTargetId = "formBasic";
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnGeneralSuccess";
 }
+<script type="text/javascript">
+    function OnGeneralSuccess(data) {
+        if (data === "BasicSuccess") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass().addClass('fas fa-check-square');
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data === "BtnBasicSuccess") {
+            $('#hAlertTitle').empty().html('Confirmation');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
+            $('#AlertModel').modal('show');
+        }
+        else if (data === "BasicFailure") {
+            $('#hAlertTitle').empty().html('Error');
+            //$("#iAlertShow").removeClass();
+            $('#spanAlertShow').empty().html('There was an error saving information.');
+            $('#AlertModel').modal('show');
+        }
+    }
 
-@using (Ajax.BeginForm("General", "Candidate", null, options, new { @id = "formBasic" }))
+</script>
+
+@using (Ajax.BeginForm("General", "Candidate", null, options, new { enctype = "multipart/form-data", @id = "formBasic" }))
 {
     @Html.AntiForgeryToken()
-    <br />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="group profile-form">
-        @Html.TextBoxFor(m => m.JobTitle, new { @class = "log-user"})
-        @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
-        @*<input class="log-user" type="text" required>*@
-        <label>Desired Job Title *</label>
-    </div>
-    <div class="group profile-form">
-        @Html.TextBoxFor(m => m.ResumeFile, new { @class = "log-user" })
-        @*<input class="log-user" type="text" required>*@
-        <label>Upload Resume *</label>
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.JobTitle, new { @class = "tab-cus-input", placeholder = "Desired Job Title *", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Desired Job Title *" class="tab-cus-input">*@
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <div class="group profile-form">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "log-user" })
-                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
-                @*<input class="log-user" type="text" required>*@
-                <label>First Name *</label>
+            <!--<input id="name" type="text" placeholder="Upload Resume *" class="tab-cus-input type-file">-->
+            <div class="em-float-right">
+                @Html.TextBoxFor(m => m.ResumeFile, new { type = "file" })<em class="far fa-question-circle col-blue ques"></em>
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="group profile-form">
-                @Html.TextBoxFor(m => m.LastName, new { @class = "log-user" })
-                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
-                @*<input class="log-user" type="text" required>*@
-                <label>Last Name *</label>
-            </div>
+            @if (!string.IsNullOrEmpty(Model.ResumeFilePath))
+            {
+                <span>@Model.ResumeFilePath</span>
+            }
+            else
+            {
+                <span>Resume not uploaded.</span>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "tab-cus-input", placeholder = "First Name", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="First Name" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "tab-cus-input", placeholder = "Last Name", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Last Name" alt="Category" class="tab-cus-input">*@
         </div>
     </div>
     <div class="f1-buttons">
-        <button type="submit" class="btn btn-save">Save</button>
-        <button type="button" class="btn btn-next">Next</button>
+        <button type="submit" name="submit" value="Save" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+        <button type="button" class="btn btn-next rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
     </div>
 }
+
 
 
 

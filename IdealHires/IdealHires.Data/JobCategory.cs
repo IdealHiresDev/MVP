@@ -20,13 +20,11 @@ namespace IdealHires.Data
             this.JobCategoryJobs = new HashSet<JobCategoryJob>();
             this.JobCategoryProfiles = new HashSet<JobCategoryProfile>();
             this.KeywordsJobs = new HashSet<KeywordsJob>();
-            this.KeywordsProfiles = new HashSet<KeywordsProfile>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public bool IsActive { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<int> CreatedBy { get; set; }
@@ -36,14 +34,7 @@ namespace IdealHires.Data
         public virtual ICollection<JobCategoryJob> JobCategoryJobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobCategoryProfile> JobCategoryProfiles { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual User User2 { get; set; }
-        public virtual User User3 { get; set; }
-        public virtual User User4 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KeywordsJob> KeywordsJobs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KeywordsProfile> KeywordsProfiles { get; set; }
     }
 }

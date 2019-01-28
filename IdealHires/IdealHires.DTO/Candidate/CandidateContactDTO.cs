@@ -11,30 +11,38 @@ namespace IdealHires.DTO.Candidate
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Street address is required.")]
         [DataType(DataType.Text)]
         public string StreetAddress1 { get; set; }
         public string StreetAddress2 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "City is required.")]
         [DataType(DataType.Text)]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "State is required.")]
         [DataType(DataType.Text)]
         public string State { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Country is required.")]
         [DataType(DataType.Text)]
         public string Country { get; set; }
 
-        [Required]
-        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Zip code is required.")]
+        [RegularExpression("^[0-9]{5}(?:-[0-9]{4})?$", ErrorMessage = "Invalid ZIP code.")]
+        [MaxLength(5)]
+        [DataType(DataType.PostalCode)]
         public string ZipCode { get; set; }
 
-        [Required]
-        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Phone is required.")]
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Invalid phone number.")]
+        [MaxLength(10)]
+        [DataType(DataType.PhoneNumber)]        
         public string Phone1 { get; set; }
+
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Invalid phone number 2.")]
+        [DataType(DataType.PhoneNumber)]
+        [MaxLength(10)]
         public string Phone2 { get; set; }
     }
 }

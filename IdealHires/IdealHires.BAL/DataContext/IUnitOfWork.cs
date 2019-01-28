@@ -13,6 +13,13 @@ namespace IdealHires.BAL.DataContext
         IRepository<Address> AddressRepository { get; }
         IRepository<Work> WorkRepository { get; }
         IRepository<Academic> AcademicRepository { get; }
+        IRepository<JobType> JobTypeRepository { get; }
+        IRepository<JobCategory> JobCategoryRepository { get; }
+        IRepository<KeywordsProfile> KeywordsProfileRepository { get; }
+        IRepository<JobTypeProfile> JobTypeProfileRepository { get; }
+        IRepository<JobCategoryProfile> JobCategoryProfileRepository { get; }
+        IRepository<Company> CompanyRepository { get; }
+
         int Complete();
     }
 }

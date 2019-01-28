@@ -26,5 +26,7 @@ namespace IdealHires.DTO
 
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
+
+        public string UserType { get; set; }
     }
 }

@@ -31,9 +31,11 @@ namespace IdealHires.Web.Controllers
 
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string type)
         {
-            return View();
+            LoginDTO loginDTO = new LoginDTO();
+            loginDTO.UserType = (type == "e") ? "Employer" : "Candidate";
+            return View("Login", loginDTO);
         }
 
         [AllowAnonymous]
@@ -67,16 +69,27 @@ namespace IdealHires.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            Session.Abandon();
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
         #endregion
 
+        [AllowAnonymous]
+        public ActionResult EmployerRegister()
+        {
+            RegisterDTO registerDTO = new RegisterDTO();
+            registerDTO.UserType = "Employer";
+            return View("EmployerRegister", registerDTO);
+        }
+
         #region Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterDTO registerDTO = new RegisterDTO();
+            registerDTO.UserType = "Candidate";
+            return View("Register", registerDTO);
         }
 
         [HttpPost]
@@ -267,7 +280,7 @@ namespace IdealHires.Web.Controllers
                         client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/account/ChangePassword");
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         var tokenData = GetTokenData();
-                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"] , tokenData["AccessToken"]);
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
                         var response = client.PostAsJsonAsync(string.Empty, changePassword).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {

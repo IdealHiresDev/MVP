@@ -18,11 +18,6 @@ namespace IdealHires.Data
         public User()
         {
             this.AuditTrails = new HashSet<AuditTrail>();
-            this.JobCategories = new HashSet<JobCategory>();
-            this.JobCategories1 = new HashSet<JobCategory>();
-            this.JobCategories2 = new HashSet<JobCategory>();
-            this.JobCategories3 = new HashSet<JobCategory>();
-            this.JobCategories4 = new HashSet<JobCategory>();
             this.Keywords = new HashSet<Keyword>();
             this.Notifications = new HashSet<Notification>();
             this.Profiles = new HashSet<Profile>();
@@ -49,16 +44,6 @@ namespace IdealHires.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AuditTrail> AuditTrails { get; set; }
         public virtual Company Company { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategory> JobCategories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategory> JobCategories1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategory> JobCategories2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategory> JobCategories3 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategory> JobCategories4 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Keyword> Keywords { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

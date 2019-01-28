@@ -13,6 +13,9 @@ namespace IdealHires.API.Providers
         {
             List<Claim> claims = new List<Claim>();
             claims.Add(CreateClaim("IsEmailConfirm", user.IsEmailConfirm.ToString()));
+            claims.Add(CreateClaim("FirstName", user.FirstName.ToString()));
+            claims.Add(CreateClaim("LastName", user.LastName.ToString()));
+            claims.Add(CreateClaim("UserType", user.UserType.ToString()));
             return claims;
         }
 

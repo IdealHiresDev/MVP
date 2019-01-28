@@ -15,7 +15,7 @@ namespace IdealHires.Data
     public partial class Address
     {
         public int Id { get; set; }
-        public Nullable<int> ProfileId { get; set; }
+        public int ProfileId { get; set; }
         public string StreetAddress1 { get; set; }
         public string StreetAddress2 { get; set; }
         public string City { get; set; }

@@ -14,6 +14,12 @@ namespace IdealHires.BAL.DataContext
         private IRepository<Address> _addressRepository;
         private IRepository<Work> _workRepository;
         private IRepository<Academic> _academicRepository;
+        private IRepository<JobType> _jobTypeRepository;
+        private IRepository<JobCategory> _jobCategoryRepository;
+        private IRepository<KeywordsProfile> _keywordsProfileRepository;
+        private IRepository<JobTypeProfile> _jobTypeProfileRepository;
+        private IRepository<JobCategoryProfile> _jobCategoryProfileRepository;
+        private IRepository<Company> _companyRepository;
 
         #endregion
 
@@ -21,6 +27,36 @@ namespace IdealHires.BAL.DataContext
         public UnitOfWork(IdealHiresDbContext context)
         {
             _context = context;            
+        }
+
+        public IRepository<Company> CompanyRepository
+        {
+            get { return _companyRepository ?? (_companyRepository = new Repository<Company>(_context)); }
+        }
+
+        public IRepository<JobTypeProfile> JobTypeProfileRepository
+        {
+            get { return _jobTypeProfileRepository ?? (_jobTypeProfileRepository = new Repository<JobTypeProfile>(_context)); }
+        }
+
+        public IRepository<JobCategoryProfile> JobCategoryProfileRepository
+        {
+            get { return _jobCategoryProfileRepository ?? (_jobCategoryProfileRepository = new Repository<JobCategoryProfile>(_context)); }
+        }
+
+        public IRepository<JobType> JobTypeRepository
+        {
+            get { return _jobTypeRepository ?? (_jobTypeRepository = new Repository<JobType>(_context)); }
+        }
+
+        public IRepository<JobCategory> JobCategoryRepository
+        {
+            get { return _jobCategoryRepository ?? (_jobCategoryRepository = new Repository<JobCategory>(_context)); }
+        }
+
+        public IRepository<KeywordsProfile> KeywordsProfileRepository
+        {
+            get { return _keywordsProfileRepository ?? (_keywordsProfileRepository = new Repository<KeywordsProfile>(_context)); }
         }
 
         public IUserRepository Users

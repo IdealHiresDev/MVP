@@ -1,0 +1,93 @@
+﻿@model IdealHires.DTO.Candidate.CandidateWorkDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "WorkExperienceSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+<script src="~/Scripts/work/addworkexp.js" type="text/javascript"></script>
+@using (Ajax.BeginForm("WorkExp", "Candidate", null, options, new { @id = "formWork" }))
+{
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.ProfileId)
+    <div class="modal-header">
+        <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Work Experience</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="group profile-form">
+                    @Html.TextBoxFor(m => m.PositionName, new { @class = "tab-cus-input", placeholder = "Position" })
+                    @Html.ValidationMessageFor(m => m.PositionName, "", new { @class = "text-validationdanger" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="group profile-form">
+                    @Html.TextBoxFor(m => m.CompanyName, new { @class = "tab-cus-input", placeholder = "Company" })
+                    @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-validationdanger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="group profile-form">
+                    @Html.TextBoxFor(m => m.StartAt, new { @class = "datepicker", placeholder = "From" })
+                    @Html.ValidationMessageFor(m => m.StartAt, "", new { @class = "text-validationdanger" })                    
+                </div>
+            </div>
+            @if (Model.IsCurrent)
+            {
+                <div class="col-sm-6" id="EndAtDiv" style="display: none;">
+                    @Html.TextBoxFor(m => m.EndAt, new { @class = "datepicker", placeholder = "To" })
+                    @Html.ValidationMessageFor(m => m.EndAt, "", new { @class = "text-validationdanger" })
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-6" id="EndAtDiv">
+                    @Html.TextBoxFor(m => m.EndAt, new { @class = "datepicker", placeholder = "To" })
+                    @Html.ValidationMessageFor(m => m.EndAt, "", new { @class = "text-validationdanger" })
+                </div>
+            }
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.Salary, new { @class = "tab-cus-input", placeholder = "Salary" })
+            </div>
+            <div class="col-sm-6">
+                <div class="switch-btn-1 sw-pre">
+                    @Html.HiddenFor(m => m.IsCurrent)
+                    @if (Model.IsCurrent)
+                    {
+                        <input class="switch-input" id="exampleSwitch" type="checkbox" checked="checked" name="exampleSwitch">
+                        <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">This is my current job</span>
+                    }
+                    else
+                    {
+                        <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                        <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">This is my current job</span>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="row emp-pro mt-2">
+            <div class="col-sm-12">
+                @Html.TextAreaFor(m => m.Description, 2, 60, new { @class = "tab-cus-input", placeholder = "Description" })
+                @*<textarea class="tab-cus-input" rows="2" placeholder="Description"></textarea>*@
+                <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey">Resume Tips</span><em class="far fa-question-circle ml-2 col-blue"></em> </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-save" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-nextt btn-hover addWork" id="btnAddWorkSubmit">Submit</button>
+    </div>
+
+}
+
