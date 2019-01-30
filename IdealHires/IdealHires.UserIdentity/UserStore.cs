@@ -38,15 +38,14 @@ namespace IdealHires.UserIdentity
                     SecurityStamp = user.SecurityStamp,
                     IsEmailConfirm = false,
                     UserType= user.UserType,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt = DateTime.Now                    
                 };
 
                 _userService.CreateUser(userEntity);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             return Task.FromResult(0);
         }
@@ -111,13 +110,7 @@ namespace IdealHires.UserIdentity
 
         #region IUserRoleStore
         public Task AddToRoleAsync(UserDTO user, string roleName)
-        {
-            //if (!user.Roles.Any(r => r.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)))
-            //{
-            //    //update database
-            //    user.Roles.Remove(roleName);
-            //}
-
+        {            
             return Task.FromResult(0);
         }
 
@@ -137,13 +130,7 @@ namespace IdealHires.UserIdentity
         }
 
         public Task RemoveFromRoleAsync(UserDTO user, string roleName)
-        {
-            //var removed = user.Roles.Remove(roleName);
-            //if (removed)
-            //{
-            //    //update database
-            //}
-
+        {           
             return Task.FromResult(0);
         }
         #endregion

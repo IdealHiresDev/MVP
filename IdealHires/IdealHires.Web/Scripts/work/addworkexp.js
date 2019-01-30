@@ -10,12 +10,12 @@ $(document).ready(function () {
             $('#IsCurrent').val('False');
             $('#EndAtDiv').show();
         }
-    });    
+    });
 });
 function WorkExperienceSuccess(data) {
     if (data == "WorkExpSuccess") {
         $("#WorkExpModal").modal('hide');
-        LoadData();
+        LoadWorkData();
     } else {
         alert("Failure");
     }
@@ -31,10 +31,10 @@ $("#btnAddWorkSubmit").on("click", function (e) {
     }
     else {
         return false;
-    }    
+    }
 });
 
-function LoadData() {
+function LoadWorkData() {
     $.ajax({
         url: "../Candidate/WorkDetails",
         type: "GET",

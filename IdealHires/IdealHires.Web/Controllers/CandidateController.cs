@@ -366,11 +366,11 @@ namespace IdealHires.Web.Controllers
                         var response = client.PostAsJsonAsync(string.Empty, workDTO).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return Json("WorkExpSuccess", JsonRequestBehavior.AllowGet);
+                            return Json("WorkExpSuccess");
                         }
                         else
                         {
-                            return Json("WorkExpFailure", JsonRequestBehavior.AllowGet);
+                            return Json("WorkExpFailure");
                         }
                     }                    
                 }
@@ -378,7 +378,7 @@ namespace IdealHires.Web.Controllers
             catch (Exception ex)
             {
                 throw ex;
-            }            
+            }
         }
 
         [Authorize]
@@ -411,11 +411,11 @@ namespace IdealHires.Web.Controllers
                         var response = client.PostAsJsonAsync(string.Empty, educationDTO).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return Json("EducationSuccess",JsonRequestBehavior.AllowGet);
+                            return Json("EducationSuccess");
                         }
                         else
                         {
-                            return Json("EducationFailure", JsonRequestBehavior.AllowGet);
+                            return Json("EducationFailure");
                         }
                     }                    
                 }
@@ -501,11 +501,11 @@ namespace IdealHires.Web.Controllers
                 var response = client.GetAsync(string.Empty).Result;
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return Json("Deleted", JsonRequestBehavior.AllowGet);
+                    return Json("EducationDeleted", JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return Json("DeleteFailure", JsonRequestBehavior.AllowGet);
+                    return Json("EducationDeleteFailure", JsonRequestBehavior.AllowGet);
                 }
             }
         }

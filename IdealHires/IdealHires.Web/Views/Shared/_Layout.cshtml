@@ -18,6 +18,7 @@
     <link href="~/Content/font.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="~/Content/form-elements.css">
     <link rel="stylesheet" href="~/Content/wizard-style.css">
+    <link href="~/Content/mdb.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="~/Content/custom-styles.css" rel="stylesheet">
 
@@ -53,7 +54,14 @@
                                 </span><em class="fa fa-angle-down col-grey"></em>
                             </a>
                             <ul class="dropdown-menu top-right-cus">
-                                <li><a href="@Url.Action("Profile","Candidate")"><i class="icon-cog"></i><em class="fa fa-user pr-1"></em> Profile</a></li>
+                                @if (User.UserType() == "Candidate")
+                                {
+                                    <li><a href="@Url.Action("Profile","Candidate")"><i class="icon-cog"></i><em class="fa fa-user pr-1"></em> Profile</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Profile","Employer")"><i class="icon-cog"></i><em class="fa fa-user pr-1"></em> Profile</a></li>
+                                }
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
                             </ul>
                         </li>
@@ -62,7 +70,7 @@
             }
             else
             {
-                <a class="btn clr-blue" href="@Url.Action("Login","Account")"><em class="far fa-user pr-2"></em> Sign in</a>                
+                <a class="btn clr-blue" href="@Url.Action("Login","Account")"><em class="far fa-user pr-2"></em> Sign in</a>
             }
         </div>
     </header>
@@ -80,14 +88,16 @@
     <script type="text/javascript" src="~/Scripts/js/jquery.placeholder.label.js"></script>
     <!-- Create Profile Javascript -->
     <script src="~/Scripts/js/jquery.backstretch.min.js"></script>
+    <script src="~/Scripts/js/mdb.min.js"></script>
     <script src="~/Scripts/js/scripts.js"></script>
+    <script src="~/Scripts/commonjs/common.js"></script>
     <script src="~/Scripts/js/custom-js.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.tab-cus-input').placeholderLabel();
         })
     </script>
-  
+
     <script type="text/javascript">
   !function ($) {
       "use strict";// jshint ;_;
@@ -1792,6 +1802,80 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="CommonDeleteModel" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content modal-cus rounded-0">
+                <div class="modal-header modal-cus">
+                    <div class="container mp-0">
+                        <div class="row">
+                            <div class="col-sm-2 px-1">
+                                <button type="button" class="btn btn-colr btn-circle btn-lg btn-bg shadow-none"><i class="fa fa-trash-alt war-pos btn-font"></i></button>
+                            </div>
+                            <div class="col-sm-9 mp-0">
+                                <h4 class="modal-title m-top-p m-ft" id="hDeleteMessage">Confirm Delete</h4>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="modal-cus close" data-dismiss="modal"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body font-weight-normal pad-left">
+                    <p id="pDeleteMessage">Are you sure you want to permanently delete this item?</p>
+                    <p class="btn-colr">This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer modal-cus">
+                    <button type="button" class="btn btn-light box-shadow-none mr-3" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-bg-danger" id="btnCommonDeleteModel">Delete</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="CommonWarningModel" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content modal-cus rounded-0">
+                <div class="modal-header modal-cus">
+                    <div class="container mp-0">
+                        <div class="row">
+                            <div class="col-sm-2 px-1">
+                                <button type="button" class="btn btn-colr-warning btn-circle btn-lg btn-bg-warning shadow-none"><i class="fa fa-exclamation-triangle excla-pos btn-font"></i></button>
+                            </div>
+                            <div class="col-sm-9 mp-0">
+                                <h4 class="modal-title m-top-p m-ft" id="hWarningMessage">Warning Message</h4>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="modal-cus close" data-dismiss="modal"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body font-weight-normal pad-left">
+                    <p id="pWarningMessage">There was an error saving information !</p>
+                </div>
+                <div class="modal-footer modal-cus">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade" id="ToastSuccessDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Saved Successfully!</strong>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade" id="ToastDeleteDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Deleted Successfully!</strong>
+    </div>
+    <div class="alert alert-success alert-dismissible fade" id="ToastWarningDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>There is an issue to save data!</strong>
     </div>
 </body>
 </html>

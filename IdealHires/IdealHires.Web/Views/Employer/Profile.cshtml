@@ -1,0 +1,168 @@
+﻿@model IdealHires.DTO.Employer.CompanyDTO
+@{
+    ViewBag.Title = "Employer Profile";
+}
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnProfileSuccess";
+}
+<script type="text/javascript">
+    function OnProfileSuccess(data) {        
+        if (data === "ProfileSuccess") {            
+            ToastMessageSuccess();
+            //$('#hMessage').empty().html('Information');            
+            //$('#pMessage').empty().html('Company successfully saved.');
+            //$('#CommonMessageModel').modal('show');
+        }
+        else if (data === "ProfileFailure") {
+            ToastMessageWarning();
+            //$('#hMessage').empty().html('Warning Message');
+            //$('#pMessage').empty().html('An error has occured while creating an error report !');
+            //$('#CommonMessageModel').modal('show');
+        }
+    }
+    function ToastMessageSuccess() {
+        var x = document.getElementById("ToastSuccessDiv");
+        x.className = "alert alert-success alert-dismissible fade show";
+        setTimeout(function () { x.className = x.className.replace("show", "alert alert-success alert-dismissible fade"); }, 3000);
+    }
+    function ToastMessageWarning() {
+        var x = document.getElementById("ToastWarningDiv");
+        x.className = "alert alert-warning alert-dismissible fade show";
+        setTimeout(function () { x.className = x.className.replace("show", "alert alert-warning alert-dismissible fade"); }, 3000);
+    }
+</script>
+<section>
+    <div class="mt-4 mb-5">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-sm-12 text-left">
+                    <h3 class="blue-clr"><i class="fa fa-building" aria-hidden="true"></i> <span class="text-dark">Create Employer Profile</span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="card rounded-0">
+                        <div class="card-body">
+                            @using (Ajax.BeginForm("Profile", "Employer", null, options, new { id = "form-eProfile" }))
+                            {
+                                <div class="row mb-3 mt-3">
+                                    <div class="col-sm-12">
+                                        <h4 class="text-dark"><span class="text-dark">Company Information</span></h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <a href="#"><img class="hide" src="~/images/profile-image2.png"></a>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-validationdanger" })                                          
+                                            <label>Company Name</label>
+                                        </div>                                       
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-validationdanger" })
+                                            <label>Company Phone</label>
+                                        </div>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-validationdanger" })
+                                            <label>Company Email Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-validationdanger" })
+                                            <label>Company Location</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.Website, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-validationdanger" })
+                                            <label>Company Website</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="md-form">
+                                            @Html.TextBoxFor(model => model.Description, new { @class = "md-textarea form-control" })
+                                            <label>Description</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="mt-3">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <h4 class="text-dark"><span class="text-dark"> Contact Information</span></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-validationdanger" })
+                                                <label>First Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-validationdanger" })
+                                                <label>Last Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                                                <label>Title</label>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.ContactEmail, new { @class = "form-control" })
+                                                <label>Email Address</label>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="d-flex justify-content-between mt-3">
+                                                <div class="custom-control custom-checkbox remember">
+                                                    @Html.CheckBoxFor(model => model.IsAgree, new { @class = "custom-control-input" })
+                                                    @*<input type="checkbox" class="custom-control-input" id="customCheck" name="example1">*@
+                                                    <label class="custom-control-label" for="IsAgree"><a href="#" class="forg ft-13">I agree to the terms and conditions of use</a></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            @*<button type="submit" class="btn clr-blue float-right btn-hover pl-4 pr-4">Submit</button>*@
+                                            <button type="submit" class="btn blue-theme-button float-right waves-effect waves-light">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

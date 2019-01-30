@@ -32,9 +32,9 @@ namespace IdealHires.BAL.Business
                 _unitOfWork.Complete();
                 return 1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -46,9 +46,9 @@ namespace IdealHires.BAL.Business
                 _unitOfWork.Complete();
                 return 1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -134,8 +134,7 @@ namespace IdealHires.BAL.Business
                 LastName = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName,
                 UserType = string.IsNullOrEmpty(user.UserType) ? string.Empty : user.UserType,                
                 IsActive = user.IsActive,
-                CreatedAt = user.CreatedAt,
-                UpdatedAt = DateTime.Now
+                CreatedAt = user.CreatedAt
             };
         }
 
@@ -153,8 +152,7 @@ namespace IdealHires.BAL.Business
                 LastName = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName,
                 UserType = string.IsNullOrEmpty(user.UserType) ? string.Empty : user.UserType,                
                 IsActive = user.IsActive,
-                CreatedAt = user.CreatedAt,
-                UpdatedAt = DateTime.Now
+                CreatedAt = user.CreatedAt                
             };
         }
 

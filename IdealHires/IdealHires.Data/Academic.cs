@@ -15,13 +15,13 @@ namespace IdealHires.Data
     public partial class Academic
     {
         public int Id { get; set; }
-        public Nullable<int> ProfileId { get; set; }
+        public int ProfileId { get; set; }
         public string Major { get; set; }
         public string Minor { get; set; }
         public string InstituteName { get; set; }
         public Nullable<System.DateTime> StartAt { get; set; }
         public Nullable<System.DateTime> EndAt { get; set; }
-        public Nullable<bool> IsDegreeOrCertification { get; set; }
+        public bool IsDegreeOrCertification { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<int> CreatedBy { get; set; }

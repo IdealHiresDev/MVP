@@ -18,7 +18,7 @@ namespace IdealHires.Data
         public Company()
         {
             this.Jobs = new HashSet<Job>();
-            this.Users = new HashSet<User>();
+            this.EmployerCompanies = new HashSet<EmployerCompany>();
         }
     
         public int Id { get; set; }
@@ -32,10 +32,12 @@ namespace IdealHires.Data
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public string CompanyName { get; set; }
+        public bool IsAgree { get; set; }
+        public string ContactEmail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<EmployerCompany> EmployerCompanies { get; set; }
     }
 }

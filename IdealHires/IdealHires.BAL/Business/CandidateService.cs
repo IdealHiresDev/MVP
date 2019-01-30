@@ -451,21 +451,43 @@ namespace IdealHires.BAL.Business
             {
                 if (educationCandidate != null)
                 {
-                    var academic = new Academic()
+                    User user = _unitOfWork.Users.Get(educationCandidate.UserId);
+                    Profile profile = user.Profiles.FirstOrDefault();
+                    if (educationCandidate.Id > 0)
                     {
-                        ProfileId = educationCandidate.ProfileId,
-                        Major = educationCandidate.Major,
-                        Minor = educationCandidate.Minor,
-                        InstituteName = educationCandidate.InstituteName,
-                        StartAt = Convert.ToDateTime(educationCandidate.StartAt),
-                        EndAt = Convert.ToDateTime(educationCandidate.EndAt),
-                        IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification,
-                        CreatedAt = DateTime.Now,
-                        CreatedBy = educationCandidate.UserId
-                    };
-                    _unitOfWork.AcademicRepository.Add(academic);
-                    _unitOfWork.Complete();
-                    educationId = academic.Id;
+                        Academic academicDetails = new Academic();
+                        academicDetails = _unitOfWork.AcademicRepository.Get(educationCandidate.Id);
+                        academicDetails.Major = educationCandidate.Major;
+                        academicDetails.Minor = educationCandidate.Minor;
+                        academicDetails.InstituteName = educationCandidate.InstituteName;
+                        academicDetails.IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification;                       
+                        academicDetails.StartAt = Convert.ToDateTime(educationCandidate.StartAt);
+                        academicDetails.EndAt = Convert.ToDateTime(educationCandidate.EndAt);
+                        academicDetails.UpdatedAt = DateTime.Now;
+                        academicDetails.UpdatedBy = educationCandidate.UserId;
+
+                        _unitOfWork.AcademicRepository.Update(academicDetails);
+                        _unitOfWork.Complete();
+                        educationId = academicDetails.Id;
+                    }
+                    else
+                    {
+                        var academic = new Academic()
+                        {
+                            ProfileId = profile.Id,
+                            Major = educationCandidate.Major,
+                            Minor = educationCandidate.Minor,
+                            InstituteName = educationCandidate.InstituteName,
+                            StartAt = Convert.ToDateTime(educationCandidate.StartAt),
+                            EndAt = Convert.ToDateTime(educationCandidate.EndAt),
+                            IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification,
+                            CreatedAt = DateTime.Now,
+                            CreatedBy = educationCandidate.UserId
+                        };
+                        _unitOfWork.AcademicRepository.Add(academic);
+                        _unitOfWork.Complete();
+                        educationId = academic.Id;
+                    }                        
                 }
             }
             catch (Exception)

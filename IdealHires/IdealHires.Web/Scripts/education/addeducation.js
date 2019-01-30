@@ -3,23 +3,25 @@
 $(document).ready(function () {
     $("#exampleSwitch").change(function () {
         if ($("#exampleSwitch").is(":checked")) {
-            $('#IsDegreeOrCertification').val('True');           
+            $('#IsDegreeOrCertification').val('True');
         }
         else {
-            $('#IsDegreeOrCertification').val('False');            
+            $('#IsDegreeOrCertification').val('False');
         }
     });
 });
 function EducationSuccess(data) {
-    if (data === "EducationSuccess") {
+    debugger;
+    if (data == "EducationSuccess") {
         $("#AcademicsModel").modal('hide');
-        LoadData();
+        LoadEducationData();
     } else {
-        alert("Failure");
+        $('#pWarningMessage').empty().html('There was an issue saving data !');
+        $('#CommonWarningModel').modal('show');
     }
 }
 
-$("#btnAddWducationSubmit").on("click", function (e) {
+$("#btnAddEducationSubmit").on("click", function (e) {
     var formId = e.delegateTarget.form.id;
     $.validator.unobtrusive.parse(formId);
     $("#" + formId).validate();
@@ -32,18 +34,20 @@ $("#btnAddWducationSubmit").on("click", function (e) {
     }
 });
 
-function LoadData() {
-    $.ajax({
-        url: "../Candidate/EducationDetails",
-        type: "GET",
-        contentType: "application/json",
-        async: true,
-        // dataType: 'json',
-        success: function (data) {
-            $('#EducationDetailsDiv').empty().html(data);
-        },
-        error: function (xHr, status, res) {
-            alert('Failure');
-        }
-    });
-}
+//function LoadEducationData() {
+//    $.ajax({
+//        url: "../Candidate/EducationDetails",
+//        type: "GET",
+//        contentType: "application/json",
+//        async: true,
+//        // dataType: 'json',
+//        success: function (data) {
+//            $('#EducationDetailsDiv').empty().html(data);
+//            ToastMessageSuccess();
+//        },
+//        error: function (xHr, status, res) {
+//            $('#pWarningMessage').empty().html(res);
+//            $('#CommonWarningModel').modal('show');
+//        }
+//    });
+//}

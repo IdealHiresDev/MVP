@@ -1,5 +1,6 @@
-body{
-    font-family: 'Open sans', sans-serif; 
+body {
+    font-family: 'open_sansregular', sans-serif;
+    background-color: #fbfbfb;
 }
 /* Top Right drop down  */
 .top-right-cus {
@@ -199,7 +200,7 @@ a{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 96px;
+    bottom: 70px;
 }
 .clr-h3{
     color: #216baa;
@@ -253,29 +254,17 @@ a:hover{
     padding: 0 10px;
 
 }
-  
-  /* LABEL ======================================= */
-  label 				 {
-    color:#0e6bbc; 
-    font-size:15px;
-    font-weight:normal;
-    position:absolute;
-    /*pointer-events:none;*/
-    left:5px;
-    top:13px;
-    transition:0.2s ease all; 
-    -moz-transition:0.2s ease all; 
-    -webkit-transition:0.2s ease all;
-  }
-  
-  /* active state */
-  input:focus ~ label, input:valid ~ label {
-    top:-11px;
-    font-size:14px;
-    background-color: rgba(243,246,248);
-  }
+.blue-theme-button {
+    background-color: #124e82 !important;
+}
 
-  .group input{
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.06), 0 2px 10px 0 rgba(0,0,0,.06);
+}
+.md-form label {
+    font-size: 0.95rem;
+}
+ .group input{
     padding-left: 35px;
 }
 
@@ -1582,3 +1571,279 @@ span.multiselect-native-select {
 }
 
 /* End MultiSelect Page Css */
+
+/* Popup Page Css*/
+
+.modal-cus.modal-content {
+    border-radius: 2px;
+}
+
+.modal-cus.modal-footer {
+    border-top: 0;
+}
+
+.modal-cus.modal-header {
+    border-bottom: 0;
+}
+
+.pad-left {
+    padding-left: 5.2rem;
+}
+
+.btn-cancel {
+    color: #4d4d4d;
+    padding-top: 17px;
+    margin-right: 20px !important;
+    font-weight: 400;
+}
+
+.btn-bg {
+    background-color: #fddbda;
+}
+
+.btn-bg-warning {
+    background-color: #fcf8e3;
+}
+
+.btn-colr-warning {
+    color: #ecd538;
+}
+
+
+.btn-bg-danger {
+    background-color: #fc1010;
+}
+
+.btn-colr {
+    color: #fc1010;
+}
+
+.btn-font {
+    font-size: 21px;
+}
+
+.shadow-none {
+    box-shadow: none;
+}
+
+.m-ft {
+    font-size: 25px;
+    color: #353535;
+    font-weight: 400;
+}
+
+.m-top-p {
+    padding-top: 12px;
+}
+
+.mp-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+        min-width: 50px;
+    }
+#CommonDeleteModel .btn-circle.btn-lg {
+    color: #fc1010;
+}
+#hDeleteMessage {
+    padding-top: 7px;
+}
+
+.modal-header .close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.modal-cus.close {
+    margin-right: 0px;
+    padding-top: 2rem;
+}
+
+
+.fa-times-thin:before {
+    content: '\00d7';
+}
+
+.close {
+    text-shadow: none;
+}
+
+.alert .close {
+    opacity: 1;
+}
+
+    .alert .close:not(:disabled):not(.disabled):focus,
+    .alert .close:not(:disabled):not(.disabled):hover:hover {
+        opacity: 0.5;
+        color: #fff;
+    }
+
+.alert {
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 1021;
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #155724;
+    border-color: #155724;
+}
+
+.alert-warning {
+    color: #ffffff;
+    background-color: #856404;
+    border-color: #856404;
+}
+
+.alert-danger {
+    color: #ffffff;
+    background-color: #721c24;
+    border-color: #721c24;
+}
+
+/* End Popup Page Css */
+
+/*  Employer Profile Page */
+
+.dropdown .col-grey {
+    padding-right: 8px;
+}
+
+.btn.btn-blue.condidate-btn {
+    border: 1px solid #e0e1ef;
+}
+
+.btn.clr-blue.pl-5.pr-5.pt-2.pb-2 {
+    line-height: 25px;
+}
+
+.btn.clr-blue:hover {
+    color: #fff;
+}
+
+.newsletter input {
+    color: #fff;
+}
+
+.login-btn input[type="submit"] {
+    color: #fff;
+}
+
+#form-sec .group label {
+    background: #f6f6f6;
+    padding: 0 5px;
+    margin-left: -5px;
+}
+
+.log-label #form-sec .group label {
+    margin-left: -15px;
+}
+
+.text-dark-grey {
+    color: #999999;
+    font-size: 22px;
+    line-height: 49px;
+}
+
+.active .text-dark-grey, .activated .text-dark-grey {
+    color: #fff;
+}
+
+.ctm-btm {
+    width: 75px;
+}
+
+.switch-btn-1 input[type=checkbox] {
+    width: 27%;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+
+.switch-btn-2 input[type=checkbox] {
+    width: 27%;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+
+.emp-pro input {
+    border: none;
+    border-bottom: 1px solid #acadad;
+    padding-bottom: 18px;
+    padding-top: 22px;
+    padding-right: 10px;
+    padding-left: 10px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.emp-pro textarea {
+    border: none;
+    border-bottom: 1px solid #acadad;
+    padding-bottom: 18px;
+    padding-top: 22px;
+    padding-right: 10px;
+    padding-left: 10px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+    .emp-pro textarea:focus {
+        box-shadow: none;
+    }
+
+.emp-pro label {
+    background-color: transparent !important;
+}
+
+.border-sqr {
+    border: 1px #bcbcbc solid;
+}
+
+.datepicker {
+    font-size: 0.875em;
+    padding: 10px;
+}
+
+    .datepicker td, .datepicker th {
+        width: 1.5em;
+        height: 1.5em;
+    }
+/* End Employer Profile Page */
+
+.login-sec .group {
+    margin-bottom: 15px;
+}
+
+.login-sec .group label {
+    display: none;
+}
+.login-sec .login-btn .waves-input-wrapper  {
+   display: block;
+}

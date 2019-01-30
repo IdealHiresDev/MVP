@@ -20,6 +20,7 @@ namespace IdealHires.BAL.DataContext
         private IRepository<JobTypeProfile> _jobTypeProfileRepository;
         private IRepository<JobCategoryProfile> _jobCategoryProfileRepository;
         private IRepository<Company> _companyRepository;
+        private IRepository<EmployerCompany> _employerCompanyRepository;
 
         #endregion
 
@@ -27,6 +28,11 @@ namespace IdealHires.BAL.DataContext
         public UnitOfWork(IdealHiresDbContext context)
         {
             _context = context;            
+        }
+
+        public IRepository<EmployerCompany> EmployerCompanyRepository
+        {
+            get { return _employerCompanyRepository ?? (_employerCompanyRepository = new Repository<EmployerCompany>(_context)); }
         }
 
         public IRepository<Company> CompanyRepository

@@ -18,6 +18,7 @@ namespace IdealHires.Data
         public User()
         {
             this.AuditTrails = new HashSet<AuditTrail>();
+            this.EmployerCompanies = new HashSet<EmployerCompany>();
             this.Keywords = new HashSet<Keyword>();
             this.Notifications = new HashSet<Notification>();
             this.Profiles = new HashSet<Profile>();
@@ -31,7 +32,6 @@ namespace IdealHires.Data
         public string LastName { get; set; }
         public string EmailId { get; set; }
         public string Password { get; set; }
-        public Nullable<int> CompanyId { get; set; }
         public string UserType { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public string SecurityStamp { get; set; }
@@ -40,10 +40,12 @@ namespace IdealHires.Data
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public bool IsEmailConfirm { get; set; }
+        public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AuditTrail> AuditTrails { get; set; }
-        public virtual Company Company { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployerCompany> EmployerCompanies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Keyword> Keywords { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

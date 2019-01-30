@@ -71,6 +71,9 @@
     <Compile Include="Currency.cs">
       <DependentUpon>IdealHiresModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployerCompany.cs">
+      <DependentUpon>IdealHiresModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity.cs">
       <DependentUpon>IdealHiresModel.tt</DependentUpon>
     </Compile>

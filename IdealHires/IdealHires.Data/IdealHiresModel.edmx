@@ -4,19 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="IdealHiresModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Academics">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProfileId" Type="int" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
           <Property Name="Major" Type="varchar" MaxLength="255" />
           <Property Name="Minor" Type="varchar" MaxLength="255" />
-          <Property Name="InstituteName" Type="varchar" MaxLength="255" />
+          <Property Name="InstituteName" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="StartAt" Type="date" />
           <Property Name="EndAt" Type="date" />
-          <Property Name="IsDegreeOrCertification" Type="bit" />
+          <Property Name="IsDegreeOrCertification" Type="bit" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime" />
           <Property Name="UpdatedAt" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
@@ -81,6 +81,8 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="CompanyName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsAgree" Type="bit" Nullable="false" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
@@ -93,6 +95,14 @@
           <Property Name="UpdatedAt" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployerCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Entity">
           <Key>
@@ -351,7 +361,6 @@
           <Property Name="LastName" Type="varchar" MaxLength="255" />
           <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CompanyId" Type="int" />
           <Property Name="UserType" Type="varchar" MaxLength="255" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
@@ -360,6 +369,7 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="IsEmailConfirm" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -715,18 +725,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__CompanyiId__4AA30C57">
-          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Company">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="CompanyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__UserRole__RoleId__4B973090">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
@@ -776,7 +774,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Academics_Profile">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Academics" Type="Self.Academics" Multiplicity="*" />
@@ -800,6 +798,30 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerCompany_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="EmployerCompany" Type="Self.EmployerCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployerCompany">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerCompany_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="EmployerCompany" Type="Self.EmployerCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployerCompany">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -845,13 +867,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="IdealHiresModelsStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Academics" EntityType="Self.Academics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployerCompany" EntityType="Self.EmployerCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobCategory" EntityType="Self.JobCategory" Schema="dbo" store:Type="Tables" />
@@ -982,10 +1005,6 @@
             <End Role="User" EntitySet="User" />
             <End Role="SaveSearch" EntitySet="SaveSearch" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__CompanyiId__4AA30C57" Association="Self.FK__User__CompanyiId__4AA30C57">
-            <End Role="Company" EntitySet="Company" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
           <AssociationSet Name="FK__UserRole__RoleId__4B973090" Association="Self.FK__UserRole__RoleId__4B973090">
             <End Role="Role" EntitySet="Role" />
             <End Role="UserRole" EntitySet="UserRole" />
@@ -1010,6 +1029,14 @@
             <End Role="Profile" EntitySet="Profile" />
             <End Role="Address" EntitySet="Address" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmployerCompany_Company" Association="Self.FK_EmployerCompany_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="EmployerCompany" EntitySet="EmployerCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerCompany_User" Association="Self.FK_EmployerCompany_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="EmployerCompany" EntitySet="EmployerCompany" />
+          </AssociationSet>
           <AssociationSet Name="FK_JobCatProfile_Profile" Association="Self.FK_JobCatProfile_Profile">
             <End Role="Profile" EntitySet="Profile" />
             <End Role="JobCategoryProfile" EntitySet="JobCategoryProfile" />
@@ -1023,22 +1050,23 @@
             <End Role="KeywordsProfile" EntitySet="KeywordsProfile" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="IdealHiresModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Academic">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
           <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Minor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="InstituteName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="InstituteName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StartAt" Type="DateTime" Precision="0" />
           <Property Name="EndAt" Type="DateTime" Precision="0" />
-          <Property Name="IsDegreeOrCertification" Type="Boolean" />
+          <Property Name="IsDegreeOrCertification" Type="Boolean" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" />
@@ -1108,9 +1136,11 @@
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsAgree" Type="Boolean" Nullable="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CompanyId__2A363CC5" FromRole="Company" ToRole="Job" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__User__CompanyiId__4AA30C57" FromRole="Company" ToRole="User" />
-          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployerCompanies" Relationship="Self.FK_EmployerCompany_Company" FromRole="Company" ToRole="EmployerCompany" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
@@ -1125,6 +1155,16 @@
           <Property Name="UpdatedBy" Type="Int32" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CurrencyId__2B2A60FE" FromRole="Currency" ToRole="Job" />
           <NavigationProperty Name="Works" Relationship="Self.FK__Work__CurrencyId__5614BF03" FromRole="Currency" ToRole="Work" />
+        </EntityType>
+        <EntityType Name="EmployerCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_EmployerCompany_Company" FromRole="EmployerCompany" ToRole="Company" />
+          <NavigationProperty Name="User" Relationship="Self.FK_EmployerCompany_User" FromRole="EmployerCompany" ToRole="User" />
         </EntityType>
         <EntityType Name="Entity">
           <Key>
@@ -1435,7 +1475,6 @@
           <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CompanyId" Type="Int32" />
           <Property Name="UserType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1444,8 +1483,9 @@
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="IsEmailConfirm" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AuditTrails" Relationship="Self.FK__AuditTrai__UserI__2942188C" FromRole="User" ToRole="AuditTrail" />
-          <NavigationProperty Name="Company" Relationship="Self.FK__User__CompanyiId__4AA30C57" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="EmployerCompanies" Relationship="Self.FK_EmployerCompany_User" FromRole="User" ToRole="EmployerCompany" />
           <NavigationProperty Name="Keywords" Relationship="Self.FK__Keywords__UserId__38845C1C" FromRole="User" ToRole="Keywords" />
           <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__UserI__3E3D3572" FromRole="User" ToRole="Notification" />
           <NavigationProperty Name="Profiles" Relationship="Self.FK__Profile__UserId__53385258" FromRole="User" ToRole="Profile" />
@@ -1488,7 +1528,7 @@
           <NavigationProperty Name="Profile" Relationship="Self.FK__Work__ProfileId__5708E33C" FromRole="Work" ToRole="Profile" />
         </EntityType>
         <Association Name="FK_Academics_Profile">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="0..1">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Academics" Type="Self.Academic" Multiplicity="*" />
@@ -1575,14 +1615,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__CompanyiId__4AA30C57">
-          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK_EmployerCompany_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="EmployerCompany" Type="Self.EmployerCompany" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="User">
+            <Dependent Role="EmployerCompany">
               <PropertyRef Name="CompanyId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1608,6 +1648,18 @@
             </Principal>
             <Dependent Role="Work">
               <PropertyRef Name="CurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerCompany_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="EmployerCompany" Type="Self.EmployerCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployerCompany">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1948,6 +2000,7 @@
           <EntitySet Name="AuditTrails" EntityType="Self.AuditTrail" />
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="EmployerCompanies" EntityType="Self.EmployerCompany" />
           <EntitySet Name="Entities" EntityType="Self.Entity" />
           <EntitySet Name="Jobs" EntityType="Self.Job" />
           <EntitySet Name="JobCategories" EntityType="Self.JobCategory" />
@@ -1998,9 +2051,9 @@
             <End Role="Company" EntitySet="Companies" />
             <End Role="Job" EntitySet="Jobs" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__CompanyiId__4AA30C57" Association="Self.FK__User__CompanyiId__4AA30C57">
+          <AssociationSet Name="FK_EmployerCompany_Company" Association="Self.FK_EmployerCompany_Company">
             <End Role="Company" EntitySet="Companies" />
-            <End Role="User" EntitySet="Users" />
+            <End Role="EmployerCompany" EntitySet="EmployerCompanies" />
           </AssociationSet>
           <AssociationSet Name="FK__Job__CurrencyId__2B2A60FE" Association="Self.FK__Job__CurrencyId__2B2A60FE">
             <End Role="Currency" EntitySet="Currencies" />
@@ -2009,6 +2062,10 @@
           <AssociationSet Name="FK__Work__CurrencyId__5614BF03" Association="Self.FK__Work__CurrencyId__5614BF03">
             <End Role="Currency" EntitySet="Currencies" />
             <End Role="Work" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerCompany_User" Association="Self.FK_EmployerCompany_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="EmployerCompany" EntitySet="EmployerCompanies" />
           </AssociationSet>
           <AssociationSet Name="FK__Notificat__Entit__3D491139" Association="Self.FK__Notificat__Entit__3D491139">
             <End Role="Entity" EntitySet="Entities" />
@@ -2124,9 +2181,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="IdealHiresModelsStoreContainer" CdmEntityContainer="IdealHiresDbContext">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="IdealHiresDbContext">
           <EntitySetMapping Name="Academics">
-            <EntityTypeMapping TypeName="IdealHiresModels.Academic">
+            <EntityTypeMapping TypeName="Model.Academic">
               <MappingFragment StoreEntitySet="Academics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2144,7 +2201,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Actions">
-            <EntityTypeMapping TypeName="IdealHiresModels.Action">
+            <EntityTypeMapping TypeName="Model.Action">
               <MappingFragment StoreEntitySet="Action">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ActionName" ColumnName="ActionName" />
@@ -2156,7 +2213,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="IdealHiresModels.Address">
+            <EntityTypeMapping TypeName="Model.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2176,7 +2233,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AuditTrails">
-            <EntityTypeMapping TypeName="IdealHiresModels.AuditTrail">
+            <EntityTypeMapping TypeName="Model.AuditTrail">
               <MappingFragment StoreEntitySet="AuditTrail">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2191,9 +2248,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Companies">
-            <EntityTypeMapping TypeName="IdealHiresModels.Company">
+            <EntityTypeMapping TypeName="Model.Company">
               <MappingFragment StoreEntitySet="Company">
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -2204,11 +2260,14 @@
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Currencies">
-            <EntityTypeMapping TypeName="IdealHiresModels.Currency">
+            <EntityTypeMapping TypeName="Model.Currency">
               <MappingFragment StoreEntitySet="Currency">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2220,8 +2279,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EmployerCompanies">
+            <EntityTypeMapping TypeName="Model.EmployerCompany">
+              <MappingFragment StoreEntitySet="EmployerCompany">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Entities">
-            <EntityTypeMapping TypeName="IdealHiresModels.Entity">
+            <EntityTypeMapping TypeName="Model.Entity">
               <MappingFragment StoreEntitySet="Entity">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EntityName" ColumnName="EntityName" />
@@ -2233,7 +2301,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jobs">
-            <EntityTypeMapping TypeName="IdealHiresModels.Job">
+            <EntityTypeMapping TypeName="Model.Job">
               <MappingFragment StoreEntitySet="Job">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
@@ -2256,7 +2324,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobCategories">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobCategory">
+            <EntityTypeMapping TypeName="Model.JobCategory">
               <MappingFragment StoreEntitySet="JobCategory">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2269,7 +2337,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobCategoryJobs">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobCategoryJob">
+            <EntityTypeMapping TypeName="Model.JobCategoryJob">
               <MappingFragment StoreEntitySet="JobCategoryJob">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="JobId" ColumnName="JobId" />
@@ -2282,7 +2350,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobCategoryProfiles">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobCategoryProfile">
+            <EntityTypeMapping TypeName="Model.JobCategoryProfile">
               <MappingFragment StoreEntitySet="JobCategoryProfile">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2295,7 +2363,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobTypes">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobType">
+            <EntityTypeMapping TypeName="Model.JobType">
               <MappingFragment StoreEntitySet="JobType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2308,7 +2376,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobTypeJobs">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobTypeJob">
+            <EntityTypeMapping TypeName="Model.JobTypeJob">
               <MappingFragment StoreEntitySet="JobTypeJob">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="JobId" ColumnName="JobId" />
@@ -2321,7 +2389,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobTypeProfiles">
-            <EntityTypeMapping TypeName="IdealHiresModels.JobTypeProfile">
+            <EntityTypeMapping TypeName="Model.JobTypeProfile">
               <MappingFragment StoreEntitySet="JobTypeProfile">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2334,7 +2402,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Keywords">
-            <EntityTypeMapping TypeName="IdealHiresModels.Keyword">
+            <EntityTypeMapping TypeName="Model.Keyword">
               <MappingFragment StoreEntitySet="Keywords">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2348,7 +2416,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KeywordsJobs">
-            <EntityTypeMapping TypeName="IdealHiresModels.KeywordsJob">
+            <EntityTypeMapping TypeName="Model.KeywordsJob">
               <MappingFragment StoreEntitySet="KeywordsJob">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="JobId" ColumnName="JobId" />
@@ -2361,7 +2429,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KeywordsProfiles">
-            <EntityTypeMapping TypeName="IdealHiresModels.KeywordsProfile">
+            <EntityTypeMapping TypeName="Model.KeywordsProfile">
               <MappingFragment StoreEntitySet="KeywordsProfile">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2374,7 +2442,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Notifications">
-            <EntityTypeMapping TypeName="IdealHiresModels.Notification">
+            <EntityTypeMapping TypeName="Model.Notification">
               <MappingFragment StoreEntitySet="Notification">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2390,7 +2458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permissions">
-            <EntityTypeMapping TypeName="IdealHiresModels.Permission">
+            <EntityTypeMapping TypeName="Model.Permission">
               <MappingFragment StoreEntitySet="Permission">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
@@ -2405,7 +2473,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PermissionTypes">
-            <EntityTypeMapping TypeName="IdealHiresModels.PermissionType">
+            <EntityTypeMapping TypeName="Model.PermissionType">
               <MappingFragment StoreEntitySet="PermissionType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
@@ -2417,7 +2485,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Profiles">
-            <EntityTypeMapping TypeName="IdealHiresModels.Profile">
+            <EntityTypeMapping TypeName="Model.Profile">
               <MappingFragment StoreEntitySet="Profile">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2434,7 +2502,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProfileJobs">
-            <EntityTypeMapping TypeName="IdealHiresModels.ProfileJob">
+            <EntityTypeMapping TypeName="Model.ProfileJob">
               <MappingFragment StoreEntitySet="ProfileJob">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
@@ -2449,7 +2517,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="IdealHiresModels.Role">
+            <EntityTypeMapping TypeName="Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
@@ -2461,7 +2529,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RolePermissions">
-            <EntityTypeMapping TypeName="IdealHiresModels.RolePermission">
+            <EntityTypeMapping TypeName="Model.RolePermission">
               <MappingFragment StoreEntitySet="RolePermission">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
@@ -2474,7 +2542,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SaveSearches">
-            <EntityTypeMapping TypeName="IdealHiresModels.SaveSearch">
+            <EntityTypeMapping TypeName="Model.SaveSearch">
               <MappingFragment StoreEntitySet="SaveSearch">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2488,14 +2556,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="IdealHiresModels.User">
+            <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="EmailId" ColumnName="EmailId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
@@ -2504,11 +2571,12 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="IsEmailConfirm" ColumnName="IsEmailConfirm" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserRoles">
-            <EntityTypeMapping TypeName="IdealHiresModels.UserRole">
+            <EntityTypeMapping TypeName="Model.UserRole">
               <MappingFragment StoreEntitySet="UserRole">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -2521,7 +2589,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Works">
-            <EntityTypeMapping TypeName="IdealHiresModels.Work">
+            <EntityTypeMapping TypeName="Model.Work">
               <MappingFragment StoreEntitySet="Work">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />

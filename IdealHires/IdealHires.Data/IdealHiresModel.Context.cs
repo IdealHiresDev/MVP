@@ -31,6 +31,7 @@ namespace IdealHires.Data
         public virtual DbSet<AuditTrail> AuditTrails { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
+        public virtual DbSet<EmployerCompany> EmployerCompanies { get; set; }
         public virtual DbSet<Entity> Entities { get; set; }
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<JobCategory> JobCategories { get; set; }

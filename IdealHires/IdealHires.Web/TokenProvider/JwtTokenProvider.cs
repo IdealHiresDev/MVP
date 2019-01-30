@@ -36,9 +36,7 @@ namespace IdealHires.Web.TokenProvider
                 {
                         new KeyValuePair<string, string>("username", username),
                         new KeyValuePair<string, string>("password", password),
-                        new KeyValuePair<string, string>("grant_type", "password") //,
-                        //new KeyValuePair<string, string>("device_id", deviceId),
-                        //new KeyValuePair<string, string>("client_id", clientId),
+                        new KeyValuePair<string, string>("grant_type", "password")                        
                     });
                 var response = await client.PostAsync(string.Empty, content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)

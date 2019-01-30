@@ -49,10 +49,10 @@ function DeleteWorkExp(Id) {
             // dataType: 'json',
             success: function (data) {
                 if (data == 'Deleted') {                    
-                    LoadData();
+                    LoadWorkData();
                 }
                 else {                    
-                    LoadData();
+                    LoadWorkData();
                 }
             },
             error: function (xHr, status, res) {
@@ -63,7 +63,7 @@ function DeleteWorkExp(Id) {
     return false;
 }
 
-function LoadData() {
+function LoadWorkData() {
     $.ajax({
         url: "../Candidate/WorkDetails",
         type: "GET",

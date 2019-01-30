@@ -22,7 +22,8 @@
                             </div>
                             <div class="col-sm-6 text-right ft-sml">
                                 <span class="text-success mr-4">@item.StartAt to @item.EndAt</span> <span class="col-blue">@item.TotalDuration</span>
-                                <a id="editEducationAnchor"><em class="fas fa-edit ml-3"></em></a><a id="deleteEducationAnchor"> <em class="fas fa-trash text-danger ml-1"></em></a>
+                                <div id="editEducationDiv"> <a id="@item.Id"><em class="fas fa-edit ml-3"></em></a></div>
+                                <div id="deleteEducationDiv"><a id="@item.Id"> <em class="fas fa-trash text-danger ml-1"></em></a></div>
                             </div>
                             <div class="pl-3">
                                 @*<a href="#" class="float-right">21 March, 2014</a>*@
@@ -45,7 +46,7 @@
         <div class="row">
             <div class="f1-buttons col-sm-6 text-left pl-1">
                 <button class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
-                <button type="button" class="btn btn-save btn-border ml-3" data-toggle="modal" onclick="AddEducation()"><img src="~/images/add-icon.png" class="pr-3 pb-1">Add</button>
+                <button type="button" class="btn btn-save btn-border ml-3" data-toggle="modal" id="btnAddEducation"><img src="~/images/add-icon.png" class="pr-3 pb-1">Add</button>
             </div>
             <div class="f1-buttons col-sm-6 pr-1">
                 <button type="button" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>

@@ -19,6 +19,7 @@ namespace IdealHires.BAL.DataContext
         IRepository<JobTypeProfile> JobTypeProfileRepository { get; }
         IRepository<JobCategoryProfile> JobCategoryProfileRepository { get; }
         IRepository<Company> CompanyRepository { get; }
+        IRepository<EmployerCompany> EmployerCompanyRepository { get; }
 
         int Complete();
     }
