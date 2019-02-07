@@ -46,10 +46,16 @@ namespace IdealHires.Web.Controllers
             {
                 return View(login);
             }
-
+           
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(login.Email, login.Password, false, shouldLockout: false);
+          
+           
+
+           
+
+            //var ID = Session["username"]
             switch (result)
             {
                 case SignInStatus.Success:
@@ -265,6 +271,7 @@ namespace IdealHires.Web.Controllers
             {
                 UserId = int.Parse(User.Identity.GetUserId())
             };
+           
             return View(changePassword);
         }
         [HttpPost]

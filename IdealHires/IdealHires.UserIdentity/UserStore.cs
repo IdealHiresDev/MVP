@@ -57,15 +57,21 @@ namespace IdealHires.UserIdentity
 
         public Task<UserDTO> FindByIdAsync(int userId)
         {
+            
             if (userId == 0)
             {
                 return Task.FromResult(default(UserDTO));
             }
-
+            UserDTO userDTO = new UserDTO();
+            userDTO.Id = userId;
             var id = userId;
             var userRequest = _userService.GetUser(id);
+           
             return Task.FromResult(userRequest != null ? MappUser(userRequest) : default(UserDTO));
+            
 
+          
+            
         }
 
         public Task<UserDTO> FindByNameAsync(string userName)

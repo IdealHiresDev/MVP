@@ -59,11 +59,12 @@ namespace IdealHires.BAL.Business
 
         public UserDTO GetUser(int userId)
         {
+            
             return MapUser(_unitOfWork.Users.GetUser(userId));
         }
 
         public UserDTO GetUser(string username)
-        {
+         {
             return MapUser(_unitOfWork.Users.GetUser(username));
         }
 

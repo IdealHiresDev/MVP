@@ -37,24 +37,37 @@
                                         @Html.AntiForgeryToken()
                                         @Html.ValidationSummary("", new { @class = "text-danger" })
                                         @Html.HiddenFor(model => model.UserType)
-                                        <div class="group">
-                                            <em class="far fa-user"></em>
-                                            @*<input class="log-user" type="text" required>*@
-                                            @Html.TextBoxFor(m => m.Email, new { @class = "log-user" })
-                                            @Html.LabelFor(m => m.Email)
-                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                            @*<label>Username</label>*@
+                                        <div class="group login">
+                                            <div class="md-form mb-5">
+                                                <i class="fas fa-user prefix grey-text"></i>
+                                                @*<input class="log-user" type="text" required>*@
+                                                @*@Html.TextBoxFor(m => m.Email, new { @class = "log-user" })*@
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                @Html.LabelFor(m => m.Email)
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                                @*<label>Username</label>*@
+                                            </div>
                                         </div>
-                                        <div class="group">
-                                            <em class="fas fa-unlock-alt"></em>
-                                            @*<input class="log-pass" type="password" required>*@
-                                            @Html.PasswordFor(m => m.Password, new { @class = "log-pass" })
-                                            @Html.LabelFor(m => m.Password)
-                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                            @*<label>Password</label>*@
+                                        <div id="show_hide_password" class="group login">
+                                            <div class="md-form mb-5">
+                                                <div class="pwd-show-hide">
+                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                </div>
+                                                <i class="fas fa-unlock-alt prefix grey-text"></i>
+                                                @*<input class="log-pass" type="password" required>*@
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                                @Html.LabelFor(m => m.Password)
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                                @*<label>Password</label>*@
+                                            </div>
                                         </div>
                                         @*</form>*@
-                                        <p class="text-center"> <button class="btn btn-blue">Register</button></p>
+                                        @*<p class="text-center"> <button class="btn btn-blue">Register</button></p>*@
+                                        
+                                        <div class="my-2">
+                                                <button type="submit" class="btn btn-block btn-blue waves-effect waves-light">Register</button>
+                                        </div>
+
                                         <p class="ft-13 text-sm-right"><span class="text-dark">Already a member?</span>@Html.ActionLink(" Sign in", "Login", "Account", null, new { @class = "text-danger" })</p>
                                     }
                                 </div>

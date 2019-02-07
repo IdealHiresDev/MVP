@@ -44,5 +44,6 @@ namespace IdealHires.DTO.Candidate
         [DataType(DataType.PhoneNumber)]
         [MaxLength(10)]
         public string Phone2 { get; set; }
+        public string EmailAddress { get; set; }
     }
 }

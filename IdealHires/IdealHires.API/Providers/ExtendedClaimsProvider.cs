@@ -19,6 +19,7 @@ namespace IdealHires.API.Providers
             return claims;
         }
 
+      
         public static Claim CreateClaim(string type, string value)
         {
             return new Claim(type, value, ClaimValueTypes.String);

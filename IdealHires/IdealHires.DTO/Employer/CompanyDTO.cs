@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdealHires.DTO.CustomValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,30 +13,32 @@ namespace IdealHires.DTO.Employer
         public int Id { get; set; }
         public int UserId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Employer phone is required.")]
         public string Phone { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Employer email is required.")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Company location is required.")]
         public string Location { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Company website is required.")]
         public string Website { get; set; }
         
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Company name is required.")]
         public string CompanyName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Employer first name is required.")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Employer last name is required.")]
         public string LastName { get; set; }
         public string Title { get; set; }
         public string ContactEmail { get; set; }
+
+        [CheckBoxRequired(ErrorMessage = "Please accept the terms and condition.")]
         public bool IsAgree { get; set; }
     }
 }

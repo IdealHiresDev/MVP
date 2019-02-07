@@ -1,0 +1,109 @@
+﻿@model IdealHires.DTO.Employer.JobBasicDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnJobGeneralSuccess";
+}
+<script type="text/javascript">
+    function OnJobGeneralSuccess(data) {
+        $("#CurrentJobId").val(data.jobId);
+        $("#JobId").val(data.jobId);        
+        if (data.Message === "GeneralSuccess" || data.Message === "GeneralEditSuccessNext") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            if (data.Message === "GeneralSuccess") {               
+                ToastMessageSuccess();
+            } else {                
+                ToastMessageUpdate();
+            }
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        } else if (data.Message === "BtnGeneralSuccess") {            
+            ToastMessageSuccess();
+        } else if (data.Message === "GeneralEditSuccess") {           
+            ToastMessageUpdate();
+        } else if (data.Message === "GeneralFailure") {
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
+        }
+    }
+
+</script>
+
+@using (Ajax.BeginForm("General", "Employer", null, options, new { @id = "formEmployerJob" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    <div class="row">
+        <div class="col-sm-12">
+
+            @Html.TextBoxFor(m => m.JobTitle, new { @class = "tab-cus-input", placeholder = "Job Title", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Desired Job Title *" class="tab-cus-input">*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+
+            @Html.TextBoxFor(m => m.Keywords, new { @class = "tab-cus-input", placeholder = "Keywords", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Keywords, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Desired Job Title *" class="tab-cus-input">*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Job Type</div>
+        </div>
+        @foreach (var item in Model.SelectJobTypes)
+        {
+            <div class="col-sm-2">
+                <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="SelectedJobTypes" value="@item.Value">
+                        <label class="custom-control-label" for="customCheck">@item.Text</label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-sm-12 mb-3 mt-3">
+            <em class="em fa fa-angle-down col-grey"></em>
+            @*@Html.DropDownListFor(m => m.SelectedJobCategory, Model.SelectJobCategories, new { @class = "multiselect-ui form-control", @id = "dates-field2", @name = "SelectedJobCategory", multiple = "multiple" })*@
+            <select id="SelectedJobCategory" multiple="multiple" required name="SelectedJobCategory" class="multiselect-ui form-control">
+                @if (Model.SelectJobCategories != null)
+                {
+                    foreach (var item in Model.SelectJobCategories)
+                    {
+                        if (item.Text != null)
+                        {
+                            <option value="@item.Value">
+                                @item.Text
+                            </option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Description, new { @class = "tab-cus-input", placeholder = "Description", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Desired Job Title *" class="tab-cus-input">*@
+        </div>
+    </div>
+    <div class="f1-buttons">
+        @*<button type="submit" name="submit" value="Save" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>*@
+        <button class="btn btn-nextt rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
+    </div>    
+}

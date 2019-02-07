@@ -1,0 +1,116 @@
+﻿@model IdealHires.DTO.Employer.JobPreferencesDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnGeneralSuccess";
+}
+<script type="text/javascript">
+    function OnGeneralSuccess(data) {
+        if (data.Message === "PereferencesSuccess" || data.Message === "PreferencesEditSuccessNext") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            if (data.Message === "PereferencesSuccess") {
+                ToastMessageSuccess();
+            } else {
+                ToastMessageUpdate();
+            }
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        } else if (data.Message === "BtnPereferencesSuccess") {
+            ToastMessageSuccess();
+        } else if (data.Message === "PreferencesEditSuccess") {
+            ToastMessageUpdate();
+        } else if (data.Message === "PreferencesFailure") {
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
+        }
+    }
+    $(document).ready(function () {
+        $(".datepickerExpiration").datepicker();
+    });
+
+</script>
+@using (Ajax.BeginForm("Preferences", "Employer", null, options, new { @id = "formEmployerPreferencesJob" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+  
+    @Html.Hidden("JobId", new { id = "JobId" })
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.MinimumSalary, new { @class = "tab-cus-input", placeholder = "Minimum Salary" })
+            @Html.ValidationMessageFor(m => m.MinimumSalary, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Minimum Salary" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.MaximumSalary, new { @class = "tab-cus-input", placeholder = "Maximum Salary" })
+            @Html.ValidationMessageFor(m => m.MaximumSalary, "", new { @class = "text-validationdanger" })
+            @*<input id="name" type="text" placeholder="Maximum Salary" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-4">
+            @Html.DropDownListFor(m => m.SelectedPayPeriodTypes, Model.SelectPayPeriodTypes, "Select Pay Period", new { @class = "form-control", @name = "SelectedPayPeriodTypes" })
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Notification Preference</div>
+        </div>
+        @foreach (var item in Model.SelectNotificationTypes)
+        {
+            <div class="col-sm-2">
+                <div class="group profile-form">
+                    <div class="custom-control custom-checkbox remember wizard-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="SelectedNotificationTypes" name="SelectedNotificationTypes" value="@item.Value">
+                        <label class="custom-control-label" for="SelectedNotificationTypes">@item.Text</label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Positions, new { @class = "tab-cus-input", placeholder = "#Position" })
+            @*<input id="name" type="text" placeholder="#Position" class="tab-cus-input">*@
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.ExpiredAt, new { @class = "tab-cus-input datepickerExpiration", placeholder = "Expiration Date" })
+            @*<input id="ExpiredAt" name="ExpiredAt" type="text" placeholder="Expiration Date" alt="Category" class="tab-cus-input datepickerExpiration">*@
+            @*<div class="em-float-right modalpopup"><em class="far fa-calendar-alt"></em> </div>*@
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Job Location</div>
+        </div>
+        <div class="col-sm-4">
+            <div class="group profile-form">
+                <div class="custom-control custom-checkbox remember wizard-checkbox">
+                    @Html.CheckBoxFor(m => m.Location, new { @class = "custom-control-input" })
+                    @*<input type="checkbox" class="custom-control-input" id="customCheck" name="example1">*@
+                    <label class="custom-control-label" for="Location">Same as Company Location</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="f1-buttons col-sm-6 text-left">
+            <button class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        </div>
+        <div class="f1-buttons col-sm-6">
+            @*<button type="button" class="btn btn-fill mr-3"><img src="./images/save-icon.png" class="pr-2 pb-1">Save</button>*@
+            @* <button type="button" class="btn btn-next rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>*@
+            <button type="submit" class="btn btn-nextt rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
+        </div>
+    </div>
+}

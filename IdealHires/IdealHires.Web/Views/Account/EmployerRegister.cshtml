@@ -30,20 +30,29 @@
                                         @Html.AntiForgeryToken()
                                         @Html.ValidationSummary("", new { @class = "text-validationdanger" })
                                         @Html.HiddenFor(model => model.UserType)
-                                        <div class="group cus-login">
-                                            <em class="fas fa-user"></em>
-                                            @Html.TextBoxFor(m => m.Email, new { @class = "tab-cus-input", placeholder = "Email" })
-                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-validationdanger" })
-                                        </div>
-                                        <div id="show_hide_password" class="group cus-login">
-                                            <em class="fas fa-unlock-alt"></em>
-                                            @Html.PasswordFor(m => m.Password, new { @class = "tab-cus-input", placeholder = "Password" })
-                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-validationdanger" })
-                                            <div class="pwd-show-hide">
-                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                        <div class="group login">
+                                            <div class="md-form mb-5">
+                                                <i class="fas fa-user prefix grey-text"></i>
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-validationdanger" })
                                             </div>
                                         </div>
-                                        <p class="text-center"><button class="btn btn-blue btn-hover">Register</button></p>
+                                        <div id="show_hide_password" class="group login">
+                                            <div class="md-form mb-5">
+                                                <div class="pwd-show-hide">
+                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                </div>
+                                                <i class="fas fa-unlock-alt prefix grey-text"></i>
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-validationdanger" })
+                                            </div>
+                                        </div>
+                                        @*<p class="text-center"><button class="btn btn-blue btn-hover">Register</button></p>*@
+
+                                        <div class="my-2">
+                                            <button type="submit" class="btn btn-block btn-blue waves-effect waves-light">Register</button>
+                                        </div>
+
                                         <p class="ft-13 text-sm-right"><span class="text-dark">Already a member?</span>@Html.ActionLink(" Sign in", "Login", "Account", null, new { @class = "text-danger" })</p>
                                     }
                                 </div>

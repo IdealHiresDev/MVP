@@ -1,21 +1,26 @@
 ﻿@{
     ViewBag.Title = "Profile";
 }
-<section>
-    <div class="mt-5 mb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-left mb-4">
-                    <h3 class="blue-clr"><i class="fa fa-user-alt pr-2" aria-hidden="true"></i> Create Candidate Profile</h3>
-                </div>
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Create Candidate Profile</h2>
             </div>
+        </div>
+    </div>
+</section>
+<section> 
+    <div class="mt-5 mb-3">
+        <div class="container">           
             <div class="row">
                 <div class="col-sm-10 align-self-center">
                     <div class="form-box mb-5 tab-cus tabs">
                         <div class="f1">
                             <div class="row f1-steps text-center">
                                 <div class="f1-progress">
-                                    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="6" style="width: 6%;"></div>
+                                    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="6" style="width: 19%;"></div>
                                 </div>
                                 <div class="f1-step active" id="generalDiv" href="#general">
                                     <div class="f1-step-icon"><i class="fa fa-star text-dark-grey"></i></div>
@@ -42,14 +47,14 @@
                                     <p>Preview</p>
                                 </div>
                             </div>
-                            <div class="wizard-form container-fluid">
-                                <fieldset class="mb-4 mt-3" id="general">
+                            <div class="wizard-form card">
+                                <fieldset id="general">
                                     @{Html.RenderAction("General"); }
                                 </fieldset>
-                                <fieldset class="mb-4 mt-3" id="contact">
+                                <fieldset id="contact">
                                     @{Html.RenderAction("Contact"); }
                                 </fieldset>
-                                <fieldset class="mb-4 mt-3" id="preferences">
+                                <fieldset id="preferences">
                                     @{Html.RenderAction("Preferences"); }
                                 </fieldset>
                                 <fieldset id="workexp">

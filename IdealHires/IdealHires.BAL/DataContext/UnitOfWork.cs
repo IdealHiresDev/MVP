@@ -1,6 +1,7 @@
 ﻿using IdealHires.BAL.Core;
 using IdealHires.Data;
 
+
 namespace IdealHires.BAL.DataContext
 {
     public class UnitOfWork : IUnitOfWork
@@ -21,23 +22,52 @@ namespace IdealHires.BAL.DataContext
         private IRepository<JobCategoryProfile> _jobCategoryProfileRepository;
         private IRepository<Company> _companyRepository;
         private IRepository<EmployerCompany> _employerCompanyRepository;
+        private IRepository<Job> _jobRepository;
+        private IRepository<JobTypeJob> _jobTypeJobRepository;
+        private IRepository<JobCategoryJob> _jobCategoryJobRepository;
+        private IRepository<KeywordsJob> _keywordsJobRepository;
+        private IRepository<NotificationType> _notificationTypeRepository;
+        private IRepository<PayPeriodType> _payPeriodTypeRepository;
+        private IRepository<NotificationTypeJob> _notificationTypeJobRepository;
 
         #endregion
 
         #region Constructor and Repository Instance
         public UnitOfWork(IdealHiresDbContext context)
         {
-            _context = context;            
+            _context = context;
         }
 
-        public IRepository<EmployerCompany> EmployerCompanyRepository
+        public IRepository<NotificationTypeJob> NotificationTypeJobRepository
         {
-            get { return _employerCompanyRepository ?? (_employerCompanyRepository = new Repository<EmployerCompany>(_context)); }
+            get { return _notificationTypeJobRepository ?? (_notificationTypeJobRepository = new Repository<NotificationTypeJob>(_context)); }
         }
 
-        public IRepository<Company> CompanyRepository
+        public IRepository<PayPeriodType> PayPeriodTypeRepository
         {
-            get { return _companyRepository ?? (_companyRepository = new Repository<Company>(_context)); }
+            get { return _payPeriodTypeRepository ?? (_payPeriodTypeRepository = new Repository<PayPeriodType>(_context)); }
+        }
+
+        public IRepository<NotificationType> NotificationTypeRepository
+        {
+            get { return _notificationTypeRepository ?? (_notificationTypeRepository = new Repository<NotificationType>(_context)); }
+        }
+
+        public IRepository<KeywordsJob> KeywordsJobRepository
+        {
+            get { return _keywordsJobRepository ?? (_keywordsJobRepository = new Repository<KeywordsJob>(_context)); }
+        }
+        public IRepository<JobTypeJob> JobTypeJobRepository
+        {
+            get { return _jobTypeJobRepository ?? (_jobTypeJobRepository = new Repository<JobTypeJob>(_context)); }
+        }
+        public IRepository<JobCategoryJob> JobCategoryJobRepository
+        {
+            get { return _jobCategoryJobRepository ?? (_jobCategoryJobRepository = new Repository<JobCategoryJob>(_context)); }
+        }
+        public IRepository<Job> JobRepository
+        {
+            get { return _jobRepository ?? (_jobRepository = new Repository<Job>(_context)); }
         }
 
         public IRepository<JobTypeProfile> JobTypeProfileRepository
@@ -65,6 +95,16 @@ namespace IdealHires.BAL.DataContext
             get { return _keywordsProfileRepository ?? (_keywordsProfileRepository = new Repository<KeywordsProfile>(_context)); }
         }
 
+        public IRepository<EmployerCompany> EmployerCompanyRepository
+        {
+            get { return _employerCompanyRepository ?? (_employerCompanyRepository = new Repository<EmployerCompany>(_context)); }
+        }
+
+        public IRepository<Company> CompanyRepository
+        {
+            get { return _companyRepository ?? (_companyRepository = new Repository<Company>(_context)); }
+        }        
+
         public IUserRepository Users
         {
             get { return _userRepository ?? (_userRepository = new UserRepository(_context)); }
@@ -84,6 +124,7 @@ namespace IdealHires.BAL.DataContext
         {
             get { return _addressRepository ?? (_addressRepository = new Repository<Address>(_context)); }
         }
+
 
         public IRepository<Work> WorkRepository
         {

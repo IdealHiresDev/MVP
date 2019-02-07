@@ -36,7 +36,7 @@ namespace IdealHires.BAL.Business
             {
                 User jobTypeList = _unitOfWork.Users.Get(id);
                 Profile profile = jobTypeList.Profiles.FirstOrDefault();
-                if (profile.Id > 0 && jobTypeList.Id > 0)
+                if (profile != null)
                 {
                     basicDetailDTO = new CandidateBasicDTO
                     {
@@ -45,7 +45,8 @@ namespace IdealHires.BAL.Business
                         JobTitle = profile.JobTitle,
                         ResumeFilePath = (string.IsNullOrEmpty(profile.ResumeFile)) ? string.Empty : Path.GetFileName(profile.ResumeFile),
                         FirstName = jobTypeList.FirstName,
-                        LastName = jobTypeList.LastName
+                        LastName = jobTypeList.LastName,
+                        UserType = jobTypeList.UserType
                     };
                 }
                 return basicDetailDTO;
@@ -71,7 +72,6 @@ namespace IdealHires.BAL.Business
                     userData.UpdatedAt = DateTime.Now;
                     userData.UpdatedBy = basicCandidate.UserId;
                     _unitOfWork.Users.Update(userData);
-                    //_unitOfWork.Complete();
 
                     var userProfile = userData.Profiles.FirstOrDefault();
                     if (userProfile == null)
@@ -91,7 +91,7 @@ namespace IdealHires.BAL.Business
                     else
                     {
                         userProfile.UserId = basicCandidate.UserId;
-                        userProfile.ResumeFile = basicCandidate.ResumeFilePath;
+                        userProfile.ResumeFile = (string.IsNullOrEmpty(basicCandidate.ResumeFilePath)) ? userProfile.ResumeFile : basicCandidate.ResumeFilePath;
                         userProfile.JobTitle = basicCandidate.JobTitle;
                         userProfile.UpdatedAt = DateTime.Now;
                         userProfile.UpdatedBy = basicCandidate.UserId;
@@ -120,22 +120,25 @@ namespace IdealHires.BAL.Business
             {
                 User jobTypeList = _unitOfWork.Users.Get(id);
                 Profile profile = jobTypeList.Profiles.FirstOrDefault();
-                Address address = profile.Addresses.FirstOrDefault();
-                if (address.Id > 0)
+                if (profile != null)
                 {
-                    contactDetailDTO = new CandidateContactDTO
+                    Address address = profile.Addresses.FirstOrDefault();
+                    if (address != null)
                     {
-                        Id = address.Id,
-                        UserId = jobTypeList.Id,
-                        StreetAddress1 = address.StreetAddress1,
-                        StreetAddress2 = address.StreetAddress2,
-                        City = address.City,
-                        State = address.State,
-                        Country = address.Country,
-                        ZipCode = address.ZipCode,
-                        Phone1 = address.Phone1,
-                        Phone2 = address.Phone2
-                    };
+                        contactDetailDTO = new CandidateContactDTO
+                        {
+                            Id = address.Id,
+                            UserId = jobTypeList.Id,
+                            StreetAddress1 = address.StreetAddress1,
+                            StreetAddress2 = address.StreetAddress2,
+                            City = address.City,
+                            State = address.State,
+                            Country = address.Country,
+                            ZipCode = address.ZipCode,
+                            Phone1 = address.Phone1,
+                            Phone2 = address.Phone2
+                        };
+                    }
                 }
                 return contactDetailDTO;
             }
@@ -247,8 +250,10 @@ namespace IdealHires.BAL.Business
                         Description = workDetailsByworkId.Description,
                         Salary = workDetailsByworkId.Salary,
                         CurrencyId = workDetailsByworkId.CurrencyId ?? 0,
-                        StartAt = String.Format("{0:MM/dd/yyyy}", workDetailsByworkId.StartAt),
-                        EndAt = String.Format("{0:MM/dd/yyyy}", workDetailsByworkId.EndAt),
+                        //StartAt = String.Format("{0:MM-dd-yyyy}", workDetailsByworkId.StartAt),
+                        //EndAt = String.Format("{0:MM-dd-yyyy}", workDetailsByworkId.EndAt),
+                        StartAt = workDetailsByworkId.StartAt.HasValue ? workDetailsByworkId.StartAt.Value : (DateTime?)null,
+                        EndAt = workDetailsByworkId.EndAt.HasValue ? workDetailsByworkId.EndAt.Value : (DateTime?)null,
                         IsCurrent = (workDetailsByworkId.EndAt == null) ? true : false,
                     };
                 }
@@ -267,27 +272,30 @@ namespace IdealHires.BAL.Business
             {
                 User jobTypeList = _unitOfWork.Users.Get(id);
                 Profile profile = jobTypeList.Profiles.FirstOrDefault();
-                List<Work> work = profile.Works.ToList();
-                if (work.Count > 0)
+                if (profile != null)
                 {
-                    foreach (var w in work)
+                    List<Work> work = profile.Works.ToList();
+                    if (work.Count > 0)
                     {
-                        var candidateWork = new CandidateWorkDTO
+                        foreach (var w in work)
                         {
-                            Id = w.Id,
-                            UserId = jobTypeList.Id,
-                            ProfileId = profile.Id,
-                            CompanyName = w.CompanyName,
-                            PositionName = w.PositionName,
-                            Description = w.Description,
-                            Salary = w.Salary,
-                            CurrencyId = w.CurrencyId ?? 0,
-                            StartAt = String.Format("{0:y}", w.StartAt),
-                            EndAt = String.Format("{0:y}", w.EndAt),
-                            IsCurrent = (w.EndAt == null) ? true : false,
-                            TotalExperience = new DateDifference(w.StartAt ?? DateTime.Now, w.EndAt ?? DateTime.Now).ToString()
-                        };
-                        workDetailDTO.Add(candidateWork);
+                            var candidateWork = new CandidateWorkDTO
+                            {
+                                Id = w.Id,
+                                UserId = jobTypeList.Id,
+                                ProfileId = profile.Id,
+                                CompanyName = w.CompanyName,
+                                PositionName = w.PositionName,
+                                Description = w.Description,
+                                Salary = w.Salary,
+                                CurrencyId = w.CurrencyId ?? 0,
+                                StartAt = w.StartAt.Value.Date,
+                                EndAt = w.EndAt.HasValue ? w.EndAt.Value.Date : (DateTime?)null,
+                                IsCurrent = (w.EndAt == null) ? true : false,
+                                TotalExperience = new DateDifference(w.StartAt ?? DateTime.Now, w.EndAt ?? DateTime.Now).ToString()
+                            };
+                            workDetailDTO.Add(candidateWork);
+                        }
                     }
                 }
                 return workDetailDTO;
@@ -310,14 +318,14 @@ namespace IdealHires.BAL.Business
                     if (workCandidate.Id > 0)
                     {
                         Work workDetails = new Work();
-                        workDetails = _unitOfWork.WorkRepository.Get(workCandidate.Id);                       
+                        workDetails = _unitOfWork.WorkRepository.Get(workCandidate.Id);
                         workDetails.CompanyName = workCandidate.CompanyName;
                         workDetails.PositionName = workCandidate.PositionName;
                         workDetails.Description = workCandidate.Description;
                         workDetails.Salary = workCandidate.Salary;
                         workDetails.CurrencyId = workCandidate.CurrencyId;
-                        workDetails.StartAt = Convert.ToDateTime(workCandidate.StartAt);
-                        workDetails.EndAt = (string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt);
+                        workDetails.StartAt = workCandidate.StartAt.HasValue ? workCandidate.StartAt.Value : (DateTime?)null;
+                        workDetails.EndAt = workCandidate.EndAt.HasValue ? workCandidate.EndAt.Value : (DateTime?)null;//(string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt);
                         workDetails.UpdatedAt = DateTime.Now;
                         workDetails.UpdatedBy = workCandidate.UserId;
                         _unitOfWork.WorkRepository.Update(workDetails);
@@ -334,8 +342,8 @@ namespace IdealHires.BAL.Business
                             Description = workCandidate.Description,
                             Salary = workCandidate.Salary,
                             CurrencyId = workCandidate.CurrencyId,
-                            StartAt = Convert.ToDateTime(workCandidate.StartAt),
-                            EndAt = (string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt),
+                            StartAt = workCandidate.StartAt.HasValue ? workCandidate.StartAt.Value : (DateTime?)null,//Convert.ToDateTime(workCandidate.StartAt),
+                            EndAt = workCandidate.EndAt.HasValue ? workCandidate.EndAt.Value : (DateTime?)null,// (string.IsNullOrEmpty(workCandidate.EndAt)) ? (DateTime?)null : Convert.ToDateTime(workCandidate.EndAt),
                             CreatedAt = DateTime.Now,
                             CreatedBy = workCandidate.UserId
                         };
@@ -395,9 +403,10 @@ namespace IdealHires.BAL.Business
                         Major = educationDetailsById.Major,
                         Minor = educationDetailsById.Minor,
                         InstituteName = educationDetailsById.InstituteName,
-                        IsDegreeOrCertification =Convert.ToBoolean(educationDetailsById.IsDegreeOrCertification),                        
-                        StartAt = String.Format("{0:MM/dd/yyyy}", educationDetailsById.StartAt),
-                        EndAt = String.Format("{0:MM/dd/yyyy}", educationDetailsById.EndAt),                        
+                        IsDegreeOrCertification = Convert.ToBoolean(educationDetailsById.IsDegreeOrCertification),
+                        IsMinorDegree = Convert.ToBoolean(educationDetailsById.IsMinorDegree),
+                        StartAt = educationDetailsById.StartAt.HasValue ? educationDetailsById.StartAt.Value : (DateTime?)null,
+                        EndAt = educationDetailsById.EndAt.HasValue ? educationDetailsById.EndAt.Value : (DateTime?)null,
                     };
                 }
                 return educationDetailDTO;
@@ -415,25 +424,29 @@ namespace IdealHires.BAL.Business
             {
                 User jobTypeList = _unitOfWork.Users.Get(id);
                 Profile profile = jobTypeList.Profiles.FirstOrDefault();
-                List<Academic> academic = profile.Academics.ToList();
-                if (academic.Count > 0)
+                if (profile != null)
                 {
-                    foreach (var a in academic)
+                    List<Academic> academic = profile.Academics.ToList();
+                    if (academic.Count > 0)
                     {
-                        var candidateWork = new CandidateEducationDTO
+                        foreach (var a in academic)
                         {
-                            Id = a.Id,
-                            UserId = jobTypeList.Id,
-                            ProfileId = profile.Id,
-                            Major = a.Major,
-                            Minor = a.Minor,
-                            InstituteName = a.InstituteName,
-                            IsDegreeOrCertification =Convert.ToBoolean(a.IsDegreeOrCertification),                            
-                            StartAt = String.Format("{0:y}", a.StartAt),
-                            EndAt = String.Format("{0:y}", a.EndAt),                            
-                            TotalDuration = new DateDifference(a.StartAt ?? DateTime.Now, a.EndAt ?? DateTime.Now).ToString()
-                        };
-                        educationDetailDTO.Add(candidateWork);
+                            var candidateWork = new CandidateEducationDTO
+                            {
+                                Id = a.Id,
+                                UserId = jobTypeList.Id,
+                                ProfileId = profile.Id,
+                                Major = a.Major,
+                                Minor = a.Minor,
+                                InstituteName = a.InstituteName,
+                                IsDegreeOrCertification = Convert.ToBoolean(a.IsDegreeOrCertification),
+                                IsMinorDegree = Convert.ToBoolean(a.IsMinorDegree),
+                                StartAt = a.StartAt.Value,
+                                EndAt = a.EndAt.HasValue ? a.EndAt.Value : (DateTime?)null,
+                                TotalDuration = new DateDifference(a.StartAt ?? DateTime.Now, a.EndAt ?? DateTime.Now).ToString()
+                            };
+                            educationDetailDTO.Add(candidateWork);
+                        }
                     }
                 }
                 return educationDetailDTO;
@@ -442,7 +455,7 @@ namespace IdealHires.BAL.Business
             {
                 throw;
             }
-        }        
+        }
 
         public int InsertEducationDetails(CandidateEducationDTO educationCandidate)
         {
@@ -460,9 +473,10 @@ namespace IdealHires.BAL.Business
                         academicDetails.Major = educationCandidate.Major;
                         academicDetails.Minor = educationCandidate.Minor;
                         academicDetails.InstituteName = educationCandidate.InstituteName;
-                        academicDetails.IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification;                       
-                        academicDetails.StartAt = Convert.ToDateTime(educationCandidate.StartAt);
-                        academicDetails.EndAt = Convert.ToDateTime(educationCandidate.EndAt);
+                        academicDetails.IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification;
+                        academicDetails.IsMinorDegree = educationCandidate.IsMinorDegree;
+                        academicDetails.StartAt = educationCandidate.StartAt.HasValue ? educationCandidate.StartAt.Value : (DateTime?)null;
+                        academicDetails.EndAt = educationCandidate.EndAt.HasValue ? educationCandidate.EndAt.Value : (DateTime?)null;
                         academicDetails.UpdatedAt = DateTime.Now;
                         academicDetails.UpdatedBy = educationCandidate.UserId;
 
@@ -478,16 +492,17 @@ namespace IdealHires.BAL.Business
                             Major = educationCandidate.Major,
                             Minor = educationCandidate.Minor,
                             InstituteName = educationCandidate.InstituteName,
-                            StartAt = Convert.ToDateTime(educationCandidate.StartAt),
-                            EndAt = Convert.ToDateTime(educationCandidate.EndAt),
+                            StartAt = educationCandidate.StartAt.HasValue ? educationCandidate.StartAt.Value : (DateTime?)null,
+                            EndAt = educationCandidate.EndAt.HasValue ? educationCandidate.EndAt.Value : (DateTime?)null,
                             IsDegreeOrCertification = educationCandidate.IsDegreeOrCertification,
+                            IsMinorDegree = educationCandidate.IsMinorDegree,
                             CreatedAt = DateTime.Now,
                             CreatedBy = educationCandidate.UserId
                         };
                         _unitOfWork.AcademicRepository.Add(academic);
                         _unitOfWork.Complete();
                         educationId = academic.Id;
-                    }                        
+                    }
                 }
             }
             catch (Exception)
@@ -513,34 +528,36 @@ namespace IdealHires.BAL.Business
             {
                 User jobTypeList = _unitOfWork.Users.Get(id);
                 Profile profile = jobTypeList.Profiles.FirstOrDefault();
-                List<JobTypeProfile> jobTypeProfile = profile.JobTypeProfiles.ToList();
-                List<JobCategoryProfile> jobCategoryProfile = profile.JobCategoryProfiles.ToList();
-                KeywordsProfile keywordsProfile = profile.KeywordsProfiles.FirstOrDefault();
+                if (profile != null)
+                {
+                    List<JobTypeProfile> jobTypeProfile = profile.JobTypeProfiles.ToList();
+                    List<JobCategoryProfile> jobCategoryProfile = profile.JobCategoryProfiles.ToList();
+                    KeywordsProfile keywordsProfile = profile.KeywordsProfiles.FirstOrDefault();
 
-                if (jobTypeProfile != null && jobTypeProfile.Count > 0)
-                {
-                    foreach (var jT in jobTypeProfile)
+                    if (jobTypeProfile != null && jobTypeProfile.Count > 0)
                     {
-                        var jTPDTO = jT.JobTypeId.ToString();                       
-                        selectedJobTypeProfile.Add(jTPDTO);
+                        foreach (var jT in jobTypeProfile)
+                        {
+                            var jTPDTO = jT.JobTypeId.ToString();
+                            selectedJobTypeProfile.Add(jTPDTO);
+                        }
+                        preferencesDetailDTO.SelectedJobTypes = selectedJobTypeProfile;
                     }
-                    preferencesDetailDTO.SelectedJobTypes = selectedJobTypeProfile;
-                }
-                if (jobCategoryProfile != null && jobCategoryProfile.Count > 0)
-                {
-                    foreach (var jCP in jobCategoryProfile)
+                    if (jobCategoryProfile != null && jobCategoryProfile.Count > 0)
                     {
-                        var jCPDTO = jCP.JobCategoryId.ToString();                        
-                        selectedJobCategoryProfile.Add(jCPDTO);
+                        foreach (var jCP in jobCategoryProfile)
+                        {
+                            var jCPDTO = jCP.JobCategoryId.ToString();
+                            selectedJobCategoryProfile.Add(jCPDTO);
+                        }
+                        preferencesDetailDTO.SelectedJobCategory = selectedJobCategoryProfile;
                     }
-                    preferencesDetailDTO.SelectedJobCategory = selectedJobCategoryProfile;
+                    if (keywordsProfile != null)
+                    {
+                        preferencesDetailDTO.Keywords = keywordsProfile.Keywords;
+                    }
+                    preferencesDetailDTO.Objective = profile.Objective;
                 }
-                if (keywordsProfile != null)
-                {
-                    preferencesDetailDTO.Keywords = keywordsProfile.Keywords;
-                }
-                preferencesDetailDTO.Objective = profile.Objective;
-
                 return preferencesDetailDTO;
             }
             catch (Exception)
@@ -549,6 +566,30 @@ namespace IdealHires.BAL.Business
             }
         }
 
+        #endregion
+
+        #region Candidate Preview
+        public CandidatePreviewDTO GetCandidatePreviewDetails(int id)
+        {
+            CandidatePreviewDTO candidatePreviewDTO = new CandidatePreviewDTO();
+            User jobTypeList = _unitOfWork.Users.Get(id);
+            Profile profile = jobTypeList.Profiles.FirstOrDefault();
+            if (profile != null)
+            {
+                List<CandidateEducationDTO> listCandidateEducationDTO = GetEducationDetails(id);
+                List<CandidateWorkDTO> listCandidateWorkDTO = GetWorkDetails(id);
+                CandidatePreferencesDTO preferencesDetailDTO = GetPreferencesDetails(id);
+                CandidateBasicDTO candidateBasicDTO = GetBasicDetails(id);
+                CandidateContactDTO candidateContactDTO = GetContactDetails(id);
+                candidatePreviewDTO.CandidateBasicPreview = candidateBasicDTO;
+                candidatePreviewDTO.CandidateContactPreview = candidateContactDTO;
+                candidatePreviewDTO.CandidateEducationPreview = listCandidateEducationDTO;
+                candidatePreviewDTO.CandidateWorkPreview = listCandidateWorkDTO;
+                candidatePreviewDTO.PreferencesPreview = preferencesDetailDTO;
+            }
+
+            return candidatePreviewDTO;
+        }
         #endregion
 
         #region Dispose

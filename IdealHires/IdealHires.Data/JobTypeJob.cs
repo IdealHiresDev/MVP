@@ -22,7 +22,6 @@ namespace IdealHires.Data
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
     
-        public virtual Job Job { get; set; }
         public virtual JobType JobType { get; set; }
     }
 }

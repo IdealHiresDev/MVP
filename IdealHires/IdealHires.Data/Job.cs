@@ -17,10 +17,9 @@ namespace IdealHires.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Job()
         {
-            this.JobCategoryJobs = new HashSet<JobCategoryJob>();
-            this.JobTypeJobs = new HashSet<JobTypeJob>();
-            this.KeywordsJobs = new HashSet<KeywordsJob>();
             this.ProfileJobs = new HashSet<ProfileJob>();
+            this.KeywordsJobs = new HashSet<KeywordsJob>();
+            this.NotificationTypeJobs = new HashSet<NotificationTypeJob>();
         }
     
         public int Id { get; set; }
@@ -29,7 +28,7 @@ namespace IdealHires.Data
         public string Description { get; set; }
         public string MinimumSalary { get; set; }
         public string MaximumSalary { get; set; }
-        public string PayPeriod { get; set; }
+        public Nullable<int> PayPeriodTypeId { get; set; }
         public Nullable<int> CurrencyId { get; set; }
         public string Positions { get; set; }
         public string LocationCity { get; set; }
@@ -44,12 +43,11 @@ namespace IdealHires.Data
         public virtual Company Company { get; set; }
         public virtual Currency Currency { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCategoryJob> JobCategoryJobs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobTypeJob> JobTypeJobs { get; set; }
+        public virtual ICollection<ProfileJob> ProfileJobs { get; set; }
+        public virtual PayPeriodType PayPeriodType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KeywordsJob> KeywordsJobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProfileJob> ProfileJobs { get; set; }
+        public virtual ICollection<NotificationTypeJob> NotificationTypeJobs { get; set; }
     }
 }

@@ -52,7 +52,7 @@ namespace IdealHires.Web
             {                
                 //create an Identity Claim
                 ClaimsIdentity claims = jwtProvider.CreateIdentity(true, userName, token);
-
+               
                 //sign in
                 var context = HttpContext.Current.Request.GetOwinContext();
                 var authenticationManager = context.Authentication;

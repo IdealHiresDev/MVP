@@ -15,6 +15,7 @@ function EducationSuccess(data) {
     if (data == "EducationSuccess") {
         $("#AcademicsModel").modal('hide');
         LoadEducationData();
+        LoadPreviewEducationData('Updated');
     } else {
         $('#pWarningMessage').empty().html('There was an issue saving data !');
         $('#CommonWarningModel').modal('show');

@@ -1,0 +1,49 @@
+﻿@model List<IdealHires.DTO.Candidate.CandidateWorkDTO>
+
+<div class="row">
+    <div class="col-sm-12 mob-pl-0">
+        <ul class="timeline">
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">@item.PositionName <a href="#"><small class="ft-sml text-dark">@item.CompanyName</small></a></p>
+                            </div>
+                            <div class="col-sm-6 text-right ft-sml">
+                                @if (item.IsCurrent)
+                                {
+                                    <span class="text-success text-success-green mr-4">@String.Format("{0:y}", item.StartAt) to Present</span> <span>
+                                        <span class="col-blue text-span">Working</span>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-success text-success-green mr-4">@String.Format("{0:y}", @item.StartAt) to @String.Format("{0:y}", @item.EndAt)</span> <span>
+                                        <span class="col-blue text-span">@item.TotalExperience</span>
+                                    </span>
+                                }
+                                <a onclick="GetPreviewWorkExp(@item.Id)"> <em class="fas fa-edit ml-3"></em></a>
+
+                                <a onclick="DeletePreviewWorkExp(@item.Id)"> <em class="fas fa-trash text-danger ml-1"></em></a>
+                            </div>
+                            <div class="pl-3">
+                                <p class="border-btm">@item.Description</p>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <li>
+                    <div class="row">
+                        <p class="h4 col-blue text-left">Please add work Experience.</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

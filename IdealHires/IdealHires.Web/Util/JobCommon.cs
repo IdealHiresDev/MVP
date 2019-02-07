@@ -54,9 +54,9 @@ namespace IdealHires.Web.Util
                 }
                 return jobTypeSelectedList;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -84,9 +84,9 @@ namespace IdealHires.Web.Util
                 }
                 return jobTypeDTO;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -127,9 +127,9 @@ namespace IdealHires.Web.Util
                 }
                 return jobCategorySelected;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -156,6 +156,92 @@ namespace IdealHires.Web.Util
                     }
                 }
                 return jobCategoryDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<SelectListItem> NotificationType()
+        {
+            List<SelectListItem> notificationTypeSelectedList = new List<SelectListItem>();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/employer/notificationtype");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    var response = client.GetAsync(string.Empty).Result;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var data = response.Content.ReadAsStringAsync().Result;
+                        var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                        var notificationTypeDTO = JsonConvert.DeserializeObject<List<NotificationTypeDTO>>(responseModel.Result.ToString());
+                        if (notificationTypeDTO.Count > 0 && notificationTypeDTO != null)
+                        {
+                            foreach (var list in notificationTypeDTO)
+                            {
+                                var selectList = new SelectListItem()
+                                {
+                                    Text = list.Name,
+                                    Value = list.Id.ToString()
+                                };
+                                notificationTypeSelectedList.Add(selectList);
+                            }
+                            return notificationTypeSelectedList;
+                        }
+                    }
+                    else
+                    {
+                        notificationTypeSelectedList = null;
+                    }
+                }
+                return notificationTypeSelectedList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<SelectListItem> PayPeriodType()
+        {
+            List<SelectListItem> payPeriodTypeSelected = new List<SelectListItem>();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/employer/payperiod");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    var response = client.GetAsync(string.Empty).Result;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var data = response.Content.ReadAsStringAsync().Result;
+                        var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                        var payPeriodTypeDTO = JsonConvert.DeserializeObject<List<PayPeriodTypeDTO>>(responseModel.Result.ToString());
+                        if (payPeriodTypeDTO.Count > 0 && payPeriodTypeDTO != null)
+                        {
+                            foreach (var list in payPeriodTypeDTO)
+                            {
+                                var selectList = new SelectListItem()
+                                {
+                                    Text = list.Name,
+                                    Value = list.Id.ToString()
+                                };
+                                payPeriodTypeSelected.Add(selectList);
+                            }
+                            return payPeriodTypeSelected;
+                        }
+                    }
+                    else
+                    {
+                        payPeriodTypeSelected = null;
+                    }
+                }
+                return payPeriodTypeSelected;
             }
             catch (Exception ex)
             {

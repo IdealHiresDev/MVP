@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IdealHires.DTO.Candidate;
 using IdealHires.DTO;
+using IdealHires.DTO.Employer;
 
 namespace IdealHires.BAL.Business
 {
@@ -121,6 +122,7 @@ namespace IdealHires.BAL.Business
             }
             return keywordId;
         }
+      
 
         public JobTypeDTO GetJobType(int id)
         {
@@ -220,7 +222,8 @@ namespace IdealHires.BAL.Business
 
         #endregion
 
-        #region Private
+        #region Private       
+
         private List<JobTypeProfile> MapJobTypeProfileData(CandidatePreferencesDTO preferencesCandidate)
         {
             List<JobTypeProfile> jobTypeProfileList = new List<JobTypeProfile>();

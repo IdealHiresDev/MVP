@@ -10,20 +10,34 @@
         $("#exampleSwitch").change(function () {
             if ($("#exampleSwitch").is(":checked")) {
                 $('#IsCurrent').val('True');
+                $('#EndAt').val('');
+                $('#EndAt').attr("data-val", "false");
                 $('#EndAtDiv').hide();
             }
             else {
                 $('#IsCurrent').val('False');
+                $('#EndAt').attr("data-val", "true");
                 $('#EndAtDiv').show();
             }
         });
     });
     function WorkExperienceSuccess(data) {
-        if (data == "WorkExpSuccess") {           
+        debugger;
+        if (data == "WorkExpSuccess") {
             $("#WorkExpModal").modal('hide');
-            LoadWorkData();
-        } else {
-            alert("Failure");
+            LoadWorkData('Saved');
+            LoadWorkDataPreview('Updated');
+        } else if (data == "WorkExpEditSuccess") {
+            $("#WorkExpModal").modal('hide');
+            LoadWorkData('Updated');
+            LoadWorkDataPreview('Updated');
+        } else if (data == "WorkExpEditPreviewSuccess") {
+            $("#PreviewWorkExpModal").modal('hide');
+            LoadWorkDataPreview('Updated');
+        }
+        else {
+            $("#WorkExpModal").modal('hide');
+            LoadWorkData('');
         }
     }
 
@@ -39,22 +53,6 @@
             return false;
         }
     });
-
-    function LoadWorkData() {
-        $.ajax({
-            url: "../Candidate/WorkDetails",
-            type: "GET",
-            contentType: "application/json",
-            async: true,
-            // dataType: 'json',
-            success: function (data) {
-                $('#WorkDetailsDiv').empty().html(data);
-            },
-            error: function (xHr, status, res) {
-                alert('Failure');
-            }
-        });
-    }
 </script>
 @using (Ajax.BeginForm("WorkExp", "Candidate", null, options, new { @id = "formWork" }))
 {
@@ -62,6 +60,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
     @Html.HiddenFor(m => m.Id)
     @Html.HiddenFor(m => m.ProfileId)
+    @Html.HiddenFor(m => m.Option)
     <div class="modal-header">
         <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Work Experience</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -69,23 +68,25 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-sm-6">
-                <div class="group profile-form">
-                    @Html.TextBoxFor(m => m.PositionName, new { @class = "tab-cus-input", placeholder = "Position" })
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.PositionName, new { @class = "form-control" })
+                    <label>Position</label>
                     @Html.ValidationMessageFor(m => m.PositionName, "", new { @class = "text-validationdanger" })
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="group profile-form">
-                    @Html.TextBoxFor(m => m.CompanyName, new { @class = "tab-cus-input", placeholder = "Company" })
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                    <label>Company</label>
                     @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-validationdanger" })
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
                 <div class="group profile-form">
-                    @Html.TextBoxFor(m => m.StartAt, new { @class = "datepicker", placeholder = "From" })
-                    @Html.ValidationMessageFor(m => m.StartAt, "", new { @class = "text-validationdanger" })                    
+                    @Html.TextBoxFor(m => m.StartAt, new { id = "datepicker", @class = "datepicker", placeholder = "From" })
+                    @Html.ValidationMessageFor(m => m.StartAt, "", new { @class = "text-validationdanger" })
                 </div>
             </div>
             @if (Model.IsCurrent)
@@ -103,9 +104,12 @@
                 </div>
             }
         </div>
-        <div class="row mt-3">
+        <div class="row">
             <div class="col-sm-6">
-                @Html.TextBoxFor(m => m.Salary, new { @class = "tab-cus-input", placeholder = "Salary" })
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+                    <label>Salary</label>
+                </div>
             </div>
             <div class="col-sm-6">
                 <div class="switch-btn-1 sw-pre">
@@ -128,15 +132,18 @@
         </div>
         <div class="row emp-pro mt-2">
             <div class="col-sm-12">
-                @Html.TextAreaFor(m => m.Description, 2, 60, new { @class = "tab-cus-input", placeholder = "Description" })
-                @*<textarea class="tab-cus-input" rows="2" placeholder="Description"></textarea>*@
-                <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey">Resume Tips</span><em class="far fa-question-circle ml-2 col-blue"></em> </div>
+                <div class="md-form">
+                    @Html.TextAreaFor(m => m.Description, 2, 60, new { @class = "form-control" })
+                    <label>Description</label>
+                    @*<textarea class="tab-cus-input" rows="2" placeholder="Description"></textarea>*@
+                    <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey">Resume Tips</span><em class="far fa-question-circle ml-2 col-blue"></em> </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-save" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-nextt btn-hover addWork" id="btnAddWorkSubmit">Submit</button>
+        <button type="button" class="btn btn-outline-grey waves-effect" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn blue-theme-button waves-effect waves-light addWork" id="btnAddWorkSubmit">Submit</button>
     </div>
 
 }

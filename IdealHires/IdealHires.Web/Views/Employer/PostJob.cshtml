@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Postjob";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <div class="mb-3">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-sm-12">
+                    <div class="sm-menu float-right ft-sml">
+                        <ul>
+                            <li><a class="active" href="#"><i class="fa fa-user col-grey"></i><span class="hide"> Candidates</span></a></li>
+                            <li><a class="active" href="#"><i class="fa fa-suitcase col-blue"></i><span class="hide"> Jobs</span></a></li>
+                            <li><a href="#"><i class="fa fa-envelope text-warning"></i><span class="hide"> Messages</span></a> </li>
+                            <li><a href="#"><i class="fa fa-bell text-success"></i><span class="hide"> Notifications</span></a> </li>
+                            <li><a href="#"><i class="fa fa-search col-grey"></i><span class="hide"> Find a Job</span></a> </li>
+                            <li><a href="#"><i class="fa fa-cog text-success"></i><span class="hide"> Setting</span></a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xs-12">
+                    <h3 class="blue-clr"><i class="fa fa-suitcase pr-2" aria-hidden="true"></i> Post a Job</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 align-self-center">
+                    <div class="col-sm-12 col-xs-12 text-right">
+                        <p class="text-dark ft-sml font-weight-bold">Available Job Credits: <span class="text-success">6</span></p>
+                    </div>
+                    <div class="form-box mb-5 tab-cus tabs">
+                        <div class="f1">
+                            <div class="row f1-steps text-center">
+                                <div class="f1-progress">
+                                    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 14%;"></div>
+                                </div>
+                                <div class="f1-step f2-step active" id="generalDiv" href="#general">
+                                    <div class="f1-step-icon"><i class="fa fa-star text-dark-grey"></i></div>
+                                    <p class="font-weight-bold">General</p>
+                                </div>
+                                <div class="f1-step f2-step" id="preferencesDiv" href="#preferences">
+                                    <div class="f1-step-icon"><i class="fa fa-tag text-dark-grey"></i></div>
+                                    <p>Preference</p>
+                                </div>
+                                <div class="f1-step f2-step" id="previewDiv" href="#preview">
+                                    <div class="f1-step-icon"><i class="fa fa-play text-dark-grey"></i></div>
+                                    <p>Preview</p>
+                                </div>
+                            </div>
+                            <div class="wizard-form container-fluid">
+                                @Html.Hidden("CurrentJobId",new { id= "CurrentJobId" })
+                                <fieldset class="mb-4 mt-2" id="general">
+                                    @{Html.RenderAction("General"); }
+                                </fieldset>
+                                <fieldset class="mb-4 mt-2" id="preferences">
+                                    @{Html.RenderAction("Preferences"); }
+                                </fieldset>
+                                <fieldset id="preview">
+                                    @{Html.RenderAction("Preview"); }
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+

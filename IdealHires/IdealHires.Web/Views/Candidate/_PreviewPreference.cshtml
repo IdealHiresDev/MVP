@@ -1,0 +1,46 @@
+﻿@model IdealHires.DTO.Candidate.CandidatePreferencesDTO
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+<div class="col-sm-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Job Type</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+                @Html.Label("Keywords *")
+                @Model.Keywords
+            </h6>
+            <ul class="list-group">
+
+                @foreach (var item in Model.SelectJobTypes)
+                {
+                    if (item.Selected)
+                    {
+                        <li class="list-group-item">@item.Text</li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-sm-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Job Categories</h5>            
+            @if (Model.SelectJobCategories != null)
+            {
+                <ul class="list-group">
+                    @foreach (var item in Model.SelectJobCategories)
+                    {
+                        if (item.Text != null)
+                        {
+                            if (item.Selected)
+                            {
+                                <li class="list-group-item">@item.Text</li>
+                            }
+                        }
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>

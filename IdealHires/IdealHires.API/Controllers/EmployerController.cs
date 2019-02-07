@@ -1,4 +1,5 @@
 ﻿using IdealHires.BAL.Business;
+using IdealHires.DTO;
 using IdealHires.DTO.Employer;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace IdealHires.API.Controllers
         #region Private Member
 
         private readonly EmployerService _employerService;
-
+       
         #endregion
 
         #region Company
@@ -66,5 +67,84 @@ namespace IdealHires.API.Controllers
         }
 
         #endregion
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("general")]
+        public int AddGeneral(JobBasicDTO postJobbasicDTO)
+        {
+            int result = 0;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    result = _employerService.InsertJobGeneralDetails(postJobbasicDTO);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("preferences")]
+        public int AddPreferences(JobPreferencesDTO jobPreferencesDTO)
+        {
+            int result = 0;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    result = _employerService.InsertJobPreferencesDetails(jobPreferencesDTO);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        [HttpGet]
+        [Route("notificationtype")]
+        public List<NotificationTypeDTO> GetNotificationType()
+        {
+            List<NotificationTypeDTO> notificationTypeDTODTO = new List<NotificationTypeDTO>();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    notificationTypeDTODTO = _employerService.GetNotificationType();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return notificationTypeDTODTO;
+        }
+        
+        [HttpGet]
+        [Route("payperiod")]
+        public List<PayPeriodTypeDTO> GetPayPeriodType()
+        {
+            List<PayPeriodTypeDTO> payPeriodTypeDTODTO = new List<PayPeriodTypeDTO>();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    payPeriodTypeDTODTO = _employerService.GetPayPeriodType();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return payPeriodTypeDTODTO;
+        }
     }
 }

@@ -15,14 +15,13 @@ namespace IdealHires.Data
     public partial class KeywordsJob
     {
         public int Id { get; set; }
-        public Nullable<int> JobId { get; set; }
-        public Nullable<int> JobCategoryId { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+        public int JobId { get; set; }
+        public string Keywords { get; set; }
     
         public virtual Job Job { get; set; }
-        public virtual JobCategory JobCategory { get; set; }
     }
 }

@@ -15,9 +15,13 @@ $(document).ready(function () {
 function WorkExperienceSuccess(data) {
     if (data == "WorkExpSuccess") {
         $("#WorkExpModal").modal('hide');
-        LoadWorkData();
+        LoadWorkData('Saved');
+    } else if (data == "WorkExpEditSuccess") {
+        $("#WorkExpModal").modal('hide');
+        LoadWorkData('Updated');
     } else {
-        alert("Failure");
+        $('#pWarningMessage').empty().html('There was an issue saving/updating data !');
+        $('#CommonWarningModel').modal('show');
     }
 }
 
@@ -34,18 +38,25 @@ $("#btnAddWorkSubmit").on("click", function (e) {
     }
 });
 
-function LoadWorkData() {
+function LoadWorkData(message) {
     $.ajax({
         url: "../Candidate/WorkDetails",
         type: "GET",
         contentType: "application/json",
         async: true,
-        // dataType: 'json',
         success: function (data) {
             $('#WorkDetailsDiv').empty().html(data);
+            if (message == "Saved") {
+                ToastMessageSuccess();
+            } else if (message == 'Deleted') {
+                ToastMessageDelete();
+            } else if (message == 'Updated') {
+                ToastMessageUpdate();
+            }
         },
         error: function (xHr, status, res) {
-            alert('Failure');
+            $('#pWarningMessage').empty().html(res);
+            $('#CommonWarningModel').modal('show');
         }
     });
 }

@@ -1,105 +1,128 @@
 ﻿@model IdealHires.DTO.Candidate.CandidateContactDTO
 @{
-    AjaxOptions options = new AjaxOptions();
-    options.HttpMethod = "POST";
-    options.OnSuccess = "OnContactSuccess";
-    options.InsertionMode = InsertionMode.ReplaceWith;
+                /**/
+
+                AjaxOptions options = new AjaxOptions();
+                options.HttpMethod = "POST";
+                options.OnSuccess = "OnContactSuccess";
+                options.InsertionMode = InsertionMode.ReplaceWith;
 }
 <script type="text/javascript">
     function OnContactSuccess(data) {
-        if (data === "ContactSuccess") {
+        if (data === "ContactSuccess" || data === "ContactEditSuccessNext") {
             var parent_fieldset = $(this).parents('fieldset');
             var current_active_step = $(this).parents('.f1').find('.f1-step.active');
             var progress_line = $(this).parents('.f1').find('.f1-progress-line');
-            $('#hAlertTitle').empty().html('Confirmation');
-            //$("#iAlertShow").removeClass().addClass('fas fa-check-square');
-            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
-            $('#AlertModel').modal('show');
+            if (data === "ContactSuccess") {
+                ToastMessageSuccess();
+            } else {
+                ToastMessageUpdate();
+            }
             parent_fieldset.fadeOut(400, function () {
-                // change icons
                 current_active_step.removeClass('active').addClass('activated').next().addClass('active');
-                // progress bar
                 bar_progress(progress_line, 'right');
-                // show next step
                 $(this).next().fadeIn();
-                // scroll window to beginning of the form
                 scroll_to_class($('.f1'), 20);
             });
         }
         else if (data === "BtnContactSuccess") {
-            $('#hAlertTitle').empty().html('Confirmation');
-            //$("#iAlertShow").removeClass();
-            $('#spanAlertShow').empty().html('Candidate information successfully saved.');
-            $('#AlertModel').modal('show');
+            ToastMessageSuccess();
+        } else if (data === "ContactEditSuccess") {
+            ToastMessageUpdate();
         }
         else if (data === "ContactFailure") {
-            $('#hAlertTitle').empty().html('Error');
-            //$("#iAlertShow").removeClass();
-            $('#spanAlertShow').empty().html('There was an error saving information.');
-            $('#AlertModel').modal('show');
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
         }
     }
 </script>
 @using (Ajax.BeginForm("Contact", "Candidate", null, options, new { @id = "formContact" }))
 {
-    @Html.AntiForgeryToken()    
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    @Html.HiddenFor(m => m.Id)
     <div class="row">
-        <div class="col-sm-12">
-            @Html.TextBoxFor(m => m.StreetAddress1, new { @class = "tab-cus-input", placeholder = "Street Address 1", autocomplete = "off" })
+        <div class="col-sm-12 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.StreetAddress1, new { @class = "form-control", autocomplete = "off" })
+                <label>Street Address 1 <span>*</span></label>
+            </div>
             @Html.ValidationMessageFor(m => m.StreetAddress1, "", new { @class = "text-validationdanger" })
-            @*<input id="name" type="text" placeholder="Street Address" class="tab-cus-input">*@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
-            @Html.TextBoxFor(m => m.StreetAddress2, new { @class = "tab-cus-input", placeholder = "Street Address 2", autocomplete = "off" })
-            @*<input id="name" type="text" placeholder="Address in 2nd line" class="tab-cus-input">*@
+        <div class="col-sm-12 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.StreetAddress2, new { @class = "form-control", autocomplete = "off" })
+                <label>Street Address 2 <span>*</span></label>
+                @*<input id="name" type="text" placeholder="Address in 2nd line" class="tab-cus-input">*@
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.City, new { @class = "tab-cus-input", placeholder = "City *", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control", autocomplete = "off" })
+                <label>City <span>*</span></label>
+            </div>
             @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-validationdanger" })
             @*<input id="name" type="text" placeholder="City *" class="tab-cus-input">*@
         </div>
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.State, new { @class = "tab-cus-input", placeholder = "State *", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control", autocomplete = "off" })
+                <label>State <span>*</span></label>
+            </div>
             @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-validationdanger" })
             @*<input id="name" type="text" placeholder="State *" alt="Category" class="tab-cus-input">*@
         </div>
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.Country, new { @class = "tab-cus-input", placeholder = "Country *", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control", autocomplete = "off" })
+                <label>Country <span>*</span></label>
+            </div>
             @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-validationdanger" })
             @*<input id="name" type="text" placeholder="Country *" alt="Category" class="tab-cus-input">*@
         </div>
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.ZipCode, new { @class = "tab-cus-input", placeholder = "Zip Code *", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", autocomplete = "off" })
+                <label>Zip Code <span>*</span></label>
+            </div>
             @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-validationdanger" })
             @*<input id="name" type="text" placeholder="Zip Code" alt="Category" class="tab-cus-input">*@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.Phone1, new { @class = "tab-cus-input", placeholder = "Phone Number 1", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Phone1, new { @class = "form-control", autocomplete = "off" })
+                <label>Phone Number 1</label>
+            </div>
             @Html.ValidationMessageFor(m => m.Phone1, "", new { @class = "text-validationdanger" })
             @*<input id="name" type="text" placeholder="Phone Number 1" class="tab-cus-input">*@
         </div>
-        <div class="col-sm-3">
-            @Html.TextBoxFor(m => m.Phone2, new { @class = "tab-cus-input", placeholder = "Phone Number 2", autocomplete = "off" })
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Phone2, new { @class = "form-control", autocomplete = "off" })
+                <label>Phone Number 2</label>
+            </div>
             @*<input id="name" type="text" placeholder="Phone Number 2" alt="Category" class="tab-cus-input">*@
         </div>
-        <div class="col-sm-6">
-            <input id="name" type="text" placeholder="Email ID *" alt="Category" class="tab-cus-input">
+        <div class="col-sm-6 col-xs-12">
+            <div class="md-form">
+                <input id="name" type="text" alt="Category" class="form-control">
+                <label>Email ID</label>
+            </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
         <div class="f1-buttons col-sm-6 text-left">
             <button type="button" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
         </div>
         <div class="f1-buttons col-sm-6">
-            <button type="submit" name="submit" value="Save" class="btn btn-fill mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
-            <button type="button" class="btn btn-next rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+            <button type="submit" name="submit" value="Save" class="btn btn-blue btn-sm waves-effect waves-light fnt-13 mr-3"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+            <button type="submit" class="btn btn-nextt rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
         </div>
     </div>
 

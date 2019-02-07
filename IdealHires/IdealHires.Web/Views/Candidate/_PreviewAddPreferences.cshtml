@@ -1,0 +1,131 @@
+﻿@model IdealHires.DTO.Candidate.CandidatePreferencesDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnPreferencesSuccess";
+}
+<script type="text/javascript">
+    function OnPreferencesSuccess(data) {
+        debugger;
+        if (data === "PreferencesSuccess" || data === "PreferencesEditSuccessNext") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            if (data === "PreferencesSuccess") {
+                ToastMessageSuccess();
+            } else {
+                ToastMessageUpdate();
+            }
+            parent_fieldset.fadeOut(400, function () {
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                bar_progress(progress_line, 'right');
+                $(this).next().fadeIn();
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data === "BtnPreferencesSuccess") {
+            ToastMessageSuccess();
+        } else if (data === "PreferencesEditSuccess") {
+            ToastMessageUpdate();
+        } else if (data === "PreferencesPreviewEditSuccess") {
+            $("#PreviewJobPreferenceModal").modal('hide');
+            GetPreviewPreference();
+        } else if (data === "PreferencesFailure") {
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
+        }
+
+    }
+
+</script>
+@*<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Job Preferences</h4>
+    </div>*@
+@using (Ajax.BeginForm("Preferences", "Candidate", null, options, new { @id = "formPreferences" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.PreferenceOption)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    <div class="modal-header">
+        <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em>Edit Job Preferences</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                @Html.TextBoxFor(m => m.Keywords, new { @class = "tab-cus-input", placeholder = "Keywords *", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Keywords, "", new { @class = "text-validationdanger" })
+                @*<input id="name" type="text" placeholder="Keywords" class="tab-cus-input">*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ft-sml col-grey">Job Type</div>
+            </div>
+            @foreach (var item in Model.SelectJobTypes)
+            {
+                <div class="col-sm-2">
+                    @if (item.Selected)
+                    {
+                        <div class="group profile-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" checked value="@item.Value">
+                                <label class="custom-control-label" for="customCheck">@item.Text</label>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="group profile-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" value="@item.Value">
+                                <label class="custom-control-label" for="customCheck">@item.Text</label>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-sm-12 mb-3 mt-3">
+                <em class="em fa fa-angle-down col-grey"></em>
+                <select id="SelectedJobCategory" multiple="multiple" required name="SelectedJobCategory" class="multiselect-ui form-control">
+                    @if (Model.SelectJobCategories != null)
+                    {
+                        foreach (var item in Model.SelectJobCategories)
+                        {
+                            if (item.Text != null)
+                            {
+                                if (item.Selected)
+                                {
+                                    <option value="@item.Value" selected>
+                                        @item.Text
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">
+                                        @item.Text
+                                    </option>
+                                }
+                            }
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @Html.TextBoxFor(m => m.Objective, new { @class = "tab-cus-input", placeholder = "Objective", autocomplete = "off" })
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-save" data-dismiss="modal">Cancel</button>
+        <button type="submit" name="submit" value="Save" class="btn btn-fill mr-3">Save</button>
+    </div>
+}

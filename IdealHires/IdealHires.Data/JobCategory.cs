@@ -19,7 +19,6 @@ namespace IdealHires.Data
         {
             this.JobCategoryJobs = new HashSet<JobCategoryJob>();
             this.JobCategoryProfiles = new HashSet<JobCategoryProfile>();
-            this.KeywordsJobs = new HashSet<KeywordsJob>();
         }
     
         public int Id { get; set; }
@@ -34,7 +33,5 @@ namespace IdealHires.Data
         public virtual ICollection<JobCategoryJob> JobCategoryJobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobCategoryProfile> JobCategoryProfiles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KeywordsJob> KeywordsJobs { get; set; }
     }
 }

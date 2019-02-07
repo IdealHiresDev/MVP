@@ -124,6 +124,9 @@ namespace IdealHires.API.Controllers
             int result = 0;
             try
             {
+                if (ModelState.ContainsKey("candidateWork.EndAt"))
+                    ModelState["candidateWork.EndAt"].Errors.Clear();
+
                 if (ModelState.IsValid)
                 {
                     result = _candidateService.InsertWorkDetails(candidateWork);
@@ -321,7 +324,7 @@ namespace IdealHires.API.Controllers
             }
             return result;
         }
-        
+
         [HttpGet]
         [Route("jobtype")]
         public List<JobTypeDTO> GetJobType()
@@ -396,6 +399,29 @@ namespace IdealHires.API.Controllers
                 throw ex;
             }
             return jobCategoryDTO;
+        }
+        #endregion
+
+        #region Candidate Preview
+
+        //[Authorize]
+        [HttpGet]
+        [Route("preview/{id:int}")]
+        public CandidatePreviewDTO GetCandidatePreview(int id)
+        {
+            CandidatePreviewDTO previewDetailDTO = new CandidatePreviewDTO();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    previewDetailDTO = _candidateService.GetCandidatePreviewDetails(id);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return previewDetailDTO;
         }
         #endregion
     }

@@ -44,6 +44,9 @@ namespace IdealHires.Data
         public virtual DbSet<KeywordsJob> KeywordsJobs { get; set; }
         public virtual DbSet<KeywordsProfile> KeywordsProfiles { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<NotificationType> NotificationTypes { get; set; }
+        public virtual DbSet<NotificationTypeJob> NotificationTypeJobs { get; set; }
+        public virtual DbSet<PayPeriodType> PayPeriodTypes { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<PermissionType> PermissionTypes { get; set; }
         public virtual DbSet<Profile> Profiles { get; set; }

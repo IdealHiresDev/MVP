@@ -24,39 +24,46 @@ namespace IdealHires.Web.Controllers
         [Authorize]
         public ActionResult Profile()
         {
+            Log.Info("Profile page started");
             return View();
         }
 
         [Authorize]
-        [HttpGet]
         public ActionResult General()
         {
+            Log.Info("Candidate General page started");
             CandidateBasicDTO basicDTO = new CandidateBasicDTO();
             try
             {
                 using (var client = new HttpClient())
                 {
                     int id = int.Parse(User.Identity.GetUserId());
+                    Log.Info("User Id " + id);
                     client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/basic/" + id);
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     var tokenData = GetTokenData();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
                     var response = client.GetAsync(string.Empty).Result;
+                    Log.Info("response =" + response);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
+                        Log.Info("response.StatusCode =" + response.StatusCode);
                         var data = response.Content.ReadAsStringAsync().Result;
                         var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
                         basicDTO = JsonConvert.DeserializeObject<CandidateBasicDTO>(responseModel.Result.ToString());
+                        Log.Info("Candidate General page end");
                         return PartialView("_General", basicDTO);
                     }
                     else
                     {
+                        Log.Info("Candidate General page end");
                         return PartialView("_General", basicDTO);
                     }
                 }
             }
             catch (Exception ex)
             {
+                Log.Error("Error", ex);
                 throw ex;
             }
         }
@@ -67,8 +74,10 @@ namespace IdealHires.Web.Controllers
         {
             try
             {
+                Log.Info("Candidate General post page started.");
                 if (!ModelState.IsValid)
                 {
+                    Log.Error("ModelState state error.");
                     return PartialView("_General", basicDTO);
                 }
                 else
@@ -76,20 +85,35 @@ namespace IdealHires.Web.Controllers
                     basicDTO.ResumeFilePath = (basicDTO.ResumeFile == null) ? string.Empty : SaveToPhysicalLocation(basicDTO.ResumeFile);
                     basicDTO.ResumeFile = null;
                     basicDTO.UserType = UserTypeData.Candidate.ToString();
+                    Log.Info("UserTypeData.Candidate.ToString() " + UserTypeData.Candidate.ToString());
                     using (var client = new HttpClient())
                     {
                         basicDTO.UserId = int.Parse(User.Identity.GetUserId());
+                        Log.Info("basicDTO.UserId " + basicDTO.UserId);
                         client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/basic");
+                        Log.Info("client.BaseAddress " + client.BaseAddress);
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         var tokenData = GetTokenData();
+                        Log.Info("tokenData " + tokenData["TokenType"] + " " + tokenData["AccessToken"]);
                         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
                         var response = client.PostAsJsonAsync(string.Empty, basicDTO).Result;
+                        Log.Info("response " + response);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return (submit == "Save") ? Json("BtnBasicSuccess") : Json("BasicSuccess");
+                            if(submit == "Save")
+                            {
+                                Log.Info("Candidate General post page ended.");
+                                return (basicDTO.Id > 0) ? Json("BasicEditSuccess") : Json("BtnBasicSuccess");
+                            }
+                            else
+                            {
+                                Log.Info("Candidate General post page ended.");
+                                return (basicDTO.Id > 0) ? Json("BasicEditSuccessNext") : Json("BasicSuccess");
+                            }                            
                         }
                         else
                         {
+                            Log.Info("Candidate General post page ended.");
                             return Json("BasicFailure");
                         }
                     }
@@ -97,6 +121,7 @@ namespace IdealHires.Web.Controllers
             }
             catch (Exception ex)
             {
+                Log.Error("Error details.", ex);
                 throw ex;
             }
         }
@@ -150,7 +175,14 @@ namespace IdealHires.Web.Controllers
                         var response = client.PostAsJsonAsync(string.Empty, contactDTO).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return (submit == "Save") ? Json("BtnContactSuccess") : Json("ContactSuccess");
+                            if (submit == "Save")
+                            {
+                                return (contactDTO.Id > 0) ? Json("ContactEditSuccess") : Json("BtnContactSuccess");
+                            }
+                            else
+                            {
+                                return (contactDTO.Id > 0) ? Json("ContactEditSuccessNext") : Json("ContactSuccess");
+                            }                            
                         }
                         else
                         {
@@ -170,46 +202,91 @@ namespace IdealHires.Web.Controllers
         public ActionResult Preferences()
         {
             CandidatePreferencesDTO preferenceDTO = new CandidatePreferencesDTO();
-            var selectJobTypes = JobCommon.JobType();
-            var selectJobCategories = JobCommon.JobCategory();
-
-            using (var client = new HttpClient())
+            Log.Info("Candidate Preferences get page started");
+            try
             {
-                int id = int.Parse(User.Identity.GetUserId());
-                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences/" + id);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                var tokenData = GetTokenData();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
-                var response = client.GetAsync(string.Empty).Result;
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                var selectJobTypes = JobCommon.JobType();
+                var selectJobCategories = JobCommon.JobCategory();
+                Log.Info("selectJobTypes and selectJobCategories completed");
+                using (var client = new HttpClient())
                 {
-                    var data = response.Content.ReadAsStringAsync().Result;
-                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
-                    preferenceDTO = JsonConvert.DeserializeObject<CandidatePreferencesDTO>(responseModel.Result.ToString());
-
-                    preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                    int id = int.Parse(User.Identity.GetUserId());
+                    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences/" + id);
+                    Log.Info("client.BaseAddress" + client.BaseAddress);
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    var tokenData = GetTokenData();
+                    Log.Info("tokenData " + tokenData["TokenType"] + " " + tokenData["AccessToken"]);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                    var response = client.GetAsync(string.Empty).Result;
+                    Log.Info("response " + response);
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        Value = c.Value,
-                        Text = c.Text,
-                        Selected = preferenceDTO.SelectedJobCategory.Contains(c.Value)
-                    }).ToList();
+                        var data = response.Content.ReadAsStringAsync().Result;
+                        Log.Info("data =" + data);
+                        var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                        preferenceDTO = JsonConvert.DeserializeObject<CandidatePreferencesDTO>(responseModel.Result.ToString());
 
-                    preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        if (preferenceDTO.SelectedJobCategory != null)
+                        {
+                            Log.Info("inside if preferenceDTO.SelectedJobCategory");
+                            preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                            {
+                                Value = c.Value,
+                                Text = c.Text,
+                                Selected = preferenceDTO.SelectedJobCategory.Contains(c.Value)
+                            }).ToList();
+                        }
+                        else
+                        {
+                            Log.Info("inside else preferenceDTO.SelectedJobCategory");
+                            preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                            {
+                                Value = c.Value,
+                                Text = c.Text,
+                                Selected = false
+                            }).ToList();
+                        }
+
+                        if (preferenceDTO.SelectedJobTypes != null)
+                        {
+                            Log.Info("inside if preferenceDTO.SelectedJobTypes");
+                            preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                            {
+                                Value = c.Value,
+                                Text = c.Text,
+                                Selected = preferenceDTO.SelectedJobTypes.Contains(c.Value)
+                            }).ToList();
+                        }
+                        else
+                        {
+                            Log.Info("inside else preferenceDTO.SelectedJobTypes");
+                            preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                            {
+                                Value = c.Value,
+                                Text = c.Text,
+                                Selected = false
+                            }).ToList();
+                        }
+
+                        Log.Info("Candidate Preferences get page ended.");
+                        return PartialView("_Preferences", preferenceDTO);
+                    }
+                    else
                     {
-                        Value = c.Value,
-                        Text = c.Text,
-                        Selected = preferenceDTO.SelectedJobTypes.Contains(c.Value)
-                    }).ToList();
-
-                    return PartialView("_Preferences", preferenceDTO);
-                }
-                else
-                {
-                    preferenceDTO.SelectJobTypes = selectJobTypes;
-                    preferenceDTO.SelectJobCategories = selectJobCategories;
-                    return PartialView("_Preferences", preferenceDTO);
+                        Log.Info("Preferences else failure case.");
+                        preferenceDTO.SelectJobTypes = selectJobTypes;
+                        preferenceDTO.SelectJobCategories = selectJobCategories;
+                        Log.Info("Candidate Preferences get page ended.");
+                        return PartialView("_Preferences", preferenceDTO);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Log.Error("Error details preference get= ", ex);
+                throw ex;
+            }
+
         }
 
         [Authorize]
@@ -218,6 +295,7 @@ namespace IdealHires.Web.Controllers
         {
             try
             {
+                Log.Info("Candidate Preferences post page started");
                 if (!ModelState.IsValid)
                 {
                     return PartialView("_Preferences", preferenceDTO);
@@ -228,16 +306,33 @@ namespace IdealHires.Web.Controllers
                     {
                         preferenceDTO.UserId = int.Parse(User.Identity.GetUserId());
                         client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences");
+                        Log.Info("client.BaseAddress" + client.BaseAddress);
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         var tokenData = GetTokenData();
+                        Log.Info("tokenData " + tokenData["TokenType"] + " " + tokenData["AccessToken"]);
                         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
                         var response = client.PostAsJsonAsync(string.Empty, preferenceDTO).Result;
+                        Log.Info("response " + response);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return (submit == "Save") ? Json("BtnPreferencesSuccess") : Json("PreferencesSuccess");
+                            if (submit == "Save")
+                            {
+                                if (preferenceDTO.PreferenceOption == "Preview")
+                                {
+                                    return Json("PreferencesPreviewEditSuccess");
+                                }
+                                Log.Info("Candidate Preferences post page ended. Save");
+                                return (preferenceDTO.Id > 0) ? Json("PreferencesEditSuccess") : Json("BtnPreferencesSuccess");
+                            }
+                            else
+                            {
+                                Log.Info("Candidate Preferences post page ended. else Save");
+                                return (preferenceDTO.Id > 0) ? Json("PreferencesEditSuccessNext") : Json("PreferencesSuccess");
+                            }
                         }
                         else
                         {
+                            Log.Info("Candidate Preferences post page ended. PreferencesFailure");
                             return Json("PreferencesFailure");
                         }
                     }
@@ -246,6 +341,7 @@ namespace IdealHires.Web.Controllers
             }
             catch (Exception ex)
             {
+                Log.Error("Error details preference post= ", ex);
                 throw ex;
             }
         }
@@ -255,7 +351,7 @@ namespace IdealHires.Web.Controllers
         public ActionResult WorkExp()
         {
             CandidateWorkDTO workDTO = new CandidateWorkDTO();
-            return PartialView("_WorkExp", workDTO);                      
+            return PartialView("_WorkExp", workDTO);
         }
 
         [Authorize]
@@ -315,7 +411,7 @@ namespace IdealHires.Web.Controllers
         [Authorize]
         [HttpGet]
         public ActionResult DeleteWorkItem(int Id)
-        {            
+        {
             using (var client = new HttpClient())
             {
                 int id = int.Parse(User.Identity.GetUserId());
@@ -325,12 +421,12 @@ namespace IdealHires.Web.Controllers
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
                 var response = client.GetAsync(string.Empty).Result;
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {                   
-                    return Json("Deleted", JsonRequestBehavior.AllowGet);
+                {
+                    return Json("DeletedWork", JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return Json("DeleteFailure", JsonRequestBehavior.AllowGet);
+                    return Json("DeleteWorkFailure", JsonRequestBehavior.AllowGet);
                 }
             }
         }
@@ -349,12 +445,12 @@ namespace IdealHires.Web.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (workDTO.EndAt == null)
                 {
-                    return PartialView("_WorkExp", workDTO);
+                    ModelState.Remove("EndAt");
                 }
-                else
-                {                   
+                if (ModelState.IsValid)
+                {
                     using (var client = new HttpClient())
                     {
                         workDTO.UserId = int.Parse(User.Identity.GetUserId());
@@ -366,13 +462,21 @@ namespace IdealHires.Web.Controllers
                         var response = client.PostAsJsonAsync(string.Empty, workDTO).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return Json("WorkExpSuccess");
+                            if (workDTO.Option == "Preview")
+                            {
+                                return Json("WorkExpEditPreviewSuccess");
+                            }
+                            return (workDTO.Id > 0) ? Json("WorkExpEditSuccess") : Json("WorkExpSuccess");
                         }
                         else
                         {
                             return Json("WorkExpFailure");
                         }
-                    }                    
+                    }
+                }
+                else
+                {
+                    return Json("WorkExpFailure");
                 }
             }
             catch (Exception ex)
@@ -397,7 +501,7 @@ namespace IdealHires.Web.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return PartialView("_Education", educationDTO);
+                    return Json("EducationFailure");
                 }
                 else
                 {
@@ -411,13 +515,17 @@ namespace IdealHires.Web.Controllers
                         var response = client.PostAsJsonAsync(string.Empty, educationDTO).Result;
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            return Json("EducationSuccess");
+                            if(educationDTO.EduOption== "Preview")
+                            {
+                                return Json("EducationPreviewEditSuccess");
+                            }
+                            return (educationDTO.Id > 0) ? Json("EducationEditSuccess") : Json("EducationSuccess");
                         }
                         else
                         {
                             return Json("EducationFailure");
                         }
-                    }                    
+                    }
                 }
             }
             catch (Exception ex)
@@ -493,7 +601,7 @@ namespace IdealHires.Web.Controllers
         public ActionResult DeleteEducation(int Id)
         {
             using (var client = new HttpClient())
-            {                
+            {
                 client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/education/" + Id + "/remove");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var tokenData = GetTokenData();
@@ -514,14 +622,308 @@ namespace IdealHires.Web.Controllers
         [HttpGet]
         public ActionResult Preview()
         {
-            return PartialView("_Preview");
+            CandidatePreviewDTO previewDTO = new CandidatePreviewDTO();
+            var selectJobTypes = JobCommon.JobType();
+            var selectJobCategories = JobCommon.JobCategory();
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preview/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    previewDTO = JsonConvert.DeserializeObject<CandidatePreviewDTO>(responseModel.Result.ToString());
+                    previewDTO.PreferencesPreview.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                    {
+                        Value = c.Value,
+                        Text = c.Text                       
+                    }).ToList();
+                    previewDTO.PreferencesPreview.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                    {
+                        Value = c.Value,
+                        Text = c.Text                       
+                    }).ToList();
+                    return PartialView("_Preview", previewDTO);
+                }
+                else
+                {
+                    return PartialView("_Preview", previewDTO);
+                }
+            }
         }
 
         [Authorize]
-        [HttpPost]
-        public ActionResult Preview(CandidateEducationDTO educationDTO)
+        [HttpGet]
+        public ActionResult PreviewWorkDetails()
         {
-            return PartialView("_Preview");
+            List<CandidateWorkDTO> workDTO = new List<CandidateWorkDTO>();
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/work/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    workDTO = JsonConvert.DeserializeObject<List<CandidateWorkDTO>>(responseModel.Result.ToString());
+                    return PartialView("_PreviewWorkDetails", workDTO);
+                }
+                else
+                {
+                    return PartialView("_PreviewWorkDetails", workDTO);
+                }
+            }
         }
+       
+        [Authorize]
+        [HttpGet]
+        public ActionResult PreviewEducationDetails()
+        {
+            List<CandidateEducationDTO> educationDTO = new List<CandidateEducationDTO>();
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/education/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    educationDTO = JsonConvert.DeserializeObject<List<CandidateEducationDTO>>(responseModel.Result.ToString());
+                    return PartialView("_PreviewEducationDetails", educationDTO);
+                }
+                else
+                {
+                    return PartialView("_PreviewEducationDetails", educationDTO);
+                }
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult PreviewPreferences()
+        {
+            CandidatePreferencesDTO preferenceDTO = new CandidatePreferencesDTO();
+            var selectJobTypes = JobCommon.JobType();
+            var selectJobCategories = JobCommon.JobCategory();
+
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    preferenceDTO = JsonConvert.DeserializeObject<CandidatePreferencesDTO>(responseModel.Result.ToString());
+
+                    if (preferenceDTO.SelectedJobCategory != null)
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobCategory.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+                    if (preferenceDTO.SelectedJobTypes != null)
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobTypes.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+
+                    return PartialView("_PreviewPreference", preferenceDTO);
+                }
+                else
+                {
+                    preferenceDTO.SelectJobTypes = selectJobTypes;
+                    preferenceDTO.SelectJobCategories = selectJobCategories;
+                    return PartialView("_PreviewPreference", preferenceDTO);
+                }
+            }
+        }
+        [Authorize]
+        [HttpGet]
+        public ActionResult PreviewPreferenceDetails()
+        {
+            CandidatePreferencesDTO preferenceDTO = new CandidatePreferencesDTO();
+            var selectJobTypes = JobCommon.JobType();
+            var selectJobCategories = JobCommon.JobCategory();
+
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    preferenceDTO = JsonConvert.DeserializeObject<CandidatePreferencesDTO>(responseModel.Result.ToString());
+
+                    if (preferenceDTO.SelectedJobCategory != null)
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobCategory.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+                    if (preferenceDTO.SelectedJobTypes != null)
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobTypes.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+
+                    return PartialView("_PreviewPreference", preferenceDTO);
+                }
+                else
+                {
+                    preferenceDTO.SelectJobTypes = selectJobTypes;
+                    preferenceDTO.SelectJobCategories = selectJobCategories;
+                    return PartialView("_PreviewPreference", preferenceDTO);
+                }
+            }
+        }
+
+        [HttpGet]
+        public ActionResult PreviewAddPreferences()
+        {
+            CandidatePreferencesDTO preferenceDTO = new CandidatePreferencesDTO();
+            var selectJobTypes = JobCommon.JobType();
+            var selectJobCategories = JobCommon.JobCategory();
+
+            using (var client = new HttpClient())
+            {
+                int id = int.Parse(User.Identity.GetUserId());
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiUrl"] + "/api/candidate/preferences/" + id);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var tokenData = GetTokenData();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenData["TokenType"], tokenData["AccessToken"]);
+                var response = client.GetAsync(string.Empty).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var responseModel = JsonConvert.DeserializeObject<ResponseDTO>(data);
+                    preferenceDTO = JsonConvert.DeserializeObject<CandidatePreferencesDTO>(responseModel.Result.ToString());
+
+                    if (preferenceDTO.SelectedJobCategory != null)
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobCategory.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobCategories = selectJobCategories.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+                    if (preferenceDTO.SelectedJobTypes != null)
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = preferenceDTO.SelectedJobTypes.Contains(c.Value)
+                        }).ToList();
+                    }
+                    else
+                    {
+                        preferenceDTO.SelectJobTypes = selectJobTypes.AsEnumerable().Select(c => new SelectListItem
+                        {
+                            Value = c.Value,
+                            Text = c.Text,
+                            Selected = false
+                        }).ToList();
+                    }
+
+                    preferenceDTO.PreferenceOption = "Preview";
+                    return PartialView("_PreviewAddPreferences", preferenceDTO);
+                }
+                else
+                {
+                    preferenceDTO.SelectJobTypes = selectJobTypes;
+                    preferenceDTO.SelectJobCategories = selectJobCategories;
+                    return PartialView("_PreviewAddPreferences", preferenceDTO);
+                }
+            }
+        }
+
     }
 }

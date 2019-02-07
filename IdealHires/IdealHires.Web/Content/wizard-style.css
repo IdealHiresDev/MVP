@@ -57,8 +57,8 @@
 .f1-progress {
     position: absolute;
     top: 27px;
-    left: 0;
-    width: 97%;
+    left: 51px;
+    width: 85%;
     height: 3px;
     background: #ddd;
 }
