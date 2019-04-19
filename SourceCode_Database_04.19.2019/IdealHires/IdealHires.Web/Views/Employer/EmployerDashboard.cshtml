@@ -1,0 +1,252 @@
+﻿@model IdealHires.DTO.Employer.DashboardCalculationDTO
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Employer Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+}
+@{ 
+    var type1 = Model.DasboardType;
+}
+<script src="~/Scripts/dashboard/dashboarddetail.js"></script>
+<link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {        
+        datatableVariable = $('#tbldata').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "searching": false,
+            "sorting": false,
+            "ajax": {
+                "url": '@Url.Action("EmployerDashboardDataTable", "Employer")?type='+'@type1',
+                "type": "POST",
+                "datatype": "json"
+            },
+
+            'columns': [
+                {
+                    'data': 'JobTitle', 'className': 'title',
+                    "searchable": false,
+                    "sortable": false,
+                },
+                {
+                    'data': 'ActionId',
+                    "searchable": false,
+                    "sortable": false,
+                    "render": function (data, type, full, meta) {
+                        if (data == 0) {
+                            return '<td class="application">No Application(s)</td>';
+                        } else {
+                            return '<td class="application">' + data + ' Application(s)</td>';
+                        }
+                    }
+                },
+                {
+                    'data': 'ExpiryDate', 'render': function (date) {
+                        debugger;
+                        if (date != null) {
+                            var date = new Date(parseInt(date.substr(6)));
+                            var month = date.getMonth() + 1;
+                            return month + "/" + date.getDate() + "/" + date.getFullYear();
+                        } else {
+                            return '';
+                        }
+
+                    },
+                    "searchable": false,
+                    "sortable": false,
+                },
+                {
+                    'data': 'ExpiryDate', 'className': 'deadline', 'render': function (date, data, type, full, meta) {
+                        if (date != null) {
+                            var expDate = new Date(parseInt(date.substr(6)));
+                            var curDate = new Date();
+                            if (expDate.getTime() < curDate.getTime()) {
+                                return '<td class="title"><span class="status expired">Expired</span><div class="info mt-2"><span class="repost"><a href="../Employer/PostJob?Id=' + type.JobId + '" class="edit" title="Edit">Repost</a></span></div></td>';
+                            } else {
+                                return '<td class="status pending">Active</td>';
+                            }
+                        } else {
+                            return '<td class="status pending">Pending</td>';
+                        }
+
+                    },
+                    "searchable": false,
+                    "sortable": false,
+                },
+                {
+                    "className": "action",
+                    'render': function (data, type, full, meta) {
+                        debugger;
+                        return ' <a href="../Employer/JobDetails?id=' + full.JobId + '" class="preview" title="Preview"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>'
+                            + '<a href="../Employer/PostJob?Id=' + full.JobId + '" class="edit" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg></a>'
+                            + '<a href="#" onclick="DeleteJobDetails(' + full.JobId + ')" class="remove" title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></a>'
+                    },
+                    "searchable": false,
+                    "sortable": false,
+                }
+            ]
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $('#tbldata').paging({ limit: 10 });
+    })
+</script>
+@if (Model.DasboardType != "myJobList")
+{
+    <section class="header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Employer Dashboard</h2>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+else
+{
+    <section class="header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Job List</h2>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+<section class="mt-5">
+
+    <div class="mb-3">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                    <div class="row mb-3">
+
+                    </div>
+                    @if (Model.DasboardType != "myJobList")
+                    {                        
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-6 col-xl-3 ">
+                                <div class="card shadow text-center">
+                                    <div class="card-body">
+                                        <div class="text-center mx-auto server">
+                                            <i class="fas fa-suitcase icon text-primary h4"></i>
+                                        </div>
+                                        <div class="text mt-2">
+                                            <h1 class="mb-0">@Model.TotalJob</h1>
+                                            <label class="text-muted">Total Job Posted</label>
+                                        </div>
+                                        <div class="options mt-3">
+                                            <a href="javascript:;" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xl-3">
+                                <div class="card shadow text-center">
+                                    <div class="card-body">
+                                        <div class="mx-auto server">
+                                            <i class="fas fa-clipboard-list icon text-info h4"></i>
+                                        </div>
+                                        <div class="text mt-2">
+                                            <h1 class="mb-0">@Model.ApplicationSubmit</h1>
+                                            <label class="text-muted">Application Received</label>
+                                        </div>
+                                        <div class="options mt-3">
+                                            <a href="@Url.Action("CandidateList", "Employer", new { type = "applicationreceived" })" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-search"></i> View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xl-3">
+                                <div class="card shadow text-center">
+                                    <div class="card-body">
+                                        <div class="mx-auto server">
+                                            <i class="fas fa-envelope icon text-success h4"></i>
+                                        </div>
+                                        <div class="text mt-2">
+                                            <h1 class="mb-0">@Model.TotalCallForInterview</h1>
+                                            <label class="text-muted">Call For Interview</label>
+                                        </div>
+                                        <div class="options mt-3">
+
+                                            <a href="@Url.Action("GetSortListedCandidate", "Employer", new { type = "sortlistedcandidate" })" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-search"></i> View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xl-3">
+                                <div class="card shadow text-center">
+                                    <div class="card-body">
+                                        <div class="mx-auto server">
+                                            <i class="fas fa-eye icon text-danger h4"></i>
+                                        </div>
+                                        <div class="text mt-2">
+                                            <h1 class="mb-0">@Model.TotalJobViewed</h1>
+                                            <label class="text-muted">Job Viewed</label>
+                                        </div>
+                                        <div class="options mt-3">
+                                            @*<a href="javascript:;" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-search"></i> View Details</a>*@
+                                            <a href="@Url.Action("GetJobViewerCandidates", "Employer", new { type = "jobviewed" })" class="btn btn-danger btn-sm">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                                View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                    <div class="row mt-2">
+                        <div class="col-sm-12">
+                            <a href="@Url.Action("PostJob", "Employer")" class="btn btn-block-cus blue-theme-button waves-effect btn-lg col-12 ml-0">Post Job</a>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <div class="card p-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div><h5>Recent Jobs</h5></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="recent-job-container">
+                                            <table class="table tbody-spc tbody" id="tbldata">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Job Title</th>
+                                                        <th>Applications</th>
+                                                        <th>Deadline</th>
+                                                        <th>Status</th>
+                                                        <th class="action">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="#" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>

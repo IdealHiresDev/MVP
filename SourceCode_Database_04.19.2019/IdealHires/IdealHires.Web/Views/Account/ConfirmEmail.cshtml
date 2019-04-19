@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+
+@if (ViewBag.UserType == "Employer")
+{
+    <section>
+        <div class="mt-5 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-left">
+                        <h3 class="blue-clr mb-3 "><i class="fa fa-handshake" aria-hidden="true"></i> <span class="text-dark"></span>Welcome</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 align-self-center">
+                        <video width="830" height="350" controls poster="~/images/welcome.jpg">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="col-blue pt-4">Thank you for choosing IdealHires!</h4>
+                        <p class="welcomepar">We understand there are many job boards, search engines, and recruiters available to support you in fulfilling your open roles, so we’re honored you’ve chosen us to help build your team. </p>
+                        <p class="welcomepar">Using our extensive database, customized platform, and experienced team we’re dedicated to helping you find not just any candidate, but the Ideal Candidates to help you prosper and grow.</p>
+                        <p class="welcomepar">The next step is to create your company profile. </p>
+                        <p class="welcomepar">We’re so excited for you!</p>
+                        @Html.ActionLink("Create Profile", "EmployerLogin", "Account", new { @returnUrl = Url.Action("Profile", "Employer") }, new { @class = "btn clr-blue float-right" })
+                    </div>
+                    <div class="text-center col-sm-3 text-sm-right add-sm-none">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section>
+        <div class="mt-5 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-left">
+                        <h3 class="blue-clr mb-3 "><i class="fa fa-handshake" aria-hidden="true"></i> <span class="text-dark"></span>Welcome</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 align-self-center">
+                        <video width="830" height="350" controls poster="~/images/welcome.jpg">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="col-blue pt-4">Thank you for choosing IdealHires!</h4>
+                        <p class="welcomepar">We understand there are many job boards available, so we’re honored you’ve chosen us to get it done right.</p>
+                        <p class="welcomepar">Using our customized platform and relationship with Top Companies, we’re committed to helping you find not just any job, but your Ideal Career. </p>
+                        <p class="welcomepar">The next step is to create your profile and explore. </p>
+                        <p class="welcomepar">We’re so excited for you! </p>
+                        <p class="welcomepar"></p>
+                        @Html.ActionLink("Create Profile", "Login", "Account", new { @returnUrl = Url.Action("Profile", "Candidate") }, new { @class = "btn clr-blue float-right" })
+                    </div>
+                    <div class="text-center col-sm-3 text-sm-right add-sm-none">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+
+

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessToken" xml:space="preserve">
+    <value>AccessToken</value>
+  </data>
+  <data name="AddEducation" xml:space="preserve">
+    <value>_AddEducation</value>
+  </data>
+  <data name="AddWorkExp" xml:space="preserve">
+    <value>_AddWorkExp</value>
+  </data>
+  <data name="AlreadyAppliedJob" xml:space="preserve">
+    <value>You have already applied this job.</value>
+  </data>
+  <data name="AlreadySavedNotInterested" xml:space="preserve">
+    <value>You have already saved as 'Not Interested'</value>
+  </data>
+  <data name="AlreadySavedThisJob" xml:space="preserve">
+    <value>You have already saved this job.</value>
+  </data>
+  <data name="AppliedJobList" xml:space="preserve">
+    <value>_AppliedJobList</value>
+  </data>
+  <data name="BasicEditSuccess" xml:space="preserve">
+    <value>BasicEditSuccess</value>
+  </data>
+  <data name="BasicEditSuccessNext" xml:space="preserve">
+    <value>BasicEditSuccessNext</value>
+  </data>
+  <data name="BasicFailure" xml:space="preserve">
+    <value>BasicFailure</value>
+  </data>
+  <data name="BasicSuccess" xml:space="preserve">
+    <value>BasicSuccess</value>
+  </data>
+  <data name="BtnBasicSuccess" xml:space="preserve">
+    <value>BtnBasicSuccess</value>
+  </data>
+  <data name="BtnContactSuccess" xml:space="preserve">
+    <value>BtnContactSuccess</value>
+  </data>
+  <data name="BtnPreferencesSuccess" xml:space="preserve">
+    <value>BtnPreferencesSuccess</value>
+  </data>
+  <data name="CandidateJobsGetPageEnded" xml:space="preserve">
+    <value>Candidate Jobs get page ended</value>
+  </data>
+  <data name="CandidateJobsPostpgEnded" xml:space="preserve">
+    <value>Candidate Jobs post page ended.</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>_Contact</value>
+  </data>
+  <data name="ContactEditSuccess" xml:space="preserve">
+    <value>ContactEditSuccess</value>
+  </data>
+  <data name="ContactEditSuccessNext" xml:space="preserve">
+    <value>ContactEditSuccessNext</value>
+  </data>
+  <data name="ContactFailure" xml:space="preserve">
+    <value>ContactFailure</value>
+  </data>
+  <data name="ContactSuccess" xml:space="preserve">
+    <value>ContactSuccess</value>
+  </data>
+  <data name="DeletedWork" xml:space="preserve">
+    <value>DeletedWork</value>
+  </data>
+  <data name="DeleteWorkFailure" xml:space="preserve">
+    <value>DeleteWorkFailure</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>_Education</value>
+  </data>
+  <data name="EducationDeleted" xml:space="preserve">
+    <value>EducationDeleted</value>
+  </data>
+  <data name="EducationDeleteFailure" xml:space="preserve">
+    <value>EducationDeleteFailure</value>
+  </data>
+  <data name="EducationDetails" xml:space="preserve">
+    <value>_EducationDetails</value>
+  </data>
+  <data name="EducationEditSuccess" xml:space="preserve">
+    <value>EducationEditSuccess</value>
+  </data>
+  <data name="EducationFailure" xml:space="preserve">
+    <value>EducationFailure</value>
+  </data>
+  <data name="EducationSuccess" xml:space="preserve">
+    <value>EducationSuccess</value>
+  </data>
+  <data name="EndAt" xml:space="preserve">
+    <value>EndAt</value>
+  </data>
+  <data name="ErrorDetailsJobInterestedGet" xml:space="preserve">
+    <value>Error details job interested get</value>
+  </data>
+  <data name="ErrorDetailsPreferenceGet" xml:space="preserve">
+    <value>Error details preference get </value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>_General</value>
+  </data>
+  <data name="JobAppliedGetPageStarted" xml:space="preserve">
+    <value>Candidate JobApplied get page started</value>
+  </data>
+  <data name="JobAppliedMsg" xml:space="preserve">
+    <value>Job applied successfully.</value>
+  </data>
+  <data name="JobAppliedPartial" xml:space="preserve">
+    <value>_JobApplied</value>
+  </data>
+  <data name="JobExploreFailure" xml:space="preserve">
+    <value>JobExploreFailure</value>
+  </data>
+  <data name="JobInterested" xml:space="preserve">
+    <value>_JobInterested</value>
+  </data>
+  <data name="JobRecommended" xml:space="preserve">
+    <value>_JobRecommended</value>
+  </data>
+  <data name="JobSavedMsg" xml:space="preserve">
+    <value>Job saved successfully.</value>
+  </data>
+  <data name="JobsFailure" xml:space="preserve">
+    <value>JobsFailure</value>
+  </data>
+  <data name="JobsPartial" xml:space="preserve">
+    <value>_JobsPartial</value>
+  </data>
+  <data name="NotInterestedJobList" xml:space="preserve">
+    <value>_NotInterestedJobList</value>
+  </data>
+  <data name="NotInterestedSavedMsg" xml:space="preserve">
+    <value>'Not Interested' saved successfully.</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>_Preferences</value>
+  </data>
+  <data name="PreferencesEditSuccess" xml:space="preserve">
+    <value>PreferencesEditSuccess</value>
+  </data>
+  <data name="PreferencesEditSuccessNext" xml:space="preserve">
+    <value>PreferencesEditSuccessNext</value>
+  </data>
+  <data name="PreferencesFailure" xml:space="preserve">
+    <value>PreferencesFailure</value>
+  </data>
+  <data name="PreferencesPreviewEditSuccess" xml:space="preserve">
+    <value>PreferencesPreviewEditSuccess</value>
+  </data>
+  <data name="PreferencesSuccess" xml:space="preserve">
+    <value>PreferencesSuccess</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>_Preview</value>
+  </data>
+  <data name="PreviewAddPreferences" xml:space="preserve">
+    <value>_PreviewAddPreferences</value>
+  </data>
+  <data name="PreviewEducationDetails" xml:space="preserve">
+    <value>_PreviewEducationDetails</value>
+  </data>
+  <data name="PreviewPreference" xml:space="preserve">
+    <value>_PreviewPreference</value>
+  </data>
+  <data name="PreviewWorkDetails" xml:space="preserve">
+    <value>_PreviewWorkDetails</value>
+  </data>
+  <data name="RecordNotFound" xml:space="preserve">
+    <value>Record not found.</value>
+  </data>
+  <data name="Response" xml:space="preserve">
+    <value>response</value>
+  </data>
+  <data name="SavedJobList" xml:space="preserve">
+    <value>_SavedJobList</value>
+  </data>
+  <data name="SelectJobTypesCompleted" xml:space="preserve">
+    <value>selectJobTypes completed</value>
+  </data>
+  <data name="SimilarJobMsg" xml:space="preserve">
+    <value>we don’t have appropriate job posted for company your are looking for, Here are similar type of jobs with other companies</value>
+  </data>
+  <data name="SomeError" xml:space="preserve">
+    <value>Some error occurred.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Candidate JobExplore post page ended.</value>
+  </data>
+  <data name="TokenData" xml:space="preserve">
+    <value>tokenData</value>
+  </data>
+  <data name="WorkDetails" xml:space="preserve">
+    <value>_WorkDetails</value>
+  </data>
+  <data name="WorkExp" xml:space="preserve">
+    <value>_WorkExp</value>
+  </data>
+  <data name="WorkExpEditSuccess" xml:space="preserve">
+    <value>WorkExpEditSuccess</value>
+  </data>
+  <data name="WorkExpFailure" xml:space="preserve">
+    <value>WorkExpFailure</value>
+  </data>
+  <data name="WorkExpSuccess" xml:space="preserve">
+    <value>WorkExpSuccess</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="NotificationDetails" xml:space="preserve">
+    <value>NotifiactionDetails</value>
+  </data>
+  <data name="ShortNotification" xml:space="preserve">
+    <value>_ShortNotificationDetails</value>
+  </data>
+  <data name="NotificationFailure" xml:space="preserve">
+    <value>NotificationFailure</value>
+  </data>
+  <data name="NotificatioAddSucess" xml:space="preserve">
+    <value>NotificatioAddSucess</value>
+  </data>
+</root>

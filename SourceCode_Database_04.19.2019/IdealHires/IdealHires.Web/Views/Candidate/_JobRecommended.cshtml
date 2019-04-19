@@ -1,0 +1,116 @@
+﻿@model IdealHires.DTO.Candidate.CandidateJobExploreDTO
+<p class="h5 pt-4">Section 3</p>
+@using (Ajax.BeginForm("JobExplore", "Candidate", null, new AjaxOptions() { }, new { @id = "formJobExplore" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+
+    <div class="body">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    @*<input id="name" type="text" placeholder="Keywords *" class="tab-cus-input">*@
+                    @Html.TextBoxFor(m => m.Keywords, new { @class = "tab-cus-input", placeholder = "Keywords *" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    @*<input id="name" type="text" placeholder="Job Title *" class="tab-cus-input">*@
+                    @Html.TextBoxFor(m => m.JobTitle, new { @class = "tab-cus-input", placeholder = "Job Title *" })
+                </div>
+                <div class="col-sm-6">
+                    <input id="name" type="text" placeholder="Job Category *" alt="Category" class="tab-cus-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 mt-3">
+                    <div class="font-95rem">Job Type</div>
+                </div>
+                @foreach (var item in Model.SelectJobTypes)
+                {
+                    <div class="col-sm-2">
+                        @if (item.Selected)
+                        {
+                            <div class="group profile-form">
+                                <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" checked value="@item.Value">
+                                    <label class="custom-control-label" for="customCheck">@item.Text</label>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="group profile-form">
+                                <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="SelectedJobTypes" value="@item.Value">
+                                    <label class="custom-control-label" for="customCheck">@item.Text</label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            @*<div class="row">
+                    <div class="col-sm-12">
+                        <div class="ft-sml col-grey">Job Type</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="group profile-form list-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Full Time</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="group profile-form list-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Part Time</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="group profile-form list-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Contractor</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="group profile-form list-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Intern</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="group profile-form list-form">
+                            <div class="custom-control custom-checkbox remember wizard-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Seasonal</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="row">
+                <div class="col-sm-6">
+                    @*<input id="name" type="text" placeholder="Location *" class="tab-cus-input">*@
+                    @Html.TextBoxFor(m => m.JobLocation, new { @class = "tab-cus-input", placeholder = "Location *" })
+                </div>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.JobLocation, new { @class = "tab-cus-input", placeholder = "Company *" })
+                    @*<input id="name" type="text" placeholder="Company" alt="Category" class="tab-cus-input">*@
+                </div>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-12 text-right">
+                <button type="button" class="btn btn-save btn-fill pl-4 pr-4"><em class="fa fa-search pr-2"></em> Search</button>
+            </div>
+        </div>
+    </div>
+}
+

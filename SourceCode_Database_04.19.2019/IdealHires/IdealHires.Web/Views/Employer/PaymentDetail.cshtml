@@ -1,0 +1,133 @@
+﻿@using IdealHires.DTO.Employer
+@{
+    ViewBag.Title = "Payment Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    TransactionDTO transactionDTO = new TransactionDTO();
+    if (Session["Transaction"] != null)
+    {
+        transactionDTO = (TransactionDTO)Session["Transaction"];        
+    }
+}
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center-xs">
+                <h2>Payment Details</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="mt-4 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    @if (!string.IsNullOrEmpty(transactionDTO.TransId))
+                    {
+                        <div class="row">
+                            <div class="col-xs-1 text-center" style="color:green;font-weight:500;font-size: larger;">
+                                <span>Payment Successful</span>
+                            </div>
+                        </div>
+
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => transactionDTO.JobCreditId)
+                        @Html.HiddenFor(model => transactionDTO.JobCredit)
+                        <div class="row">
+                            <div class="col-sm-12">
+                                Your account has been credited with  @Html.Label(transactionDTO.JobCredit.ToString() + " Jobs")  credits.
+                                @{
+                                    var transactionDateTime = transactionDTO.TransactionDateTime.HasValue ? transactionDTO.TransactionDateTime.Value.ToString("MM/dd/yyyy HH:MM") : string.Empty;
+                                }
+                                Your transaction id is   @Html.Label(transactionDTO.TransId) and transaction time is     @transactionDateTime
+                                <br />
+                                <span>Please save the above details for further references.</span>
+                            </div>
+                        </div>
+                        @* <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label("Job Credit:")
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label(transactionDTO.JobCredit.ToString() + " Jobs")
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label("Transaction Id:")
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label(transactionDTO.TransId)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                <div class="col-sm-3 col-xs-12">
+                    <div class="md-form">
+                        @Html.Label("Response Code:")
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <div class="md-form">
+                        @Html.Label(transactionDTO.ResponseCode)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-12">
+                    <div class="md-form">
+                        @Html.Label("Authorization:")
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <div class="md-form">
+                        @Html.Label(transactionDTO.Authorization)
+                    </div>
+                </div>
+            </div>
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label("Transaction Date:")
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="md-form">
+                                    @Html.Label(transactionDateTime)
+                                </div>
+                            </div>
+                        </div>*@
+                        
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-xs-1 text-center" style="color:red;font-weight:500;font-size: larger;">
+                                <span>Payment Failed</span>
+                            </div>
+                        </div>
+                    }
+                    <div class="row mb-3 mt-4">
+                        <div class="col-lg-8 col-xs-6 h4 text-right">
+                            <a href="@Url.Action("PostJob","Employer")" class="btn btn-block-cus blue-theme-button waves-effect waves-light">Post a job</a>
+                        </div>
+                        <div class="col-lg-4 col-xs-6 h4 text-right">
+                            <a href="@Url.Action("EmployerDashboard","Employer")" class="btn btn-block-cus blue-theme-button waves-effect waves-light">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-md-right"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+

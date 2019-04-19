@@ -1,0 +1,232 @@
+﻿@model IdealHires.DTO.Candidate.CandidateEducationDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "EducationSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {       
+
+        $("#IsDegreeOrCertificationSwitch").change(function () {
+            if ($("#IsDegreeOrCertificationSwitch").is(":checked")) {
+                $('#IsDegreeOrCertification').val('True');
+                //$('#DivIsDegreeOrCertification').text('Certificate');
+                $('#DivIsDegreeOrCertification').text('Yes');
+            }
+            else {
+                $('#IsDegreeOrCertification').val('False');
+                //$('#DivIsDegreeOrCertification').text('Degree');
+                $('#DivIsDegreeOrCertification').text('No');
+            }
+        });
+        $("#IsMinorDegreeSwitch").change(function () {
+            if ($("#IsMinorDegreeSwitch").is(":checked")) {
+                $('#IsMinorDegree').val('True');
+                //$('#DivIsMinorDegree').text('Certificate');
+                $('#DivIsMinorDegree').text('Yes');
+            }
+            else {
+                $('#IsMinorDegree').val('False');
+                //$('#DivIsMinorDegree').text('Degree');
+                $('#DivIsMinorDegree').text('No');
+            }
+        });
+        
+    });
+    function EducationSuccess(data) {
+        $('#btnEducation').css("pointer-events", "auto");
+        if ($("#EduOption").text() == "Preview") {
+            $("#PreviewAcademicsModel").modal('hide');
+            LoadPreviewEducationData('Updated');
+        }
+        if (data == "EducationSuccess") {
+            $("#AcademicsModel").modal('hide');
+            LoadEducationData('Saved');
+        } else if (data == "EducationEditSuccess") {
+            $("#AcademicsModel").modal('hide');
+            LoadEducationData('Updated');
+        } else {
+            $("#AcademicsModel").modal('hide');
+            LoadEducationData('');
+        }
+    }
+
+    $("#btnAddEducationSubmit").on("click", function (e) {
+        var formId = e.delegateTarget.form.id;
+        $.validator.unobtrusive.parse(formId);
+        $("#" + formId).validate();
+        var res = $("#" + formId).valid();
+        if ($("#" + formId).valid()) {
+            $("#" + formId).submit();
+        }
+        else {
+            return false;
+        }
+    });
+    function CompareDates() {
+        var startDate = new Date($("#StartAtDiv1 #StartAt").val());
+        if (startDate != null) {
+            $("#StartAtErrorMsg").text('');
+        }
+        var endDate = new Date($("#EndAtDiv1 #EndAt").val());        
+        if (endDate < startDate) {
+            $("#EndAtErrorMsg").text("Start date must be less than end date.");
+        }
+        else {
+            $("#EndAtErrorMsg").text('');
+        }
+    }
+
+</script>
+@using (Ajax.BeginForm("Education", "Candidate", null, options, new { @id = "formEducation" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.ProfileId)
+
+    <div class="modal-header mt-0 pt-0">
+        @if (Model.Id > 0)
+        {
+            <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Edit Education</h4>
+        }
+        else
+        {
+            <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Education</h4>
+        }
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.Major, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                    <label>Major<span>*</span></label>
+                    @Html.ValidationMessageFor(m => m.Major, "", new { @class = "text-validationdanger" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="switch-btn-1 degree-switch">
+                    @Html.HiddenFor(m => m.IsDegreeOrCertification)
+                    @if (Model.IsDegreeOrCertification)
+                    {
+                        <input class="switch-input" id="IsDegreeOrCertificationSwitch" type="checkbox" checked="checked" name="IsDegreeOrCertificationSwitch">
+                        <label class="switch-paddle col-grey" for="IsDegreeOrCertificationSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">Degree or Certification Received?</span>
+                    }
+                    else
+                    {
+                        <input class="switch-input" id="IsDegreeOrCertificationSwitch" type="checkbox" name="IsDegreeOrCertificationSwitch">
+                        <label class="switch-paddle col-grey" for="IsDegreeOrCertificationSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">Degree or Certification Received?</span>
+                    }
+
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="md-form">
+                    @if (Model.IsDegreeOrCertification)
+                    {
+                        <div id="DivIsDegreeOrCertification" style="margin-top:2.5rem !important;color: #124e82;">Certificate</div>
+                    }
+                    else
+                    {
+                        @*<div id="DivIsDegreeOrCertification" style="margin-top:2.5rem !important;color: #124e82;">Degree</div>*@
+                        <div id="DivIsDegreeOrCertification" style="margin-top:2.5rem !important;color: #124e82;">No</div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-4">
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.Minor, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                    <label>Minor</label>
+                    @Html.ValidationMessageFor(m => m.Minor, "", new { @class = "text-validationdanger" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="switch-btn-1 degree-switch">
+                    @Html.HiddenFor(m => m.IsMinorDegree)
+                    @if (Model.IsMinorDegree)
+                    {
+                        <input class="switch-input" id="IsMinorDegreeSwitch" type="checkbox" checked="checked" name="IsMinorDegreeSwitch">
+                        <label class="switch-paddle col-grey" for="IsMinorDegreeSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">Degree or Certification Received?</span>
+                    }
+                    else
+                    {
+                        <input class="switch-input" id="IsMinorDegreeSwitch" type="checkbox" name="IsMinorDegreeSwitch">
+                        <label class="switch-paddle col-grey" for="IsMinorDegreeSwitch"></label>
+                        <span class="ft-sm col-grey ft-sml">Degree or Certification Received?</span>
+                    }
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="md-form">
+                    @if (Model.IsMinorDegree)
+                    {
+                        <div id="DivIsMinorDegree" style="margin-top:2.5rem !important;color: #124e82;">Certificate</div>
+                    }
+                    else
+                    {
+                        @*<div id="DivIsMinorDegree" style="margin-top:2.5rem !important;color: #124e82;">Degree</div>*@
+                        <div id="DivIsMinorDegree" style="margin-top:2.5rem !important;color: #124e82;">No</div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12">
+                <div class="md-form">
+                    @Html.TextBoxFor(m => m.InstituteName, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                    <label>University or Institute</label>
+                    @Html.ValidationMessageFor(m => m.InstituteName, "", new { @class = "text-validationdanger" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6" id="StartAtDiv1">
+                @Html.TextBoxFor(m => m.StartAt, Model.StartAt.HasValue ? Model.StartAt.Value.ToShortDateString() : string.Empty, new { @class = "datepicker", placeholder = "From", autocomplete = "off", @onchange = "CompareDates()" })
+                @Html.ValidationMessageFor(m => m.StartAt, "", new { @class = "text-validationdanger", @id = "StartAtErrorMsg" })
+            </div>
+            <div class="col-sm-6" id="EndAtDiv1">
+                @Html.TextBoxFor(m => m.EndAt, Model.EndAt.HasValue ? Model.EndAt.Value.ToShortDateString() : string.Empty, new { @class = "datepicker", placeholder = "To", autocomplete = "off",@onchange= "CompareDates()" })
+                @Html.ValidationMessageFor(m => m.EndAt, "", new { @class = "text-validationdanger",@id= "EndAtErrorMsg" })
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span id="EduOption" style="visibility:hidden"></span>
+        <button type="button" class="btn btn-outline-grey waves-effect waves-light btn-cancel" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn blue-theme-button waves-effect waves-light addWork" id="btnAddEducationSubmit">Submit</button>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#StartAtDiv1 #StartAt").datepicker();
+        $('#StartAt').attr("data-val", "true");
+        $("#StartAt").attr("data-datepicker", "true");
+        $("#EndAtDiv1 #EndAt").datepicker();
+        $('#EndAt').attr("data-val", "true");
+        $("#EndAt").attr("data-datepicker", "true");
+
+        $('#StartAtDiv1 #StartAt').datepicker('destroy');
+        $('#StartAtDiv1 #StartAt').datepicker({
+            maxDate: new Date()
+        });
+
+        $('#EndAtDiv1 #EndAt').datepicker('destroy');
+        $('#EndAtDiv1 #EndAt').datepicker({
+            maxDate: new Date()
+        });
+      
+    });
+</script>

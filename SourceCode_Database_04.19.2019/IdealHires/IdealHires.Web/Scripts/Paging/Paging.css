@@ -1,0 +1,64 @@
+﻿
+.paging-nav {
+    /*text-align: right;*/
+    padding-top: 2px;
+}
+
+
+
+    .paging-nav a {
+        margin: auto 1px;
+        text-decoration: none;
+        display: inline-block;
+        padding: 1px 7px;
+        background: #5b6167;
+        color: white;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+
+
+    .paging-nav .selected-page {
+        background: #187ed5;
+        font-weight: bold;
+    }
+
+
+
+.paging-nav {
+    width: 400px;
+    /*margin: 0 auto;*/
+    font-family: Arial, sans-serif;
+}
+.tableData {
+    border-left: solid 1px #D8C3C3;
+    border-top: solid 1px #D8C3C3;
+}
+
+
+
+    .tableData tr {
+    }
+
+
+
+    .tableData td, .tableData th {
+        border-right: solid 1px #D8C3C3;
+        border-bottom: solid 1px #D8C3C3;
+        text-align: left;
+        padding: 5px;
+    }
+
+
+
+    .tableData td {
+    }
+
+
+
+    .tableData th {
+        background-color: #FAFAFA;
+        padding: 7px 5px;
+        border-bottom-color: #9C9C9C;
+    }

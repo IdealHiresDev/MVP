@@ -1,0 +1,927 @@
+﻿@model IdealHires.DTO.Employer.InternalDashboardDTO
+@{
+
+    ViewBag.Title = "IHDashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+}
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Dashboard</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <!-- filter section start -->
+        <div class="filterSection">
+            <div class="row justify-content-end">
+                <div class="col-md-3 col-sm-5">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Filter</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-5">
+                    <div class="form-group">
+                        <select class="form-control" id="sel1">
+                            <option>----Select Search Type---</option>
+                            <option>Jobs</option>
+                            <option>Employers</option>
+                            <option>Job Seekers</option>
+                            <option>Transaction</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- filter section end -->
+        <!-- Jobs section start -->
+        <div class="jobs-section">
+
+            <!-- row 1 start -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-wrapper">
+                        <h3>Posted New Jobs</h3>
+                        <div class="table-innerContent table-responsive">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>NewJob</th>
+                                        <th>Expired</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Today</td>
+                                        <td>
+                                            @Model.TodayJob
+                                        </td>
+
+                                        <td>
+                                            @Model.TodayExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.TotalTodayJob
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Week</td>
+                                        <td>
+                                            @Model.WeekJob
+                                        </td>
+
+                                        <td>
+                                            @Model.WeekExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.TotalWeekJob
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Month</td>
+                                        <td>
+                                            @Model.MonthJob
+                                        </td>
+
+                                        <td>
+                                            @Model.MonthExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.TotalMonthJob
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Year</td>
+                                        <td>
+                                            @Model.YearJob
+                                        </td>
+
+                                        <td>
+                                            @Model.YearExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.TotalYearJob
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td>
+                                            @Model.Total
+                                        </td>
+
+                                        <td>
+                                            @Model.TotalExpiredJob
+                                        </td>
+                                        <td>@Model.AllColumnTotal</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-wrapper">
+                        <h3>Modified Job</h3>
+                        <div class="table-innerContent table-responsive">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Modified Job</th>
+                                        <th>Expired</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Today</td>
+                                        <td>
+                                            @Model.TodayModifiedJobPost
+                                        </td>
+                                        <td>
+                                            @Model.TodayExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.ModifiedJobTotalToday
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Week</td>
+                                        <td>
+                                            @Model.WeekModifiedJobPost
+                                        </td>
+                                        <td>
+                                            @Model.WeekExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.ModifiedJobTotalWeek
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Month</td>
+                                        <td>
+                                            @Model.MonthModifiedJobPost
+                                        </td>
+                                        <td>
+                                            @Model.MonthExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.ModifiedJobTotalMonth
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Year</td>
+                                        <td>
+                                            @Model.ModifiedYearJobPost
+                                        </td>
+                                        <td>
+                                            @Model.YearExpiredJob
+                                        </td>
+
+                                        <td>
+                                            @Model.ModifiedJobTotalYear
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td>
+                                            @Model.TotalModifiedJobPost
+                                        </td>
+                                        <td>
+                                            @Model.TotalExpiredJob
+                                        </td>
+
+                                        <td> @Model.AllModifiedJobTotal</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row 1 end -->
+            <!-- row 2 start -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-wrapper">
+                        <h3>New Employers</h3>
+                        <div class="table-innerContent table-responsive">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Complete Profile</th>
+                                        <th>Incomplete Profile</th>
+                                        <th>
+                                            Total
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Today</td>
+                                        <td>
+                                            @Model.EmpTProfile
+                                        </td>
+                                        <td>
+                                            @Model.EmpTProfileNot
+                                        </td>
+                                        <td>
+                                            @Model.TodayTotalProfileRow
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Week</td>
+                                        <td>
+                                            @Model.EmpWProfile
+                                        </td>
+                                        <td>
+                                            @Model.EmpWProfileNot
+                                        </td>
+
+                                        <td>
+                                            @Model.WeekTotalProfileRow
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Month</td>
+                                        <td>
+                                            @Model.EmpMProfile
+                                        </td>
+                                        <td>
+                                            @Model.EmpMProfileNot
+                                        </td>
+
+                                        <td>
+                                            @Model.MonthTotalProfileRow
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            This Year
+                                        </td>
+                                        <td>
+                                            @Model.EmpYProfile
+                                        </td>
+                                        <td>@Model.EmpYProfileNot</td>
+                                        <td>@Model.YearTotalProfileRow</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td>
+                                            @Model.NewEmpTotalProfile
+                                        </td>
+                                        <td>@Model.TotalEmpProfileNot</td>
+                                        <td>@Model.AllTotalProfileColumn</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-wrapper">
+                        <h3>New Job Seekers</h3>
+                        <div class="table-innerContent table-responsive">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Complete Profile</th>
+                                        <th>Incomplete Profile</th>
+                                        <th>
+                                            Total
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Today</td>
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Week</td>
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Month</td>
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row 2 end -->
+            <!-- row 3 start -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-wrapper">
+                        <h3>Transactions</h3>
+                        <div class="table-innerContent table-responsive">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Amounts</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Today</td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Week</td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>This Month</td>
+                                        <td>
+                                            0
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            Total
+                                        </td>
+                                        <td>0</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row 3 end -->
+
+        </div>
+        <!-- Jobs section end -->
+
+    </div>
+
+    @*<div class="mb-3">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row mb-3">
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div><h5>Posted New Jobs</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="recent-job-container">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>NewJob</th>
+                                                            <th>Expired</th>
+                                                            <th>
+                                                                Total
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Today</td>
+                                                            <td>
+                                                                @Model.TodayJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TodayExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TotalTodayJob
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Week</td>
+                                                            <td>
+                                                                @Model.WeekJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.WeekExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TotalWeekJob
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                @Model.MonthJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.MonthExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TotalMonthJob
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Year</td>
+                                                            <td>
+                                                                @Model.YearJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.YearExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TotalYearJob
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                Total
+                                                            </td>
+                                                            <td>
+                                                                @Model.Total
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.TotalExpiredJob
+                                                            </td>
+                                                            <td>@Model.AllColumnTotal</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div><h5>Modified Jobs</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="recent-job-container">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Modified Job</th>
+                                                            <th>Expired</th>
+                                                            <th>Total</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Today</td>
+                                                            <td>
+                                                                @Model.TodayModifiedJobPost
+                                                            </td>
+                                                            <td>
+                                                                @Model.TodayExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.ModifiedJobTotalToday
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Week</td>
+                                                            <td>
+                                                                @Model.WeekModifiedJobPost
+                                                            </td>
+                                                            <td>
+                                                                @Model.WeekExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.ModifiedJobTotalWeek
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                @Model.MonthModifiedJobPost
+                                                            </td>
+                                                            <td>
+                                                                @Model.MonthExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.ModifiedJobTotalMonth
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Year</td>
+                                                            <td>
+                                                                @Model.ModifiedYearJobPost
+                                                            </td>
+                                                            <td>
+                                                                @Model.YearExpiredJob
+                                                            </td>
+
+                                                            <td>
+                                                                @Model.ModifiedJobTotalYear
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                Total
+                                                            </td>
+                                                            <td>
+                                                                @Model.TotalModifiedJobPost
+                                                            </td>
+                                                            <td>
+                                                                @Model.TotalExpiredJob
+                                                            </td>
+
+                                                            <td> @Model.AllModifiedJobTotal</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div><h5>New Employers</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="recent-job-container">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Complete Profile</th>
+                                                            <th>Incomplete Profile</th>
+                                                            <th>
+                                                                Total
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Today</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Week</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                Total
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div><h5>New Job Seekers</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="recent-job-container">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Complete Profile</th>
+                                                            <th>Incomplete Profile</th>
+                                                            <th>
+                                                                Total
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Today</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Week</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                Total
+                                                            </td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div><h5>Transactions</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="recent-job-container">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Amounts</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Today</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Week</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>This Month</td>
+                                                            <td>
+                                                                0
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                Total
+                                                            </td>
+                                                            <td>0</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="#" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+                </div>
+            </div>
+        </div>*@
+
+</section>
+

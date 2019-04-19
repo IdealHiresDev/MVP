@@ -1,0 +1,190 @@
+﻿@using IdealHires.Web.Util
+@model IdealHires.DTO.Candidate.CandidateWorkDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "WorkExperienceSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+
+@{ 
+    ViewBag.PayPeriodTypes = JobCommon.PayPeriodType();
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.getElementById('ResumeTipsForUser').setAttribute('title', ResumeTips());
+        //$("#ResumeTipsForUser").attr('title', 'Hello India');
+        $('#StartAt').datepicker('destroy');
+        $('#StartAt').datepicker({
+            maxDate: new Date()
+        });
+        $('#EndAt').datepicker('destroy');
+        $('#EndAt').datepicker({
+            maxDate: new Date()
+        });
+   
+        $("#exampleSwitch").change(function () {
+            if ($("#exampleSwitch").is(":checked")) {
+                $('#IsCurrent').val('True');
+                $('#EndAt').val('');
+                $('#EndAt').attr("data-val", "false");
+                $('#EndAtDiv').hide();
+            }
+            else {
+                $('#EndAtDiv').css('visibility', 'visible');
+                $('#IsCurrent').val('False');
+                $('#EndAt').attr("data-val", "true");
+                $('#EndAtDiv').show();
+            }
+        });
+    });
+    function WorkExperienceSuccess(data) {
+        $('#btnWorkExp').css("pointer-events", "auto");
+        if ($("#WorkOption").text() == "Preview") {
+            $("#PreviewWorkExpModal").modal('hide');
+            LoadWorkDataPreview('Updated');
+        }
+        if (data == "WorkExpSuccess") {
+            $("#WorkExpModal").modal('hide');
+            LoadWorkData('Saved');
+        } else if (data == "WorkExpEditSuccess") {
+            $("#WorkExpModal").modal('hide');
+            LoadWorkData('Updated');
+        } else {
+            $("#WorkExpModal").modal('hide');
+            LoadWorkData('');
+        }
+    }
+
+    $("#btnAddWorkSubmit").on("click", function (e) {
+        var formId = e.delegateTarget.form.id;
+        $.validator.unobtrusive.parse(formId);
+        $("#" + formId).validate();
+        var res = $("#" + formId).valid();
+        if ($("#" + formId).valid()) {
+            $("#" + formId).submit();
+        }
+        else {
+            return false;
+        }
+    });
+
+    function ResumeTips() {
+        var resumeTipsText = "1. Your resume must be easy to read. Always think of the reader’s needs  ";
+        resumeTipsText += "2. Use dedicated sections, not just headers, to split up your resume into simple segments. This is to help the reader focus on specific information, like qualifications, etc  ";
+        resumeTipsText += "3.Make sure that your resume has a credible, professional look and use color to break up your sections  "
+        resumeTipsText += "4.Allow space for your information. Don’t try to cram things in to spaces which are too small.";
+        
+        return resumeTipsText;
+    }
+</script>
+@using (Ajax.BeginForm("WorkExp", "Candidate", null, options, new { @id = "formWork" }))
+{ 
+    @Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.ProfileId)
+
+<div class="modal-header mt-0 pt-0">
+    @if (Model.Id > 0)
+    {
+        <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Edit Work Experience</h4>
+    }
+    else
+    {
+        <h4 class="modal-title col-blue"><em class="fas fa-suitcase col-blue"></em> Add Work Experience</h4>
+    }
+
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+  
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.PositionName, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                <label>Title<span>*</span></label>
+                @Html.ValidationMessageFor(m => m.PositionName, "", new { @class = "text-validationdanger" })
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                <label>Company<span>*</span></label>
+                @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-validationdanger" })
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-6 col-xs-12">
+            <div class="group profile-form">
+                @Html.TextBoxFor(m => m.StartAt, Model.StartAt.HasValue ? Model.StartAt.Value.ToShortDateString() : string.Empty, new { @class = "datepicker", placeholder = "From", @autocomplete = "off", @maxlength = 255 })
+                @Html.ValidationMessageFor(m => m.StartAt, "", new { @class = "text-validationdanger" })
+            </div>
+        </div>
+        @if (Model.IsCurrent)
+        {
+            <div class="col-sm-6" id="EndAtDiv" style="visibility:hidden;">
+                @Html.TextBoxFor(m => m.EndAt, Model.EndAt.HasValue ? Model.EndAt.Value.ToShortDateString() : string.Empty, new { @class = "datepicker", placeholder = "To", @autocomplete = "off", @maxlength = 255})
+                @Html.ValidationMessageFor(m => m.EndAt, "", new { @class = "text-validationdanger" })
+            </div>
+        }
+        else
+        {
+            <div class="col-sm-6" id="EndAtDiv">
+                @Html.TextBoxFor(m => m.EndAt, Model.EndAt.HasValue ? Model.EndAt.Value.ToShortDateString() : string.Empty, new { @class = "datepicker", placeholder = "To", @autocomplete = "off", @maxlength = 255 })
+                @Html.ValidationMessageFor(m => m.EndAt, "", new { @class = "text-validationdanger" })
+            </div>
+        }
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="md-form">
+                <i class="fas fa-dollar-sign prefix"></i>
+                @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                <label>Salary<span>*</span></label>
+                @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-validationdanger" })
+            </div>
+        </div>
+        <div class="col-lg-3">
+
+            @Html.DropDownListFor(m => m.PayPeriodTypeId, new SelectList(ViewBag.PayPeriodTypes, "Value", "Text"), new { @class = "form-control mt-3 sel-sec" })
+            @Html.ValidationMessageFor(m => m.PayPeriodTypeId, "", new { @class = "text-validationdanger" })
+        </div>
+        <div class="col-sm-6">
+            <div class="switch-btn-1 sw-pre degree-switch">
+                @Html.HiddenFor(m => m.IsCurrent)
+                @if (Model.IsCurrent)
+                {
+                    <input class="switch-input" id="exampleSwitch" type="checkbox" checked="checked" name="exampleSwitch">
+                    <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                    <span class="ft-sm col-grey ft-sml">This is my current job</span>
+                }
+                else
+                {
+                    <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                    <label class="switch-paddle col-grey" for="exampleSwitch"></label>
+                    <span class="ft-sm col-grey ft-sml">This is my current job</span>
+                }
+
+            </div>
+        </div>
+    </div>
+        <div class="row emp-pro mt-2">
+            <div class="col-sm-12">
+                <div class="md-form">
+                    @Html.TextAreaFor(m => m.Description, 2, 60, new { @class = "form-control", autocomplete = "off" })
+                    <label>Description</label>      
+                    <div class="em-float-right modalpopup1"> <span class="ft-sml col-grey" >Resume Tips</span><em class="far fa-question-circle ml-2 col-blue"  id="ResumeTipsForUser"></em> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="modal-footer">
+    <span id="WorkOption" style="visibility:hidden;"></span>
+    <button type="button" class="btn btn-outline-grey waves-effect waves-light btn-sm-save" data-dismiss="modal">Cancel</button>
+    <button type="button" class="btn blue-theme-button waves-effect waves-light addWork btn-sm-save" id="btnAddWorkSubmit">Submit</button>
+</div>
+
+}

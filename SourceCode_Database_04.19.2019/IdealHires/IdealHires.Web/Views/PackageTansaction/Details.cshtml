@@ -1,0 +1,109 @@
+﻿@model IdealHires.DTO.Employer.JobCreditDTO
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+}
+
+
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center-xs">
+                <h2>Package Details</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mt-5">
+    <div class="mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-10 order-1 order-sm-1">
+                    <div class="pt-1">
+                        <div class="card rounded-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="d-flex flex-row">
+                                        @*<div class="col-lg-3 col-4 float-left pl-3 pr-3 mb-3">
+                                        </div>*@
+                                        <div class="col-lg-12">
+                                            <div class="table-wrapper">
+                                                <table class="table table-pd borderless">
+                                                    <tr>
+                                                        <td><strong>Price &nbsp;&nbsp;&nbsp;:</strong>  <em class="fas fa-dollar-sign"></em> @Model.Price</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> Discount (%)</strong>&nbsp;  : <em class="fas fa-dollar-sign"></em> @Model.Discount</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Duration<span> (Days)</span></th>
+                                                                    <th>Job Credit</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="right">@Model.Duration</td>
+                                                                    <td align="right">@Model.JobCredit</td>
+                                                                    <td align="right">@Model.Description</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            @*Price <em class="fas fa-dollar-sign">&nbsp; </em> :<p class="h3 blue-clr text-left h4-d-sm mb-1">@Model.Price</p>
+        <div class="row">
+            <div class="col-md-3">
+                Duration <span> (Days)</span>: <p class="fnt-13"> @Model.Duration</p>
+            </div>
+            <div class="col-md-4">
+                Job Credit : <p class="fnt-13"> @Model.JobCredit</p>
+            </div>
+            <div class="col-md-4">
+                Description :  <p class="fnt-13"> @Model.Description</p>
+            </div>
+            <div class="col-md-4">
+                Discount <em class="fas fa-dollar-sign">&nbsp; </em> : <p class="fnt-13"> @Model.Discount</p>
+            </div>
+        </div>*@
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-4">
+                                </div>
+                                <a href="@Url.Action("Package","PackageTansaction")" class="btn btn-block-cus blue-theme-button waves-effect waves-light">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center-cus col-12 col-lg-2 order-3">
+                    <a href="/"><img class="img-fluid" src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- The Modal -->
+<!--JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/multiselect-drop.js"></script>
+<script src="js/mdb.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/updated-cus.js"></script>
+

@@ -1,0 +1,304 @@
+﻿@model IdealHires.DTO.Candidate.CandidatePreviewDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnSortListedSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+@{
+    string positionName = string.Empty;
+    var currentPositiondata = Model.CandidateWorkPreview.Where(mod => mod.EndAt == null).FirstOrDefault();
+    if (currentPositiondata != null)
+    {
+        positionName = currentPositiondata.PositionName;
+    }
+    else
+    {
+        var positiondata = Model.CandidateWorkPreview.FirstOrDefault();
+        if (positiondata != null)
+        {
+            positionName = positiondata.PositionName;
+        }
+    }
+}
+<script type="text/javascript">
+    function OnSortListedSuccess(data) {
+        $("#btnContacttoCandidate").hide();
+        $("#btnShortlist").hide();
+        ToastMessageSuccess();
+    }
+</script>
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Candidate Details</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+@using (Ajax.BeginForm("CandidateDetails", "Employer", null, options, new { @id = "formJobDetails" }))
+{
+    @Html.HiddenFor(m => m.CandidateBasicPreview.Id)
+    <section class="mt-5">
+        <div class="mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="pt-1">
+                            <div class="card rounded-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="d-flex flex-row">
+                                            <div class="float-left pl-3 pr-3 mb-3"><a><img src="~/images/candidate-p.png" class="job-detail-company-img"></a></div>
+                                            <div class="col-md-9">
+                                                <p class="h3 blue-clr text-left h4-d-sm mb-1">@Model.CandidateBasicPreview.FirstName  @Model.CandidateBasicPreview.LastName </p>
+                                                <p class="h5 text-dark text-left h4-d-sm mt-2">@positionName</p>
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <span class="fnt-13 mb-0">
+                                                            <i class="fas fa-check pr-1"></i>
+                                                            @Model.CandidateContactPreview.City  @Model.CandidateContactPreview.StateName
+                                                        </span>
+                                                        <p class="fnt-13 pad-20">
+                                                            @Model.CandidateContactPreview.CountryName @Model.CandidateContactPreview.ZipCode
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="fnt-13"><i class="fas fa-mobile-alt pr-1"></i> @Model.CandidateContactPreview.Phone1</p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <p class="fnt-13"><i class="fas fa-envelope"></i> @Model.CandidateContactPreview.EmailAddress</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-right job-detail-share-section">
+                                            @if (TempData["Type"] != null)
+                                            {
+                                                if ((Convert.ToString(TempData["Type"]) == "sortlistedcandidate") || (Convert.ToString(TempData["Type"]) == "jobviewed")) { }
+                                                else
+                                                {<a href="mailto:abc@abc.com?Subject=ABC&Body=Body" class="btn btn-outline-grey pl-3 pr-3" title="Contact to candidate">Contact to candidate</a>
+                                                    <input type="submit" class="btn btn-outline-grey pl-3 pr-3" id="btnShortlist" name="submit" value="Shortlist" />
+
+                                                }
+                                                <input type="button" class="btn btn-outline-grey pl-3 pr-3" id="btnDownloadCV" value="Download CV" />
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <h2 class="detail-title">Work Experience</h2>
+                                            </div>
+                                            <ul class="timeline work-exp">
+                                                @if (Model.CandidateWorkPreview.Count() > 0)
+                                                {
+                                                    foreach (var item in Model.CandidateWorkPreview)
+                                                    {
+                                                        <li>
+                                                            <div class="row">
+                                                                <div class="col-sm-6 text-left">
+                                                                    <p class="h4 col-blue text-left">@item.PositionName <a href="#"><small class="ft-sml text-dark">@item.CompanyName</small></a></p>
+                                                                </div>
+                                                                <div class="col-sm-6 text-right ft-sml">
+                                                                    @if (item.IsCurrent)
+                                                                    {
+                                                                        <span class="text-success text-success-green mr-4">@String.Format("{0:y}", item.StartAt)</span> <span class="col-blue text-span"> to Present</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span class="text-success text-success-green mr-4">@String.Format("{0:y}", @item.StartAt)</span> <span class="col-blue text-span">@String.Format("{0:y}", @item.EndAt)</span>
+                                                                    }
+
+                                                                </div>
+                                                                <div class="pl-3">
+                                                                    <p class="border-btm">
+                                                                        @item.Description
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center col-sm-2 text-md-right">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="mt-3 mb-3">
+                        <div class="card rounded-0">
+                            <div class="card-body mt-4 mb-4">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <h2 class="detail-title">Job Preferences Details</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 jf-candidateinfo">
+                                            <div class="jf-jobdetailinfo">
+                                                <ul class="ml-0 pl-0">
+                                                    <li>
+                                                        <span>Job Type:</span>
+
+
+                                                        @foreach (var item in Model.PreferencesPreview.SelectJobTypes)
+                                                        {
+
+                                                            if (Model.PreferencesPreview.SelectedJobTypes.Contains(item.Value))
+                                                            {
+                                                                <label>@item.Text ,</label> 
+                                                            }
+                                                        }
+
+
+                                                    </li>
+                                                    <li>
+                                                        <span>Job Category:</span>
+                                                        @foreach (var item in Model.PreferencesPreview.SelectJobCategories)
+                                                        {
+                                                            if (item.Text != null)
+                                                            {
+                                                                if (Model.PreferencesPreview.SelectedJobCategory.Contains(item.Value))
+                                                                {
+                                                                    <label>@item.Text </label>
+                                                                }
+                                                            }
+                                                        }
+
+                                                    </li>
+                                                    <li>
+                                                        <span>Availability:</span>
+                                                        <em>
+                                                            @Model.PreferencesPreview.Objective
+                                                        </em>
+                                                    </li>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="mt-3 mb-3">
+                        <div class="card rounded-0">
+                            <div class="card-body mt-4 mb-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <h2 class="detail-title">Education & Certification Details</h2>
+                                        </div>
+                                        <ul class="timeline work-exp">
+                                            @if (Model.CandidateEducationPreview.Count > 0)
+                                            {
+                                                foreach (var item in Model.CandidateEducationPreview)
+                                                {
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-sm-4 text-left">
+                                                                <p class="h4 col-blue text-left">@item.InstituteName </p>
+                                                                @if (!item.IsDegreeOrCertification)
+                                                                {
+                                                                    <p class="ft-sml text-dark">Degree</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p class="ft-sml text-dark">Certificate</p>
+                                                                }
+
+                                                            </div>
+                                                            <div class="col-sm-8 text-right ft-sml">
+                                                                <span class="text-success mr-3">
+                                                                    @String.Format("{0:y}", @item.StartAt) to @String.Format("{0:y}", @item.EndAt)
+                                                                </span> <span class="col-blue">@item.TotalDuration</span>
+
+                                                                <span id="editEducationDiv"> </span>
+                                                                <span id="deleteEducationDiv"></span>
+                                                            </div>
+                                                            <div class="pl-3">
+
+                                                                <p class="border-btm"></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<script type="text/javascript">
+    $("#btnDownloadCV").click(function () {
+        $.ajax({
+            url: "/Employer/Downloadfile/" + $("#CandidateBasicPreview_Id").val(),
+            type: "GET",
+            contentType: "application/json",
+            async: true,
+            success: function (data) {
+                alert("File downloaded successfully.");
+            },
+            error: function (xHr, status, res) {
+
+            }
+        });
+    });
+    $('#btnPreviewPrevious').on('click', function (e) {
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+        $(this).parents('fieldset').fadeOut(400, function () {
+            current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+            bar_progress(progress_line, 'left');
+            $(this).prev().fadeIn();
+            scroll_to_class($('.f1'), 20);
+        });
+         $.get('@Url.Action("Education", "Candidate")').done(function (data) {
+             $('#education').empty().html(data);
+                }).fail(function () {
+             ToastWarningSuccess();
+                });
+    });
+
+</script>

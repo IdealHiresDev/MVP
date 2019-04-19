@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Packages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    AjaxOptions options = new AjaxOptions();
+}
+
+<link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/PackageTransactionJs/PackageTransaction.js"></script>
+}
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Package List</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mt-5">
+    <div class="mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="card p-3">
+                                <div class="row">
+                                    @*<div class="col-md-3 text-left">
+                                            <input type="text" id="txtEmployeeName" />
+                                        </div>
+                                        <div class="col-md-2 text-left">
+                                            <input type="button" value="Search" id="btnSearch" />
+
+                                        </div>*@
+                                    <div class="col-md-12 text-right">
+                                        <div>
+                                            <a href="@Url.Action("PackageTansactionManages","PackageTansaction")" class="btn btn blue-theme-button waves-effect"><i class="fa fa-plus-circle pr-1" aria-hidden="true"></i> Add Package</a>
+                                            @*<button type="button" onclick="@Url.Action("UserEmployer","EmployeeUser")" class="btn btn blue-theme-button waves-effect"><i class="fa fa-plus-circle pr-1" aria-hidden="true"></i> Add User</button>*@
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="recent-job-container">
+                                                    <table class="table tbody-spc tbody mb-0 border-bottom-0" id="userTable">
+                                                        <thead class="td-cus">
+                                                            <tr class="job-items">
+                                                                <td>Price (<em class="fas fa-dollar-sign">&nbsp; </em>)</td>
+                                                                <td>Discount (<em class="fas fa-dollar-sign">&nbsp; </em>)</td>
+                                                                <td>Duration (Days)</td>
+                                                                <td>Job Credit</td>
+                                                                <td>Description</td>
+                                                                <td>Action</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="td-cus"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

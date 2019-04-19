@@ -1,0 +1,46 @@
+﻿@model List<IdealHires.DTO.Employer.JobCreditDTO>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 res-spacing">
+            <div class="card card-post card-pricing text-center mt-1 mb-1 rounded-0">
+                @if (item.Discount>0)
+                {
+                    <p class="p-text text-md"><span>Best Plan <br> @item.Discount% </span></p>
+                }
+                <div class="card-header card-header-custom border-0">
+                    <h1 class="h1 font-weight-normal text-white text-center mb-0" data-pricing-value="15"><span class="price h3">$</span>@item.Price <span class="h6 text-white ml-2 d-block"> per month</span></h1>
+                </div>
+
+                <div class="card-body pt-0">
+                    <ul class="list-unstyled mt-2 mb-2">
+                        <li>@item.JobCredit Job Credit</li>
+                        <li>@item.Duration Month</li>
+                        <li><del>@item.Description</del></li>
+                    </ul>
+                    <a href="#" class="btn btn-block card-button" onclick="SaveCompanyPackageDetail(@item.Id,@item.JobCredit,@item.Price)">Purchase</a>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    function SaveCompanyPackageDetail(id, jobCredit, price) {
+        BindDataInTemp();
+        var url = '@Url.Action("Payment","Employer")?d=' + id + '&jc=' + jobCredit + '&a=' + price;
+        window.location.href = url;       
+    }
+    function BindDataInTemp() {
+       
+        var postjobbasicDTO = {
+            JobTitle: $("#JobTitle").val(),
+            Description: $("#Description").val(),
+            SelectedJobCategory: $("#SelectedJobCategory").val(),
+            SelectedJobTypes: $("#SelectedJobTypes").val()
+        };
+
+        $.post('@Url.Action("BindDataInTemp", "Employer")', postjobbasicDTO, function (response) {
+        });
+    }
+</script>

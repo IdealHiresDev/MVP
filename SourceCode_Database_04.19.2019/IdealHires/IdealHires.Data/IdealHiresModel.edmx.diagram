@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e73a37dbc7784b66a19f2976f2a6f17f" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="IdealHiresModels.Academic" Width="1.5" PointX="11.25" PointY="50.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.Action" Width="1.5" PointX="9" PointY="10.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Address" Width="1.5" PointX="11.25" PointY="45.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.AddressEmployer" Width="1.5" PointX="5.75" PointY="4.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.AuditTrail" Width="1.5" PointX="11.25" PointY="12" />
+        <EntityTypeShape EntityType="IdealHiresModels.City" Width="1.5" PointX="5.75" PointY="9.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.Company" Width="1.5" PointX="0.75" PointY="22" />
+        <EntityTypeShape EntityType="IdealHiresModels.CompanyAddress" Width="1.5" PointX="3" PointY="24.5" />
+        <EntityTypeShape EntityType="IdealHiresModels.CompanyJobCreditDetail" Width="1.5" PointX="3" PointY="29.5" />
+        <EntityTypeShape EntityType="IdealHiresModels.CompanyJobCreditDetailHistory" Width="1.5" PointX="3" PointY="45.375" />
+        <EntityTypeShape EntityType="IdealHiresModels.CompanyLogo" Width="1.5" PointX="11.75" PointY="1.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.CompanyPackageDetail" Width="1.5" PointX="9" PointY="23" />
+        <EntityTypeShape EntityType="IdealHiresModels.Country" Width="1.5" PointX="2.75" PointY="1.25" />
+        <EntityTypeShape EntityType="IdealHiresModels.Currency" Width="1.5" PointX="3.75" PointY="16.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.EmployerCompany" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Entity" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Job" Width="1.5" PointX="6" PointY="21.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobCategory" Width="1.5" PointX="6" PointY="29.5" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobCategoryJob" Width="1.5" PointX="8.25" PointY="28.25" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobCategoryProfile" Width="1.5" PointX="14.25" PointY="32.375" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobCredit" Width="1.5" PointX="6.75" PointY="13.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobType" Width="1.5" PointX="9" PointY="14.375" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobTypeJob" Width="1.5" PointX="11.25" PointY="18.25" />
+        <EntityTypeShape EntityType="IdealHiresModels.JobTypeProfile" Width="1.5" PointX="14.25" PointY="21.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Keyword" Width="1.5" PointX="3" PointY="37.375" />
+        <EntityTypeShape EntityType="IdealHiresModels.KeywordsJob" Width="1.5" PointX="8.25" PointY="39.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.KeywordsProfile" Width="1.5" PointX="11.25" PointY="32.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Notification" Width="1.5" PointX="14.25" PointY="9.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.NotificationType" Width="1.5" PointX="6" PointY="17.875" />
+        <EntityTypeShape EntityType="IdealHiresModels.NotificationTypeJob" Width="1.5" PointX="8.25" PointY="18.25" />
+        <EntityTypeShape EntityType="IdealHiresModels.PayPeriodType" Width="1.5" PointX="3.75" PointY="33.625" />
+        <EntityTypeShape EntityType="IdealHiresModels.Permission" Width="1.5" PointX="11.25" PointY="6.5" />
+        <EntityTypeShape EntityType="IdealHiresModels.PermissionType" Width="1.5" PointX="9" PointY="5.25" />
+        <EntityTypeShape EntityType="IdealHiresModels.PhoneFormat" Width="1.5" PointX="5" PointY="1.375" />
+        <EntityTypeShape EntityType="IdealHiresModels.Profile" Width="1.5" PointX="9" PointY="32.5" />
+        <EntityTypeShape EntityType="IdealHiresModels.ProfileJob" Width="1.5" PointX="11.25" PointY="22.875" />
+        <EntityTypeShape EntityType="IdealHiresModels.Role" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="IdealHiresModels.RolePermission" Width="1.5" PointX="13.5" PointY="5.625" />
+        <EntityTypeShape EntityType="IdealHiresModels.SaveSearch" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="IdealHiresModels.SortListedCandidate" Width="1.5" PointX="11.25" PointY="27.875" />
+        <EntityTypeShape EntityType="IdealHiresModels.State" Width="1.5" PointX="13.75" PointY="1.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.sysdiagram" Width="1.5" PointX="13.75" PointY="15.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.TransactionDetail" Width="1.5" PointX="15.75" PointY="1.125" />
+        <EntityTypeShape EntityType="IdealHiresModels.User" Width="1.5" PointX="0.75" PointY="15" />
+        <EntityTypeShape EntityType="IdealHiresModels.UserRole" Width="1.5" PointX="3" PointY="10.75" />
+        <EntityTypeShape EntityType="IdealHiresModels.Work" Width="1.5" PointX="14.25" PointY="25.875" />
+        <AssociationConnector Association="IdealHiresModels.FK_Academics_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__Permissio__Actio__3F3159AB" />
+        <AssociationConnector Association="IdealHiresModels.FK__ProfileJo__Actio__43F60EC8" />
+        <AssociationConnector Association="IdealHiresModels.FK_Address_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__AuditTrai__Entit__284DF453" />
+        <AssociationConnector Association="IdealHiresModels.FK__AuditTrai__UserI__2942188C" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyAd__Compa__18D6A699" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyJo__Compa__1C722D53" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyJo__Compa__2042BE37" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyPa__Compa__2136E270" />
+        <AssociationConnector Association="IdealHiresModels.FK__Job__CompanyId__2A363CC5" />
+        <AssociationConnector Association="IdealHiresModels.FK_EmployerCompany_Company" />
+        <AssociationConnector Association="IdealHiresModels.FK_SortListedCandidate_Company" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyJo__Compa__1D66518C" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyPa__JobCr__231F2AE2" />
+        <AssociationConnector Association="IdealHiresModels.FK__CompanyPa__UserI__222B06A9" />
+        <AssociationConnector Association="IdealHiresModels.FK__PhoneForm__Count__52CE3E04" />
+        <AssociationConnector Association="IdealHiresModels.FK__Job__CurrencyId__2B2A60FE" />
+        <AssociationConnector Association="IdealHiresModels.FK__Work__CurrencyId__5614BF03" />
+        <AssociationConnector Association="IdealHiresModels.FK_EmployerCompany_User" />
+        <AssociationConnector Association="IdealHiresModels.FK__Notificat__Entit__3D491139" />
+        <AssociationConnector Association="IdealHiresModels.FK__Permissio__Entit__40257DE4" />
+        <AssociationConnector Association="IdealHiresModels.FK__ProfileJo__JobId__44EA3301" />
+        <AssociationConnector Association="IdealHiresModels.FK_Job_PayPeriodType" />
+        <AssociationConnector Association="IdealHiresModels.fk_jobid" />
+        <AssociationConnector Association="IdealHiresModels.fk_jobTyptbl_jobid" />
+        <AssociationConnector Association="IdealHiresModels.FK_KeywordsJob_Job" />
+        <AssociationConnector Association="IdealHiresModels.fk_KeywordsJobtbl_jobid" />
+        <AssociationConnector Association="IdealHiresModels.FK_NotificationTypeJob_Job" />
+        <AssociationConnector Association="IdealHiresModels.fk_ProfileJobtbl_jobid" />
+        <AssociationConnector Association="IdealHiresModels.FK_SortListedCandidate_Job" />
+        <AssociationConnector Association="IdealHiresModels.FK__JobCatego__JobCa__30E33A54" />
+        <AssociationConnector Association="IdealHiresModels.FK__JobCatego__JobCa__32CB82C6" />
+        <AssociationConnector Association="IdealHiresModels.FK_JobCatProfile_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__JobTypeJo__JobTy__35A7EF71" />
+        <AssociationConnector Association="IdealHiresModels.FK__JobTypePr__JobTy__369C13AA" />
+        <AssociationConnector Association="IdealHiresModels.FK_JobTypeProfile_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__Keywords__UserId__38845C1C" />
+        <AssociationConnector Association="IdealHiresModels.FK_KeywordsProfile_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__Notificat__UserI__3E3D3572" />
+        <AssociationConnector Association="IdealHiresModels.FK_NotificationTypeJob_NotificationType" />
+        <AssociationConnector Association="IdealHiresModels.FK__Work__PayPeriodT__4EFDAD20" />
+        <AssociationConnector Association="IdealHiresModels.FK__Work__PayPeriodT__4FF1D159" />
+        <AssociationConnector Association="IdealHiresModels.FK__Permissio__Permi__4119A21D" />
+        <AssociationConnector Association="IdealHiresModels.FK__Permissio__RoleI__420DC656" />
+        <AssociationConnector Association="IdealHiresModels.FK__RolePermi__Permi__47C69FAC" />
+        <AssociationConnector Association="IdealHiresModels.FK__Profile__UserId__53385258" />
+        <AssociationConnector Association="IdealHiresModels.FK__ProfileJo__Profi__45DE573A" />
+        <AssociationConnector Association="IdealHiresModels.FK__Work__ProfileId__5708E33C" />
+        <AssociationConnector Association="IdealHiresModels.FK_SortListedCandidate_Profile" />
+        <AssociationConnector Association="IdealHiresModels.FK__ProfileJo__UserI__46D27B73" />
+        <AssociationConnector Association="IdealHiresModels.FK__RolePermi__RoleI__48BAC3E5" />
+        <AssociationConnector Association="IdealHiresModels.FK__UserRole__RoleId__4B973090" />
+        <AssociationConnector Association="IdealHiresModels.FK__SaveSearc__UserI__49AEE81E" />
+        <AssociationConnector Association="IdealHiresModels.FK__UserRole__UserId__4C8B54C9" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

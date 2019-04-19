@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "CallForInterview";
+}
+
+@using IdealHires.Web.Helper;
+@using IdealHires.DTO.Fields;
+@model List<IdealHires.DTO.Candidate.CompanyProfileDTO>
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnJobExploreSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+
+<section>
+    @using (Ajax.BeginForm("Jobs", "Candidate", null, options, new { @id = "formJobExplore" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+        <section class="header-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Call For Interview</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mt-5 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="card p-3 pb-4 mb-4 jobs-sec">
+                            <div class="md-form">
+            <label for="materialLoginFormKeyword"><em class="fa fa-search ft-13 pr-2 text-light-grey"></em> Search by job title</label>
+                            </div>
+                            <div class="md-form">
+                            </div>
+
+                            <div class="md-form">
+                            </div>
+                            <div class="widget widget_ci-filters-widget mt-4 mb-2">
+                                <div class="col-lg-12 col-xs-12 text-right px-0">
+                                    <input type="submit" class="btn btn-info mr-0" value="Search" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-12 col-12">
+                        <div class="card listWrpService mb-2 p-2">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 justify-content-start">
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-6 d-flex justify-content-end">
+                                    <a href="#" id="grid" class="active btn btn-outline bg-white px-2 py-1"><em class="fa fa-th"></em></a>
+                                    <a href="#" id="list" class="btn btn-outline bg-white px-2 py-1"><em class="fa fa-list"></em></a>
+                                    <a href="#" class="btn btn-outline bg-white px-2 py-1"><em class="fa ft-14 fa-map-marker-alt"></em></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div id="products" class="row view-group view-grid">
+
+                            @*Start Loop*@
+                            @foreach (var item in Model)
+                            {
+                            <div class="item col-xs-12 col-lg-6 grid-group-item ">
+                                <div class="thumbnail thum-cus listWrpService card ">
+                                    <div class="row row-cus">
+                                        <div class="pull-left-cus">
+                                            <img class="img-responsive" src="~/images/demo-logo4.png">
+                                        </div>
+
+                                        <div class="pull-right-cus">
+                                            <p class="h5">
+                                                <a>
+                                                    @item.CompanyName
+                                                </a>
+                                            </p>
+                                            <p>
+                                                @item.CompanyPhone
+                                            </p>
+                                           
+                                            <ul class="featureInfo pl-0">
+                                                <li>
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    @item.Address @item.City @item.StateName @item.CountryName
+                                                </li>
+                                                
+                                            </ul>
+                                          
+                                            @Html.ActionLink("View Details", "JobDetails", new { id = item.Id }, new { @class = "btn btn-success btn-sm float-right text-center" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            }
+                            @*End Loop*@
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="text-center col-sm-2 text-sm-right add-sm-none">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>

@@ -1,0 +1,44 @@
+﻿@if (Model.CandidateDetailList != null)
+{
+    if (Model.CandidateDetailList.Count > 0)
+    {
+        foreach (var item in Model.CandidateDetailList)
+        {
+            <div class="item col-xs-12 col-lg-6 grid-group-item">
+                <div class="thumbnail card listWrpService w-100 p-3">
+                    <div class="row padding-cus candidate-list-cus">
+                        <div class="candidate-left">
+                            <img class="rounded-circle" src="~/images/user-profile-sm.png">
+                        </div>
+                        <div class="candidate-right">
+                            <p class="h5">
+                                <a>
+                                    @item.FirstName @item.LastName
+
+                                </a>
+                            </p>
+                            <ul class="featureInfo pl-0 mb-2 candidate-updates">
+                                <li>
+                                    @item.JobTitle
+                                </li>
+
+                            </ul>
+                            <ul class="featureInfo pl-0 mb-2 candidate-updates">
+                                <li>
+                                    @item.Objective
+                                </li>
+                            </ul>
+                            <div class="candidate-updates">
+                            </div>
+                        </div>
+                        @Html.ActionLink("View Details", "CandidateDetails", new { id = item.Id }, new { @class = "btn btn-success btn-sm float-right text-center" })
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <span class="text-danger pl-3"> <i class="fas fa-exclamation-triangle text-danger"></i> No record found</span>
+    }
+}

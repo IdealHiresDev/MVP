@@ -1,0 +1,127 @@
+﻿
+@using IdealHires.Web.Models
+@using IdealHires.Web.TokenProvider
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+
+<li class="dropdown mt-1">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="top-notification-icon mr-2 mr-xs-0"><i class="fa fa-bell text-light-grey notification-hilight"></i></span>
+        <span class="badge-cus badge-notify" id="totalNotification"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right notification-card">
+        <div class="notification-body" id="notificationDetailsList">
+
+        </div>
+        <div class="notification-footer">
+            @if (User.UserType() == "Employer")
+            {
+                <a href="@Url.Action("ReadNotificationById","Candidate",new { id='E'})">View all notification</a>
+            }
+            else
+            {
+                <a href="@Url.Action("ReadNotificationById","Candidate",new { id='C'})">View all notification</a>
+            }
+        </div>
+    </div>
+</li>
+
+<script>
+    $(document).ready(function () {
+        $("#totalNotification").hide();
+        setInterval(function () {
+            UpdateNotifications();
+        }, 5000);
+
+        function UpdateNotifications() {
+            $.ajax({
+                type: "GET",
+                url: "/Candidate/ShortNotificationDetail",
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.length > 0) {
+                        $("#totalNotification").show();
+                        $("#totalNotification").text(response.length);
+                    }
+                    $('#notificationDetailsList').empty();
+                    var notificationdata;
+                    for (var i = 0; i < response.length; i++) {
+
+                        notificationdata = "<a href='#' class='notification-list'>" +
+                            "<p>" + response[i].Title + "</p>" +
+                            "<span  class='time'>" + timeSince(FormatDate(response[i].EventOn.replace('/Date(', '').replace(')/', '')), FormatDate(response[i].TimeFlag.replace('/Date(', '').replace(')/', ''))) + "</span>" +
+                            "</a>";
+                        $('#notificationDetailsList').append(notificationdata);
+                    }
+
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+
+
+    });
+
+    function timeSince(date, currentDate) {
+
+
+        var seconds = Math.floor((new Date(currentDate) - new Date(date)) / 1000);
+
+        if (seconds > 60) {
+            interval = Math.floor(seconds / 60);
+
+            if (interval > 60) {
+
+                interval = Math.floor(seconds / 3600);
+                if (interval > 24) {
+                    interval = Math.floor(seconds / 86400);
+                    if (interval > 30) {
+
+                        interval = Math.floor(seconds / 2592000);
+                        if (interval > 12) {
+                            var interval = Math.floor(seconds / 31536000);
+
+                            if (interval > 1) {
+
+                                return interval + " years ago";
+                            }
+
+                        }
+                        else {
+                            return interval + " months ago";
+                        }
+                    }
+
+                    else {
+                        return interval + " days ago";
+                    }
+
+                }
+
+                else {
+                    return interval + " hours ago";
+                }
+            }
+
+            else {
+                return interval + " minutes ago";
+            }
+        }
+
+        return Math.floor(seconds) + " seconds ago";
+
+    }
+
+    function FormatDate(inputStr) {
+        if (inputStr == null) {
+        }
+        var timestamp = parseInt(inputStr, 10);
+        return timestamp;
+    }
+
+
+</script>

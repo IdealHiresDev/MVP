@@ -1,0 +1,151 @@
+﻿
+@{
+    AjaxOptions options = new AjaxOptions();
+}
+
+<link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#userTable").DataTable({
+                "processing": true,
+                "serverSide": true,
+                "searching": false,
+                "sorting": false,
+                "createdRow": function (row, data, dataIndex) {
+                    $(row).addClass('job-items');
+                  
+                },
+                "ajax": {
+                    "url": "@Url.Action("GetEmployerUsers", "EmployeeUser")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+
+                "columns": [
+                    {
+                       
+                        "data": "Name", "name": "Name", "autoWidth": true, "searchable": false,
+                        "sortable": false
+                    },
+                    {
+                        "data": "Email", "name": "Email", "autoWidth": true, "searchable": false,
+                        "sortable": false,
+                    },
+                    {
+                        "data": "Phone1", "name": "Phone", "autoWidth": true, "searchable": false,
+                        "sortable": false,
+                    },
+
+                    {
+                        "className": "action",
+                        'render': function (data, type, full, meta, dataIndex) {
+                           
+                          
+                            return ' <a href="../Employer/Details?id=' + full.EUserId + '&cId=' + full.CompanyId + '" class="preview" title="Preview"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>'
+                                + '<a href="../EmployeeUser/Employers?id=' + full.EUserId + '&cId=' + full.CompanyId + '" class="edit" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg></a>'
+                                + '<a onclick="Deleteuser(' + full.EUserId + ',' + full.CompanyId + ')" id="delete" class="remove" title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></a>'
+                        },
+                        "searchable": false,
+                        "sortable": false,
+                    }
+                ]
+
+            });
+        });
+
+        function Deleteuser(EUserId, CompanyId) {
+            var table = $('#userTable').dataTable();
+            if (table.fnGetData().length > 1) {
+                DeleteConfirmation('btnEmployerUserDelete');
+                $('#btnEmployerUserDelete').click(function () {
+                    $.ajax({
+                        url: "../EmployeeUser/Remove/?EUserId=" + EUserId + "&CompanyId=" + CompanyId,
+                        type: "GET",
+                        contentType: "application/json",
+                        async: true,
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.Message == 'DeleteSuccess') {
+                                $('#CommonDeleteModel').modal('hide');
+                                ToastMessageDelete();
+                                setTimeout(function () { window.location.href = data.url; }, 4000);
+                            }
+                            else if (data.Message == 'DeleteFailure') {
+                                $('#pWarningMessage').empty().html('There was an error deleting information !');
+                                $('#CommonWarningModel').modal('show');
+                            }
+                        },
+                        error: function (xHr, status, res) {
+                            $('#pWarningMessage').empty().html(res);
+                            $('#CommonWarningModel').modal('show');
+                        }
+                    });
+                })
+            }
+            else {
+                ToastMessageUserUnableDelete();
+            }
+        };
+    </script>
+}
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>User List</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mt-5">
+    <div class="mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="card p-3">
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <div>
+                                            <a href="@Url.Action("Employers","EmployeeUser")" class="btn btn blue-theme-button waves-effect"><i class="fa fa-plus-circle pr-1" aria-hidden="true"></i> Add User</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="recent-job-container">
+                                                    <table class="table tbody-spc tbody mb-0 border-bottom-0" id="userTable">
+                                                        <thead class="td-cus">
+                                                            <tr class="job-items">
+                                                                <td>Name</td>
+                                                                <td>Email</td>
+                                                                <td>Phone</td>
+                                                                <td>Action</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="td-cus"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

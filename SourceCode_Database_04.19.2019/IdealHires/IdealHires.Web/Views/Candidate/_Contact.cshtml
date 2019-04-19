@@ -1,0 +1,200 @@
+﻿@model IdealHires.DTO.Candidate.CandidateContactDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnContactSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+<script type="text/javascript">
+    function OnContactSuccess(data) {
+        if (data === "ContactSuccess" || data === "ContactEditSuccessNext") {
+            ToastMessageSuccess();
+            $('#btnContact').css("pointer-events", "auto");
+            $("#btnWorkExp").click();
+            @*var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');             
+             $.get('@Url.Action("WorkExp", "Candidate")').done(function (response) {
+                $('#workexp').empty().html(response);
+                if (data === "PreferencesSuccess") {
+                    ToastMessageSuccess();
+                } else {
+                    ToastMessageUpdate();
+                }
+                }).fail(function () {
+             ToastWarningSuccess();
+                });
+            
+            parent_fieldset.fadeOut(400, function () {
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                bar_progress(progress_line, 'right');
+                $(this).next().fadeIn();
+                scroll_to_class($('.f1'), 20);
+            });*@
+        }
+        else if (data === "BtnContactSuccess") {
+            ToastMessageSuccess();
+        } else if (data === "ContactEditSuccess") {
+            ToastMessageUpdate();
+        }
+        else if (data === "ContactFailure") {
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
+        }
+    }
+    $('#btnContactPrevious').on('click', function (e) {
+        $("#btnGeneral").click();
+        //var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        //var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+        //$(this).parents('fieldset').fadeOut(400, function () {
+        //    current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+        //    bar_progress(progress_line, 'left');
+        //    $(this).prev().fadeIn();
+        //    scroll_to_class($('.f1'), 20);
+        //});
+    });
+</script>
+@using (Ajax.BeginForm("Contact", "Candidate", null, options, new { @id = "formContact" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+    @Html.HiddenFor(m => m.Id)
+<div class="row">
+    <div class="col-sm-12 col-xs-12">
+        <div class="md-form">
+            @Html.TextBoxFor(m => m.StreetAddress1, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+            <label>Street Address 1 <span>*</span></label>
+        </div>
+        @Html.ValidationMessageFor(m => m.StreetAddress1, "", new { @class = "text-validationdanger" })
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.StreetAddress2, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                <label>Street Address 2 </label>                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+       
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.DropDownListFor(m => m.CountryId, new SelectList(Model.Countries, "Id", "Name"),"Select Country", new { @class = "form-control", @onchange = "FillState()" })
+            </div>
+            @Html.ValidationMessageFor(m => m.CountryId, "", new { @class = "text-validationdanger" })
+        </div>
+       
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @if (Model.States != null)
+                {
+                    @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "Select state", new { @class = "form-control" })
+                }
+                else
+                {
+                    <select id="StateId" name="StateId" class = "form-control">
+                        <option value="Select state">Select state</option>
+                    </select>
+                }
+
+            </div>
+            @Html.ValidationMessageFor(m => m.StateId, "", new { @class = "text-validationdanger" })
+        </div>
+        
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                <label>City <span>*</span></label>
+            </div>
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-validationdanger" })
+        </div>
+
+
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", @autocomplete = "off" })
+                <label>Zip Code <span>*</span></label>
+            </div>
+            @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-validationdanger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Phone1, new { @class = "form-control", @autocomplete = "off" })
+                <label>Phone Number(Preferred)<span>*</span></label>
+            </div>
+            @Html.ValidationMessageFor(m => m.Phone1, "", new { @class = "text-validationdanger" })            
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Phone2, new { @class = "form-control", @autocomplete = "off" })
+                <label>Phone Number(Secondary)</label>
+            </div>            
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="md-form">              
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", @autocomplete = "off",@readonly="readonly" })
+                <label>Email Address</label>
+            </div>
+            @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-validationdanger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="f1-buttons col-sm-6 text-left">
+            <button type="button" id="btnContactPrevious" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        </div>
+        <div class="f1-buttons col-sm-6">
+            <button type="submit" name="submit" value="Save" class="btn btn-blue btn-sm waves-effect waves-light fnt-13 mr-3 btn-sm-save"><img src="~/images/save-icon.png" class="pr-2 pb-1">Save</button>
+            <button type="submit" class="btn btn-nextt rounded-circle btn-circle-next btn-hover"><em class="fa fa-arrow-right"></em></button>
+        </div>
+    </div>
+
+}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Phone1").mask("(999) 999 9999");
+            $("#Phone2").mask("(999) 999 9999");
+            $("#ZipCode").mask("99999");
+        });
+
+        function FillState()
+        {
+            var countryId = $("#CountryId").val();
+            $.ajax({
+                url: "../Candidate/GetStateByCountryId/" + countryId,
+                type: "GET",
+                contentType: "application/json",                async: false,
+                success: function (data) {
+                    debugger;
+                    $("#StateId").empty();
+                    $("#StateId").append($("<option value></option>").html("Select state"));
+                    if (data.length > 0) {
+                        for (var counter = 0; counter < data.length; counter++) {
+                            $("#StateId").append($("<option></option>").val(data[counter].Id).html(data[counter].Name));
+                        }
+                    }
+                    GetPhoneFormat();
+                },
+                error: function (xHr, status, res) {
+                }
+            });
+        }
+        function GetPhoneFormat() {
+            var countryId = $("#CountryId").val();
+            if (countryId > 0) {
+                $.ajax({
+                    url: "../Candidate/GetPhoneFormat/" + countryId,
+                    type: "GET",
+                    contentType: "application/json",                    async: false,
+                    success: function (data) {
+                        $("#Phone1").mask(data);
+                        $("#Phone2").mask(data);
+                    },
+                    error: function (xHr, status, res) {
+                    }
+                });
+            }
+        }
+    </script>

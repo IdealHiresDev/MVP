@@ -1,0 +1,47 @@
+﻿@model List<IdealHires.DTO.Candidate.CandidateEducationDTO>
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="timeline timeline1">
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <p class="h4 col-blue text-left">@item.InstituteName </p>
+                                @if (!item.IsDegreeOrCertification)
+                                {
+                                    <p class="ft-sml text-dark">Degree</p>
+                                }
+                                else
+                                {
+                                    <p class="ft-sml text-dark">Certificate</p>
+                                }
+
+                            </div>
+                            <div class="col-sm-6 text-right ft-sml">
+                                <span class="text-success mr-4">@String.Format("{0:y}", item.StartAt) to @String.Format("{0:y}", item.EndAt)</span> <span class="col-blue">@item.TotalDuration</span>
+                                <div id="editEducationDiv"> <a onclick="EditEducation(@item.Id)"><em class="fas fa-edit ml-3"></em></a></div>
+                                <div id="deleteEducationDiv"><a onclick="DeleteEducation(@item.Id)"> <em class="fas fa-trash text-danger ml-1"></em></a></div>
+                            </div>
+                            <div class="pl-3">
+                                @*<a href="#" class="float-right">21 March, 2014</a>*@
+                                <p class="border-btm"></p>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            }
+            else
+            {
+                <li>
+                    <div class="row">
+                        <p class="h4 col-blue text-left">Please add Academics Details.</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

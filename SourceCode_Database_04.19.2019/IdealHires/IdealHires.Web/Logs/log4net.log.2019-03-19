@@ -1,0 +1,1269 @@
+2019-03-19 00:01:02,205 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:15:58,216 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:16:38,175 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:16:38,176 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:16:38,176 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:17:09,646 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 18:47:09 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 109
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:17:09,646 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:17:46,635 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:17:46,635 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:17:50,500 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:17:50,500 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:17:50,500 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:17:51,175 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 18:47:51 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:17:51,175 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:17:55,105 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:17:55,105 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:45,037 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:45,037 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:48,054 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:48,054 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:51,136 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:51,136 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:55,732 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:55,732 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:59,004 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:22:59,004 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:23:11,290 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:23:11,290 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 00:23:59,502 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:24:28,063 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:24:28,063 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:24:28,063 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:24:42,111 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 18:54:42 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:24:42,111 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:26:43,614 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:26:43,614 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:26:43,614 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:26:53,654 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 18:56:53 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:26:53,654 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:27:55,304 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:27:55,304 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:27:55,304 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:28:00,619 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 18:58:00 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:28:00,619 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:30:02,570 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:30:02,570 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:30:02,570 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:30:02,819 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 19:00:02 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:30:02,819 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:30:57,693 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:30:57,693 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:30:57,693 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:30:58,147 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 19:00:58 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:30:58,147 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:31:27,630 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:33:40,797 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:34:18,568 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:34:18,568 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:34:18,568 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzNjUzNSwibmJmIjoxNTUyOTM0NzM1fQ.8hP80bO4WkZdqWBELLT7pWVdASw9tRBO_Sfv47vi2zI
+2019-03-19 00:34:18,843 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 19:04:18 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:34:18,843 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:34:35,941 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:34:48,692 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:59:17,835 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 00:59:27,262 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 00:59:27,262 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 00:59:27,262 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MjkzOTEyMSwibmJmIjoxNTUyOTM3MzIxfQ.AeTi1s2fWspr-zzWBzZDIWcM1zSfZmcs3FCmkJEuLTQ
+2019-03-19 00:59:27,376 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 19:29:27 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 00:59:27,376 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 00:59:50,964 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTM5MTg1LCJuYmYiOjE1NTI5MzczODV9.gyvmBPWI3bKf8SU4gWxqtYtP9gX9my0iGyTaUEaWUK4
+2019-03-19 00:59:51,483 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 19:29:51 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 4582
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:15:01,829 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTM5MTg1LCJuYmYiOjE1NTI5MzczODV9.gyvmBPWI3bKf8SU4gWxqtYtP9gX9my0iGyTaUEaWUK4
+2019-03-19 01:15:02,815 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 19:45:02 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 4582
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:29:07,060 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTM5MTg1LCJuYmYiOjE1NTI5MzczODV9.gyvmBPWI3bKf8SU4gWxqtYtP9gX9my0iGyTaUEaWUK4
+2019-03-19 01:29:08,332 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 19:59:08 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 4582
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:29:54,385 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQwOTkwLCJuYmYiOjE1NTI5MzkxOTB9.GdzK7GEvasS8KFQbfehBu8kMiyFEhnmFw8d7lPMfVwg
+2019-03-19 01:29:54,499 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 19:59:54 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 4582
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:46:23,239 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savecompanypackagedetail
+2019-03-19 01:46:30,861 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 01:46:30,861 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 01:46:30,861 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk0MTkxMiwibmJmIjoxNTUyOTQwMTEyfQ.S5BpN9sezlxjzXfTq9Bgsnw83f_FM9CqRlwAlHoRB2Q
+2019-03-19 01:46:31,083 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Mon, 18 Mar 2019 20:16:31 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:46:31,083 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 01:47:24,500 INFO MonitoringLogger - Job Preferences post page started
+2019-03-19 01:47:24,500 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/preferences
+2019-03-19 01:47:24,500 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk0MTkxMiwibmJmIjoxNTUyOTQwMTEyfQ.S5BpN9sezlxjzXfTq9Bgsnw83f_FM9CqRlwAlHoRB2Q
+2019-03-19 01:47:24,648 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXHByZWZlcmVuY2Vz?=
+  Date: Mon, 18 Mar 2019 20:17:24 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:47:24,648 INFO MonitoringLogger - Job Preferences post page ended. else Save
+2019-03-19 01:48:46,836 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:48:47,302 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 20:18:47 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:48:49,807 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:48:49,905 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxzYXZldmlld2RldGFpbHM=?=
+  Date: Mon, 18 Mar 2019 20:18:49 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 143
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:48:52,711 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxhcHBseWpvYg==?=
+  Date: Mon, 18 Mar 2019 20:18:52 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 167
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:49:03,638 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:49:03,754 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:19:03 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1149
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:49:06,552 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:49:06,580 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxzYXZldmlld2RldGFpbHM=?=
+  Date: Mon, 18 Mar 2019 20:19:06 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 143
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:49:53,836 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:49:53,996 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzYXZlZGpvYnM=?=
+  Date: Mon, 18 Mar 2019 20:19:53 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 440
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:00,041 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:00,199 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzYXZlZGpvYnM=?=
+  Date: Mon, 18 Mar 2019 20:20:00 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 440
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:02,280 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:02,421 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 20:20:02 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:04,674 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:04,742 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxzYXZldmlld2RldGFpbHM=?=
+  Date: Mon, 18 Mar 2019 20:20:04 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 143
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:06,998 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxhcHBseWpvYg==?=
+  Date: Mon, 18 Mar 2019 20:20:06 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 167
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:09,935 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:10,171 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:10 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1818
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:18,820 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:18,940 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:18 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1119
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:31,945 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:32,062 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:32 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1831
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:38,825 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:38,976 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:38 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1840
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:40,460 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:40,628 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:40 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:44,376 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:44,492 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:44 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 462
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:47,121 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:47,247 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:47 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:57,313 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:57,438 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:57 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 462
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:50:57,873 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMTIzLCJuYmYiOjE1NTI5NDAzMjN9.v4g3iK_IPduk4CXQU1f2x8K1h1A-TqoKHc75EhSf0iQ
+2019-03-19 01:50:58,085 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:20:57 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1831
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:52:02,685 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMzE5LCJuYmYiOjE1NTI5NDA1MTl9.bXKij9jBG6DB0vThWxPqZjSaf0zNXV8jAXQ4eO93q0o
+2019-03-19 01:52:02,807 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRhcHBsaWVkam9icw==?=
+  Date: Mon, 18 Mar 2019 20:22:02 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1818
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 01:52:09,689 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQyMzE5LCJuYmYiOjE1NTI5NDA1MTl9.bXKij9jBG6DB0vThWxPqZjSaf0zNXV8jAXQ4eO93q0o
+2019-03-19 01:52:09,800 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 20:22:09 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:37:36,506 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjA4IiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE2QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiYmE2MDk4NDUtM2Q3Mi00NGU0LWI5MjAtNjQ1MDJlYTJiMGJmIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ0NjExLCJuYmYiOjE1NTI5NDI4MTF9._tleP295euO_IxjQ6qWShaF4LYCs7Ommw7HUKjbjJ7w
+2019-03-19 02:37:37,627 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:07:37 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:40:25,364 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjA4IiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE2QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiYmE2MDk4NDUtM2Q3Mi00NGU0LWI5MjAtNjQ1MDJlYTJiMGJmIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1MDgyLCJuYmYiOjE1NTI5NDMyODJ9.CHjCvEGeQ4EV1FHyN3PXtT8XTeZ4SrRjYzlTAfsaR2s
+2019-03-19 02:40:25,402 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:10:25 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:41:30,808 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjA4IiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE2QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiYmE2MDk4NDUtM2Q3Mi00NGU0LWI5MjAtNjQ1MDJlYTJiMGJmIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1MDgyLCJuYmYiOjE1NTI5NDMyODJ9.CHjCvEGeQ4EV1FHyN3PXtT8XTeZ4SrRjYzlTAfsaR2s
+2019-03-19 02:41:30,823 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:11:30 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:42:45,048 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjA4IiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE2QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiYmE2MDk4NDUtM2Q3Mi00NGU0LWI5MjAtNjQ1MDJlYTJiMGJmIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1MDgyLCJuYmYiOjE1NTI5NDMyODJ9.CHjCvEGeQ4EV1FHyN3PXtT8XTeZ4SrRjYzlTAfsaR2s
+2019-03-19 02:42:45,067 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:12:45 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:43:01,640 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjA4IiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE2QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiYmE2MDk4NDUtM2Q3Mi00NGU0LWI5MjAtNjQ1MDJlYTJiMGJmIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1MDgyLCJuYmYiOjE1NTI5NDMyODJ9.CHjCvEGeQ4EV1FHyN3PXtT8XTeZ4SrRjYzlTAfsaR2s
+2019-03-19 02:43:01,653 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDA=?=
+  Date: Mon, 18 Mar 2019 21:13:01 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 109
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:45:13,475 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:45:13,489 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:15:13 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:47:09,664 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:47:09,677 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:17:09 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:48:55,552 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NzE5LCJuYmYiOjE1NTI5NDM5MTl9.VBxy7EtDcvLdpRG10w2Dfxoyx4CBn0z0xBKZr3xWmKI
+2019-03-19 02:48:55,571 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:18:55 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:51:32,883 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:51:33,782 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:21:32 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:51:45,554 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:51:45,577 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:21:45 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:55:41,584 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:55:41,599 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:25:41 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:57:43,965 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:57:47,780 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:27:47 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 02:58:03,615 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 02:58:03,650 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:28:03 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:00:59,303 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 03:01:00,218 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:30:59 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:01:15,682 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 03:01:15,709 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:31:15 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:02:48,625 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 03:02:48,647 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRzdGF0ZWJ5Y291bnRyeWlkXDE=?=
+  Date: Mon, 18 Mar 2019 21:32:48 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 850
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:08:23,060 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IiIsIkxhc3ROYW1lIjoiIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ1NDg5LCJuYmYiOjE1NTI5NDM2ODl9.0pkD12wHamxXP2k3bRgFA-tz_kZp_IMBL33qTbI7eUI
+2019-03-19 03:08:26,726 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:38:26 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:12:21,230 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ2OTI1LCJuYmYiOjE1NTI5NDUxMjV9.ah-v_avL2kerk15wUwY5AVQmnQr98-vAGRaAnSd6cGc
+2019-03-19 03:12:22,240 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:42:22 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5274
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 03:13:17,975 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjEwIiwidW5pcXVlX25hbWUiOiJyYXVzaGFuczE3QHlvcG1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNDMyZWRkYzQtYWQ1OS00OTY1LTk1OWYtMDVhYTEyNjJlYmY5Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTQ2OTI1LCJuYmYiOjE1NTI5NDUxMjV9.ah-v_avL2kerk15wUwY5AVQmnQr98-vAGRaAnSd6cGc
+2019-03-19 03:13:18,108 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Mon, 18 Mar 2019 21:43:18 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5272
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:08:37,252 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:08:37,277 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:08:37,277 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5NzI0OSwibmJmIjoxNTUyOTk1NDQ5fQ.rj0Vhcaa1-w9CfjNlaIO1J-jFu62VhwZFPJXd74mS6M
+2019-03-19 17:08:42,975 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 11:38:42 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:08:42,976 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:09:38,143 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:09:38,143 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:09:38,143 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5NzI0OSwibmJmIjoxNTUyOTk1NDQ5fQ.rj0Vhcaa1-w9CfjNlaIO1J-jFu62VhwZFPJXd74mS6M
+2019-03-19 17:09:45,009 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 11:39:45 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:09:45,010 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:14:08,677 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUyOTk3NDgzLCJuYmYiOjE1NTI5OTU2ODN9.XsBbXlV2R0T8ns-0TFe1DefDcl8jSwkhPlyrcnE8ZvA
+2019-03-19 17:14:16,753 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 11:44:16 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:32:21,366 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:32:21,366 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:32:21,366 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:32:22,766 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:02:22 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:32:22,767 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:34:35,198 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:34:35,198 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:34:35,198 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:34:36,766 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:04:36 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:34:36,766 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:35:42,706 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:35:42,706 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:35:45,701 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:35:45,701 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:35:45,701 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:35:46,954 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:05:46 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:35:46,954 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:36:16,836 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:36:16,836 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:36:19,253 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:36:19,253 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:36:19,253 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:36:20,302 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:06:20 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:36:20,303 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:38:21,389 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:21,390 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:21,837 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:21,837 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:22,564 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:22,564 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:38:24,593 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:38:24,593 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:38:24,593 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:38:25,848 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:08:25 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:38:25,849 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:39:21,543 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:39:21,543 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:39:23,566 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:39:23,566 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:39:23,566 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:39:25,237 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:09:24 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 106
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:39:25,237 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:40:17,201 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:40:17,201 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:40:18,369 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:40:18,369 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:40:18,369 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:40:19,378 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:10:19 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 106
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:40:19,378 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:48:46,928 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:48:46,928 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:48:49,164 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:48:49,164 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:48:49,164 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:48:54,560 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:18:54 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:48:54,560 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 17:50:13,808 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:50:13,813 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 17:50:18,511 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 17:50:18,511 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 17:50:18,511 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1Mjk5ODYxNiwibmJmIjoxNTUyOTk2ODE2fQ.Atu7g1XPHQnRy4X-Hv-WxDSmM3aQvJGYAicvj0WEtTU
+2019-03-19 17:50:21,762 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 12:20:21 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 17:50:21,762 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 18:27:54,458 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUzMDAxODQ2LCJuYmYiOjE1NTMwMDAwNDZ9.E6synL_Kn9m45IVZuXO5bfd0Ur6nSBk-2xU_yPVW-Go
+2019-03-19 18:27:57,033 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 12:57:56 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:43:37,847 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUzMDAxODQ2LCJuYmYiOjE1NTMwMDAwNDZ9.E6synL_Kn9m45IVZuXO5bfd0Ur6nSBk-2xU_yPVW-Go
+2019-03-19 18:43:43,397 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 13:13:42 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:47:19,804 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:47:19,804 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:47:22,241 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 18:47:22,241 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 18:47:22,241 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 18:47:23,816 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:17:23 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:47:23,816 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 18:51:36,513 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:36,513 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:36,901 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:36,901 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:37,173 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:37,173 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:37,681 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:37,681 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:51:40,574 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 18:51:40,574 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 18:51:40,574 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 18:51:41,072 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:21:41 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:51:41,073 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 18:52:44,787 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:44,787 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:44,939 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:44,939 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:45,213 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:45,213 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:52:47,814 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 18:52:47,814 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 18:52:47,814 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 18:52:48,353 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:22:48 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:52:48,354 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 18:59:20,190 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:59:20,190 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 18:59:24,115 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 18:59:24,116 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 18:59:24,116 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 18:59:24,607 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:29:24 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 18:59:24,607 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:00:16,798 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:00:16,798 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:00:20,242 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:00:20,243 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:00:20,243 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:00:20,866 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:30:20 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:00:20,866 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:00:55,388 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:00:55,388 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:00:57,493 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:00:57,493 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:01:00,701 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:01:00,701 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:01:00,701 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:01:01,776 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:31:01 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:01:01,776 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:01:52,273 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:01:52,273 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:01:56,410 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:01:56,415 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:01:56,416 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:01:57,401 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:31:57 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:01:57,401 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:03:51,587 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:03:51,587 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:03:53,915 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:03:53,915 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:03:57,179 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:03:57,179 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:03:57,179 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:03:57,988 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:33:57 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:03:57,988 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:04:45,193 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:04:45,193 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:04:48,618 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:04:48,618 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:04:48,618 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:04:49,427 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:34:49 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:04:49,427 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:06:12,595 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:06:12,595 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:06:15,262 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:06:15,262 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:06:18,350 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:06:18,351 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:06:18,351 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:06:19,642 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:36:19 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:06:19,642 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:07:18,372 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:07:18,372 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:07:22,338 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:07:22,338 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:07:22,338 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwMzIzMywibmJmIjoxNTUzMDAxNDMzfQ.2xKKk3diujjz3I5er1JlEchFAZDXuhY7eSVAXXCSgv0
+2019-03-19 19:07:22,831 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 13:37:22 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:07:22,831 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 19:55:53,613 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUzMDA3MTMyLCJuYmYiOjE1NTMwMDUzMzJ9.TiqUdl74pzgTxNLs8BY7kaMQN1BdY2hQfOHdPN_9u_c
+2019-03-19 19:55:53,919 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 14:25:53 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:56:53,872 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:56:53,908 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 19:56:57,504 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 19:56:57,504 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 19:56:57,504 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwNzQwOCwibmJmIjoxNTUzMDA1NjA4fQ.22owayj_OM_cWN_G5JXwk0n34RRJFf9z7ysVgGKfiV0
+2019-03-19 19:56:58,379 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 14:26:58 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 19:56:58,379 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 20:00:18,842 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:00:18,842 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:00:26,429 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 20:00:26,429 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 20:00:26,429 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwNzQwOCwibmJmIjoxNTUzMDA1NjA4fQ.22owayj_OM_cWN_G5JXwk0n34RRJFf9z7ysVgGKfiV0
+2019-03-19 20:00:27,422 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 14:30:27 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:00:27,423 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 20:01:59,247 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:01:59,247 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:02:01,435 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 20:02:01,435 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 20:02:01,435 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwNzcwOCwibmJmIjoxNTUzMDA1OTA4fQ.gacTBc-W7gZw6OxsIE3OAars_49uX01tODfmaQNAl7g
+2019-03-19 20:02:01,707 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 14:32:01 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:02:01,707 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 20:39:31,856 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiIiLCJMYXN0TmFtZSI6IiIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAwOTA4NCwibmJmIjoxNTUzMDA3Mjg0fQ.OKOLr7RFtKbodQmH9uHSUtjKXPKbFBmgL2ymjbBKX2c
+2019-03-19 20:39:40,895 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 15:09:40 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:40:25,267 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:40:25,267 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 20:40:27,214 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 20:40:27,214 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 20:40:27,214 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDAyMCwibmJmIjoxNTUzMDA4MjIwfQ.UnDcrrxlcUemHPoJMEG_ENyv5Grui8JhNNsZhS5Kpog
+2019-03-19 20:40:27,566 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 15:10:27 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 106
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:40:27,567 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 20:44:39,005 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDI3NCwibmJmIjoxNTUzMDA4NDc0fQ.3KiGyGW3Tq1ORP-aW8AeJdR9iupK1pUJ6vhpvhgh0Fk
+2019-03-19 20:44:39,337 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 15:14:39 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:44:41,327 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDI3NCwibmJmIjoxNTUzMDA4NDc0fQ.3KiGyGW3Tq1ORP-aW8AeJdR9iupK1pUJ6vhpvhgh0Fk
+2019-03-19 20:44:43,479 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxzYXZldmlld2RldGFpbHM=?=
+  Date: Tue, 19 Mar 2019 15:14:43 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 143
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:44:43,944 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxhcHBseWpvYg==?=
+  Date: Tue, 19 Mar 2019 15:14:43 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 167
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:46:18,326 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDI3NCwibmJmIjoxNTUzMDA4NDc0fQ.3KiGyGW3Tq1ORP-aW8AeJdR9iupK1pUJ6vhpvhgh0Fk
+2019-03-19 20:46:18,870 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 15:16:18 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5271
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:46:28,829 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDI3NCwibmJmIjoxNTUzMDA4NDc0fQ.3KiGyGW3Tq1ORP-aW8AeJdR9iupK1pUJ6vhpvhgh0Fk
+2019-03-19 20:46:30,060 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxqb2Jz?=
+  Date: Tue, 19 Mar 2019 15:16:30 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 1131
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 20:46:34,003 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMDI3NCwibmJmIjoxNTUzMDA4NDc0fQ.3KiGyGW3Tq1ORP-aW8AeJdR9iupK1pUJ6vhpvhgh0Fk
+2019-03-19 20:46:34,948 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxqb2Jz?=
+  Date: Tue, 19 Mar 2019 15:16:34 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 5279
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 21:22:31,667 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMjU1MSwibmJmIjoxNTUzMDEwNzUxfQ.4QI-3pdR_QgTBY_Sfsc32zkjGFbYlgfcRpdYs72AY0M
+2019-03-19 21:22:32,058 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 15:52:31 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 6674
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 21:42:20,438 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMjU1MSwibmJmIjoxNTUzMDEwNzUxfQ.4QI-3pdR_QgTBY_Sfsc32zkjGFbYlgfcRpdYs72AY0M
+2019-03-19 21:42:25,264 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 16:12:25 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 7364
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 21:42:49,782 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 21:42:49,782 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 21:42:52,228 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 21:42:52,228 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 21:42:52,228 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMzc2MywibmJmIjoxNTUzMDExOTYzfQ.Y-MSrzEo1QUeA768vdT7I0MuewwbzB07eIRL62ydZYo
+2019-03-19 21:42:52,875 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 16:12:52 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 21:42:52,875 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 21:42:54,194 INFO MonitoringLogger - inside if jobpreferencesDTO.SelectNotificationTypes
+2019-03-19 21:45:34,001 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 21:45:34,001 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 21:45:39,279 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 21:45:39,279 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 21:45:39,279 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxMzc2MywibmJmIjoxNTUzMDExOTYzfQ.Y-MSrzEo1QUeA768vdT7I0MuewwbzB07eIRL62ydZYo
+2019-03-19 21:45:39,980 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 16:15:39 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 107
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 21:45:39,980 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 21:45:40,447 INFO MonitoringLogger - inside if jobpreferencesDTO.SelectNotificationTypes
+2019-03-19 22:10:14,560 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 22:10:14,586 INFO MonitoringLogger - inside if preferenceDTO.SelectedJobCategory
+2019-03-19 22:10:16,583 INFO MonitoringLogger - Candidate Preferences post page started
+2019-03-19 22:10:16,583 INFO MonitoringLogger - client.BaseAddresshttp://localhost:50661/api/employer/general
+2019-03-19 22:10:16,583 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI3OCIsInVuaXF1ZV9uYW1lIjoiYW5qdWtAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTMzYjU0NmQtODY4Ni00YTIyLWIzNTMtNzhhNTczZmE5M2ExIiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IkFuanUiLCJMYXN0TmFtZSI6IkNoYXVoYW4iLCJVc2VyVHlwZSI6IkVtcGxveWVyIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxNTMzNiwibmJmIjoxNTUzMDEzNTM2fQ.PXahWriPJABT5LlWkhudiE_FOSpHfbLJ1yfuj3llUuo
+2019-03-19 22:10:17,496 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXGdlbmVyYWw=?=
+  Date: Tue, 19 Mar 2019 16:40:17 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 106
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 22:10:17,496 INFO MonitoringLogger - Candidate Preferences post page ended. else Save
+2019-03-19 22:10:17,810 INFO MonitoringLogger - inside if jobpreferencesDTO.SelectNotificationTypes
+2019-03-19 22:17:55,741 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxNTg3MSwibmJmIjoxNTUzMDE0MDcxfQ.W3G7YvCCioSWHpjFHP0-kSFJbAxz8X3AY5zjaq9sEFY
+2019-03-19 22:17:55,939 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 16:47:55 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 8733
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 22:19:56,085 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI4MCIsInVuaXF1ZV9uYW1lIjoicmF1c2hhbnNAY2hldHUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiODBkZjE3NTYtY2QzZC00MmFkLTg4ODYtM2U1ZjBkMTJmNTg2Iiwicm9sZSI6WyJBZG1pbiIsIkNhbmRpZGF0ZSIsIkVtcGxveWVyIl0sIklzRW1haWxDb25maXJtIjoiVHJ1ZSIsIkZpcnN0TmFtZSI6IlJhdXNoYW4iLCJMYXN0TmFtZSI6IlNpbmdoIiwiVXNlclR5cGUiOiJDYW5kaWRhdGUiLCJpc3MiOiJxd2VydHl1aW9wYXNkZmdoamtsenhjdmJubSIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNTUzMDE1OTkzLCJuYmYiOjE1NTMwMTQxOTN9.QnCiDIt04pwNLkZeJ07SCWVRExoxAekZUf_GS_Qg2lc
+2019-03-19 22:19:56,861 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 16:49:56 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 8733
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:21:52,656 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxOTIxOSwibmJmIjoxNTUzMDE3NDE5fQ.x4dg-J56IAgt9xBy_XGaW7AEkHm2TVOogrwn5SFFJgE
+2019-03-19 23:21:54,553 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 17:51:54 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 11514
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:37:16,680 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxOTIxOSwibmJmIjoxNTUzMDE3NDE5fQ.x4dg-J56IAgt9xBy_XGaW7AEkHm2TVOogrwn5SFFJgE
+2019-03-19 23:37:22,705 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 18:07:21 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 11515
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:37:38,722 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxOTIxOSwibmJmIjoxNTUzMDE3NDE5fQ.x4dg-J56IAgt9xBy_XGaW7AEkHm2TVOogrwn5SFFJgE
+2019-03-19 23:37:39,509 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 18:07:39 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 11515
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:39:25,492 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAxOTIxOSwibmJmIjoxNTUzMDE3NDE5fQ.x4dg-J56IAgt9xBy_XGaW7AEkHm2TVOogrwn5SFFJgE
+2019-03-19 23:45:05,368 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAyMTEwNCwibmJmIjoxNTUzMDE5MzA0fQ.WDlwDajkO0A3UgpJPNNBuWF_pp8SIA-Th49zHAhFrrk
+2019-03-19 23:45:07,776 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 18:15:07 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 11515
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:45:10,400 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAyMTEwNCwibmJmIjoxNTUzMDE5MzA0fQ.WDlwDajkO0A3UgpJPNNBuWF_pp8SIA-Th49zHAhFrrk
+2019-03-19 23:45:18,826 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 18:15:18 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 11515
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:45:23,103 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAyMTEwNCwibmJmIjoxNTUzMDE5MzA0fQ.WDlwDajkO0A3UgpJPNNBuWF_pp8SIA-Th49zHAhFrrk
+2019-03-19 23:48:26,005 INFO MonitoringLogger - tokenDatabearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMjI3IiwidW5pcXVlX25hbWUiOiJ0ZXN0Y2FuZEB5b3BtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IjMxNmIyZWI2LWMyMmQtNDgxYy1iZGFlLTU1NjY4OTViYjYyYSIsInJvbGUiOlsiQWRtaW4iLCJDYW5kaWRhdGUiLCJFbXBsb3llciJdLCJJc0VtYWlsQ29uZmlybSI6IlRydWUiLCJGaXJzdE5hbWUiOiJSYWplc2giLCJMYXN0TmFtZSI6IlNheGVuYSIsIlVzZXJUeXBlIjoiQ2FuZGlkYXRlIiwiaXNzIjoicXdlcnR5dWlvcGFzZGZnaGprbHp4Y3Zibm0iLCJhdWQiOiI0MTRlMTkyN2EzODg0ZjY4YWJjNzlmNzI4MzgzN2ZkMSIsImV4cCI6MTU1MzAyMTEwNCwibmJmIjoxNTUzMDE5MzA0fQ.WDlwDajkO0A3UgpJPNNBuWF_pp8SIA-Th49zHAhFrrk
+2019-03-19 23:48:26,443 INFO MonitoringLogger - responseStatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGNhbmRpZGF0ZVxnZXRqb2JleHBsb3Jl?=
+  Date: Tue, 19 Mar 2019 18:18:26 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 14950
+  Content-Type: application/json; charset=utf-8
+}
+2019-03-19 23:53:58,537 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-03-19 23:54:45,368 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed

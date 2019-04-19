@@ -1,0 +1,473 @@
+﻿@using IdealHires.Web.Models
+@using IdealHires.Web.TokenProvider
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>IdealHires</title>
+    <!-- Bootstrap core CSS-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/mdb.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/font.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/wizard-style.css">
+    <!-- Custom styles for this template-->
+    <link href="~/Content/custom-styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/js/multiselect.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style type="text/css">
+        p-text {
+            color: white;
+        }
+    </style>
+
+    @{var viewMessageGroups = (List<ViewMessagesGroup>)(TempData["ViewMessages"] ?? null);}
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="navbar navbar-dark navbar-expand-md bg-light sticky-top">
+            <div class="col-sm-2"><a href="/" class=""><img src="~/images/logo-ideal.jpg" alt="logo" class="logo"></a></div>
+            <button class="navbar-toggler ml-sm-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @if (Request.IsAuthenticated)
+            {
+                if (User.UserType() == "Candidate")
+                {
+                    <div class="collapse navbar-collapse col-sm-4" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" href="#">Jobs <span><i class="fas fa-caret-down"></i></span></a>
+                                <div class="dropdown-menu dropdown-menu-right jobs-card">
+                                    <div class="notification-body">
+                                        <a href="@Url.Action("Dashboard","Candidate")" class="notification-list">
+                                            Dashboard
+                                        </a>
+                                        <a href="@Url.Action("Jobs","Candidate")" class="notification-list">
+                                            Search Jobs
+                                        </a>
+
+                                        <a href="@Url.Action("GetSavedJobs","Candidate")" class="notification-list">
+                                            Saved Jobs
+                                        </a>
+                                        <a href="@Url.Action("GetAppliedJobs","Candidate")" class="notification-list">
+                                            Applied Jobs
+                                        </a>
+                                        <a href="@Url.Action("GetNotInterestedJobs","Candidate")" class="notification-list">
+                                            Not Interested Jobs
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 justify-content-right margin10-xs">
+                        <div class="input-group border-0 top-search" style="visibility:hidden;">
+                            <input type="text" class="form-control order-1 sec-left" placeholder="Search Jobs" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append order-3"> <a href="#"> <span class="input-group-text fa fa-search btn-fill-search"></span></a> </div>
+                            <div class="dropdown order-2 sec-left">
+                                <select class="form-control">
+                                    <option>Company</option>
+                                    <option>Jobs</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-2 right-sec">
+                        <div class="header-right">
+                            <ul class="nav justify-content-end notification-xs">
+                                @Html.Partial("_ShortNotificationDetails")
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="pr-2 fa fa-user icon-sizess user"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu dropdown-menu-right sign-out">
+                                            <li class="divider mb-3">
+                                                <div class="navbar-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-2">
+                                                            <p class="text-center">
+                                                                <span class="fa fa-user icon-size"></span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-10 pl-0 pt-1">
+                                                            @if (!string.IsNullOrEmpty(User.FullName()))
+                                                            {
+                                                                <div class="text-left pb-1 h6">@User.FullName()</div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-left small">@User.Identity.Name</p>
+                                                            }
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><a href="@Url.Action("Profile","Candidate")"><i class="icon-cog"></i><em class="fa fa-user pr-1"></em> Profile</a></li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                }
+                else if (User.UserType() == "Employer")
+                {
+                    <div class="col-sm-4">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" href="#">Jobs <span><i class="fas fa-caret-down"></i></span></a>
+                                <div class="dropdown-menu dropdown-menu-right jobs-card">
+                                    <div class="notification-body">
+                                        <a href="@Url.Action("EmployerDashboard","Employer")" class="notification-list">
+                                            Dashboard
+                                        </a>
+                                        <a href="@Url.Action("PostJob","Employer")" class="notification-list">
+                                            Post A Job
+                                        </a>
+                                        <a href="@Url.Action("Users","EmployeeUser")" class="notification-list">
+                                            Employer Users
+                                        </a>
+                                        <a href="@Url.Action("CandidateList","Employer",new { type="applicationreceived"})" class="notification-list">
+
+                                            Application Received
+                                        </a>
+                                        <a href="@Url.Action("EmployerDashboard","Employer",new { type="myJobList"})" class="notification-list">
+                                            My Jobs
+                                        </a>
+                                        <a href="@Url.Action("Package","PackageTansaction")" class="notification-list">
+                                            Packages
+                                        </a>
+
+                                        @*<a href="@Url.Action("InternalDashboard","Employer")" class="notification-list">
+                                            Internal Dashboard
+                                        </a>*@
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" href="#">Candidate <span><i class="fas fa-caret-down"></i></span></a>
+                                <div class="dropdown-menu dropdown-menu-right jobs-card">
+                                    <div class="notification-body">
+
+                                        <a href="@Url.Action("GetSortListedCandidate","Employer",new {type="sortlistedcandidate" })" class="notification-list">
+                                            Call For Interview
+                                        </a>
+
+                                        <a href="@Url.Action("SearchCandidate","Employer",new { type = "searchcandidate" })" class="notification-list">
+                                            Search Candidate
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 justify-content-right">
+                        <div class="input-group border-0 top-search" style="visibility:hidden;">
+                            <input type="text" class="form-control order-1 sec-left" placeholder="Search Jobs" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append order-3"> <a href="#"> <span class="input-group-text fa fa-search btn-fill-search"></span></a> </div>
+                            <div class="dropdown order-2 sec-left">
+                                <select class="form-control">
+                                    <option>Job</option>
+                                    <option>Company</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="header-right">
+                            <ul class="nav justify-content-end">
+                                @Html.Partial("_ShortNotificationDetails")
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="fa fa-user icon-size"></span>
+
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right sign-out">
+                                            <li class="divider mb-3">
+                                                <div class="navbar-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-2">
+                                                            <p class="text-center">
+                                                                <span class="fa fa-user icon-size"></span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-10 pl-0 pt-1">
+                                                            @if (!string.IsNullOrEmpty(User.FullName()))
+                                                            {
+                                                                <div class="text-left pb-1 h6">@User.FullName()</div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-left small">@User.Identity.Name</p>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li><a href="@Url.Action("Profile","Employer")"> <em class="fa fa-user pr-1"></em> Profile</a></li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+                else if (User.UserType() == "Admin")
+                {
+                    <div class="col-sm-4">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" href="#">Internal Dasboard <span><i class="fas fa-caret-down"></i></span></a>
+                                <div class="dropdown-menu dropdown-menu-right jobs-card">
+                                    <div class="notification-body">
+                                        <a href="@Url.Action("Package","PackageTansaction")" class="notification-list">
+                                            Packages
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 justify-content-right">
+                        <div class="input-group border-0 top-search">
+                            <input type="text" class="form-control order-1 sec-left" placeholder="Search Jobs" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append order-3"> <a href="#"> <span class="input-group-text fa fa-search btn-fill-search"></span></a> </div>
+                            <div class="dropdown order-2 sec-left">
+                                <select class="form-control">
+                                    <option>Job</option>
+                                    <option>Company</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="header-right">
+                            <ul class="nav justify-content-end">
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="fa fa-user icon-size"></span>
+
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right sign-out">
+                                            <li class="divider mb-3">
+                                                <div class="navbar-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-2">
+                                                            <p class="text-center">
+                                                                <span class="fa fa-user icon-size"></span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-10 pl-0 pt-1">
+                                                            @if (!string.IsNullOrEmpty(User.FullName()))
+                                                            {
+                                                                <div class="text-left pb-1 h6">@User.FullName()</div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-left small">@User.Identity.Name</p>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"> <em class="fa fa-power-off pr-1"></em> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            }
+        </header>
+
+        <div class="main-content">
+
+            @if (viewMessageGroups != null && viewMessageGroups.Any())
+            {
+                @Html.Partial("_ViewMessages")
+            }
+            @RenderBody()
+
+
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="copyright">Copyright IdealHires © 2018 - 2019. All Rights Reserved</div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <ul class="app-footer-links">
+                                <li><a href="~/Employer/TermsConditionDetails" target="_blank">Terms & Conditions</a></li>
+                                <li><a href="#">Privacy policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+
+    <!-- Core plugin JavaScript-->
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    @*<script src="~/Scripts/js/multiselect-drop.js"></script>*@
+    <!-- Create Profile Javascript -->
+    <script src="~/Scripts/js/jquery.backstretch.min.js"></script>
+    <script src="~/Scripts/js/mdb.min.js"></script>
+    <script src="~/Scripts/js/scripts.js"></script>
+    <script src="~/Scripts/updated-cus.js"></script>
+    <script src="~/Scripts/commonjs/common.js"></script>
+    <script src="~/Scripts/js/custom-js.js"></script>
+    <script src="~/Scripts/commonjs/customannotation.js"></script>
+
+    <div class="modal" id="AlertModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header modal-ctm-header">
+                    <h4 id="hAlertTitle" class="modal-title">Alert</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-content">
+
+                        <span id="spanAlertShow" class="text-center"></span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-blue" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="CommonDeleteModel" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content modal-cus rounded-0">
+                <div class="modal-header modal-cus">
+                    <div class="container mp-0">
+                        <div class="row">
+                            <div class="col-sm-2 px-1">
+                                <button type="button" class="btn btn-colr btn-circle btn-lg btn-bg shadow-none"><i class="fa fa-trash-alt war-pos btn-font"></i></button>
+                            </div>
+                            <div class="col-sm-9 mp-0">
+                                <h4 class="modal-title m-top-p m-ft" id="hDeleteMessage">Confirm Delete</h4>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="modal-cus close" data-dismiss="modal"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body font-weight-normal pad-left">
+                    <p id="pDeleteMessage">Are you sure you want to permanently delete this item?</p>
+                    <p class="btn-colr">This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer modal-cus" id="CommonDeleteModelDiv">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="CommonWarningModel" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content modal-cus rounded-0">
+                <div class="modal-header modal-cus">
+                    <div class="container mp-0">
+                        <div class="row">
+                            <div class="col-sm-2 px-1">
+                                <button type="button" class="btn btn-colr-warning btn-circle btn-lg btn-bg-warning shadow-none"><i class="fa fa-exclamation-triangle excla-pos btn-font"></i></button>
+                            </div>
+                            <div class="col-sm-9 mp-0">
+                                <h4 class="modal-title m-top-p m-ft" id="hWarningMessage">Warning Message</h4>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="modal-cus close" data-dismiss="modal"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body font-weight-normal pad-left">
+                    <p id="pWarningMessage">There was an error saving information !</p>
+                </div>
+                <div class="modal-footer modal-cus">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade" id="ToastSuccessDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Saved Successfully!</strong>
+    </div>
+    <div class="alert alert-success alert-dismissible fade" id="ToastUpdateDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Updated Successfully!</strong>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade" id="ToastDeleteDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Deleted Successfully!</strong>
+    </div>
+    <div class="alert alert-success alert-dismissible fade" id="ToastWarningDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>There is an issue to save data!</strong>
+    </div>
+    <div class="alert alert-success alert-dismissible fade" id="ToastWarningUserDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>There is only one user. So you can't delete.</strong>
+    </div>
+    <div class="alert alert-success alert-dismissible fade" id="ToastMessagePaymentDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Payment transaction successful.</strong>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade" id="ToastMessagePaymentFailureDiv">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times-thin" aria-hidden="true"></i></button>
+        <strong>Payment transaction successful.</strong>
+    </div>
+</body>
+</html>

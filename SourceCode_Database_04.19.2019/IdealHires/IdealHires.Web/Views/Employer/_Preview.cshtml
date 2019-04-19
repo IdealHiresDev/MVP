@@ -1,0 +1,71 @@
+﻿@model IdealHires.DTO.Employer.EmployerPreviewDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnPreferenceSuccess";
+}
+<script type="text/javascript">
+    $('#btnEmployerPreviewPrevious').off('click').on('click', function (e) {
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+        $(this).parents('fieldset').fadeOut(400, function () {
+            current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+            bar_progress(progress_line, 'left');
+            $(this).prev().fadeIn();
+            scroll_to_class($('.f1'), 20);
+        });
+    });
+
+</script>
+<div class="container mt-2 mb-3">
+    @Html.Hidden("JobId", null, new { id = "JobId", name = "JobId" })
+    <div class="row pt-1 border-0">
+        <div class="col-md-6 col-xs-12 px-0">
+
+            <div class="float-left pr-4">
+                @{
+                    var img = Model.Img;
+                }
+                @if (Model.Img != null)
+                {
+                    <img src="@String.Format(" data:image/png;base64,{0}", Convert.ToBase64String(Model.Img))" id="imgLogo" name="imgLogo" alt="Company Logo" class="companyLogoImg" />
+                    <canvas id="canvas" height="100%" width="100%" style="vertical-align:top;" class="companyLogoImg logo"></canvas>
+                }
+                else
+                {
+                    <img id="imgLogo" name="imgLogo" alt="Company Logo" class="companyLogoImg img-fluid img-thumbnail" src="~/images/img-placeholder.png" />
+                    <canvas id="canvas" height="50" width="50" style="vertical-align:top;" class="companyLogoImg"></canvas>
+                }
+                @*<a><img src="~/images/demo-logo1.png"></a>*@
+            </div>
+            <div class="pt-4">
+                <p class="h3 font-600 blue-clr text-left h4-d-sm mb-1">@Model.Title</p>
+                <small class="text-left ft-12 font-600 col-grey">$ @string.Format("{0:#.00}", Convert.ToDecimal(Model.MinimumSalary))-$ @string.Format("{0:#.00}", Convert.ToDecimal(Model.MaximumSalary))  @Model.PayPeriodTypeName</small>
+                <p class="h5 font-600 text-dark text-left h4-d-sm mt-2">@Model.JobCategoryName</p>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 float-right">
+            <div class="sm-menu-detail float-right ft-sml">
+                <ul>
+                    <li><i class="fa fa-suitcase"></i> @Model.JobTypeName</li>
+                    <li><i class="fa fa-map-marker-alt"></i> @Model.city </li>
+                    <li><i class="fa fa-map-marker-alt"></i> @Model.countryName </li>
+                </ul>
+            </div>
+        </div>
+        <p class="border-btm pb-5">
+            @Model.Description
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="f1-buttons col-sm-6 text-left pl-0">
+            <button id="btnEmployerPreviewPrevious" type="button" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        </div>
+        <div class="f1-buttons col-sm-6 pr-0">
+            <a href="@Url.Action("EmployerDashboard","Employer")" class="btn btn-block-cus blue-theme-button waves-effect">Post</a>
+
+        </div>
+    </div>
+</div>
+

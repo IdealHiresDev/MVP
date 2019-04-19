@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Candidate Profile</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="mt-5 mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 align-self-center">
+                    <div class="form-box mb-5 tab-cus tabs">
+                        <div class="f1">
+                            <div class="row f1-steps text-center">
+                                <div class="f1-progress">
+                                    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="6" style="width: 19%;"></div>
+                                </div>
+                                <div class="f1-step" id="generalDiv" href="#general">
+                                    <div class="f1-step-icon"><i class="fa fa-star text-dark-grey"></i></div>
+                                    <p class="font-weight-bold">
+                                        @Ajax.ActionLink("General", "General", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnGeneral" })
+                                    </p>
+                                </div>
+                                <div class="f1-step" id="contactDiv" href="#contact">
+                                    <div class="f1-step-icon"><i class="fa fa-envelope text-dark-grey"></i></div>
+                                    <p>
+                                        @Ajax.ActionLink("Contact", "Contact", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnContact" })
+                                    </p>
+                                </div>
+                                <div class="f1-step" id="workexpDiv" href="#workexp">
+                                    <div class="f1-step-icon"><i class="fa fa-tasks text-dark-grey"></i></div>
+                                    <p>
+                                        @Ajax.ActionLink("Work Exp", "WorkExp", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnWorkExp" })
+                                    </p>
+                                </div>
+                                <div class="f1-step" id="educationDiv" href="#education">
+                                    <div class="f1-step-icon"><i class="fa fa-graduation-cap text-dark-grey"></i></div>
+                                    <p>
+                                        @Ajax.ActionLink("Education", "Education", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnEducation" })
+                                    </p>
+                                </div>
+                                <div class="f1-step" id="preferencesDiv" href="#preferences">
+                                    <div class="f1-step-icon"><i class="fa fa-suitcase text-dark-grey"></i></div>
+                                    <p>
+                                        @Ajax.ActionLink("Preferences", "Preferences", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnPreferences" })
+                                    </p>
+                                </div>
+                                <div class="f1-step" id="previewDiv" href="#preview">
+                                    <div class="f1-step-icon"><i class="fa fa-play text-dark-grey"></i> </div>
+                                    <p>
+                                        @Ajax.ActionLink("Preview", "Preview", "Candidate", null, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "general", InsertionMode = InsertionMode.Replace }, new { id = "btnPreview" })
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="wizard-form card">
+                                <fieldset id="general">
+                                    @{Html.RenderAction("General"); }
+                                </fieldset>
+                                @*<fieldset id="contact"></fieldset>
+                                <fieldset id="workexp"></fieldset>
+                                <fieldset id="education"></fieldset>
+                                <fieldset id="preferences"></fieldset>
+                                <fieldset id="preview"></fieldset>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/js/jquery.maskedinput.js"></script>
+<script src="~/Scripts/work/workexp.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        EnableProfileOption();
+        $("#btnGeneral").click(function () {            
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#generalDiv").removeClass('activated').addClass('active');
+        });
+        $("#btnContact").click(function () {
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#contactDiv").removeClass('activated').addClass('active');
+        });
+        $("#btnWorkExp").click(function () {
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#workexpDiv").removeClass('activated').addClass('active');
+        });
+        $("#btnEducation").click(function () {
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#educationDiv").removeClass('activated').addClass('active');
+        });
+        $("#btnPreferences").click(function () {
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#preferencesDiv").removeClass('activated').addClass('active');
+        });
+        $("#btnPreview").click(function () {
+            EnableProfileOption();
+            RemoveActveClass();
+            $("#previewDiv").removeClass('activated').addClass('active');
+        });
+    });
+    function RemoveActveClass() {
+        $("#generalDiv").removeClass('active');
+        $("#contactDiv").removeClass('active');
+        $("#workexpDiv").removeClass('active');
+        $("#educationDiv").removeClass('active');
+        $("#preferencesDiv").removeClass('active');
+        $("#previewDiv").removeClass('active');
+    }
+    function EnableProfileOption() {
+        $.getJSON('@Url.Action("EnableProfileOption", "Candidate")').done(function (response) {
+            debugger;
+            if (response.IsGeneralActive == false) {
+                $('#btnGeneral').css("pointer-events", "none");
+            }
+            else if (response.IsGeneralActive == true) {
+                $('#btnGeneral').css("pointer-events", "auto");
+                $("#generalDiv").addClass('activated');
+            }
+            if (response.IsContactActive == false) {
+                $('#btnContact').css("pointer-events", "none");
+            }
+            else if (response.IsContactActive == true) {
+                $('#btnContact').css("pointer-events", "auto");
+                $("#contactDiv").addClass('activated');
+            }
+           
+            if (response.IsWorkExpActive == false) {
+                $('#btnWorkExp').css("pointer-events", "none");
+            }
+            else if (response.IsWorkExpActive == true) {
+                $('#btnWorkExp').css("pointer-events", "auto");
+                $("#workexpDiv").addClass('activated');
+            }
+            if (response.IsEduActive == false) {
+                $('#btnEducation').css("pointer-events", "none");
+            }
+            else if (response.IsEduActive == true) {
+                $('#btnEducation').css("pointer-events", "auto");
+                $("#educationDiv").addClass('activated');
+              }
+              if (response.IsPreferenceActive == false) {
+                  $('#btnPreferences').css("pointer-events", "none");
+              }
+              else if (response.IsPreferenceActive == true) {
+                  $('#btnPreferences').css("pointer-events", "auto");
+                  $("#preferencesDiv").addClass('activated');
+                  
+            }
+            if (response.IsPreferenceActive == false) {
+                $('#btnPreview').css("pointer-events", "none");
+            }
+            else if (response.IsPreferenceActive == true) {
+                $('#btnPreview').css("pointer-events", "auto");
+                $("#previewDiv").addClass('activated');
+
+            }
+        });
+    }
+   
+</script>

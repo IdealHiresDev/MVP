@@ -1,0 +1,494 @@
+﻿@model IdealHires.DTO.Employer.CompanyDTO
+@{
+    ViewBag.Title = "Employer Profile";
+}
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnProfileSuccess";
+}
+<script src="~/Scripts/jquery.Jcrop.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+    }(jQuery));
+    function OnProfileSuccess(data) {
+        if (data.url != null) {
+            ToastMessageSuccess();
+            window.location.href = data.url;
+        } else if (data == "EmployerProfileFailure") {
+            $('#pWarningMessage').empty().html('There was an issue while performing action !');
+            $('#CommonWarningModel').modal('show');
+        }
+    }
+    function loadScript() {
+        $.getScript('@Url.Content("~/Scripts/Address/CompanyAddress.js")')
+            .done(function (script, textStatus) {
+            })
+            .fail(function (jqxhr, settings, exception) {
+            });
+    }
+    $("#StateName").change(function (event) {
+        var countryid = $(this).val();
+        $.ajax({
+            url: "../Employer/GetAddressById?countryid=" + countryid,
+            type: 'GET',
+            datatype: 'json',
+            contentType: "application/json",
+            async: true,
+            success: function (data) {
+                $("#lblCity").text(data.companyAddressDTOList.City);
+                $("#lblCountry").text(data.companyAddressDTOList.CountryName);
+                $("#lblState").text(data.companyAddressDTOList.StateName)
+                $("#lblZip").text(data.companyAddressDTOList.ZipCode)
+
+            }
+        });
+    });
+
+</script>
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Employer Profile</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="mt-4 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    @using (Ajax.BeginForm("Profile", "Employer", null, options, new { id = "form-eProfile" }))
+                    {
+                        <h4 class="pb-2 pt-3 sub-heading">Company Information</h4>
+                        <div class="companyInfo">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="cmprofile-thumb">
+                                        @{
+                                            var img = Model.Img;
+                                        }
+                                        @if (Model.Img != null)
+                                        {
+                                            <img src="@String.Format(" data:image/png;base64,{0}", Convert.ToBase64String(Model.Img))" id="imgLogo" name="imgLogo" alt="Company Logo" class="companyLogoImg" />
+                                            <canvas id="canvas" height="100%" width="100%" style="vertical-align:top;" class="companyLogoImg logo"></canvas>
+                                        }
+                                        else
+                                        {
+                                            <img id="imgLogo" name="imgLogo" alt="Company Logo" class="companyLogoImg img-fluid img-thumbnail" src="~/images/img-placeholder.png" />
+                                            <canvas id="canvas" height="50" width="50" style="vertical-align:top;" class="companyLogoImg"></canvas>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-validationdanger" })
+                                                <label for="CompanyName">Company Name *</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-validationdanger" })
+                                                <label for="Phone">Company Phone *</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="md-form">
+                                                @Html.TextBoxFor(model => model.Website, new { @class = "form-control", autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-validationdanger" })
+                                                <label for="Website">Company Website *</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="md-form">
+                                                @Html.TextAreaFor(model => model.Description, new { @class = "md-textarea form-control", autocomplete = "off" })
+                                                <label for="Description" class="cust-des-color">Company Profile</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="pb-2 pt-5 sub-heading">Address Information</h4>
+                            </div>
+                        </div>
+                        <div class="row address-form">
+
+                            <table id="itemTableRelatedEntities" class="w-100 btn-sec">
+                                <tbody>
+                                    @if (Model.companyAddressDTOList.Count > 0)
+                                    {
+                                        for (int i = 0; i < Model.companyAddressDTOList.Count; i++)
+                                        {
+                                            <tr>
+
+                                                <td style="width:180px">
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].AddressTypeId, Model.companyAddressDTOList[i].SelectAddressType, new { @class = "form-control ng-untouched ng-pristine ng-invalid IsDecimal", @name = "SelectedAddressType" })
+                                                </td>
+                                                <td style="width:120px">
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].CountryId, Model.companyAddressDTOList[i].SelectCountries, new { @class = "form-control", @name = "SelectedCountries" })
+
+                                                </td>
+                                                <td style="display:none;">
+                                                    @Html.HiddenFor(m => m.companyAddressDTOList[i].Id)
+                                                </td>
+
+                                                <td style="width: 120px;">
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].Address, new { placeholder = "Street Address", @class = "form-control", autocomplete = "off" })
+
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].City, new { placeholder = "City", @class = "form-control", autocomplete = "off" })
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].StateId, Model.companyAddressDTOList[i].SelectStates, "Select State", new { @class = "form-control", @name = "SelectedStates" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].ZipCode, new { placeholder = "Zip Code", @class = "form-control", autocomplete = "off" })
+                                                    @Html.ValidationMessageFor(m => m.companyAddressDTOList[i].ZipCode, "", new { @class = "text-validationdanger" })
+                                                </td>
+                                                <td>
+
+                                                    <a onclick="DeleteAddress(@Model.companyAddressDTOList[i].Id)"> <em class="fas fa-trash text-danger ml-1"></em></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < Model.companyAddressDTOList.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.HiddenFor(m => m.companyAddressDTOList[i].Id)
+                                                </td>
+                                                <td style="width:180px">
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].AddressTypeId, Model.companyAddressDTOList[i].SelectAddressType, new { @class = "form-control ng-untouched ng-pristine ng-invalid IsDecimal", @name = "SelectedAddressType" })
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].CountryId, Model.companyAddressDTOList[i].SelectCountries, new { @id = "StateName", @class = "form-control", @name = "SelectedCountries" })
+
+                                                </td>
+                                                <td style="width: 145px;">
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].Address, new { placeholder = "Street Address", @class = "form-control", autocomplete = "off" })
+
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].City, new { placeholder = "City", @class = "form-control", autocomplete = "off" })
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(m => m.companyAddressDTOList[i].StateId, Model.companyAddressDTOList[i].SelectStates, "Select State", new { @class = "form-control", @name = "SelectedStates" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(m => m.companyAddressDTOList[i].ZipCode, new { placeholder = "Zip Code", @class = "form-control", autocomplete = "off" })
+                                                    @Html.ValidationMessageFor(m => m.companyAddressDTOList[i].ZipCode, "", new { @class = "text-validationdanger" })
+                                                </td>
+                                                <td>
+
+                                                    <a> <em class="fas fa-trash text-danger ml-1"></em></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot id="error-form">
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="row mt-15">
+                            <div class="col-md-12 text-right">
+                                <button class="btn btn-outline-grey" id="" onclick="addMoreAddress()" type="button">Add Address</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="pb-2 pt-3 sub-heading">Contact Information</h4>
+                            </div>
+                        </div>
+
+                        <div class="card p-4 pb-4 mb-4">
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="md-form">
+                                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", autocomplete = "off" })
+                                        <label for="Title">Title</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="md-form">
+                                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-validationdanger" })
+                                        <label for="FirstName">First Name*</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="md-form">
+                                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-validationdanger" })
+                                        <label for="LastName">Last Name*</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="md-form">
+                                        @Html.TextBoxFor(model => model.Phone1, new { @class = "form-control", autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Phone1, "", new { @class = "text-validationdanger" })
+                                        <label for="Phone1">Phone *</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="d-flex justify-content-between mt-4">
+                                        <div class="custom-control custom-checkbox remember">
+                                            @Html.CheckBoxFor(model => model.IsChecked, new { @class = "custom-control-input", @id = "Ischecked", @onclick = "phoneCheck()" })
+                                            <label class="custom-control-label" for="IsChecked">Same as Company Phone Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <div class="custom-control custom-checkbox remember">
+                                            @Html.CheckBoxFor(model => model.IsAgree, new { @class = "custom-control-input" })
+                                            @Html.ValidationMessageFor(model => model.IsAgree, "", new { @class = "text-validationdanger" })
+                                            <label class="custom-control-label" for="IsAgree">I agree to the <a href="~/Employer/TermsConditionDetails" target="_blank"> Terms & conditions </a> of use.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-self-end">
+                                <div class="col-xs-12">
+                                    <button id="submit_form" type="submit" class="btn blue-theme-button waves-effect waves-light">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="container">
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <h4 class="modal-title text-dark"><em class="fas fa-image text-dark"></em> Change Profile Picture</h4>
+
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                            <div class="md-form clearfix mt-0">
+                                                <div class="btn blue-theme-button btn-sm float-left ml-0">
+                                                    <span>Choose file</span>
+                                                    <input type="file" id="flPhoto" name="upload" class="custom-file-input" />
+                                                </div>
+
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                </div>
+
+                                            </div>
+
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Width: <label id="lblWidth">200px</label>
+                                                            Height: <label id="lblHeight">200px</label>
+                                                        </td>
+                                                        <td></td>
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>
+                                                                <img id="imgEmpPhoto" src="~/images/img-placeholder.png" alt="Employee Image" style="width:400px;height:400px;">
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            @*<canvas id="canvas" height="5" width="5" style="vertical-align:top;"></canvas>*@
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <a href="#" id="hlcropImage" class="btn blue-theme-button waves-effect waves-light text-white">Save</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <p>
+                                                <img id="imgCropped" src="#" style="display:none;">
+                                            </p>
+
+                                            <input type="hidden" name="avatarCropped" id="avatarCropped">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="#" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/Address/CompanyAddress.js"></script>
+<script src="~/Scripts/js/jquery.maskedinput.js"></script>
+
+@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    var imageCropWidth = 0;
+    var imageCropHeight = 0;
+    var cropPointX = 0;
+    var cropPointY = 0;
+    var jcropApi;
+
+    $(document).ready(function () {
+        $("#Phone").mask("(999) 999 9999");
+        $("#Phone1").mask("(999) 999 9999");
+        //initCrop();
+        $(".companyLogoImg").click(function () {
+            $("#myModal").modal('show');
+        });
+    });
+
+    $("#hlcropImage").on("click", function (e) {
+
+        /*
+        The event.preventDefault() method stops the default action of
+        an element from happening. For example: Prevent a submit button
+        from submitting a form. Prevent a link from following the URL
+        */
+
+        e.preventDefault();
+        cropImage();
+    });
+
+    function initCrop() {
+        $('#imgEmpPhoto').Jcrop({
+            onChange: setCoordsAndImgSize,
+            aspectRatio: 0, // 1 means will be same for height and weight
+            onSelect: setCoordsAndImgSize
+        }, function () { jcropApi = this });
+    }
+
+    function showCoordinate() {
+        $("#lblWidth").text(imageCropWidth + "px");
+        $("#lblHeight").text(imageCropHeight + "px");
+    }
+
+    function setCoordsAndImgSize(e) {
+
+        imageCropWidth = e.w;
+        imageCropHeight = e.h;
+
+        cropPointX = e.x;
+        cropPointY = e.y;
+
+        $("#lblWidth").text(imageCropWidth + "px");
+        $("#lblHeight").text(imageCropHeight + "px");
+    }
+
+    function cropImage() {
+
+        if (imageCropWidth == 0 && imageCropHeight == 0) {
+            alert("Please select crop area.");
+            return;
+        }
+
+        var img = $("#imgEmpPhoto").attr("src");
+        $("#imgLogo").css('visibility', 'hidden');
+
+        /*Show cropped image*/
+        showCroppedImage();
+    }
+
+    function showCroppedImage() {
+        var x1 = cropPointX;
+        var y1 = cropPointY;
+
+        var width = imageCropWidth;
+        var height = imageCropHeight;
+        var canvas = $("#canvas")[0];
+        var context = canvas.getContext('2d');
+        var img = new Image();
+        img.onload = function () {
+            canvas.height = height;
+            canvas.width = width;
+            context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
+            $('#avatarCropped').val(canvas.toDataURL());
+        };
+        img.src = $('#imgEmpPhoto').attr("src");
+        $("#myModal").modal('hide');
+    }
+
+    function readFile(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            /*Destroy jcrop initialization other wise it will hold it previous image in img tag*/
+            if (jcropApi != null) {
+                jcropApi.destroy();
+            }
+            reader.onload = function (e) {
+                $('#imgEmpPhoto').attr('src', "");
+                var img = $('#imgEmpPhoto').attr('src', e.target.result);
+
+                /*Current uploaded image size*/
+                var width = img[0].height;
+                var height = img[0].width;
+                $("#lblWidth").text(width + "px");
+                $("#lblHeight").text(height + "px");
+
+                //InitCrop must call here otherwise it will not work
+                initCrop();
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#flPhoto').change(function () {
+        readFile(this);
+        //initCrop();
+    });
+    function phoneCheck() {
+        var phoneheck = document.getElementById("Ischecked");
+        // var phoneheck = $("#Ischecked").val();
+        if (phoneheck.checked == true) {
+            $("#Phone1").val($("#Phone").val());
+        } else {
+            $("#Phone1").val("");
+        }
+    }
+
+</script>

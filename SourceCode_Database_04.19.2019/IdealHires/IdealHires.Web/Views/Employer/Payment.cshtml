@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Postjob";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#add_payment").show();
+        $("#add_payment").css("cssText", "display: block !important;");
+        $("#send_token").attr({ "action": "https://test.authorize.net/payment/payment", "target": "add_payment" }).submit();
+        $(window).scrollTop($('#add_payment').offset().top - 50);
+    });
+</script>
+<input type="hidden" id="JobCreditId" name="JobCreditId" value="@ViewBag.JobCreditId" />
+<input type="hidden" id="JobCredit" name="JobCredit" value="@ViewBag.jobCredit" />
+<div id="iframe_holder" class="center-block" style="width:90%;max-width: 1000px">
+    <iframe id="add_payment" class="embed-responsive-item panel" name="add_payment" width="100%" style="height:600px !important;" frameborder="0" scrolling="no" hidden="true"></iframe>
+</div>
+<form id="send_token" action="" method="post" target="add_payment">
+    <input type="hidden" name="token" value="@ViewBag.Token" />
+</form>
+<script type="text/javascript">
+            window.CommunicationHandler = {};
+        CommunicationHandler.onReceiveCommunication = function (querystr) {
+            debugger;
+                var params = parseQueryString(querystr.qstr);
+                switch (params["action"]) {
+                    case "successfulSave":
+                        break;
+                    case "cancel":
+                        window.location.href = "@Url.Action("PostJob","Employer")";
+                        break;
+                    case "resizeWindow":
+                        var w = parseInt(params["width"]);
+                        var h = parseInt(params["height"]);
+                        var ifrm = document.getElementById("add_payment");
+                        ifrm.style.width = w.toString() + "px";
+                        ifrm.style.height = h.toString() + "px";
+                        console.log(h.toString());
+                        break;
+                    case "transactResponse":
+                        var transResponse = JSON.parse(params['response']);
+                        if (transResponse.transId > 0) {
+                            var ifrm = document.getElementById("add_payment");
+                            ifrm.style.display = 'none';
+                            var transactionDTO = new Object();
+                            transactionDTO.TransId = transResponse.transId;
+                            transactionDTO.ResponseCode = transResponse.responseCode;
+                            transactionDTO.Authorization = transResponse.authorization;
+                            transactionDTO.TransactionDateTime = transResponse.dateTime;
+                            transactionDTO.TotalAmount = transResponse.totalAmount;
+                            transactionDTO.ErrorCode = "";
+                            transactionDTO.ErrorMessage = "";
+                            transactionDTO.Message = "";
+                            transactionDTO.AccountType = transResponse.accountType;
+                            transactionDTO.JobCreditId = $("#JobCreditId").val();
+                            transactionDTO.JobCredit = $("#JobCredit").val();
+                            if (transactionDTO != null) {
+                                $.ajax({
+                                    url: "@Url.Action("MakePayment", "Employer")",
+                                    data: JSON.stringify(transactionDTO),
+                                    type: "POST",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (response) {
+                                        if (response.Success == true) {
+                                            var url = response.Url;
+                                            window.location.href = url;
+                                        } else {
+                                            var url = response.Url;
+                                            window.location.href = url;
+                                        }
+                                    },
+                                    failure: function (response) {
+                                        alert(response.responseText);
+                                    },
+                                    error: function (response) {
+                                        alert(response.responseText);
+                                    }
+                                });
+                            }
+                        }
+                }
+            };
+            function parseQueryString(str) {
+                console.log(str);
+                var vars = [];
+                var arr = str.split('&');
+                var pair;
+                for (var i = 0; i < arr.length; i++) {
+                    pair = arr[i].split('=');
+                    vars.push(pair[0]);
+                    vars[pair[0]] = unescape(pair[1]);
+                }
+                return vars;
+            }
+</script>

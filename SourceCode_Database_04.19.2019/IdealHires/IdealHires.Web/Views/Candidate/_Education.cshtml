@@ -1,0 +1,62 @@
+﻿<script type="text/javascript">
+    $("#btnEducationNext").on("click", function (e) {
+        $("#btnPreferences").click();
+        @*var parent_fieldset = $(this).parents('fieldset');
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+      
+        $.get('@Url.Action("Preferences", "Candidate")').done(function (response) {                
+                $('#preferences').empty().html(response);
+                $.validator.unobtrusive.parse(document);
+                Materialize.updateTextFields(document);
+                if (data === "ContactSuccess") {
+                    ToastMessageSuccess();
+                } else {
+                    ToastMessageUpdate();
+                }
+              }).fail(function () {
+                    ToastWarningSuccess();
+                });
+        parent_fieldset.fadeOut(400, function () {
+            current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+            bar_progress(progress_line, 'right');
+            $(this).next().fadeIn();
+            scroll_to_class($('.f1'), 20);
+        });*@
+    })
+    $('#btnEducationPrevious').on('click', function (e) {
+        $("#btnWorkExp").click();
+        @*var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+        $(this).parents('fieldset').fadeOut(400, function () {
+            current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+            bar_progress(progress_line, 'left');
+            $(this).prev().fadeIn();
+            scroll_to_class($('.f1'), 20);
+        });
+         $.get('@Url.Action("WorkExp", "Candidate")').done(function (data) {
+             $('#workexp').empty().html(data);
+                }).fail(function () {
+             ToastWarningSuccess();
+                });*@
+    });
+</script>
+<div class="container mt-2 mb-5" id="EducationDetailsDiv">
+    @{Html.RenderAction("EducationDetails"); }
+</div>
+<div class="row">
+    <div class="f1-buttons col-sm-6 text-left pl-1">
+        <button id="btnEducationPrevious" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        <button type="button" class="btn btn-save btn-border ml-3 btn-sm waves-effect fnt-13 btn-sm-save" data-toggle="modal" id="btnAddEducation"><img src="~/images/add-icon.png" class="pr-3 pb-1">Add</button>
+    </div>
+    <div class="f1-buttons col-sm-6 pr-1">
+        <button type="button" class="btn btn-next rounded-circle btn-circle-next" id="btnEducationNext"><em class="fa fa-arrow-right"></em></button>
+    </div>
+</div>
+<script src="~/Scripts/education/candidateeducation.js"></script>
+<div class="modal fade" id="AcademicsModel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modelContentEducation">
+        </div>
+    </div>
+</div>

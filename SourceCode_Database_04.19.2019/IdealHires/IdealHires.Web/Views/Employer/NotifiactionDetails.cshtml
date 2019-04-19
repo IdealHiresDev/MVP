@@ -1,0 +1,256 @@
+﻿
+@model List<IdealHires.DTO.Candidate.NotificationDTO>
+@{
+    ViewBag.Title = "Notification List";
+}
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center-xs">
+                <h2>Notifications</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="mt-5 mb-3"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-sm-12 col-12">
+                @{int i = 0;
+
+
+                    foreach (var item in Model)
+                    {
+                        ++i;
+
+                        <ul class="notification-timeline">
+                            <li class="time-label">
+                                <span class="bg-danger">@Convert.ToDateTime(item.EventOn).ToString("dd MMMM yyyy")</span>
+                            </li>
+                            <li>
+                                <i class="ion ion-email bg-info"></i>
+
+                                <div class="notification-timeline-item">
+                                    <span class="time"><i class="fa fa-clock weight-400"></i> @Convert.ToDateTime(item.EventOn).ToString("hh:mm tt")</span>
+
+                                    <h3 class="notification-timeline-header"><a href="#" id="@item.Title">@item.Title</a> <span class="italic-cus" id=" @("eventOn" + i)"> @item.EventOn </span></h3>
+                                    <span class="italic-cus1" id="@("currentDate" + i)" style="display:none;"> @item.TimeFlag </span>
+                                    <div class="notification-timeline-body">
+                                        @item.EventEntity
+                                    </div>
+
+                                </div>
+                            </li>
+                            @*<li>
+                                    <i class="ion ion-email bg-info"></i>
+                                    <div class="notification-timeline-item">
+                                        <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                        <h3 class="notification-timeline-header"><a href="#">Someone downloaded resume</a> <span class="italic-cus"> 11 hours ago</span></h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="ion ion-email bg-info"></i>
+
+                                    <div class="notification-timeline-item">
+                                        <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                        <h3 class="notification-timeline-header"><a href="#">You applied for Project Manager </a> <span class="italic-cus"> 11 hours ago</span></h3>
+
+                                        <div class="notification-timeline-body">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ...
+                                        </div>
+
+                                    </div>
+                                </li>*@
+
+                        </ul>
+
+
+                    }
+                    <span id="totoal" style="display:none;">@i</span>
+                }
+            </div>
+            <div class="text-center-cus col-12 col-lg-2 order-3">
+                <a href="/" class=""><img src="/images/advertisement.png" alt="logo" class="logo"></a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var tottal = $('#totoal').text();
+        for (i = 1; i <= tottal; i++) {
+            var EventOnDate = timeSince($('#eventOn' + i).text(), $('#currentDate' + i).text());
+            $('#eventOn' + i).html(EventOnDate);
+        }
+    });
+
+    function timeSince(date, currentDate) {
+        debugger;
+        var seconds = Math.floor((new Date(currentDate) - new Date(date)) / 1000);
+
+        if (seconds > 60) {
+            interval = Math.floor(seconds / 60);
+            if (interval > 60) {
+
+                interval = Math.floor(seconds / 3600);
+                if (interval > 24) {
+                    interval = Math.floor(seconds / 86400);
+                    if (interval > 30) {
+
+                        interval = Math.floor(seconds / 2592000);
+                        if (interval > 12) {
+                            var interval = Math.floor(seconds / 31536000);
+
+                            if (interval > 1) {
+
+                                return interval + " years ago";
+                            }
+
+                        }
+                        else {
+                            return interval + " months ago";
+                        }
+                    }
+
+                    else {
+                        return interval + " days ago";
+                    }
+
+                }
+
+                else {
+                    return interval + " hours ago";
+                }
+            }
+
+            else {
+                return interval + " minutes ago";
+            }
+        }
+
+        else {
+            return Math.floor(seconds) + " seconds ago";
+        }
+
+    }
+
+</script>
+
+
+
+
+
+@*<section class="header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center-xs">
+                    <h2>Notifications</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mt-5 mb-3"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-sm-12 col-12">
+                    <ul class="notification-timeline">
+                        <li class="time-label">
+                            <span class="bg-danger">15 Jan. 2017</span>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">Your Resume Updated!</a> <span class="italic-cus"> 5 hours ago</span></h3>
+
+                                <div class="notification-timeline-body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ...
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">Someone downloaded resume</a> <span class="italic-cus"> 11 hours ago</span></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">You applied for Project Manager </a> <span class="italic-cus"> 11 hours ago</span></h3>
+
+                                <div class="notification-timeline-body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ...
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul class="notification-timeline">
+                        <li class="time-label">
+                            <span class="bg-danger">1 Jan. 2018</span>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">You changed password </a> <span class="italic-cus"> 5 hours ago</span></h3>
+
+                                <div class="notification-timeline-body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ...
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">Someone downloaded resume </a> <span class="italic-cus"> 11 hours ago</span></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ion ion-email bg-info"></i>
+
+                            <div class="notification-timeline-item">
+                                <span class="time"><i class="fa fa-clock weight-400"></i> 11:48</span>
+
+                                <h3 class="notification-timeline-header"><a href="#">You applied for Project Manager </a> <span class="italic-cus"> 8 hours ago</span></h3>
+
+                                <div class="notification-timeline-body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ...
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="text-center-cus col-12 col-lg-2 order-3">
+                    <a href="/" class=""><img src="/images/advertisement.png" alt="logo" class="logo"></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+     The Modal*@ 

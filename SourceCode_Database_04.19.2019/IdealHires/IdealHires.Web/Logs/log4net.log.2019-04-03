@@ -1,0 +1,23 @@
+2019-04-03 15:34:17,950 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 15:40:09,771 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 18:03:20,712 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 18:04:10,648 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 18:04:47,638 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 18:07:05,983 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 18:21:23,621 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 20:00:06,936 INFO MonitoringLogger - sortListedCandidate.CreatedBy 1335
+2019-04-03 20:00:06,942 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/savesortListedcandidate/
+2019-04-03 20:00:06,942 INFO MonitoringLogger - tokenData bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIxMzM1IiwidW5pcXVlX25hbWUiOiJzeWVkekBjaGV0dS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL2FjY2Vzc2NvbnRyb2xzZXJ2aWNlLzIwMTAvMDcvY2xhaW1zL2lkZW50aXR5cHJvdmlkZXIiOiJBU1AuTkVUIElkZW50aXR5IiwiQXNwTmV0LklkZW50aXR5LlNlY3VyaXR5U3RhbXAiOiI2NTJhODA5NC1hM2E5LTRjYTMtYjE3ZC1mNWZhMDViN2NmYzAiLCJyb2xlIjpbIkFkbWluIiwiQ2FuZGlkYXRlIiwiRW1wbG95ZXIiXSwiSXNFbWFpbENvbmZpcm0iOiJUcnVlIiwiRmlyc3ROYW1lIjoiTmFxaSAiLCJMYXN0TmFtZSI6IlphaWRpIiwiVXNlclR5cGUiOiJFbXBsb3llciIsImlzcyI6InF3ZXJ0eXVpb3Bhc2RmZ2hqa2x6eGN2Ym5tIiwiYXVkIjoiNDE0ZTE5MjdhMzg4NGY2OGFiYzc5ZjcyODM4MzdmZDEiLCJleHAiOjE1NTQzMDM0ODEsIm5iZiI6MTU1NDMwMTY4MX0.S9RO8AjxEEsNTfaqP-svFKuKhcyBPxAjOUTNZ0LURh4
+2019-04-03 20:00:07,087 INFO MonitoringLogger - response StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  X-SourceFiles: =?UTF-8?B?RDpcSWRlYWxIaXJlcy1IVUNNXElkZWFsSGlyZXNcSWRlYWxIaXJlcy5BUElcYXBpXGVtcGxveWVyXHNhdmVzb3J0TGlzdGVkY2FuZGlkYXRlXA==?=
+  Date: Wed, 03 Apr 2019 14:30:07 GMT
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Content-Length: 110
+  Content-Type: application/json; charset=utf-8
+}
+2019-04-03 20:00:07,087 INFO MonitoringLogger - candidate sortlisted
+2019-04-03 21:50:50,417 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 22:48:05,778 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-03 22:52:53,052 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed

@@ -1,0 +1,246 @@
+﻿@using IdealHires.DTO.Fields
+@model IdealHires.DTO.Employer.CandidateList
+@{
+    ViewBag.Title = "CandidateList";
+}
+
+<section class="header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><label id="lblHeader" name="lblHeader"></label></h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="mt-5 mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="sidebar1 sticky">
+                        <div class="card p-3 pb-4 mb-4">
+                            <div class="md-form">
+                                @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                                <label for="JobTitle"><em class="fa fa-search ft-13 pr-2 text-light-grey"></em> Search by job title</label>
+                            </div>
+                          
+                            <div class="md-form">
+                                       @Html.DropDownListFor(x => x.Objective, new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "Availability", Value="Availability"},
+                        new SelectListItem() {Text = "ASAP", Value="ASAP"},
+                        new SelectListItem() {Text = "1 Week From Day of Offer", Value="1 Week From Day of Offer"},
+                        new SelectListItem() {Text = "2 Weeks From Day of Offer", Value="2 Weeks From Day of Offer"},
+                        new SelectListItem() {Text = "3 Week From Day of Offer", Value="3 Week From Day of Offer"},
+                        new SelectListItem() {Text = "4 Weeks From Day of Offer", Value="4 Weeks From Day of Offer"},
+    },new { @class = "form-control" })
+                                @*@Html.TextBoxFor(m => m.Objective, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                                <label for="Objective"><em class="fa fa-search ft-13 pr-2 text-light-grey"></em> Description</label>*@
+                            </div>
+                          
+                            <div class="col-lg-12 col-xs-12 text-right px-0">
+                                <button type="button" class="btn btn-info mr-0" id="btnSearch">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="card px-3 pb-5 mb-2" style="display:none;">
+                            <div class="widget widget_ci-filters-widget mt-4 mb-2">
+                                <p class="h6 widget-title">Job Type</p>
+                                <ul class="item-filters-array">
+                                    @foreach (var item in Model.SelectJobTypes)
+                                    {
+                                        <li class="item-filter">
+
+                                            @if (@item.Text == "Full Time")
+                                            {
+                                                <input type="checkbox" id="filter-1" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-1">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-full-time"></span>
+                                                    </span>
+                                                </label>
+
+                                            }
+
+                                            else if (@item.Text == "Contractor")
+                                            {
+                                                <input type="checkbox" id="filter-3" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-3">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-freelance"></span>
+                                                    </span>
+                                                </label>
+                                            }
+
+                                            else if (@item.Text == "Part Time")
+                                            {
+                                                <input type="checkbox" id="filter-2" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-2">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-part-time"></span>
+                                                    </span>
+                                                </label>
+                                            }
+
+                                            else if (@item.Text == "Intern")
+                                            {
+                                                <input type="checkbox" id="filter-4" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-4">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-contract"></span>
+                                                    </span>
+                                                </label>
+                                            }
+
+                                            else if (@item.Text == "Seasonal")
+                                            {
+                                                <input type="checkbox" id="filter-5" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-5">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-seasonal"></span>
+                                                    </span>
+                                                </label>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-lg-6 col-xs-12 col-12">
+                    <div class="card listWrpService mb-2 p-2 sticky">
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-12 justify-content-start">
+                                @Html.DropDownListFor(x => x.OrderBy, new List<SelectListItem>
+                                        {
+                                           new SelectListItem() {Text = EmployerFields.OrderBy, Value=EmployerFields.OrderBy},                                      
+                                           new SelectListItem() {Text = EmployerFields.OrderByJobTitleASC, Value=EmployerFields.OrderByJobTitleASC},
+                                           new SelectListItem() {Text = EmployerFields.OrderByJobTitleDESC, Value=EmployerFields.OrderByJobTitleDESC},
+                                           new SelectListItem() {Text = EmployerFields.OrderByDescriptionASC, Value=EmployerFields.OrderByDescriptionASC},
+                                           new SelectListItem() {Text = EmployerFields.OrderByDescriptionDESC, Value=EmployerFields.OrderByDescriptionDESC}
+                                        },new { @class = "form-control", @onchange = "SearchOnCheckedEvent()" })
+                            </div>
+                            <div class="col-lg-8 col-xs-12 d-flex justify-content-end">
+                                <a href="#" id="grid" class="active btn btn-outline bg-white px-2 py-1"><em class="fa fa-th"></em></a>
+                                <a href="#" id="list" class="btn btn-outline bg-white px-2 py-1"><em class="fa fa-list"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div id="products" class="row view-group">
+                        @Html.Partial("_CandidateListPartial")
+                    </div>
+                </div>
+                
+                <div class="text-center col-sm-2 text-sm-right add-sm-none">
+                    <div class="sidebar2 sticky">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="sticky-stopper"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetPageName();
+        $("#btnSearch").click(function () {
+            SearchOnCheckedEvent();
+        });
+    });
+
+    function GetPageName() {
+        var currentUrl = window.location.href;
+        if (currentUrl.indexOf("applicationreceived") != -1) {
+            $("#lblHeader").text("Application Received");
+        }
+        else if (currentUrl.indexOf("sortlistedcandidate") != -1) {
+            debugger;
+            $("#lblHeader").text("Call For Interview");
+        }
+        else if (currentUrl.indexOf("jobviewed") != -1) {
+            $("#lblHeader").text("Job Viewed");
+        }
+        else if (currentUrl.indexOf("searchcandidate") != -1) {
+            $("#lblHeader").text("Search Candidate");
+        }
+    }
+
+    function SearchOnCheckedEvent() {
+         var jobTypeList = [];
+            var candidateList = {
+                JobTitle: $("#JobTitle").val(),
+                Objective: $("#Objective").val(),
+                OrderBy: $("#OrderBy").val()
+            };
+            var currentUrl = window.location.href;
+            if (currentUrl.indexOf("applicationreceived") != -1) {
+                $.post('@Url.Action("CandidateList", "Employer")', candidateList, function (response) {
+                    $("#products").empty().html(response);
+                });
+            }
+            else if (currentUrl.indexOf("sortlistedcandidate") != -1) {
+                $.post('@Url.Action("getsortListedcandidate", "Employer")', candidateList, function (response) {
+                    $("#products").empty().html(response);
+                });
+            }
+            else if (currentUrl.indexOf("jobviewed") != -1) {
+                $.post('@Url.Action("getjobviewercandidates", "Employer")', candidateList, function (response) {
+                    $("#products").empty().html(response);
+                });
+            }
+     else if (currentUrl.indexOf("searchcandidate") != -1) {
+                $.post('@Url.Action("SearchCandidate", "Employer")', candidateList, function (response) {
+                    $("#products").empty().html(response);
+                });
+    }
+
+    }
+    //for stky sidebar
+    $(document).ready(function () {
+        //console.log("document ready!");
+
+        var $sticky = $('.sticky');
+        $sticky.each(function () {
+            $(this).width($(this).width());
+        });
+        var $stickyrStopper = $('.sticky-stopper');
+        if (!!$sticky.offset()) { // make sure ".sticky" element exists
+
+            var generalSidebarHeight = $sticky.innerHeight();
+            var stickyTop = $sticky.offset().top;
+            var stickOffset = parseInt($('header.navbar.sticky-top').outerHeight()) + 10;
+            var stickyStopperPosition = $stickyrStopper.offset().top;
+            var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+            var diff = stopPoint + stickOffset;
+
+            $(window).scroll(function () { // scroll event
+                var windowTop = $(window).scrollTop(); // returns number
+
+                if (stopPoint < windowTop) {
+                    $sticky.css({ position: 'absolute', top: diff });
+                    //console.log('a');
+                } else if (stickyTop < windowTop + stickOffset) {
+                    $sticky.css({ position: 'fixed', top: stickOffset });
+                    //console.log('b');
+                } else {
+                    $sticky.css({ position: 'absolute', top: 'initial' });
+                    //console.log('c');
+                }
+            });
+
+        }
+    });
+</script>

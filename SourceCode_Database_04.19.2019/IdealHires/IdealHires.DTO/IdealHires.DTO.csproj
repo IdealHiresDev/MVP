@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8538EFD2-67CA-44A0-BF81-D045496C829B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IdealHires.DTO</RootNamespace>
+    <AssemblyName>IdealHires.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/IdealHires-HUCM/IdealHires/IdealHires.DTO</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://tfs01:8080/tfs/chetuprojects</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>C:\Users\raushans\source\repos\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="Candidate\CompanyProfileDTO.cs" />
+    <Compile Include="Candidate\CandidateBasicDTO.cs" />
+    <Compile Include="Candidate\CandidateContactDTO.cs" />
+    <Compile Include="Candidate\CandidateEducationDTO.cs" />
+    <Compile Include="Candidate\CandidateJobExploreDTO.cs" />
+    <Compile Include="Candidate\CandidatePreferencesDTO.cs" />
+    <Compile Include="Candidate\CandidatePreviewDTO.cs" />
+    <Compile Include="Candidate\CandidateWorkDTO.cs" />
+    <Compile Include="Candidate\Dashboard.cs" />
+    <Compile Include="Candidate\EnableProfileDTO.cs" />
+    <Compile Include="Candidate\JobCategoryProfileDTO.cs" />
+    <Compile Include="Candidate\JobDTO.cs" />
+    <Compile Include="Candidate\JobTypeProfileDTO.cs" />
+    <Compile Include="Candidate\NotificationDTO.cs" />
+    <Compile Include="ChangePasswordDTO.cs" />
+    <Compile Include="CityDTO.cs" />
+    <Compile Include="CommonDTO.cs" />
+    <Compile Include="CountryDTO.cs" />
+    <Compile Include="CustomClaims.cs" />
+    <Compile Include="CustomValidation\CheckBoxRequired.cs" />
+    <Compile Include="CustomValidation\DateCompareAttribute.cs" />
+    <Compile Include="CustomValidation\DateCompareOperator.cs" />
+    <Compile Include="CustomValidation\ExpiryDateAttribute.cs" />
+    <Compile Include="CustomValidation\ValidateAtLeastOneChecked .cs" />
+    <Compile Include="EmailConfirmDTO.cs" />
+    <Compile Include="Employer\AddressEnum.cs" />
+    <Compile Include="Employer\AddressTypeDTO.cs" />
+    <Compile Include="Employer\CandidateDetails.cs" />
+    <Compile Include="Employer\CandidateList.cs" />
+    <Compile Include="Employer\CompanyAddressDTO.cs" />
+    <Compile Include="Employer\CompanyDTO.cs" />
+    <Compile Include="Employer\CompanyEmployee.cs" />
+    <Compile Include="Employer\CompanyPackageDetailDTO.cs" />
+    <Compile Include="Employer\DashboardCalculationDTO.cs" />
+    <Compile Include="Employer\EmployerBasicDTO.cs" />
+    <Compile Include="Employer\EmployerDashboardDTO.cs" />
+    <Compile Include="Employer\EmployerPreviewDTO.cs" />
+    <Compile Include="Employer\EUserDTO.cs" />
+    <Compile Include="Employer\EUserListDTO.cs" />
+    <Compile Include="Employer\InternalDashboardDTO.cs" />
+    <Compile Include="Employer\JobCategoryJobDTO.cs" />
+    <Compile Include="Employer\JobCreditDTO.cs" />
+    <Compile Include="Employer\JobCreditListDTO.cs" />
+    <Compile Include="Employer\JobPreferencesDTO.cs" />
+    <Compile Include="Employer\JobBasicDTO.cs" />
+    <Compile Include="Employer\JobTypeJobDTO.cs" />
+    <Compile Include="Employer\NotificationTypeJobDTO.cs" />
+    <Compile Include="Employer\PackageTransactionDTO.cs" />
+    <Compile Include="Employer\PackageTransactionListDTO.cs" />
+    <Compile Include="Employer\TransactionDTO.cs" />
+    <Compile Include="Fields\CandidateFields.cs" />
+    <Compile Include="Fields\EmployerFields.cs" />
+    <Compile Include="Fields\JobCreditFields.cs" />
+    <Compile Include="ForgotPasswordDTO.cs" />
+    <Compile Include="JobCategoryDTO.cs" />
+    <Compile Include="JobTypeDTO.cs" />
+    <Compile Include="LoginDTO.cs" />
+    <Compile Include="NotificationTypeDTO.cs" />
+    <Compile Include="PaymentDTO.cs" />
+    <Compile Include="PayPeriodTypeDTO.cs" />
+    <Compile Include="ProfileJobDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterDTO.cs" />
+    <Compile Include="ResetPasswordDTO.cs" />
+    <Compile Include="Resources\CandidateResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CandidateResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\EmployerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployerResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResponseDTO.cs" />
+    <Compile Include="RoleDTO.cs" />
+    <Compile Include="SortListedCandidateDTO.cs" />
+    <Compile Include="StateDTO.cs" />
+    <Compile Include="UserDTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CandidateResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CandidateResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EmployerResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmployerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

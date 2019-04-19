@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC183056-BDFC-42A9-8EFD-2CCE36DB3192}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IdealHires.Web</RootNamespace>
+    <AssemblyName>IdealHires.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44336</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>%24/IdealHires-HUCM/IdealHires/IdealHires.Web</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://tfs01:8080/tfs/chetuprojects</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.2.0.1\lib\AuthorizeNet.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.31.12\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.3.31.20\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.2.1\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.2.1\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.4.0.0\lib\net451\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfParser.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfResumeParser.1.2.0\lib\PdfParser.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.2.1\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CandidateController.cs" />
+    <Compile Include="Controllers\DashboardController .cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IHDashboardController .cs" />
+    <Compile Include="Controllers\PackageTansactionController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ViewHelper.cs" />
+    <Compile Include="Models\AccessClaims.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApiResponse.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StandardMessages.cs" />
+    <Compile Include="Models\ViewMessagesGroup.cs" />
+    <Compile Include="PdfParser\Engine\Decode\HorizontalTextChunk.cs" />
+    <Compile Include="PdfParser\Engine\Decode\HorizontalTextExtractionStrategy.cs" />
+    <Compile Include="PdfParser\Engine\Decode\TextLineFinder.cs" />
+    <Compile Include="PdfParser\Engine\Decode\TextRenderMode.cs" />
+    <Compile Include="PdfParser\Engine\Entities\Chunk.cs" />
+    <Compile Include="PdfParser\Engine\Entities\EmptyToken.cs" />
+    <Compile Include="PdfParser\Engine\Entities\HeaderToken.cs" />
+    <Compile Include="PdfParser\Engine\Entities\IToken.cs" />
+    <Compile Include="PdfParser\Engine\Entities\LineBreakToken.cs" />
+    <Compile Include="PdfParser\Engine\Entities\TextToken.cs" />
+    <Compile Include="PdfParser\Engine\Entities\TimePeriodToken.cs" />
+    <Compile Include="PdfParser\Engine\Parse\GeneralChunkExtractor.cs" />
+    <Compile Include="PdfParser\Engine\Parse\HeaderParser.cs" />
+    <Compile Include="PdfParser\Engine\Parse\IChunkExtractor.cs" />
+    <Compile Include="PdfParser\Engine\Parse\LineBreakParser.cs" />
+    <Compile Include="PdfParser\Engine\Parse\LinkedInChunkExtractor.cs" />
+    <Compile Include="PdfParser\Engine\Parse\Parser.cs" />
+    <Compile Include="PdfParser\Engine\Parse\ResumeParser.cs" />
+    <Compile Include="PdfParser\Engine\Parse\SubelementsParser.cs" />
+    <Compile Include="PdfParser\Engine\Parse\TimePeriodParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="TokenProvider\ClaimsProviderExtension.cs" />
+    <Compile Include="TokenProvider\JwtTokenProvider.cs" />
+    <Compile Include="Util\CommonUtil.cs" />
+    <Compile Include="Util\GetAnAcceptPaymentPage.cs" />
+    <Compile Include="Util\JobCommon.cs" />
+    <Compile Include="Util\Log.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Start\custom-styles.css" />
+    <Content Include="Content\all.min.css" />
+    <Content Include="Content\bootstrap-multiselect.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom-styles.css" />
+    <Content Include="Content\font.min.css" />
+    <Content Include="Content\form-elements.css" />
+    <Content Include="Content\images\Jcrop.gif" />
+    <Content Include="Content\jquery.Jcrop.css" />
+    <Content Include="Content\jquery.Jcrop.min.css" />
+    <Content Include="Content\mdb.min.css" />
+    <Content Include="Content\wizard-style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="IFrameCommunicator.html" />
+    <Content Include="images\add-icon.png" />
+    <Content Include="images\advertisement-new.png" />
+    <Content Include="images\advertisement-old.png" />
+    <Content Include="images\advertisement.png" />
+    <Content Include="images\banner-content1.png" />
+    <Content Include="images\banner-content2.png" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\candidate-p.png" />
+    <Content Include="images\cap-fill-border.png" />
+    <Content Include="images\cap-fill.png" />
+    <Content Include="images\cap-icon.png" />
+    <Content Include="images\career-banner.png" />
+    <Content Include="images\company-1.png" />
+    <Content Include="images\company-2.png" />
+    <Content Include="images\company-3.png" />
+    <Content Include="images\craete-account.png" />
+    <Content Include="images\cross.png" />
+    <Content Include="images\cuttingSlice.png" />
+    <Content Include="images\demo-logo1.png" />
+    <Content Include="images\demo-logo2.png" />
+    <Content Include="images\demo-logo3.png" />
+    <Content Include="images\demo-logo4.png" />
+    <Content Include="images\demo-logo5.png" />
+    <Content Include="images\demo-logo6.png" />
+    <Content Include="images\email-icon.png" />
+    <Content Include="images\employer-detail-logo.png" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\footer-bg.png" />
+    <Content Include="images\img-placeholder.png" />
+    <Content Include="images\logo - Copy.png" />
+    <Content Include="images\logo-ideal.jpg" />
+    <Content Include="images\logo-new.png" />
+    <Content Include="images\logo-pre.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\p1.png" />
+    <Content Include="images\p2.png" />
+    <Content Include="images\pc-logo.png" />
+    <Content Include="images\place-banner-bg.png" />
+    <Content Include="images\premium-jobs-bg.png" />
+    <Content Include="images\profile-icon.png" />
+    <Content Include="images\profile-image.png" />
+    <Content Include="images\profile-image1.png" />
+    <Content Include="images\profile-image2.png" />
+    <Content Include="images\save-apply.png" />
+    <Content Include="images\save-icon.png" />
+    <Content Include="images\search-jobs.png" />
+    <Content Include="images\suitcase.png" />
+    <Content Include="images\tie.png" />
+    <Content Include="images\time-line.png" />
+    <Content Include="images\triangle-icon.png" />
+    <Content Include="images\user-profile-sm.png" />
+    <Content Include="images\user-profile-sm2.png" />
+    <Content Include="images\user-profile.png" />
+    <Content Include="images\user.png" />
+    <Content Include="images\welcome.jpg" />
+    <Content Include="Scripts\Address\CompanyAddress.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\commonjs\common.js" />
+    <Content Include="Scripts\commonjs\customannotation.js" />
+    <Content Include="Scripts\commonjs\jqueryfields.js" />
+    <Content Include="Scripts\dashboard\dashboarddetail.js" />
+    <Content Include="Scripts\education\addeducation.js" />
+    <Content Include="Scripts\education\candidateeducation.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.Jcrop.js" />
+    <Content Include="Scripts\jquery.Jcrop.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\js\custom-js.js" />
+    <Content Include="Scripts\js\jquery.awesome-cropper.js" />
+    <Content Include="Scripts\js\jquery.backstretch.min.js" />
+    <Content Include="Scripts\js\jquery.imgareaselect.js" />
+    <Content Include="Scripts\js\jquery.js" />
+    <Content Include="Scripts\js\jquery.maskedinput.js" />
+    <Content Include="Scripts\js\jquery.placeholder.label.js" />
+    <Content Include="Scripts\js\mdb.min.js" />
+    <Content Include="Scripts\js\multiselect.js" />
+    <Content Include="Scripts\js\scripts.js" />
+    <Content Include="Scripts\multiselect-drop.js" />
+    <Content Include="Scripts\PackageTransactionJs\PackageTransaction.js" />
+    <Content Include="Scripts\Paging\pagination.js" />
+    <Content Include="Scripts\Paging\Paging.css" />
+    <Content Include="Scripts\preview\preview.js" />
+    <Content Include="Scripts\updated-cus.js" />
+    <Content Include="Scripts\work\addworkexp.js" />
+    <Content Include="Scripts\work\workexp.js" />
+    <Content Include="Views\Candidate\_WorkDetails.cshtml" />
+    <Content Include="Views\PackageTansaction\Details.cshtml" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="Logs\log4net.log" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmDetail.cshtml" />
+    <Content Include="Views\Shared\_ViewMessages.cshtml" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Candidate\Profile.cshtml" />
+    <Content Include="Views\Candidate\_General.cshtml" />
+    <Content Include="Views\Candidate\_Contact.cshtml" />
+    <Content Include="Views\Candidate\_Preferences.cshtml" />
+    <Content Include="Views\Candidate\_WorkExp.cshtml" />
+    <Content Include="Views\Candidate\_Education.cshtml" />
+    <Content Include="Views\Candidate\_Preview.cshtml" />
+    <Content Include="Views\Candidate\_AddWorkExp.cshtml" />
+    <Content Include="Views\Account\EmployerLogin.cshtml" />
+    <Content Include="Views\Account\EmployerRegister.cshtml" />
+    <Content Include="Views\Candidate\_EducationDetails.cshtml" />
+    <Content Include="Views\Candidate\_AddEducation.cshtml" />
+    <Content Include="Views\Employer\Profile.cshtml" />
+    <Content Include="Views\Employer\_General.cshtml" />
+    <Content Include="Views\Employer\PostJob.cshtml" />
+    <Content Include="Views\Employer\_Preferences.cshtml" />
+    <Content Include="Views\Employer\_Preview.cshtml" />
+    <Content Include="Views\Candidate\_PreviewEducationDetails.cshtml" />
+    <Content Include="Views\Candidate\_PreviewWorkDetails.cshtml" />
+    <Content Include="Views\Candidate\_Work.cshtml" />
+    <Content Include="Views\Candidate\_PreviewPreference.cshtml" />
+    <Content Include="Views\Candidate\_PreviewAddPreferences.cshtml" />
+    <Content Include="Views\Candidate\JobList.cshtml" />
+    <Content Include="Views\Candidate\_JobRecommended.cshtml" />
+    <Content Include="Views\Candidate\JobDetails.cshtml" />
+    <Content Include="Views\Candidate\Jobs.cshtml" />
+    <Content Include="Views\Candidate\_JobsPartial.cshtml" />
+    <Content Include="Views\Candidate\GetAppliedJobs.cshtml" />
+    <Content Include="Views\Candidate\_AppliedJobList.cshtml" />
+    <Content Include="Views\Candidate\GetSavedJobs.cshtml" />
+    <Content Include="Views\Candidate\GetNotInterestedJobs.cshtml" />
+    <Content Include="Views\Candidate\_NotInterestedJobList.cshtml" />
+    <Content Include="Views\Employer\EmployerDashboard.cshtml" />
+    <Content Include="Views\Employer\JobDetails_old.cshtml" />
+    <Content Include="Views\Employer\_BuyJobCredits.cshtml" />
+    <Content Include="Views\Employer\Details.cshtml" />
+    <Content Include="Views\EmployeeUser\Employers.cshtml" />
+    <Content Include="Views\EmployeeUser\Users.cshtml" />
+    <Content Include="Views\Employer\CandidateDetails.cshtml" />
+    <Content Include="Views\Employer\CandidateList.cshtml" />
+    <Content Include="Views\Employer\_EmployerDashboardDetails.cshtml" />
+    <Content Include="Views\Candidate\CallForInterview.cshtml" />
+    <Content Include="Views\Employer\JobDetails.cshtml" />
+    <Content Include="Views\Employer\TermsConditionDetails.cshtml" />
+    <Content Include="Views\Employer\AuthorizePayment.cshtml" />
+    <Content Include="Views\Employer\Payment.cshtml" />
+    <Content Include="Views\Employer\PaymentDetail.cshtml" />
+    <Content Include="Views\Employer\_CandidateListPartial.cshtml" />
+    <Content Include="Views\Candidate\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_CandidateHeader.cshtml" />
+    <Content Include="Views\Shared\_EmployerHeader.cshtml" />
+    <Content Include="Views\PackageTansaction\Package.cshtml" />
+    <Content Include="Views\PackageTansaction\PackageTansactionManages.cshtml" />
+    <Content Include="Views\Employer\NotifiactionDetails.cshtml" />
+    <Content Include="Views\Shared\_ShortNotificationDetails.cshtml" />
+    <Content Include="Views\Employer\_AddEmployerDashboard.cshtml" />
+    <Content Include="Views\Candidate\NotifiactionDetails.cshtml" />
+    <Content Include="Views\Candidate\DisplayResume.cshtml" />
+    <Content Include="Views\Employer\NotifiactionDetails.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Employer\_PostedNewJob.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Admin\IHDashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IdealHires.BAL\IdealHires.BAL.csproj">
+      <Project>{A7ECF51F-A694-49EF-A0EF-FBAA4AA477C6}</Project>
+      <Name>IdealHires.BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IdealHires.DTO\IdealHires.DTO.csproj">
+      <Project>{8538EFD2-67CA-44A0-BF81-D045496C829B}</Project>
+      <Name>IdealHires.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IdealHires.UserIdentity\IdealHires.UserIdentity.csproj">
+      <Project>{74e36d6a-62d6-4be8-8b09-28749574b2e6}</Project>
+      <Name>IdealHires.UserIdentity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.3.31.20\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59607</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59607/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

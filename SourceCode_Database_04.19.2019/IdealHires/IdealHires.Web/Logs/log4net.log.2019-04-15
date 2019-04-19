@@ -1,0 +1,7 @@
+2019-04-15 22:03:28,110 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-15 22:14:08,381 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-15 22:14:32,087 INFO MonitoringLogger - selectJobTypes and selectJobCategories completed
+2019-04-15 23:09:58,613 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/makepayment
+2019-04-15 23:29:43,294 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/makepayment
+2019-04-15 23:35:09,981 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/makepayment
+2019-04-15 23:45:30,908 INFO MonitoringLogger - client.BaseAddress http://localhost:50661/api/employer/makepayment

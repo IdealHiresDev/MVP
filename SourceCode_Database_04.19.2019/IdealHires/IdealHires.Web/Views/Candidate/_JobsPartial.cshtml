@@ -1,0 +1,102 @@
+﻿@model IdealHires.DTO.Candidate.CandidateJobExploreDTO
+@{
+    <div>
+        <strong>@Model.Message</strong>
+    </div>
+
+    if (Model.AvailableJobs != null)
+    {
+        if (Model.AvailableJobs.Count > 0)
+        {
+            foreach (var item in Model.AvailableJobs)
+            {
+            <div class="item col-xs-12 col-lg-6 grid-group-item ">
+                <div class="thumbnail thum-cus listWrpService card ">
+                    <div class="row row-cus">
+                        <div class="pull-left-cus">
+                           
+                            @if (item.Img != null)
+                            {
+                                <img src="@String.Format(" data:image/png;base64,{0}", Convert.ToBase64String(item.Img))" id="imgLogo" name="imgLogo" style="width:50px;height:50px;" />
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="~/images/demo-logo4.png">
+                            }
+                        </div>
+
+                        <div class="pull-right-cus">
+                            <p class="h5">
+                                <a>
+                                    @item.Title
+                                </a>
+                            </p>
+                            <p>
+                                @item.CompanyName
+                            </p>
+                            <p class="ft-sml mb-0">
+                                $ @string.Format("{0:#.00}", Convert.ToDecimal(item.MinimumSalary))
+                                @if (item.MaximumSalary != null && item.MaximumSalary != 0)
+                                {
+                                    var maxSalary = string.Concat("- $ ", string.Format("{0:#.00}", Convert.ToDecimal(item.MaximumSalary)));
+                                <span> @maxSalary</span>
+                                }
+
+                            </p>
+                            <ul class="featureInfo innerfeat pl-0">
+                                <li>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    @item.LocationCity @item.LocationState @item.LocationCountry
+
+                                </li>
+                                <li><i class="fa fa-calendar" aria-hidden="true"></i> @Convert.ToDateTime(item.ExpiredAt).ToString("MMM dd,yyyy") </li>
+                                <li>
+                                    @item.JobTypeName
+                                </li>
+                            </ul>
+                            <p class="job-briefs">
+                                @item.Description
+                            </p>
+                            <p>
+                                @item.JobCategoryName
+                            </p>
+                            <p>
+                                @item.Description
+                            </p>
+                            @Html.ActionLink("View Details", "JobDetails", new { id = item.Id }, new { @class = "btn btn-success btn-sm float-right text-center", @onclick = "SaveViewDetails(" + item.Id + ")" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }
+        }
+        else
+        {
+          <span class="text-danger pl-3"> <i class="fas fa-exclamation-triangle text-danger"></i> No record found</span>
+        }
+    }
+
+}
+
+
+            <script type="text/javascript">
+                function SaveViewDetails(jobId) {
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",
+                        url: "../Candidate/saveviewdetails",
+                        data: "{'jobId':'" + jobId + "'}",
+                        dataType: "json",
+                        success: function (data) {
+                            debugger;
+                            if (data.Success == false) {
+                            }
+                        },
+                        error: function (result) {
+
+                        }
+
+                    });
+                }
+            </script>

@@ -1,0 +1,321 @@
+﻿@model IdealHires.DTO.Employer.JobPreferencesDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnPreferenceSuccess";
+}
+<script type="text/javascript">
+    function OnPreferenceSuccess(data) {
+        $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+        if (data.Message === "PereferencesSuccess") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            var jobid = $('#JobId').val();
+            $.get('../Employer/Preview?jobid=' + jobid).done(function (response) {
+                $('#preview').empty().html(response);
+                if (data.Message === "PereferencesSuccess") {
+                    ToastMessageSuccess();
+                } else {
+
+                    ToastMessageUpdate();
+                }
+            }).fail(function () {
+                ToastWarningSuccess();
+            });
+
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data.Message === "PreferencesEditSuccessNext") {
+            var parent_fieldset = $(this).parents('fieldset');
+            var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+            var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+            var jobid = $('#JobId').val();
+            $.get('../Employer/Preview?jobid=' + jobid).done(function (response) {
+                $('#preview').empty().html(response);
+                if (data.Message === "PereferencesSuccess") {
+                    ToastMessageSuccess();
+                } else {
+
+                    ToastMessageUpdate();
+                }
+            }).fail(function () {
+                ToastWarningSuccess();
+            });
+
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+        else if (data.Message === "BtnPereferencesSuccess") {
+            ToastMessageSuccess();
+        } else if (data.Message === "PreferencesEditSuccess") {
+            ToastMessageUpdate();
+        } else if (data.Message === "PreferencesFailure") {
+            $('#pWarningMessage').empty().html('There was an error saving information !');
+            $('#CommonWarningModel').modal('show');
+        }
+    }
+    $(document).off('click', '#btnSubmitPreferences3').on("click", '#btnSubmitPreferences3', function (e) {
+
+        var formId = e.delegateTarget.activeElement.form.id;
+        $.validator.unobtrusive.parse(formId);
+        $("#" + formId).validate();
+        if ($("#" + formId).valid() && ValidatePreferencesForm()) {
+            $("#" + formId).submit();
+        } else {
+            return false;
+        }
+    });
+    function ValidatePreferencesForm() {
+        var boolValidForm = false;
+        if ($('input[name="SelectedNotificationTypes"]').is(':checked')) {
+            $(".NotificationTypeWarning").text('').removeClass('text-validationdanger');
+            boolValidForm = true;
+        }
+        else {
+            $(".NotificationTypeWarning").text('Select Notification Preference').addClass('text-validationdanger');
+            return boolValidForm = false;
+            return boolValidForm;
+        }
+        return boolValidForm;
+    }
+
+
+
+    $("#CompanyCityName").change(function (event) {
+        debugger;
+        var cityId = $(this).val();
+        if (cityId == "0" || cityId == "") {
+            $("#companyAddressDTO_StateName").hide();
+            $("#lblCity").hide();
+
+        } else {
+            $("#companyAddressDTO_StateName").hide();
+            $.ajax({
+                url: "../Employer/GetStateNameByCityId?cCityId=" + cityId,
+
+                type: 'GET',
+                datatype: 'json',
+                contentType: "application/json",
+                async: false,
+                success: function (data) {
+                    debugger;
+
+                    //if (data.companyAddressDTO != null) {
+                    $("#companyAddressDTO_StateName").show();
+                   $("#companyAddressDTO_StateName").val(data.companyAddressDTO.StateName);
+                    //"#companyAddressDTO_StateName").val(data.companyAddressDTO.StateName);
+                    $("#lblCity").text(data.companyAddressDTO.StateName);
+                    $("#lblCity").show()
+                    $("#AddressNameId").val(data.companyAddressDTO.Id);
+
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+
+
+    });
+
+    $('#btnEmployerPreferencePrevious').off('click').on('click', function (e) {
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+        $(this).parents('fieldset').fadeOut(400, function () {
+            current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+            bar_progress(progress_line, 'left');
+            $(this).prev().fadeIn();
+            scroll_to_class($('.f1'), 20);
+        });
+    });
+
+</script>
+@using (Ajax.BeginForm("Preferences", "Employer", null, options, new { @id = "formEmployerPreferencesJob" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+
+
+    @Html.HiddenFor(m => m.JobId)
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Salary Range</div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="md-form maximum-btn">
+
+                <i class="fas fa-dollar-sign prefix"></i>
+                @Html.TextBoxFor(m => m.MinimumSalary, new { @class = "form-control", autocomplete = "off" })
+                @*@Html.ValidationMessageFor(m => m.MinimumSalary, "", new { @class = "text-validationdanger" })*@
+                <label for="MinimumSalary">Minimum</label>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="md-form maximum-btn">
+
+                <i class="fas fa-dollar-sign prefix"></i>
+                @Html.TextBoxFor(m => m.MaximumSalary, new { @class = "form-control", autocomplete = "off" })
+                @*@Html.ValidationMessageFor(m => m.MaximumSalary, "", new { @class = "text-validationdanger" })*@
+                <label for="MaximumSalary">Maximum</label>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            @Html.DropDownListFor(m => m.SelectedPayPeriodTypes, Model.SelectPayPeriodTypes, "Pay Period", new { @class = "mdb-select dropdown-cus drop-sec mt-10", @name = "SelectedPayPeriodTypes", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.SelectedPayPeriodTypes, "", new { @class = "text-validationdanger" })
+        </div>
+    </div>
+    <div class="row margin-top20">
+        <div class="col-lg-12 col-xs-12">
+            <p class="font-95rem">Exemption Type</p>
+        </div>
+        <div class="col-lg-2">
+
+            <div class="custom-control custom-radio">
+                @Html.RadioButtonFor(m => m.Assumption, "Exempt", new { @checked = "checked", @class = "custom-control-input", @id = "defaultUnchecked", @name = "defaultExampleRadios" })
+
+                <label class="custom-control-label" for="defaultUnchecked">Exempt</label>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="custom-control custom-radio">
+                @Html.RadioButtonFor(model => model.Assumption, "Non-Exempt", new { @class = "custom-control-input", @id = "defaultUnchecked", @name = "defaultExampleRadios" })
+                <label class="custom-control-label" for="defaultUnchecked">Non-Exempt</label>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row margin-top20">
+        <div class="col-lg-12 col-xs-12">
+            <p class="font-95rem">Notification Preference</p>
+        </div>
+        @foreach (var item in Model.SelectNotificationTypes)
+        {
+            <div class="col-lg-2 col-xs-12">
+                @if (item.Selected)
+                {
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="SelectedNotificationTypes" name="SelectedNotificationTypes" checked value="@item.Value">
+                        <label class="custom-control-label font-95rem" for="customCheck">@item.Text</label>
+                    </div>
+                }
+                else
+                {
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="SelectedNotificationTypes" checked name="SelectedNotificationTypes" value="@item.Value">
+                        <label class="custom-control-label font-95rem" for="customCheck">@item.Text</label>
+                    </div>
+                }
+                <label class="NotificationTypeWarning" for="NotificationTypeWarning"></label>
+            </div>
+        }
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <div class="md-form">
+                @Html.TextBoxFor(m => m.Positions, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Positions, "", new { @class = "text-validationdanger" })
+                <label for="Positions">Number of Position(s) *</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="md-form mt-30 date-btn">
+                @Html.TextBoxFor(m => m.ExpiredAt, Model.ExpiredAt.HasValue ? Model.ExpiredAt.Value.ToShortDateString() : string.Empty, new { @class = "form-control", autocomplete = "off", @placeholder = "Expiration Date *" })
+                @Html.ValidationMessageFor(m => m.ExpiredAt, "", new { @class = "text-validationdanger" })
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ft-sml col-grey">Work Location:Address</div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="md-form">
+                @Html.DropDownListFor(m => m.SelectedCompanyCityName, Model.SelectCompanyCity, "Select City", new { @id = "CompanyCityName", @class = "form-control mdb-select drop down-cus", @name = "SelectedCompanyCityName" })
+                @Html.ValidationMessageFor(m => m.SelectedCompanyCityName, "", new { @class = "text-validationdanger" })
+            </div>
+        </div>
+        @if (Model.LocationCity != 0 && Model.LocationCity > 0)
+        {
+
+            <div class="col-lg-2">
+                <div class="md-form">
+
+                    @Html.TextBoxFor(Model => Model.companyAddressDTO.StateName, new { @class = "form-control", autocomplete = "off" })
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="md-form">
+                    @Html.HiddenFor(Model => Model.AddressNameId)
+
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="col-lg-2">
+                <div class="md-form">
+                    <label id="lblCity"> </label>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+                @{
+                    var a = Model.AddressNameId;
+                }
+                @Html.HiddenFor(m => m.AddressNameId)
+
+            </div>
+
+        }
+    </div>
+
+    <div class="row mt-3">
+        <div class="f1-buttons col-sm-6 text-left">
+            <button id="btnEmployerPreferencePrevious" type="button" class="btn btn-previous rounded-circle btn-circle-pre"><em class="fa fa-arrow-left"></em></button>
+        </div>
+        <div class="f1-buttons col-sm-6">
+            <button type="submit" id="btnSubmitPreferences1" name="submit" value="Save" class="btn btn-blue btn-sm waves-effect waves-light fnt-13 mr-3 btn-sm-save"><i class="fa fa-cloud-upload-alt fnt-1rem mr-2"></i> Save</button>
+            <button type="button" id="btnSubmitPreferences3" class="btn btn-nextt rounded-circle btn-circle-next"><em class="fa fa-arrow-right"></em></button>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var endDate = new Date();
+        endDate.setDate(endDate.getDate() + 30);
+        $("#ExpiredAt").datepicker({
+            format: 'mm/dd/yyyy',
+            minDate: new Date(),
+            maxDate: endDate
+        });
+        $.validator.unobtrusive.adapters.addBool("expirydaterequired", "required");
+    });
+</script>

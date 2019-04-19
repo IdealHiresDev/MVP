@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "JobList";
+}
+
+<section>
+    <section class="header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Jobs</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="mb-3">
+        <div class="container">
+            <div class="row">
+        
+                <div class="col-sm-10 mt-3">
+                    <div class="tab tab-cus" role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><em class="fa fa-map-marker-alt pr-2"></em>Explore</a></li>
+                            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><em class="fa fa-crosshairs pr-2"></em>Applied</a></li>
+                            <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab"><em class="fa fa-thumbs-up pr-2"></em>Recommended</a></li>
+                            <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab"><em class="fa fa-star pr-2"></em>Interested</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            <div role="tabpanel" class="tab-pane fade in show active" id="Section1">
+                                @{ Html.RenderAction("JobExplore");}
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade pb-5" id="Section2">
+                                @{ Html.RenderAction("JobApplied");}
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade pb-5" id="Section3">
+                                @{ Html.RenderAction("JobRecommended");}
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade pb-5" id="Section4">
+                                @{ Html.RenderAction("JobInterested");}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-sm-2 text-sm-right add-sm-none"> <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a> </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--JavaScript-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.tab-cus-input').placeholderLabel();
+
+        $('.nav-tabs li').on('click', function () {
+            $('.nav-tabs li').removeClass('active');
+            $(this).addClass('active');
+        });
+
+    })
+
+
+</script>

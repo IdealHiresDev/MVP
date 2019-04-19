@@ -1,0 +1,170 @@
+﻿@using IdealHires.Web.Helper;
+@using IdealHires.DTO.Fields;
+@model IdealHires.DTO.Candidate.CandidateJobExploreDTO
+@{
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.OnSuccess = "OnJobExploreSuccess";
+    options.InsertionMode = InsertionMode.ReplaceWith;
+}
+<script type="text/javascript">
+    function OnJobExploreSuccess(data) {
+        $("#products").empty().html(data);
+    }
+    function SearchOnCheckedEvent() {
+
+        var jobTypeList = [];
+        $.each($("input[name='JobType']:checked"), function () {
+            jobTypeList.push($(this).val());
+        });
+
+        var jobExploreDTO = {
+            Keywords: $("#Keywords").val(),
+            JobTitle: $("#Keywords").val(),
+            Description: $("#Description").val(),
+            Company: $("#Company").val(),
+            JobType: jobTypeList.toString(),
+            OrderBy: $("#OrderBy").val()
+        };
+
+        $.post('@Url.Action("SavedJobList", "Candidate")', jobExploreDTO, function (response) {
+            $("#products").empty().html(response);
+        });
+
+    }
+
+</script>
+<section>
+    @using (Ajax.BeginForm("SavedJobList", "Candidate", null, options, new { @id = "formJobExplore" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-validationdanger" })
+        <section class="header-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Saved Jobs</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mt-5 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="card p-3 pb-4 mb-4 jobs-sec">
+                            <div class="md-form">
+                                @Html.TextBoxFor(m => m.Keywords, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                                <label for="materialLoginFormKeyword"><em class="fa fa-search ft-13 pr-2 text-light-grey"></em> Search by job title</label>
+                            </div>
+                            <div class="md-form">
+                                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @autocomplete = "off", @maxlength = 255 })
+                                <label for="materialLoginFormKeyword"><em class="fa fa-search ft-13 pr-2 text-light-grey"></em> Description</label>
+                            </div>
+                            <div class="md-form">
+                                @Html.TextBoxFor(m => m.Company, new { @class = "form-control", autocomplete = "off", @maxlength = 255 })
+                                <label for="materialLoginFormCompany"><em class="fa fa-building ft-13 pr-2 text-light-grey"></em> Company</label>
+                            </div>
+                            <div class="col-lg-12 col-xs-12 text-right px-0">
+                                <input type="submit" class="btn btn-info mr-0" value="Search" />
+                            </div>
+                        </div>
+                        <div class="card px-3 pb-5">
+                            <div class="widget widget_ci-filters-widget mt-4 mb-2">
+                                <p class="h6 widget-title">Job Type</p>
+                                <ul class="item-filters-array">
+                                    @foreach (var item in Model.SelectJobTypes)
+                                    {
+                                        <li class="item-filter">
+                                            @if (@item.Text == "Full Time")
+                                            {
+                                                <input type="checkbox" id="filter-1" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-1">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-full-time"></span>
+                                                    </span>
+                                                </label>
+
+                                            }
+                                            else if (@item.Text == "Contractor")
+                                            {
+                                                <input type="checkbox" id="filter-3" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-3">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-freelance"></span>
+                                                    </span>
+                                                </label>
+                                            }
+                                            else if (@item.Text == "Part Time")
+                                            {
+                                                <input type="checkbox" id="filter-2" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-2">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-part-time"></span>
+                                                    </span>
+                                                </label>
+                                            }
+                                            else if (@item.Text == "Intern")
+                                            {
+                                                <input type="checkbox" id="filter-4" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-4">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-contract"></span>
+                                                    </span>
+                                                </label>
+                                            }
+                                            else if (@item.Text == "Seasonal")
+                                            {
+                                                <input type="checkbox" id="filter-5" class="checkbox-filter" name="JobType" onclick="SearchOnCheckedEvent()" value="@item.Text">
+                                                <label class="checkbox-filter-label" for="filter-5">
+                                                    <span class="item-filter-tag item-filter-tag-badge">
+                                                        @item.Text
+                                                        <span class="item-filter-tag-bg job-type-seasonal"></span>
+                                                    </span>
+                                                </label>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-12 col-12">
+                        <div class="card listWrpService mb-2 p-2">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-6 justify-content-start">
+                                    @Html.DropDownListFor(x => x.OrderBy, new List<SelectListItem>
+                                         {
+                                            new SelectListItem() {Text = CandidateFields.OrderBy, Value=CandidateFields.OrderBy},
+                                            new SelectListItem() {Text = CandidateFields.OrderByRecentASC, Value=CandidateFields.OrderByRecentASC},
+                                            new SelectListItem() {Text = CandidateFields.OrderByKeyWordASC, Value=CandidateFields.OrderByKeyWordASC},
+                                            new SelectListItem() {Text = CandidateFields.OrderByKeyWordDESC, Value=CandidateFields.OrderByKeyWordDESC},
+                                            new SelectListItem() {Text = CandidateFields.OrderByCompanyASC, Value=CandidateFields.OrderByCompanyASC},
+                                            new SelectListItem() {Text = CandidateFields.OrderByCompanyDESC, Value=CandidateFields.OrderByCompanyDESC}
+                                         },new { @class = "custom-select", @onchange = "SearchOnCheckedEvent()" })
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-6 d-flex justify-content-end">
+                                    <a href="#" id="grid" class="active btn btn-outline bg-white px-2 py-1"><em class="fa fa-th"></em></a>
+                                    <a href="#" id="list" class="btn btn-outline bg-white px-2 py-1"><em class="fa fa-list"></em></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div id="products" class="row view-group">
+                            @Html.Partial("_JobsPartial")
+                        </div>
+                    </div>
+                    <div class="text-center col-sm-2 text-sm-right add-sm-none">
+                        <a href="/" class=""><img src="~/images/advertisement.png" alt="logo" class="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
